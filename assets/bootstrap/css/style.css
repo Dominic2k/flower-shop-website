@@ -10,6 +10,8 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+
+
 .header {
     background-color: #efefef;
     height: 121px;
@@ -40,6 +42,10 @@ body {
 
 .nav-item a {
     color: #2C2C2C;
+}
+
+.nav-item a:hover {
+    color: #d22424;
 }
 
 .header-name {
@@ -112,7 +118,7 @@ body {
 }
 
 .sale-pannel {
-    height: 604px;
+    height: 500px;
     background-color: #ffdde0;
     position: relative;
 }
@@ -141,25 +147,24 @@ body {
 }
 
 .sale-info {
-    margin-top: 88px;
+    margin-top: 36px;
 }
 
 .sale-info .new-arrivals{
-    margin-left: 150px;
-    margin-top: 36px;
+    margin-left: 140px;
     font-size: 30px;
     color: #f63838;
     font-weight: bold;
 }
 
 .sale-info .Vietnamese-Women-Day {
-    margin-left: 150px;
+    margin-left: 140px;
     font-size: 46px;
     color: #796060;
 }
 
 .sale-info .Exclusive {
-    margin-left: 150px;
+    margin-left: 140px;
     color: #201c1c;
     font-size: 22px;
     margin-top: 28px;
@@ -167,7 +172,7 @@ body {
 
 .sale-img {
     position: absolute;
-    top: -35px;
+    top: -60px;
     right: 36px;
 }
 
@@ -177,7 +182,8 @@ body {
 
 .products {
     padding: 28px;
-    height: 200px;
+    height: 100px;
+    background-color: #808080;
 }
 
 .feedback-container {
@@ -330,6 +336,17 @@ body {
     text-align: center;
 }
 
+.footer-info h3 {
+    color: #808080;
+}
+.footer-info p {
+    color: #727272;
+}
+
+.footer-shop-address p {
+    color: #878787;
+}
+
 .footer-icon {
     margin-top: 10px;   
 }
@@ -337,7 +354,7 @@ body {
 .footer-icon i {
     margin: 0 5px;
     font-size: 20px;
-    color: #000;
+    color: #98a2b3;
 }
 
 .footer-qr img {
@@ -357,4 +374,121 @@ body {
     text-align: center;
     margin-top: 20px;
     width: 100%;
+    color: #484848;
 }
+
+/* CSS Hoa bay */
+
+
+#flower-container {
+    position: fixed; /* Sửa từ absolute thành fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Đảm bảo không ảnh hưởng tới tương tác người dùng */
+    z-index: 9999; /* Đảm bảo bông hoa luôn nằm phía trên tất cả các phần tử khác */
+}
+
+
+.flower {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('/flower-shop-website/assets/bootstrap/img/__Anhpng.com___-_Hoa_Phượng__6___Custom_-removebg-preview.png'); /* Thay thế bằng hình ảnh bông hoa của bạn */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* CSS cart product */
+
+
+/* Định dạng vùng chứa các sản phẩm */
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px; /* Tạo khoảng cách dưới nếu cần cho các phần tử khác như footer */
+    overflow: hidden;
+}
+
+.product-title {
+    height: 72px;
+}
+
+.product-title h4 {
+    line-height: 72px;
+    margin-left: 20px;
+}
+
+/* Đảm bảo mỗi sản phẩm được giới hạn trong vùng chứa */
+.product-item {
+    flex: 0 0 22%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Định dạng hình ảnh sản phẩm */
+.product-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Định dạng phần thân sản phẩm */
+.card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Định dạng tiêu đề sản phẩm */
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+.card-text {
+    color: #ff5722;
+    font-size: 16px;
+}
+
+.card-btn-left {
+    background-color: #f6c438;
+    border: none;
+    color: #000;
+    width: 120px;
+    height: 35px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+/* CSS Trượt chữ */
+/* CSS Feedback display */
+
+/* CSS Trang chi tiết */
+
+
+/* CSS Giỏ hàng */
+
+
+/* CSS Admin */
