@@ -1,3 +1,5 @@
+// JS Countdown timer
+
 let countdownDate = new Date("Oct 20, 2024 23:59:59").getTime();
 
 let countdownFunction = setInterval(function() {
@@ -19,6 +21,10 @@ let countdownFunction = setInterval(function() {
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
+
+
+// Js responsive header
+
 
 // JS hoa bay
 
@@ -100,8 +106,6 @@ function showListProducts() {
     localStorage.setItem('products', productJSON);
 
     let storedProducts = JSON.parse(localStorage.getItem('products'));
-
-    // Thay vì sử dụng innerHTML +=, sử dụng một biến để lưu nội dung HTML
     let content = '';
 
     for (let i = 0; i <= storedProducts.length - 1; i++) {
@@ -116,8 +120,6 @@ function showListProducts() {
         content += `</div>`;
         content += `</div>`;
     }
-
-    // Sau khi hoàn thành vòng lặp, chèn toàn bộ nội dung vào DOM
     document.getElementById('products').innerHTML = content;
 }
 
