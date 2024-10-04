@@ -3,31 +3,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
+    padding-top: 121px;
 }
 
-
+/* Header CSS */
 
 .header {
     background-color: #efefef;
     height: 121px;
     padding: 30px;
-    position: fixed; /* Thay đổi từ relative sang fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác khi cuộn */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo bóng cho header khi cố định */
-}
-
-.header-name h3{
-    line-height: 121px;
-    color: #808080;
-    font-size: 46px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
@@ -48,42 +42,58 @@ body {
     color: #d22424;
 }
 
+.header-name h3{
+    line-height: 121px;
+    color: #808080;
+    font-size: 46px;
+}
+
 .header-name {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .header-search {
-    top: 40px;
+    position: absolute;
     right: 150px;
 }
 
-.input-group-text {
-    cursor: pointer;
+.submit-search {
+    text-decoration: none;
 }
 
 .user-and-cart-icon {
     position: absolute;
-    top: 46px;
-    right: 62px;
+    top: 41%;
+    right: 4%;
 }
 
 .user-icon {
-    cursor: pointer;
     margin-right: 14px;
     display: inline-block;
     position: relative;
+}
+
+.icon-user, .icon-cart {
+    color: #000;
+}
+
+.icon-user:hover, .icon-cart:hover {
+    color: #d22424;
 }
 
 .cart-icon {
     display: inline-block;
 }
 
-
 .dropdown-menu {
+    min-width: 114px;
     display: none;
     position: absolute;
     top: 100%;
-    left: -58px;
+    left: -50px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0;
@@ -113,9 +123,16 @@ body {
     display: block;
 }
 
-body {
-    padding-top: 121px;
+/* Responsive Header */
+
+@media screen and (min-width:768px) and (max-width: 1024px) {
+    /* CSS */
 }
+@media screen and (max-width: 767px) {
+    /* CSS */
+}
+
+/* Css Panel */
 
 .sale-pannel {
     height: 500px;
@@ -128,12 +145,12 @@ body {
     text-align: center;
     padding: 20px 0;
     border-radius: 10px;
-    padding-top: 68px;
+    padding-top: 5%;
 }
+
 .time-count-down h4 {
     color: #ff4747;
 }
-
 
 #timer {
     font-size: 2rem;
@@ -151,20 +168,20 @@ body {
 }
 
 .sale-info .new-arrivals{
-    margin-left: 140px;
+    margin-left: 136px;
     font-size: 30px;
     color: #f63838;
     font-weight: bold;
 }
 
 .sale-info .Vietnamese-Women-Day {
-    margin-left: 140px;
+    margin-left: 136px;
     font-size: 46px;
     color: #796060;
 }
 
 .sale-info .Exclusive {
-    margin-left: 140px;
+    margin-left: 136px;
     color: #201c1c;
     font-size: 22px;
     margin-top: 28px;
@@ -172,24 +189,78 @@ body {
 
 .sale-img {
     position: absolute;
-    top: -60px;
-    right: 36px;
+    top: -15%;
+    right: 5%;
 }
 
 .sale-img img {
-    height: 604px;
+    width: 604px;
 }
 
-.products {
-    padding: 28px;
-    height: 100px;
-    background-color: #808080;
+/* CSS Products */
+
+.product-title {
+    height: 72px;
+}
+
+.product-title h4 {
+    line-height: 72px;
+    margin-left: 20px;
+}
+
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.product-item {
+    flex: 0 0 21%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.product-item img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Định dạng tiêu đề sản phẩm */
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+.card-text {
+    color: #ff5722;
+    font-size: 16px;
+}
+
+.card-btn-left {
+    background-color: #f6c438;
+    border: none;
+    color: #000;
+    width: 120px;
+    height: 35px;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 .feedback-container {
     max-width: 100%;
     background-color: #f9f9f9;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
 }
@@ -225,7 +296,7 @@ body {
 }
 
 .name-input {
-    margin-top: 32px;
+    margin-top: 2%;
 }
 
 
@@ -288,21 +359,19 @@ body {
     color: #f4c542;
 }
 
-/* Căn chỉnh phần mô tả */
-
 .description-input {
     width: 45%;
     position: absolute;
     right: 44px;
-    top: 80px;
+    top: 20%;
 }
+
 .feedback-input-group textarea {
     width: 100%;
     min-height: 100px;
     border-radius: 5px;
 }
 
-/* Nút gửi feedback */
 .button-group {
     text-align: center;
     padding-bottom: 16px;
@@ -314,13 +383,14 @@ body {
     border: none;
     border-radius: 5px;
     color: #fff;
-    cursor: pointer;
     font-size: 16px;
 }
 
 .button-group button:hover {
     background-color: #c57373;
 }
+
+/* CSS Footer */
 
 .footer {
     display: flex;
@@ -358,16 +428,7 @@ body {
 }
 
 .footer-qr img {
-    width: 120px;
-    max-height: 150px;
-}
-
-.footer-qr button {
-    padding: 10px 20px;
-    background-color: #008000;
-    color: white;
-    border: none;
-    cursor: pointer;
+    width: 140px;
 }
 
 .copy-right {
@@ -381,13 +442,13 @@ body {
 
 
 #flower-container {
-    position: fixed; /* Sửa từ absolute thành fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Đảm bảo không ảnh hưởng tới tương tác người dùng */
-    z-index: 9999; /* Đảm bảo bông hoa luôn nằm phía trên tất cả các phần tử khác */
+    pointer-events: none; 
+    z-index: 9999;
 }
 
 
@@ -395,7 +456,7 @@ body {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-image: url('/flower-shop-website/assets/bootstrap/img/__Anhpng.com___-_Hoa_Phượng__6___Custom_-removebg-preview.png'); /* Thay thế bằng hình ảnh bông hoa của bạn */
+    background-image: url('/flower-shop-website/assets/bootstrap/img/__Anhpng.com___-_Hoa_Phượng__6___Custom_-removebg-preview.png');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
@@ -411,74 +472,6 @@ body {
         transform: translateY(100vh) rotate(360deg);
         opacity: 0;
     }
-}
-
-
-/* CSS cart product */
-
-
-/* Định dạng vùng chứa các sản phẩm */
-#products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 40px; /* Tạo khoảng cách dưới nếu cần cho các phần tử khác như footer */
-    overflow: hidden;
-}
-
-.product-title {
-    height: 72px;
-}
-
-.product-title h4 {
-    line-height: 72px;
-    margin-left: 20px;
-}
-
-/* Đảm bảo mỗi sản phẩm được giới hạn trong vùng chứa */
-.product-item {
-    flex: 0 0 22%;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-/* Định dạng hình ảnh sản phẩm */
-.product-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-/* Định dạng phần thân sản phẩm */
-.card-body {
-    padding: 10px;
-    text-align: center;
-}
-
-/* Định dạng tiêu đề sản phẩm */
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-
-.card-text {
-    color: #ff5722;
-    font-size: 16px;
-}
-
-.card-btn-left {
-    background-color: #f6c438;
-    border: none;
-    color: #000;
-    width: 120px;
-    height: 35px;
-    border-radius: 12px;
-    cursor: pointer;
 }
 
 

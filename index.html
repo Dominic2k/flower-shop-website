@@ -7,355 +7,350 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://kit.fontawesome.com/a45cf66e19.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/bootstrap/css/style.css">
-    <title>Home</title>
+    <title>Homepage</title>
 </head>
 <body onload="showListProducts()">
-<div class="header">
-        <div class="header-menu">
-            <ul class="navbar">
-                <li class="nav-item">
-                     <a class="nav-link" aria-current="page" href="#">Home</a>
-                 </li> 
-                 <li class="nav-item">
-                     <a class="nav-link" aria-current="page" href="#">Products</a>
-                 </li> 
-                 <li class="nav-item">
-                     <a class="nav-link" aria-current="page" href="#">About Us</a>
-                 </li> 
-                 <li class="nav-item">
-                     <a class="nav-link" aria-current="page" href="#">Contacts</a>
-                 </li> 
-                 <li class="nav-item">         
-                     <a class="nav-link" aria-current="page" href="#">Feedback</a>
-                </li> 
-             </ul>
-        </div>
-    <div class="header-name position-absolute top-50 start-50 translate-middle">
-        <h3>Heavenly Blossom</h3>
-    </div>
-    <div class="header-search position-absolute">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Find products" aria-label="Find products" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">Search</span>
-        </div>
-    </div>
-    <div class="user-and-cart-icon">
-        <div class="user-icon">
-            <a href="#"><i class="fa-regular fa-user"></i></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Đăng nhập</a></li>
-                <li><a href="#">Đăng ký</a></li>
-            </ul>
-        </div>
-        <div class="cart-icon">
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a>
-        </div>
-    </div>
-</div>
-<div class="main">
-    <div class="sale-pannel">
-        <div class="time-count-down">
-            <h4>Deals of the Day</h4>
-            <div id="timer">
-                <span id="days"></span> Days 
-                <span id="hours"></span> Hours 
-                <span id="minutes"></span> Minutes 
-                <span id="seconds"></span> Seconds
-            </div>
-        </div>
-        <div class="sale-info">
-            <p class="new-arrivals">NEW ARRIVALS</p>
-            <p class="Vietnamese-Women-Day">Vietnamese Women's Day</p>
-            <p class="Exclusive">EXCLUSIVE offer 15% off this week</p>
-        </div>
-        <div class="sale-img">
-            <img src="./assets/bootstrap/img/png-transparent-pink-and-red-petaled-flowers-painting-flower-decoupage-flower-watercolor-flower-arranging-photography-poster 1.png" alt="">
-        </div>
-    </div>
-    <div class="product-title">
-      <h4>outstanding products(8)</h4>
-    </div>
-    <div id="products">
-    </div>
-    <!--Start carousel wrapper -->
-    <div id="carouselMultiItemExample" data-mdb-carousel-init class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-    <!-- Controls -->
-      <div class="d-flex justify-content-center mb-4">
-        <button data-bs-button-init class="carousel-control-prev position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon text-body" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button data-bs-button-init class="carousel-control-next position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon text-body" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    <!-- Inner -->
-    <div class="carousel-inner py-4">
-      <!-- Single item -->
-      <div class="carousel-item active">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">Anna Deynah</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-              </ul>
-            </div>
-  
-            <div class="col-lg-4 d-none d-lg-block">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">John Doe</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                suscipit laboriosam, nisi ut aliquid commodi.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li>
-                  <i class="fas fa-star-half-alt fa-sm"></i>
-                </li>
-              </ul>
-            </div>
-  
-            <div class="col-lg-4 d-none d-lg-block">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">Maria Kate</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                praesentium voluptatum deleniti atque corrupti.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="far fa-star fa-sm"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Single item -->
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(3).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">John Doe</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-              </ul>
-            </div>
-  
-            <div class="col-lg-4 d-none d-lg-block">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">Alex Rey</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                suscipit laboriosam, nisi ut aliquid commodi.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li>
-                  <i class="fas fa-star-half-alt fa-sm"></i>
-                </li>
-              </ul>
-            </div>
-  
-            <div class="col-lg-4 d-none d-lg-block">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(5).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">Maria Kate</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                praesentium voluptatum deleniti atque corrupti.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="far fa-star fa-sm"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Single item -->
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">Anna Deynah</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-              </ul>
-            </div>
-  
-            <div class="col-lg-4 d-none d-lg-block">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">John Doe</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                suscipit laboriosam, nisi ut aliquid commodi.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li>
-                  <i class="fas fa-star-half-alt fa-sm"></i>
-                </li>
-              </ul>
-            </div>
-  
-            <div class="col-lg-4 d-none d-lg-block">
-              <img class="rounded-circle shadow-1-strong mb-4"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar"
-                style="width: 150px;" />
-              <h5 class="mb-3">Maria Kate</h5>
-              <p class="text-muted">
-                <i class="fas fa-quote-left pe-2"></i>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                praesentium voluptatum deleniti atque corrupti.
-              </p>
-              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="fas fa-star fa-sm"></i></li>
-                <li><i class="far fa-star fa-sm"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Inner -->
-    </div>
-    <!-- End carox  usel wrapper -->
-    <div class="feedback-form">
-        <div class="feedback-container">
-            <div class="feedback-title">
-                <h2>Feedback</h2>
-            </div>
-            <form class="feedbackForm">
-                <div class="feedback-input-group name-input">
-                    <label for="username">
-                        <i class="fas fa-user icon-in-input"></i>
-                        <input type="text" id="name" placeholder="Enter your name">
-                    </label>
-                </div>
-                <div class="feedback-input-group email-input">
-                    <label for="email">
-                        <i class="fas fa-envelope icon-in-input"></i>
-                        <input type="email" id="email" placeholder="Enter your email">
-                    </label>
-                </div>
-                <div class="rating-group">
-                    <p>Share your experience in scaling</p>
-                    <div class="stars">
-                        <span class="star filled">&#9733;</span>
-                        <span class="star filled">&#9733;</span>
-                        <span class="star filled">&#9733;</span>
-                        <span class="star filled">&#9733;</span>
-                        <span class="star">&#9733;</span>
-                    </div>
-                </div>
-                <div class="feedback-input-group description-input">
-                    <textarea id="description" placeholder="Suggest anything we can improve.."></textarea>
-                </div>
-                <div class="button-group">
-                    <button type="submit">Send Feedback</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="footer">
-    <div class="footer-info">
-        <h3>Heavenly Blossom</h3>
-        <p>This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
-        <div class="footer-icon">
-            <a href=""><i class="fa-brands fa-twitter"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin"></i></a>
-            <a href=""><i class="fa-brands fa-facebook"></i></a>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-        </div>
-    </div>
-    <div class="footer-shop-address">
-        <h5>HEAVELY BLOSSOM  SHOP</h5>
-        <p>Main store: 99 To Hien Thanh, Phuoc My, Son Tra, Da Nang</p>
-        <p>Ha Noi Store: 65 Tran Phu, Ba Dinh, Ha Noi</p>
-    </div>
-    <div class="footer-qr">
-        <p>Scan our QR Code</p>
-        <img src="./assets/bootstrap/img/frame.png" alt="">
-    </div>
-    <div class="copy-right">
-        Copyright ©2024 Heavenly Blossom. All rights reserved.
-    </div>
-</div>
+	<div class="header">
+		<ul class="navbar">
+			<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="#">Home</a>
+				</li> 
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="#">Products</a>
+				</li> 
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="#">About Us</a>
+				</li> 
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="#">Contacts</a>
+				</li> 
+				<li class="nav-item">         
+					<a class="nav-link" aria-current="page" href="#">Feedback</a>
+			</li> 
+		</ul>
+		<div class="header-name translate-middle">
+			<h3>Heavenly Blossom</h3>
+		</div>
+		<div class="header-search top-50 translate-middle-y">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Find products">
+				<a class="submit-search" href=""><span class="input-group-text" id="basic-addon2">Search</span></a>
+			</div>
+		</div>
+		<div class="user-and-cart-icon">
+			<div class="user-icon">
+				<a href="#" class="icon-user"><i class="fa-regular fa-user"></i></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">Sign in</a></li>
+					<li><a href="#">Sign up</a></li>
+				</ul>
+			</div>
+			<div class="cart-icon">
+				<a href="#" class="icon-cart"><i class="fa-solid fa-cart-shopping"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="sale-pannel">
+			<div class="time-count-down">
+				<h4>Deals of the Day</h4>
+				<div id="timer">
+					<span id="days"></span> Days 
+					<span id="hours"></span> Hours 
+					<span id="minutes"></span> Minutes 
+					<span id="seconds"></span> Seconds
+				</div>
+			</div>
+			<div class="sale-info">
+				<p class="new-arrivals">NEW ARRIVALS</p>
+				<p class="Vietnamese-Women-Day">Vietnamese Women's Day</p>
+				<p class="Exclusive">EXCLUSIVE offer 15% off this week</p>
+			</div>
+			<div class="sale-img">
+				<img src="./assets/bootstrap/img/png-transparent-pink-and-red-petaled-flowers-painting-flower-decoupage-flower-watercolor-flower-arranging-photography-poster 1.png" alt="">
+			</div>
+		</div>
+		<div class="product-title">
+		<h4>outstanding products(8)</h4>
+		</div>
+		<div id="products">
+		</div>
+		<!--Start carousel wrapper -->
+		<div id="carouselMultiItemExample" data-mdb-carousel-init class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+		<!-- Controls -->
+		<div class="d-flex justify-content-center mb-4">
+			<button data-bs-button-init class="carousel-control-prev position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon text-body" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+			</button>
+			<button data-bs-button-init class="carousel-control-next position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="next">
+			<span class="carousel-control-next-icon text-body" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<!-- Inner -->
+		<div class="carousel-inner py-4">
+		<!-- Single item -->
+		<div class="carousel-item active">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">Anna Deynah</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+					officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+				</ul>
+				</div>
+	
+				<div class="col-lg-4 d-none d-lg-block">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">John Doe</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+					suscipit laboriosam, nisi ut aliquid commodi.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li>
+					<i class="fas fa-star-half-alt fa-sm"></i>
+					</li>
+				</ul>
+				</div>
+	
+				<div class="col-lg-4 d-none d-lg-block">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">Maria Kate</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+					praesentium voluptatum deleniti atque corrupti.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="far fa-star fa-sm"></i></li>
+				</ul>
+				</div>
+			</div>
+			</div>
+		</div>
+	
+		<!-- Single item -->
+		<div class="carousel-item">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(3).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">John Doe</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+					officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+				</ul>
+				</div>
+	
+				<div class="col-lg-4 d-none d-lg-block">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">Alex Rey</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+					suscipit laboriosam, nisi ut aliquid commodi.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li>
+					<i class="fas fa-star-half-alt fa-sm"></i>
+					</li>
+				</ul>
+				</div>
+	
+				<div class="col-lg-4 d-none d-lg-block">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(5).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">Maria Kate</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+					praesentium voluptatum deleniti atque corrupti.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="far fa-star fa-sm"></i></li>
+				</ul>
+				</div>
+			</div>
+			</div>
+		</div>
+	
+		<!-- Single item -->
+		<div class="carousel-item">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">Anna Deynah</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+					officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+				</ul>
+				</div>
+	
+				<div class="col-lg-4 d-none d-lg-block">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">John Doe</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+					suscipit laboriosam, nisi ut aliquid commodi.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li>
+					<i class="fas fa-star-half-alt fa-sm"></i>
+					</li>
+				</ul>
+				</div>
+	
+				<div class="col-lg-4 d-none d-lg-block">
+				<img class="rounded-circle shadow-1-strong mb-4"
+					src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar"
+					style="width: 150px;" />
+				<h5 class="mb-3">Maria Kate</h5>
+				<p class="text-muted">
+					<i class="fas fa-quote-left pe-2"></i>
+					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+					praesentium voluptatum deleniti atque corrupti.
+				</p>
+				<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="fas fa-star fa-sm"></i></li>
+					<li><i class="far fa-star fa-sm"></i></li>
+				</ul>
+				</div>
+			</div>
+			</div>
+		</div>
+		</div>
+		<!-- Inner -->
+		</div>
+		<!-- End carox  usel wrapper -->
+		<div class="feedback-container">
+			<div class="feedback-title">
+				<h2>Feedback</h2>
+			</div>
+			<form class="feedbackForm">
+				<div class="feedback-input-group name-input">
+					<label for="username">
+						<i class="fas fa-user icon-in-input"></i>
+						<input type="text" id="name" placeholder="Enter your name">
+					</label>
+				</div>
+				<div class="feedback-input-group email-input">
+					<label for="email">
+						<i class="fas fa-envelope icon-in-input"></i>
+						<input type="email" id="email" placeholder="Enter your email">
+					</label>
+				</div>
+				<div class="rating-group">
+					<p>Share your experience in scaling</p>
+					<div class="stars">
+						<span class="star filled">&#9733;</span>
+						<span class="star filled">&#9733;</span>
+						<span class="star">&#9733;</span>
+						<span class="star">&#9733;</span>
+						<span class="star">&#9733;</span>
+					</div>
+				</div>
+				<div class="feedback-input-group description-input">
+					<textarea id="description" placeholder="Suggest anything we can improve.."></textarea>
+				</div>
+				<div class="button-group">
+					<button type="button">Send Feedback</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footer-info">
+			<h3>Heavenly Blossom</h3>
+			<p>This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
+			<div class="footer-icon">
+				<a href=""><i class="fa-brands fa-twitter"></i></a>
+				<a href=""><i class="fa-brands fa-linkedin"></i></a>
+				<a href=""><i class="fa-brands fa-facebook"></i></a>
+				<a href=""><i class="fa-brands fa-github"></i></a>
+			</div>
+		</div>
+		<div class="footer-shop-address">
+			<h5>HEAVELY BLOSSOM  SHOP</h5>
+			<p>Main store: 99 To Hien Thanh, Phuoc My, Son Tra, Da Nang</p>
+			<p>Ha Noi Store: 65 Tran Phu, Ba Dinh, Ha Noi</p>
+		</div>
+		<div class="footer-qr">
+			<p>Scan our QR Code</p>
+			<img src="./assets/bootstrap/img/frame.png" alt="">
+		</div>
+		<div class="copy-right">
+			Copyright ©2024 Heavenly Blossom. All rights reserved.
+		</div>
+	</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./assets/bootstrap/js/script.js"></script>
 <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
