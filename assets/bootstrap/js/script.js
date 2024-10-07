@@ -25,21 +25,7 @@ let countdownFunction = setInterval(function() {
 
 // Js responsive header
 
-
 // JS hoa bay
-
-function createFlower() {
-    const flower = document.createElement('div');
-    flower.classList.add('flower');
-    flower.style.left = Math.random() * 100 + 'vw';
-    flower.style.animationDuration = Math.random() * 5 + 5 + 's';
-    document.getElementById('flower-container').appendChild(flower);
-    setTimeout(() => {
-        flower.remove();
-    }, 10000);
-}
-
-setInterval(createFlower, 500);
 
 // JS Show sản phẩm ở trang chủ
 
