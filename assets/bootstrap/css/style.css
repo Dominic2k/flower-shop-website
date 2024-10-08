@@ -39,7 +39,7 @@ body {
 
 .icon-links {
 display: flex;
-align-items: center; /* Căn giữa theo trục dọc */
+align-items: center;
 }
 
 .icon-links i {
@@ -244,7 +244,7 @@ align-items: center; /* Căn giữa theo trục dọc */
 }
 
 .product-item img:hover {
-    transform: scale(1.1); /* Phóng to hình ảnh lên 10% */
+    transform: scale(1.1);
 }
 
 .card-body {
@@ -274,6 +274,27 @@ align-items: center; /* Căn giữa theo trục dọc */
     border-radius: 12px;
     cursor: pointer;
 }
+
+/* Responsive Products */
+
+@media (max-width: 968px) {
+	.product-item {
+		flex: 0 0 28%;
+	}
+}
+
+@media (max-width: 768px) {
+	.product-item {
+		flex: 0 0 45%;
+	}
+}
+  
+@media (max-width: 576px) {
+	.product-item {
+		flex: 0 0 80%;
+	}
+}
+
 
 /* CSS Feedback */
 
@@ -455,6 +476,7 @@ align-items: center; /* Căn giữa theo trục dọc */
     text-align: center;
     margin-top: 20px;
     width: 100%;
+	color: #484848;
 }
 /* form */
 .modal {
