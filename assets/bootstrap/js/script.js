@@ -1,3 +1,5 @@
+// JS Countdown timer
+
 let countdownDate = new Date("Oct 20, 2024 23:59:59").getTime();
 
 let countdownFunction = setInterval(function() {
@@ -60,92 +62,6 @@ window.onclick = function(event) {
     }
 }
 
-// // chuyển đổi giữ form đăng ký và đăng nhập
-// document.getElementById('show-register-form').addEventListener('click', function() {
-//     document.getElementById('loginModal').style.display = 'none';
-//     document.getElementById('registerModal').style.display = 'block';
-// });
-
-// document.getElementById('show-login-form').addEventListener('click', function() {
-//     document.getElementById('loginModal').style.display = 'block';
-//     document.getElementById('registerModal').style.display = 'none';
-// });
-
-// // Ẩn và hiện mật khẩu
-// const togglePasswordVisibility = (buttonId, inputSelector) => {
-//     const button = document.getElementById(buttonId);
-//     const input = document.querySelector(inputSelector);
-//     button.addEventListener('click', function () {
-//         const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-//         input.setAttribute('type', type);
-//         this.textContent = this.textContent === 'Show' ? 'Hide' : 'Show';
-//     });
-// };
-
-// // Chức năng chuyển đổi cho cả hai form
-// togglePasswordVisibility('show-password', '#loginModal input[type="password"]');
-// togglePasswordVisibility('show-password-register', '#registerModal input[type="password"]');
-
-// // Hiển thị alert
-// const showAlert = (message, type = 'success') => {
-//     const alertBox = document.getElementById('alert-box');
-//     alertBox.className = `alert alert-${type}`;
-//     alertBox.textContent = message;
-//     alertBox.style.display = 'block';
-//     setTimeout(() => {
-//         alertBox.style.display = 'none';
-//     }, 3000); 
-// };
-// // Register new user
-// document.getElementById('register').addEventListener('click', function() {
-// const username = document.getElementById('register-username').value;
-// const email = document.getElementById('register-email').value;
-// const password = document.getElementById('register-password').value;
-
-// if (username && email && password) {
-//     const user = { username, email, password };
-
-//     // Lấy danh sách người dùng từ localStorage hoặc tạo một mảng mới nếu chưa có
-//     let users = JSON.parse(localStorage.getItem('users')) || [];
-
-//     // Kiểm tra xem username đã tồn tại chưa
-//     const userExists = users.some(u => u.username === username);
-
-//     if (userExists) {
-//         showAlert('Username already exists, please choose another one.', 'danger');
-//     } else {
-//         // Thêm người dùng mới vào mảng
-//         users.push(user);
-
-//         // Lưu lại danh sách người dùng vào localStorage
-//         localStorage.setItem('users', JSON.stringify(users));
-//         showAlert('Account created successfully! You can now sign in.');
-//         document.getElementById('registerModal').style.display = 'none';
-//         document.getElementById('loginModal').style.display = 'block';
-//     }
-// } else {
-//     showAlert('Please fill all fields', 'danger');
-// }
-//  });
-
-// // Login user
-// document.getElementById('login-btn').addEventListener('click', function() {
-// const username = document.getElementById('login-username').value;
-// const password = document.getElementById('login-password').value;
-
-// // Lấy danh sách người dùng từ localStorage
-// const users = JSON.parse(localStorage.getItem('users')) || [];
-
-// // Kiểm tra xem người dùng có tồn tại hay không
-// const user = users.find(u => u.username === username && u.password === password);
-
-// if (user) {
-//     showAlert('Login successful!');
-// } else {
-//     showAlert('Invalid username or password', 'danger');
-// }
-// });
-// Chuyển đổi giữa form đăng ký và đăng nhập
 document.getElementById('show-register-form').addEventListener('click', function(event) {
     event.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
     document.getElementById('loginModal').style.display = 'none';
@@ -235,4 +151,90 @@ document.getElementById('login-btn').addEventListener('click', function() {
     }
 });
 
-    
+
+// Js responsive header
+
+// JS hoa bay
+
+// JS Show sản phẩm ở trang chủ
+
+let products = [
+    {
+        id: 1,
+        name: 'White Roses',
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+    },
+    {
+        id: 2,
+        name: 'Canations',
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://shophoahong.com/wp-content/uploads/2022/06/h19-e1654479676559.jpg"
+    },
+    {
+        id: 3,
+        name: "Baby's breath flower",
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://bizweb.dktcdn.net/100/347/446/files/bo-hoa-hong-do-hinh-trai-tim-sieu-to-khong-lo.jpg?v=1673925509260"
+    },
+    {
+        id: 4,
+        name: 'Roses',
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://tramhoa.com/wp-content/uploads/2019/09/Bo-Hoa-Tuoi-TH-B025-I-Love-You-3.jpg"
+    },
+    {
+        id: 5,
+        name: 'Synthetic flowers',
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGHXu2ehMTG_9I75FPVe9CHPHDqAuzZuVRiw&s"
+    },
+    {
+        id: 6,
+        name: 'Roses',
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://hoatuoi9x.com/wp-content/uploads/2022/05/b3.jpg"
+    },
+    {
+        id: 7,
+        name: 'Sunflower',
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://img.mayflower.vn/2018/09/bo-hoa-ve-dep-dac-biet-89.jpg"
+    },
+    {
+        id: 8,
+        name: 'Pale roses',
+        code: 'TC102501',
+        price: "$64.00",
+        img: "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/473985SXQ/hinh-anh-hoa-dep-20-10.jpg"
+    }
+];
+function showListProducts() {
+    let productJSON = JSON.stringify(products);
+    localStorage.setItem('products', productJSON);
+
+    let storedProducts = JSON.parse(localStorage.getItem('products'));
+    let content = '';
+
+    for (let i = 0; i <= storedProducts.length - 1; i++) {
+        content += `<div class="product-item">`
+        content += `<a href="productDetail.html?id=` + products[i].id + `">`;
+        content += `<img src="` + products[i].img + `" class="card-img" style="height: 400px;">`;
+        content += `</a>`
+        content += `<div class="card-body">`;
+        content += `<h3 class="card-title">`+ products[i].name + `</h3>`;
+        content += `<p class="card-text">`+ products[i].price + `</p>`;
+        content += `<button class="card-btn-left" onclick="order()">Buy now</button>`;
+        content += `</div>`;
+        content += `</div>`;
+    }
+    document.getElementById('products').innerHTML = content;
+}
+
