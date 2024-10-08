@@ -1,5 +1,5 @@
 # Flower Shop Website
-
+thêm dòng mới
 ## Giới thiệu
 
 Flower Shop Website là một ứng dụng web được phát triển bằng HTML, CSS và JavaScript. Dự án này cung cấp một nền tảng trực tuyến cho người dùng để tìm hiểu và mua hoa một cách dễ dàng. Người dùng có thể tìm kiếm hoa theo sở thích của mình và có thể lọc theo màu sắc, giá cả và chủ đề mong muốn. Người dùng cũng có thể xem chi tiết sản phẩm, thêm sản phẩm vào giỏ hàng và thực hiện quá trình đăng nhập và đăng ký.

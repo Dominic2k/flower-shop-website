@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/a45cf66e19.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/bootstrap/css/style.css">
+    <title>About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding-top: 121px; /* Dành cho header cố định */
+        }
+
+        /* Header */
+        .header {
+            background-color: #efefef;
+            height: 121px;
+            padding: 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-name h3 {
+            line-height: 121px;
+            color: #808080;
+            font-size: 46px;
+        }
+
+        .navbar {
+            justify-content: flex-start;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .nav-item {
+            padding: 0;
+        }
+
+        .nav-item a {
+            color: #2C2C2C;
+        }
+
+        .nav-item a:hover {
+            color: #d22424;
+        }
+
+        .header-name {
+            position: absolute;
+        }
+
+        .header-search {
+            top: 40px;
+            right: 150px;
+        }
+
+        .input-group-text {
+            cursor: pointer;
+        }
+
+        .user-and-cart-icon {
+            position: absolute;
+            top: 46px;
+            right: 62px;
+        }
+
+        .user-icon {
+            cursor: pointer;
+            margin-right: 14px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .cart-icon {
+            display: inline-block;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -58px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu li {
+            border: 1px solid #ccc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            line-height: normal;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .user-icon:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Sale panel */
+        .sale-pannel {
+            height: 500px;
+            background-color: #ffdde0; /* Màu hồng nhẹ */
+            position: relative;
+        }
+
+        .time-count-down {
+            width: 60%;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 10px;
+            padding-top: 68px;
+        }
+
+        .time-count-down h4 {
+            color: #ff4747;
+        }
+
+        #timer {
+            font-size: 2rem;
+            margin-top: 20px;
+            color: #d22424;
+        }
+
+        #timer span {
+            font-weight: bold;
+            color: #d22424;
+        }
+
+        .sale-info {
+            margin-top: 36px;
+        }
+
+        .sale-info .new-arrivals {
+            margin-left: 140px;
+            font-size: 30px;
+            color: #f63838;
+            font-weight: bold;
+        }
+
+        .sale-info .Vietnamese-Women-Day {
+            margin-left: 140px;
+            font-size: 46px;
+            color: #796060;
+        }
+
+        .sale-info .Exclusive {
+            margin-left: 140px;
+            color: #201c1c;
+            font-size: 22px;
+            margin-top: 28px;
+        }
+
+        .sale-img {
+            position: absolute;
+            top: -60px;
+            right: 36px;
+        }
+
+        .sale-img img {
+            height: 604px;
+        }
+
+        /* Main content */
+        .main-content {
+            background-color: #ffe6e9; /* Màu hồng chủ đạo */
+            padding: 40px;
+        }
+
+        .introduction h2 {
+            color: #d22424;
+            font-size: 36px;
+        }
+
+        .introduction p {
+            color: #808080;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .product-section {
+            margin-top: 50px;
+        }
+
+        .product-section h3 {
+            color: #d22424;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .product-item {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px;
+            width: 200px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .product-item h4 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .product-item p {
+            color: #d22424;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        /* Feedback section */
+        .feedback-container {
+            max-width: 100%;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .feedback-title {
+            text-align: left;
+            background-color: #eba4a2;
+            height: 48px;
+            padding: 0 20px;
+        }
+        feedback-title h2 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 48px;
+        }
+        /* Footer */
+        .footer {
+            background-color: #efefef;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-info h3 {
+            color: #333;
+        }
+
+        .footer-info p {
+            color: #808080;
+            margin-top: 10px;
+        }
+
+        .footer-icon a {
+            margin-right: 10px;
+        }
+
+        .footer-shop-address {
+            margin-top: 20px;
+        }
+
+        .footer-qr img {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-name h3 {
+                font-size: 28px;
+            }
+
+            .header-search {
+                right: 80px;
+            }
+
+            .user-and-cart-icon {
+                top: 20px;
+                right: 30px;
+            }
+
+            .sale-img img {
+                height: 300px;
+            }
+
+            .product-list {
+                justify-content: center;
+            }
+
+            .product-item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-name h3 {
+                font-size: 20px;
+            }
+
+            .header-search {
+                right: 30px;
+            }
+
+            .user-and-cart-icon {
+                right: 20px;
+            }
+
+            .product-item {
+                width: 100%;
+            }
+
+            .product-item img {
+                height: 100px;
+            }
+        }
+
+    </style>
+</head>
+<body onload="showListProducts()">
+<div class="header">
+        <div class="header-menu">
+            <ul class="navbar">
+                <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="#">Home</a>
+                 </li> 
+                 <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="#">Products</a>
+                 </li> 
+                 <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="#">About Us</a>
+                 </li> 
+                 <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="#">Contacts</a>
+                 </li> 
+                 <li class="nav-item">         
+                     <a class="nav-link" aria-current="page" href="#">Feedback</a>
+                </li> 
+             </ul>
+        </div>
+    <div class="header-name position-absolute top-50 start-50 translate-middle">
+        <h3>Heavenly Blossom</h3>
+    </div>
+    <div class="header-search position-absolute">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Find products" aria-label="Find products" aria-describedby="basic-addon2">
+            <span class="input-group-text" id="basic-addon2">Search</span>
+        </div>
+    </div>
+    <div class="user-and-cart-icon" id="main-content">
+        <div class="user-icon">
+            <a href="#"><i class="fa-regular fa-user"></i></a>
+            <ul class="dropdown-menu">
+                <li id="openLoginBtn">Đăng nhập</li>
+                <li id="openRegisterBtn">Đăng ký</li>
+            </ul>
+        </div>
+        <div class="cart-icon">
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="about-us">
+        <h2>Who We Are</h2>
+        <p>Heavenly Blossom is a premium floral shop, dedicated to delivering beauty and joy through our carefully curated blossoms. We believe in the power of flowers to uplift, inspire, and connect people.</p>
+    </div>
+
+    <div class="our-values">
+        <h2>Our Values</h2>
+        <ul>
+            <li>Quality and Craftsmanship</li>
+            <li>Customer Satisfaction</li>
+            <li>Innovation and Creativity</li>
+            <li>Sustainability and Nature</li>
+        </ul>
+    </div>
+
+    <div class="founding-date">
+        <h2>Founding Date</h2>
+        <p>Established in 2020, Heavenly Blossom continues to bloom in the heart of floral artistry.</p>
+    </div>
+</div>
+<div class="footer"></div>
+    <div class="footer-info">
+        <h3>Heavenly Blossom</h3>
+        <p>This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
+        <div class="footer-icon">
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+        </div>
+    </div>
+    <div class="footer-shop-address">
+        <h5>HEAVELY BLOSSOM  SHOP</h5>
+        <p>Main store: 99 To Hien Thanh, Phuoc My, Son Tra, Da Nang</p>
+        <p>Ha Noi Store: 65 Tran Phu, Ba Dinh, Ha Noi</p>
+    </div>
+    <div class="footer-qr">
+        <p>Scan our QR Code</p>
+        <img src="./assets/bootstrap/img/frame.png" alt="">
+    </div>
+    <div class="copy-right">
+        Copyright ©2024 Heavenly Blossom. All rights reserved.
+    </div>
+</div>

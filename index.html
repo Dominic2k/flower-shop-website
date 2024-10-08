@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./assets/bootstrap/css/style.css">
     <title>Home</title>
 </head>
-<body>
+<body onload="showListProducts()">
 <div class="header">
         <div class="header-menu">
             <ul class="navbar">
@@ -74,22 +74,237 @@
             <img src="./assets/bootstrap/img/png-transparent-pink-and-red-petaled-flowers-painting-flower-decoupage-flower-watercolor-flower-arranging-photography-poster 1.png" alt="">
         </div>
     </div>
-    <div class="products">
-        <h4>outstanding products(8)</h4>
+    <div class="product-title">
+      <h4>outstanding products(8)</h4>
     </div>
-    <div class="feedbacks-info">
-
+    <div id="products">
     </div>
+    <!--Start carousel wrapper -->
+    <div id="carouselMultiItemExample" data-mdb-carousel-init class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+    <!-- Controls -->
+      <div class="d-flex justify-content-center mb-4">
+        <button data-bs-button-init class="carousel-control-prev position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon text-body" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button data-bs-button-init class="carousel-control-next position-relative" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon text-body" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <!-- Inner -->
+    <div class="carousel-inner py-4">
+      <!-- Single item -->
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">Anna Deynah</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+                officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 d-none d-lg-block">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">John Doe</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                suscipit laboriosam, nisi ut aliquid commodi.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li>
+                  <i class="fas fa-star-half-alt fa-sm"></i>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 d-none d-lg-block">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">Maria Kate</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                praesentium voluptatum deleniti atque corrupti.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="far fa-star fa-sm"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Single item -->
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(3).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">John Doe</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+                officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 d-none d-lg-block">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">Alex Rey</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                suscipit laboriosam, nisi ut aliquid commodi.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li>
+                  <i class="fas fa-star-half-alt fa-sm"></i>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 d-none d-lg-block">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(5).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">Maria Kate</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                praesentium voluptatum deleniti atque corrupti.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="far fa-star fa-sm"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Single item -->
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(6).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">Anna Deynah</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
+                officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 d-none d-lg-block">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(8).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">John Doe</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                suscipit laboriosam, nisi ut aliquid commodi.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li>
+                  <i class="fas fa-star-half-alt fa-sm"></i>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 d-none d-lg-block">
+              <img class="rounded-circle shadow-1-strong mb-4"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(7).webp" alt="avatar"
+                style="width: 150px;" />
+              <h5 class="mb-3">Maria Kate</h5>
+              <p class="text-muted">
+                <i class="fas fa-quote-left pe-2"></i>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                praesentium voluptatum deleniti atque corrupti.
+              </p>
+              <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="fas fa-star fa-sm"></i></li>
+                <li><i class="far fa-star fa-sm"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Inner -->
+    </div>
+    <!-- End carox  usel wrapper -->
     <div class="feedback-form">
         <div class="feedback-container">
             <div class="feedback-title">
                 <h2>Feedback</h2>
             </div>
-            <form class="feedback-form">
+            <form class="feedbackForm">
                 <div class="feedback-input-group name-input">
                     <label for="username">
                         <i class="fas fa-user icon-in-input"></i>
-                        <input type="text" id="username" placeholder="Enter your username">
+                        <input type="text" id="name" placeholder="Enter your name">
                     </label>
                 </div>
                 <div class="feedback-input-group email-input">
@@ -109,10 +324,10 @@
                     </div>
                 </div>
                 <div class="feedback-input-group description-input">
-                    <textarea id="feedback" placeholder="Suggest anything we can improve.."></textarea>
+                    <textarea id="description" placeholder="Suggest anything we can improve.."></textarea>
                 </div>
                 <div class="button-group">
-                    <button type="button">Send Feedback</button>
+                    <button type="submit">Send Feedback</button>
                 </div>
             </form>
         </div>
@@ -131,7 +346,7 @@
         </div>
     </div>
     <div class="footer-shop-address">
-        <p>HEAVELY BLOSSOM  SHOP</p>
+        <h5>HEAVELY BLOSSOM  SHOP</h5>
         <p>Main store: 99 To Hien Thanh, Phuoc My, Son Tra, Da Nang</p>
         <p>Ha Noi Store: 65 Tran Phu, Ba Dinh, Ha Noi</p>
     </div>
@@ -144,12 +359,10 @@
     </div>
 </div>
 <div class="form-container">
-    <!-- Modal Đăng nhập -->
     <div id="loginModal" class="modal">
         <div id="alert-box" class="alert" style="display: none;" role="alert"></div>
         <div class="modal-content">
             <span class="close">&times;</span>
-            <!-- Login Form -->
             <div id="login-form">
                 <h2 class="text-center">Welcome to HeavenlyBlossom</h2>
                 <p class="text-center">Sign in with</p>
@@ -184,13 +397,10 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal Đăng ký -->
     <div id="registerModal" class="modal">
-         <div id="alert-box" class="alert alert-success" role="alert"></div>
+        <div id="alert-box" class="alert alert-success" role="alert"></div>
         <div class="modal-content">
             <span class="close">&times;</span>
-            <!-- Registration Form -->
             <div id="register-form">
                 <h2 class="text-center">Let's get started</h2>
                 <p class="text-center">Create Account with</p>
@@ -232,8 +442,9 @@
         </div>
     </div>
 </div>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script src="./assets/bootstrap/js/script.js"></script>
 <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<div id="flower-container"></div>
 </body>
 </html>
