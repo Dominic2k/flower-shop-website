@@ -21,7 +21,6 @@ let countdownFunction = setInterval(function() {
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
-// Liên kết với form đăng nhập và đăng ký
 
 // Lấy các modal
 var loginModal = document.getElementById("loginModal");
@@ -151,14 +150,12 @@ document.getElementById('login-btn').addEventListener('click', function() {
     }
 });
 
-
-// Js responsive header
-
-// JS hoa bay
-
 // JS Show sản phẩm ở trang chủ
 
-let products = [
+
+function createdProducts() {
+    
+const products = [
     {
         id: 1,
         name: 'White Roses',
@@ -216,25 +213,133 @@ let products = [
         img: "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/473985SXQ/hinh-anh-hoa-dep-20-10.jpg"
     }
 ];
-function showListProducts() {
-    let productJSON = JSON.stringify(products);
-    localStorage.setItem('products', productJSON);
+let productJSON = JSON.stringify(products);
+localStorage.setItem('products', productJSON);
+}
 
+function showListProducts() {
     let storedProducts = JSON.parse(localStorage.getItem('products'));
+    
+    if (!storedProducts || storedProducts.length === 0) {
+        document.getElementById('products').innerHTML = '<p>No products available.</p>';
+        return;
+    }
+
     let content = '';
 
-    for (let i = 0; i <= storedProducts.length - 1; i++) {
+    for (let i = 0; i < storedProducts.length; i++) {
         content += `<div class="product-item">`
-        content += `<a href="productDetail.html?id=` + products[i].id + `">`;
-        content += `<img src="` + products[i].img + `" class="card-img" style="height: 400px;">`;
+        content += `<a href="productDetail.html?id=` + storedProducts[i].id + `">`;
+        content += `<img src="` + storedProducts[i].img + `" class="card-img" style="height: 400px;">`;
         content += `</a>`
         content += `<div class="card-body">`;
-        content += `<h3 class="card-title">`+ products[i].name + `</h3>`;
-        content += `<p class="card-text">`+ products[i].price + `</p>`;
+        content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
+        content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
         content += `<button class="card-btn-left" onclick="order()">Buy now</button>`;
         content += `</div>`;
         content += `</div>`;
     }
     document.getElementById('products').innerHTML = content;
 }
+
+
+// JS Lưu Feedback vào local storage
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn reload trang khi submit form
+    
+    const name = document.getElementById('name').value;
+    const occupation = document.getElementById('occupation').value;
+    const description = document.getElementById('description').value;
+
+    const newFeedback = {
+        name: name,
+        occupation: occupation,
+        description: description
+    };
+
+    let feedbackList = JSON.parse(localStorage.getItem('feedbacks')) || [];
+
+    // Thêm feedback mới vào đầu mảng
+    feedbackList.unshift(newFeedback);
+
+    // Lưu mảng feedback lại vào localStorage
+    localStorage.setItem('feedbacks', JSON.stringify(feedbackList));
+
+    // Thông báo khi đã lưu thành công
+    alert('Your feedback has been saved successfully!');
+
+    // Reset form sau khi gửi
+    document.getElementById('feedbackForm').reset();
+});
+
+
+
+function showListFeedback() {
+    const feedbacks  = [
+        {
+            name: 'Alice Johnson',
+            occupation: 'Marketing Manager',
+            description: 'The flowers I ordered were absolutely stunning! They\
+                        arrived on time and were fresh. Will definitely be\
+                        ordering again.'
+        },
+        {
+            name: 'John Smith',
+            occupation: 'Teacher',
+            description: 'I was impressed by the variety of flowers available on\
+                            the website. The bouquet I ordered exceeded my\
+                            expectations.'
+        },
+        {
+            name: 'Emily Brown',
+            occupation: 'Interior Designer',
+            description: 'The customer service was exceptional. They helped me\
+                            choose the perfect arrangement for my friend\'s\
+                            birthday.'
+        },
+        {
+            name: 'Michael Lee',
+            occupation: 'Software Engineer',
+            description: 'I have never been disappointed with the quality of\
+                            flowers from this shop. Highly recommend!'
+        }
+    ];
+    
+    // Store feedbacks in local storage
+    let feedbackJSON = JSON.stringify(feedbacks);
+    localStorage.setItem('feedbacks', feedbackJSON);
+
+    // Retrieve feedbacks from local storage
+    let storedFeedbacks = JSON.parse(localStorage.getItem('feedbacks'));
+
+    // Loop through feedbacks and display each in the correct element with <span> tag
+    for (let i = 0; i < 4; i++) {
+        let name = `<span>${storedFeedbacks[i].name}</span>`;  
+        let occupation = `<span>${storedFeedbacks[i].occupation}</span>`;  
+        let description = `<span>${storedFeedbacks[i].description}</span>`;  // Fixed the typo
+        
+        if (i === 0) {
+            document.getElementById('first-feedback-name').innerHTML = name;
+            document.getElementById('first-feedback-occupation').innerHTML = occupation;
+            document.getElementById('first-feedback-description').innerHTML = description;
+        }
+        if (i === 1) {
+            document.getElementById('second-feedback-name').innerHTML = name;
+            document.getElementById('second-feedback-occupation').innerHTML = occupation;
+            document.getElementById('second-feedback-description').innerHTML = description;
+        }
+        if (i === 2) {
+            document.getElementById('third-feedback-name').innerHTML = name;
+            document.getElementById('third-feedback-occupation').innerHTML = occupation;
+            document.getElementById('third-feedback-description').innerHTML = description;
+        }
+        if (i === 3) {
+            document.getElementById('fourth-feedback-name').innerHTML = name;
+            document.getElementById('fourth-feedback-occupation').innerHTML = occupation;
+            document.getElementById('fourth-feedback-description').innerHTML = description;
+        }
+    }
+}
+
+
 

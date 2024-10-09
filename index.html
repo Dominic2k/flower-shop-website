@@ -16,7 +16,7 @@
 		html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
 	</style>
 </head>
-<body onload="showListProducts()">
+<body onload="showListProducts(), showListFeedback()">
 	<div class="container-fluid">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
@@ -224,20 +224,13 @@
 							class="testimonial-image1"
 							/>
 							<div class="testimonial-container13">
-							<strong class="thq-body-large">
-								<span>Alice Johnson</span>
+							<strong class="thq-body-large" id="first-feedback-name">
 							</strong>
-							<span class="thq-body-small">
-								<span>Marketing Manager</span>
+							<span class="thq-body-small" id="first-feedback-occupation">
 							</span>
 							</div>
 						</div>
-						<span class="testimonial-text14 thq-body-small">
-							<span>
-							The flowers I ordered were absolutely stunning! They
-							arrived on time and were fresh. Will definitely be
-							ordering again.
-							</span>
+						<span class="testimonial-text14 thq-body-small" id="first-feedback-description">
 						</span>
 						</div>
 					</div>
@@ -255,20 +248,13 @@
 							class="testimonial-image2"
 							/>
 							<div class="testimonial-container15">
-							<strong class="thq-body-large">
-								<span>John Smith</span>
+							<strong class="thq-body-large" id="second-feedback-name">
 							</strong>
-							<span class="thq-body-small">
-								<span>Teacher</span>
+							<span class="thq-body-small" id="second-feedback-occupation">
 							</span>
 							</div>
 						</div>
-						<span class="testimonial-text17 thq-body-small">
-							<span>
-							I was impressed by the variety of flowers available on
-							the website. The bouquet I ordered exceeded my
-							expectations.
-							</span>
+						<span class="testimonial-text17 thq-body-small" id="second-feedback-description">
 						</span>
 						</div>
 					</div>
@@ -286,20 +272,13 @@
 							class="testimonial-image3"
 							/>
 							<div class="testimonial-container17">
-							<strong class="thq-body-large">
-								<span>Emily Brown</span>
+							<strong class="thq-body-large" id="third-feedback-name">
 							</strong>
-							<span class="thq-body-small">
-								<span>Interior Designer</span>
+							<span class="thq-body-small" id="third-feedback-occupation">
 							</span>
 							</div>
 						</div>
-						<span class="testimonial-text20 thq-body-small">
-							<span>
-							The customer service was exceptional. They helped me
-							choose the perfect arrangement for my friend's
-							birthday.
-							</span>
+						<span class="testimonial-text20 thq-body-small" id="third-feedback-description">
 						</span>
 						</div>
 					</div>
@@ -317,19 +296,13 @@
 							class="testimonial-image4"
 							/>
 							<div class="testimonial-container19">
-							<strong class="thq-body-large">
-								<span>Michael Lee</span>
+							<strong class="thq-body-large" id="fourth-feedback-name">
 							</strong>
-							<span class="thq-body-small">
-								<span>Software Engineer</span>
+							<span class="thq-body-small" id="fourth-feedback-occupation">
 							</span>
 							</div>
 						</div>
-						<span class="testimonial-text23 thq-body-small">
-							<span>
-							I have never been disappointed with the quality of
-							flowers from this shop. Highly recommend!
-							</span>
+						<span class="testimonial-text23 thq-body-small" id="fourth-feedback-description">
 						</span>
 						</div>
 					</div>
@@ -338,39 +311,32 @@
 				</div>
 			</div>
 			</div>
-
 			<div class="feedback-container">
 				<div class="feedback-title">
 					<h2>Feedback</h2>
 				</div>
-				<form class="feedbackForm">
-					<div class="feedback-input-group name-input">
-						<label for="username">
-							<i class="fas fa-user icon-in-input"></i>
-							<input type="text" id="name" placeholder="Enter your name">
-						</label>
-					</div>
-					<div class="feedback-input-group email-input">
-						<label for="email">
-							<i class="fas fa-envelope icon-in-input"></i>
-							<input type="email" id="email" placeholder="Enter your email">
-						</label>
-					</div>
-					<div class="rating-group">
-						<p>Share your experience in scaling</p>
-						<div class="stars">
-							<span class="star filled">&#9733;</span>
-							<span class="star filled">&#9733;</span>
-							<span class="star">&#9733;</span>
-							<span class="star">&#9733;</span>
-							<span class="star">&#9733;</span>
+				<form id="feedbackForm">
+					<div class="feedback-row">
+						<div class="feedback-input-group">
+							<label for="name">Name:</label>
+							<input type="text" id="name" placeholder="Enter your name" required>
+						</div>
+						<div class="feedback-input-group">
+							<label for="occupation">Occupation:</label>
+							<input type="text" id="occupation" placeholder="Enter your occupation" required>
 						</div>
 					</div>
-					<div class="feedback-input-group description-input">
-						<textarea id="description" placeholder="Suggest anything we can improve.."></textarea>
+					<div class="feedback-row">
+						<div class="feedback-input-group">
+							<label for="description">Description:</label>
+							<textarea id="description" placeholder="Enter your feedback" required></textarea>
+						</div>
+						<div class="feedback-extra">
+							<p>Need help? <a href="#">Contact us</a></p>
+						</div>
 					</div>
 					<div class="button-group">
-						<button type="button">Send Feedback</button>
+						<button type="submit">Send Feedback</button>
 					</div>
 				</form>
 			</div>
