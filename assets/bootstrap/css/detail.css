@@ -1,0 +1,134 @@
+.detail {
+  background-color: #FFDDE0;
+  width: 100%;
+  padding: 20px;             /* Khoảng cách từ ảnh đến lề */
+  display: flex;
+  justify-content: center; 
+}
+
+.mt-5 {
+  margin-top: 0rem !important;
+}
+
+.row {
+ margin:5px;
+}
+
+.card-img {
+  width: auto;               /* Đảm bảo ảnh co dãn tự nhiên */
+  height: 300px;             /* Chiều cao của ảnh */
+  max-width: 100%;           /* Đảm bảo ảnh không vượt quá chiều rộng khung */
+  object-fit: cover;
+  margin-right: 5px;   
+}
+
+#product-price,
+#product-color,
+#product-title {
+  display: flex;
+  justify-content: space-between;
+  width:0;
+}
+
+#product-price span,
+#product-color span,
+#product-title span {
+  min-width: 90px; /* Đảm bảo chiều rộng đều cho nhãn */
+  font-weight: bold;
+}
+
+#product-name,
+#product-price,
+#product-color,
+#product-title {
+  margin-bottom: 5px;
+}
+
+.mb-3{
+  display: flex;
+  align-items: center; 
+}
+
+.me-2 {
+  font-size: 1rem; 
+  font-weight: bold;
+  color: black;
+}
+
+.quantity .input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #b19cd9;
+  margin-left: 20px; 
+  border-radius: 10px;
+  width: 150px; 
+  height: 40px; 
+  overflow: hidden;
+}
+
+.quantity .input-group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Equal width for both buttons */
+  height: 40px; 
+  font-size: 1.5rem; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #b19cd9;
+  margin:0;
+}
+
+.quantity .input-group #decrease {
+  border-right: 2px solid #b19cd9;
+  border-radius: 0; 
+}
+
+.quantity .input-group #increase {
+  border-left: 2px solid #b19cd9;
+  border-radius: 0; 
+}
+
+.quantity .input-group .btn:hover{
+  background-color: #f37006 !important; 
+}
+
+.quantity .input-group input {
+  text-align: center;
+  flex-grow: 1;
+  height: 40px; 
+  border: none;
+  font-size: 1.25rem;
+  background-color: #efe9e9;
+}
+
+.btn {
+  margin-right: 20px; 
+  width:35%;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none; 
+}
+
+.btn:hover {
+  background-color:  rgb(253, 141, 13);
+}
+
+/* Trạng thái focus và active */
+.btn:focus, .btn:active {
+  box-shadow: none !important; /* Loại bỏ bóng khi focus hoặc nhấn */
+}
+
+#product-describe {
+  font-size: 1rem; 
+  font-weight: 500;  /* Độ đậm chữ */
+  line-height: 1.2;  /* Khoảng cách giữa các dòng */
+  margin-bottom: 0.5rem;
+  width: 97%; 
+  word-wrap: break-word; /* Tự động ngắt dòng khi cần */
+  text-align: justify; /* Canh đều văn bản */
+  white-space: normal; /* Đảm bảo văn bản ngắt dòng bình thường */
+}
+

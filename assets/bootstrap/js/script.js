@@ -34,59 +34,64 @@ let products = [
         id: 1,
         name: 'White Roses',
         code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Bó hoa "Ngày êm đềm" với những đóa hồng đỏ thắm và cát tường trắng tinh khiết, là biểu tượng của tình yêu cháy bỏng và lòng thủy chung sâu sắc mà anh dành cho em. Mỗi bông hoa đại diện cho một ký ức đẹp, một lời hứa, và một ước nguyện cho tương lai chung của chúng ta. Anh tặng em bó hoa này không chỉ để nói "Anh yêu Em" mà còn để nói rằng mỗi ngày bên em là một ngày tuyệt vời đối với anh, êm đềm và trọn vẹn.',
         price: "$64.00",
         img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
     },
     {
         id: 2,
-        name: 'Canations',
+        name: 'White Roses',
         code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Helo',
         price: "$64.00",
-        img: "https://shophoahong.com/wp-content/uploads/2022/06/h19-e1654479676559.jpg"
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
     },
     {
         id: 3,
-        name: "Baby's breath flower",
+        name: 'White Roses',
         code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Helo',
         price: "$64.00",
-        img: "https://bizweb.dktcdn.net/100/347/446/files/bo-hoa-hong-do-hinh-trai-tim-sieu-to-khong-lo.jpg?v=1673925509260"
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
     },
     {
         id: 4,
-        name: 'Roses',
+        name: 'White Roses',
         code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Helo',
         price: "$64.00",
-        img: "https://tramhoa.com/wp-content/uploads/2019/09/Bo-Hoa-Tuoi-TH-B025-I-Love-You-3.jpg"
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
     },
     {
         id: 5,
-        name: 'Synthetic flowers',
+        name: 'White Roses',
         code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Helo',
         price: "$64.00",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGHXu2ehMTG_9I75FPVe9CHPHDqAuzZuVRiw&s"
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
     },
     {
         id: 6,
-        name: 'Roses',
+        name: 'White Roses',
         code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Helo',
         price: "$64.00",
-        img: "https://hoatuoi9x.com/wp-content/uploads/2022/05/b3.jpg"
-    },
-    {
-        id: 7,
-        name: 'Sunflower',
-        code: 'TC102501',
-        price: "$64.00",
-        img: "https://img.mayflower.vn/2018/09/bo-hoa-ve-dep-dac-biet-89.jpg"
-    },
-    {
-        id: 8,
-        name: 'Pale roses',
-        code: 'TC102501',
-        price: "$64.00",
-        img: "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/473985SXQ/hinh-anh-hoa-dep-20-10.jpg"
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
     }
 ];
+
 function showListProducts() {
     let productJSON = JSON.stringify(products);
     localStorage.setItem('products', productJSON);
@@ -96,7 +101,7 @@ function showListProducts() {
 
     for (let i = 0; i <= storedProducts.length - 1; i++) {
         content += `<div class="product-item">`
-        content += `<a href="productDetail.html?id=` + products[i].id + `">`;
+        content += `<a href="detail.html?id=` + products[i].id + `">`;
         content += `<img src="` + products[i].img + `" class="card-img" style="height: 400px;">`;
         content += `</a>`
         content += `<div class="card-body">`;
