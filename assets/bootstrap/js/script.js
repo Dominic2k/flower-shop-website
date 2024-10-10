@@ -235,7 +235,7 @@ function showListProducts() {
         content += `<div class="card-body">`;
         content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
         content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<button class="card-btn-left" onclick="order()">Buy now</button>`;
+        content += `<a href="payment.html?id=` + storedProducts[i].id + `" class="card-btn-left">Buy now</a>`;
         content += `</div>`;
         content += `</div>`;
     }
