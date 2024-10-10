@@ -265,10 +265,10 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     // Lưu mảng feedback lại vào localStorage
     localStorage.setItem('feedbacks', JSON.stringify(feedbackList));
 
-    // Thông báo khi đã lưu thành công
+    // Thông báo khi đã lưu thành công, này để sửa lại cho đẹp hơn
     alert('Your feedback has been saved successfully!');
 
-    // Reset form sau khi gửi
+    // Reset form after sending feedback
     document.getElementById('feedbackForm').reset();
 });
 
