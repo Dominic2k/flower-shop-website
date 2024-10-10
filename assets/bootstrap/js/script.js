@@ -158,83 +158,83 @@ function createdProducts() {
 const products = [
     {
         id: 1,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Bó hoa "Ngày êm đềm" với những đóa hồng đỏ thắm và cát tường trắng tinh khiết, là biểu tượng của tình yêu cháy bỏng và lòng thủy chung sâu sắc mà anh dành cho em. Mỗi bông hoa đại diện cho một ký ức đẹp, một lời hứa, và một ước nguyện cho tương lai chung của chúng ta. Anh tặng em bó hoa này không chỉ để nói "Anh yêu Em" mà còn để nói rằng mỗi ngày bên em là một ngày tuyệt vời đối với anh, êm đềm và trọn vẹn.',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+        name: "Rose Bouquet",
+        code: "FL001",
+        color: "Red",
+        title: "Elegant Red Roses",
+        describe: "A beautiful bouquet of 12 red roses, perfect for romantic occasions.",
+        price: "259.000đ",
+        img: "https://img4.thuthuatphanmem.vn/uploads/2020/08/18/anh-gio-hoa-sen-dep-y-nghia_091937096.jpg"
     },
     {
         id: 2,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Helo',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+        name: "Sunflower Bundle",
+        code: "FL002",
+        color: "Yellow",
+        title: "Bright Sunflowers",
+        describe: "A bundle of 5 sunflowers to brighten anyone's day.",
+        price: "185.000đ",
+        img: "https://kethoavanca.vn/wp-content/uploads/2017/03/sp-2.jpg"
     },
     {
         id: 3,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Helo',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+      name: "Tulip Collection",
+      code: "FL003",
+      color: "Purple",
+      title: "Charming Purple Tulips",
+      describe: "A collection of 10 purple tulips for a fresh and elegant look.",
+      price: "220.000đ",
+      img: "https://i.pinimg.com/1200x/52/16/98/5216984883394666537faad7316373cf.jpg"
     },
     {
         id: 4,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Helo',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+        name: "Lily Assortment",
+        code: "FL004",
+        color: "White",
+        title: "Graceful White Lilies",
+        describe: "An assortment of white lilies, symbolizing purity and elegance.",
+        price: "300.000đ",
+        img: "https://shophoahong.com/wp-content/uploads/2022/04/211.jpg"
     },
     {
         id: 5,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Helo',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+        name: "Orchid Arrangement",
+        code: "FL005",
+        color: "Pink",
+        title: "Delicate Pink Orchids",
+        describe: "A delicate arrangement of pink orchids, perfect for a sophisticated touch.",
+        price: "459.900đ",
+        img: "https://lilydesign.vn/uploads/thumbnails/800/2021/11/gio-hoa-hong-do-dep-ldnk258-19-11-52-18.jpg"
     },
     {
         id: 6,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Helo',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+        name: "Daisy Bunch",
+        code: "FL006",
+        color: "White",
+        title: "Cheerful White Daisies",
+        describe: "A bunch of white daisies, symbolizing simplicity and joy.",
+        price: "162.000đ",
+        img: "https://cdn03.lolaflora.com/bonnygift/lfb047-1/XL/lfb047-1-8d9629f423926a9-c50d29fa.jpg"
     },
     {
         id: 7,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Helo',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+        name: "Carnation Bouquet",
+        code: "FL007",
+        color: "Red",
+        title: "Passionate Red Carnations",
+        describe: "A bouquet of 15 red carnations, representing love and admiration.",
+        price: "199.900đ",
+        img: "https://www.giftstoindia24x7.com/ASP_Img/IMG1000/GTI10750.jpg"
     },
     {
         id: 8,
-        name: 'White Roses',
-        code: 'TC102501',
-        color: 'red',
-        title: 'Love',
-        describe: 'Helo',
-        price: "$64.00",
-        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+        name: "Lavender Sprigs",
+        code: "FL008",
+        color: "Purple",
+        title: "Fragrant Lavender Sprigs",
+        describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
+        price: "127.00đ",
+        img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
     }
 ];
 let productJSON = JSON.stringify(products);
