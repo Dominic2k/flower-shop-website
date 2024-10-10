@@ -43,7 +43,7 @@ function displayProductDetail() {
         content += `</div>`;
         content += `<div class="mb-3">`;
         content += `<button class="btn btn-danger" onclick="add()">Add to cart</button>`;
-        content += `<button class="btn btn-warning" onclick="order()">Buy now</button>`;
+        content += `<a href="payment.html?id=` + product.id + `" class="btn btn-warning">Buy now</a>`;
         content += `</div>`;
         content += `<p id="product-describe">` + product.describe + `</p>`;
         content += `</div>`;
