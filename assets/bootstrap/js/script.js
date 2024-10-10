@@ -215,6 +215,26 @@ const products = [
         describe: 'Helo',
         price: "$64.00",
         img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+    },
+    {
+        id: 7,
+        name: 'White Roses',
+        code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Helo',
+        price: "$64.00",
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
+    },
+    {
+        id: 8,
+        name: 'White Roses',
+        code: 'TC102501',
+        color: 'red',
+        title: 'Love',
+        describe: 'Helo',
+        price: "$64.00",
+        img: "https://flowersight.com/wp-content/uploads/2021/02/bo-hoa-hinh-trai-tim.jpg"
     }
 ];
 let productJSON = JSON.stringify(products);
@@ -234,9 +254,7 @@ function showListProducts() {
 
     for (let i = 0; i < storedProducts.length; i++) {
         content += `<div class="product-item">`
-        content += `<a href="detail.html?id=` + products[i].id + `">`;
-        content += `<img src="` + products[i].img + `" class="card-img" style="height: 400px;">`;
-        content += `<a href="productDetail.html?id=` + storedProducts[i].id + `">`;
+        content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
         content += `<img src="` + storedProducts[i].img + `" class="card-img" style="height: 400px;">`;
         content += `</a>`
         content += `<div class="card-body">`;
@@ -246,6 +264,7 @@ function showListProducts() {
         content += `</div>`;
         content += `</div>`;
     }
+    console.log(content);
     document.getElementById('products').innerHTML = content;
 }
 
