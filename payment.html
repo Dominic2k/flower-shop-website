@@ -7,7 +7,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f8d3d3;
         }
         .container {
             margin-top: 20px;
@@ -30,81 +30,80 @@
 <body>
     <div class="container">
         <div class="section">
-            <h5>Thông Tin Sản Phẩm</h5>
+            <h5>Product Information</h5>
             <div id="cartItems"></div>
-            <h5 class="total">Tổng tiền: <span id="totalPrice">0 VNĐ</span></h5>
         </div>
 
         <div class="section">
-            <h5>Thông Tin Cá Nhân</h5>
+            <h5>Personal Information</h5>
             <div class="form-group">
-                <label for="name">Họ và Tên</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên của bạn">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn">
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
             </div>
             <div class="form-group">
-                <label for="phone">Số Điện Thoại</label>
-                <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại của bạn">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
             </div>
         </div>
 
         <div class="section">
-            <h5>Địa Chỉ Giao Hàng</h5>
+            <h5>Shipping Address</h5>
             <div class="form-group">
-                <label for="address">Địa Chỉ</label>
-                <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ của bạn">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter your address">
             </div>
             <div class="form-group">
-                <label for="city">Thành Phố</label>
-                <input type="text" class="form-control" id="city" placeholder="Nhập thành phố của bạn">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter your city">
             </div>
             <div class="form-group">
-                <label for="country">Quốc Gia</label>
-                <input type="text" class="form-control" id="country" placeholder="Nhập quốc gia của bạn">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" placeholder="Enter your country">
             </div>
         </div>
 
         <div class="section">
-            <h5>Lưu Ý Cho Người Bán</h5>
-            <textarea class="form-control" rows="3" placeholder="Nhập lưu ý cho người bán..."></textarea>
+            <h5>Notes for Seller</h5>
+            <textarea class="form-control" rows="3" placeholder="Enter notes for the seller..."></textarea>
         </div>
 
         <div class="section">
-            <h5>Nhập Voucher</h5>
-            <input type="text" class="form-control" id="voucherCode" placeholder="Nhập mã voucher nếu có">
-            <button class="btn btn-secondary mt-2" onclick="applyVoucher()">Áp Dụng</button>
+            <h5>Enter Voucher</h5>
+            <input type="text" class="form-control" id="voucherCode" placeholder="Enter voucher code if available">
+            <button class="btn btn-secondary mt-2" onclick="applyVoucher()">Apply</button>
         </div>
 
         <div class="section">
-            <h5>Phương Thức Thanh Toán</h5>
+            <h5>Payment Method</h5>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="paymentMethod" id="cash" value="cash" checked>
-                <label class="form-check-label" for="cash">Tiền mặt khi giao hàng</label>
+                <label class="form-check-label" for="cash">Cash on Delivery</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card">
-                <label class="form-check-label" for="card">Thẻ tín dụng / Ghi nợ</label>
+                <label class="form-check-label" for="card">Credit / Debit Card</label>
             </div>
             <div id="card-details" style="display: none;">
                 <div class="form-group">
-                    <label for="cardNumber">Số Thẻ</label>
-                    <input type="text" class="form-control" id="cardNumber" placeholder="Nhập số thẻ của bạn">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="Enter your card number">
                 </div>
                 <div class="form-group">
-                    <label for="expDate">Ngày hết hạn</label>
+                    <label for="expDate">Expiration Date</label>
                     <input type="text" class="form-control" id="expDate" placeholder="MM/YY">
                 </div>
                 <div class="form-group">
-                    <label for="cvc">Mã CVC</label>
-                    <input type="text" class="form-control" id="cvc" placeholder="Nhập mã CVC">
+                    <label for="cvc">CVC Code</label>
+                    <input type="text" class="form-control" id="cvc" placeholder="Enter your CVC code">
                 </div>
             </div>
         </div>
 
-        <button class="btn btn-primary btn-checkout" onclick="checkout()">Thanh Toán</button>
+        <button class="btn btn-primary btn-checkout" onclick="checkout()">Checkout</button>
     </div>
 
     <script>
@@ -112,42 +111,43 @@
             const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct')) || null;
             const cartItemsContainer = document.getElementById('cartItems');
             let totalPrice = 0;
-
+        
             if (!selectedProduct) {
-                cartItemsContainer.innerHTML = '<p>Không có sản phẩm nào được chọn!</p>';
+                cartItemsContainer.innerHTML = '<p>No products selected!</p>';
                 return;
             }
-
+        
             const totalProductPrice = selectedProduct.price;
             totalPrice += totalProductPrice;
-
+        
             cartItemsContainer.innerHTML += `
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="${selectedProduct.image}" class="card-img" alt="${selectedProduct.name}">
+                            <img src="${selectedProduct.img}" class="card-img" alt="${selectedProduct.name}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">${selectedProduct.name}</h5>
-                                <p class="card-text">Giá: ${selectedProduct.price.toLocaleString('vi-VN')} VNĐ</p>
-                                <p class="card-text"><small class="text-muted">Tổng: ${totalProductPrice.toLocaleString('vi-VN')} VNĐ</small></p>
+                                <p class="card-text">Price: ${selectedProduct.price.toLocaleString('vi-VN')} VNĐ</p>
+                                <p class="card-text"><h4>Total: ${totalProductPrice.toLocaleString('vi-VN')} VNĐ</h4></p>
                             </div>
                         </div>
                     </div>
                 </div>`;
-
+        
             document.getElementById('totalPrice').innerText = totalPrice.toLocaleString('vi-VN') + ' VNĐ';
         }
+        
 
         document.addEventListener("DOMContentLoaded", displaySelectedProducts);
 
         function applyVoucher() {
             const voucherCode = document.getElementById('voucherCode').value;
             if (voucherCode) {
-                alert(`Mã voucher "${voucherCode}" đã được áp dụng!`);
+                alert(`Voucher code "${voucherCode}" has been applied!`);
             } else {
-                alert("Vui lòng nhập mã voucher.");
+                alert("Please enter a voucher code.");
             }
         }
 
@@ -160,17 +160,16 @@
             const country = document.getElementById('country').value;
 
             if (!name || !email || !phone || !address || !city || !country) {
-                alert('Vui lòng điền đầy đủ thông tin!');
+                alert('Please fill in all the required information');
                 return;
             }
 
-            alert('Bạn đã thanh toán thành công!');
+            alert('You have successfully checked out!');
             localStorage.removeItem('selectedProduct'); 
             window.location.href = 'index.html';
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            displayProductDetail();
             document.querySelectorAll('input[name="paymentMethod"]').forEach((elem) => {
                 elem.addEventListener("change", function(event) {
                     const cardDetails = document.getElementById('card-details');
