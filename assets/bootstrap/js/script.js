@@ -289,7 +289,6 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
 
     let feedbackList = JSON.parse(localStorage.getItem('feedbacks')) || [];
 
-    // Thêm feedback mới vào đầu mảng
     feedbackList.unshift(newFeedback);
 
     // Lưu mảng feedback lại vào localStorage
