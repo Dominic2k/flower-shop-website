@@ -256,11 +256,11 @@ function showListProducts() {
         content += `<div class="product-item">`
         content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
         content += `<img src="` + storedProducts[i].img + `" class="card-img" style="height: 400px;">`;
-        content += `</a>`
+        content += `</a>`;
         content += `<div class="card-body">`;
         content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
         content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<a href="payment.html?id=` + storedProducts[i].id + `" class="card-btn-left">Buy now</a>`;
+        content += `<a href="#" onclick='buyNow(${JSON.stringify(storedProducts[i])})' class="card-btn-left">Buy now</a>`;
         content += `</div>`;
         content += `</div>`;
     }
@@ -268,6 +268,10 @@ function showListProducts() {
     document.getElementById('products').innerHTML = content;
 }
 
+function buyNow(product) {
+    localStorage.setItem('selectedProduct', JSON.stringify(product));
+    window.location.href = 'payment.html';
+}
 
 // JS Lưu Feedback vào local storage
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
