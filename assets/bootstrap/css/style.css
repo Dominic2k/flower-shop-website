@@ -1484,3 +1484,25 @@ align-items: center;
     text-decoration: none;
     color: #d9534f;
 }
+
+/* CSS Go to Top */
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  display: none; /* Ẩn nút khi trang không cuộn */
+  background-color: #aea7bf;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #8974bb;
+}
