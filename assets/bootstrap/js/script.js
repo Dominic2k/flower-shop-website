@@ -271,7 +271,7 @@ function showListProducts() {
 
 // JS Lưu Feedback vào local storage
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Ngăn chặn reload trang khi submit form
+    event.preventDefault();
     
     const name = document.getElementById('name').value;
     const occupation = document.getElementById('occupation').value;
@@ -366,6 +366,37 @@ function showListFeedback() {
         }
     }
 }
+
+// JS Go to top
+let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+};
+scrollToTopBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+
+// Js check go to cart button
+let isLogin = false; 
+let cartBtn = document.getElementById('cartBtn');
+
+cartBtn.addEventListener('click', function() {
+    if (isLogin) {
+        window.location.href = 'cart.html';
+    } else {
+        loginModal.style.display = 'block';
+    }
+});
+
 
 
 
