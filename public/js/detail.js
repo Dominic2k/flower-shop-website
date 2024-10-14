@@ -25,10 +25,10 @@ function displayProductDetail() {
 
     if (product) {
         let content = '';
-        content += `<div class="col-md-6">`;
+        content += `<div class="col-md-5">`;
         content += `<img src="` + product.img + `" class="card-img" style="height: 300px;">`;  // Đảm bảo sử dụng đúng biến
         content += `</div>`;
-        content += `<div class="col-md-6">`;
+        content += `<div class="col-md-7">`;
         content += `<h3 id="product-name">`+ product.name + `</h3>`;
         content += `<p id="product-price"><span>Price:</span>` + product.price + `</p>`;
         content += `<p id="product-color"><span>Color:</span>` + product.color + `</p>`;
@@ -42,10 +42,10 @@ function displayProductDetail() {
         content += `</div>`;
         content += `</div>`;
         content += `<div class="mb-3">`;
-        content += `<button class="btn btn-danger" onclick="add()">Add to cart</button>`;
-        content += `<a href="payment.html?id=` + product.id + `" class="btn btn-warning">Buy now</a>`;
+        content += `<button class="add-btn btn btn-danger" onclick="add()">Add to cart</button>`;
+        content += `<a href="payment.html?id=` + product.id + `" class="buy-btn btn btn-warning">Buy now</a>`;
         content += `</div>`;
-        content += `<p id="product-describe">` + product.describe + `</p>`;
+        content += `<p id="product-describe"><span>Describe:  </span>` + product.describe + `</p>`;
         content += `</div>`;
         document.getElementById('product-detail').innerHTML = content;  // Sửa lại thành innerHTML = thay vì +=
 
