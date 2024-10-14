@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-row {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            z-index: 1000;
+        }
+        .qty-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+        }
+        .qty-btn {
+            width: 40px; 
+            height: 40px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qty-input {
+            width: 60px;
+            height: 40px; 
+            text-align: center; 
+            margin: 0; 
+        }
+        .col-custom {
+            flex: 1; 
+            text-align: center; 
+        }
+        .qty-container > * {
+            margin: 0; 
+        }
+        .col-md-2 {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        
+    </style>
+</head>
+<body>
+    
+<div class="container mt-5">
+    <div class="row bg-light font-weight-bold">
+        <div class="col-md-1">
+            <input type="checkbox" id="select-all" onclick="toggleSelectAll()">
+        </div>
+        <div class="col-custom">Sản phẩm</div>
+        <div class="col-custom">Đơn Giá</div>
+        <div class="col-custom">Số lượng</div>
+        <div class="col-custom">Tổng Tiền</div>
+        <div class="col-custom">Thao Tác</div>
+    </div>
+    <div id="product-list"></div>
+</div>
+
+<div class="fixed-bottom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <strong>Tổng thanh toán (<span id="total-items">0</span> Sản phẩm): </strong><span id="total-amount">0 VNĐ</span>
+            </div>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-success" onclick="proceedToCheckout()">Mua Hàng</button>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <button class="btn btn-primary" onclick="toggleSelectAll()">Chọn Tất Cả</button>
+                <button class="btn btn-danger" onclick="removeSelected()">Xóa Tất Cả</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function displayCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = ''; 
+
+        cart.forEach(product => {
+            const totalPrice = product.price * product.quantity;
+
+            const productRow = `
+                <div class="row align-items-center product-row" id="product-row-${product.code}">
+                    <div class="col-md-1">
+                        <input type="checkbox" class="form-check-input" id="checkbox-${product.code}" onchange="updateTotalAmount()">
+                    </div>
+                    <div class="col-custom">
+                        <img src="${product.image}" class="product-image" alt="${product.name}">
+                        ${product.name}
+                    </div>
+                    <div class="col-custom" id="unit-price-${product.code}">${product.price.toLocaleString('vi-VN')} VNĐ</div>
+                    <div class="col-custom qty-container">
+                        <button class="btn btn-outline-secondary btn-sm qty-btn" onclick="updateQuantity(-1, '${product.code}')">-</button>
+                        <input type="number" id="quantity-${product.code}" value="${product.quantity}" min="1" class="form-control qty-input" onchange="updateTotal('${product.code}')" readonly>
+                        <button class="btn btn-outline-secondary btn-sm qty-btn" onclick="updateQuantity(1, '${product.code}')">+</button>
+                    </div>
+                    <div class="col-custom" id="total-price-${product.code}">${totalPrice.toLocaleString('vi-VN')} VNĐ</div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger btn-sm" onclick="removeProduct('${product.code}')">Xóa</button>
+                    </div>
+                </div>`;
+            productList.innerHTML += productRow;
+        });
+        updateTotalAmount();
+    }
+
+    function updateQuantity(change, productCode) {
+        const quantityInput = document.getElementById(`quantity-${productCode}`);
+        let quantity = parseInt(quantityInput.value);
+        quantity += change;
+        if (quantity < 1) quantity = 1; 
+        quantityInput.value = quantity;
+
+        updateTotal(productCode);
+        const cart = JSON.parse(localStorage.getItem('cart'));  
+        const product = cart.find(p => p.code === productCode);
+        product.quantity = quantity;
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        updateTotalAmount(); 
+    }
+
+    function updateTotal(productCode) {
+        const quantity = parseInt(document.getElementById(`quantity-${productCode}`).value);
+        const unitPrice = parseInt(document.getElementById(`unit-price-${productCode}`).innerText.replace(/\./g, '').replace(' VNĐ', ''));
+        const totalPriceElement = document.getElementById(`total-price-${productCode}`);
+        const totalPrice = unitPrice * quantity;
+        totalPriceElement.innerText = totalPrice.toLocaleString('vi-VN') + ' VNĐ'; 
+        updateTotalAmount(); 
+    }
+
+    function updateTotalAmount() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+        let totalAmount = 0;
+        let totalItems = 0;
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                const productCode = checkbox.id.split('-')[1];
+                const quantity = parseInt(document.getElementById(`quantity-${productCode}`).value);
+                const unitPrice = parseInt(document.getElementById(`unit-price-${productCode}`).innerText.replace(/\./g, '').replace(' VNĐ', ''));
+                totalAmount += unitPrice * quantity;
+                totalItems += quantity;
+            }
+        });
+
+        document.getElementById('total-amount').innerText = totalAmount.toLocaleString('vi-VN') + ' VNĐ';
+        document.getElementById('total-items').innerText = totalItems; 
+    }
+
+    function removeProduct(productCode) {
+        const productRow = document.getElementById(`product-row-${productCode}`);
+        productRow.style.display = 'none'; 
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        const newCart = cart.filter(p => p.code !== productCode);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+        displayCart(); 
+    }
+
+    function removeSelected() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                const productCode = checkbox.id.split('-')[1];
+                removeProduct(productCode);
+            }
+        });
+    }
+
+    function toggleSelectAll() {
+        const selectAllCheckbox = document.getElementById('select-all');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+        
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked; 
+        });
+
+        updateTotalAmount(); 
+    }
+
+    function proceedToCheckout() {
+        const selectedProducts = [];
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
+    
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                const productCode = checkbox.id.split('-')[1];
+                const quantity = parseInt(document.getElementById(`quantity-${productCode}`).value);
+                selectedProducts.push({ code: productCode, quantity: quantity });
+            }
+        });
+    
+        if (selectedProducts.length === 0) {
+            alert("Vui lòng chọn ít nhất một sản phẩm để thanh toán.");
+            return;
+        }
+    
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const productsForCheckout = cart.filter(product => selectedProducts.some(p => p.code === product.code));
+        
+        localStorage.setItem('selectedProducts', JSON.stringify(productsForCheckout)); 
+        window.location.href = 'payment.html';
+    }
+    
+
+    document.addEventListener("DOMContentLoaded", displayCart);
+</script>
+</body>
+</html>
