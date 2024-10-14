@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Thanh Toán</title>
+    <title>Payment</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -180,22 +180,22 @@
 
         // Ví dụ thông tin để test"
         let orders = [
-    {
-        order_id: "ORDER12345",
-        user_name: "Lavender Sprigs",
-        user_email: "pducdat2602@gmail.com",
-        user_phone: "0333934916",
-        delivery_address: "101B Lê Hữu Trác, Sơn Trà, Đà Nẵng",
-        product_name: "Rose Black",
-        code: "FL008",
-        color: "Black",
-        title: "Fragrant Lavender Sprigs",
-        describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
-        price: "127.00đ",
-        quantity: "1",
-        img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
-    }
-];
+            {
+                order_id: "ORDER12345",
+                user_name: "Phạm Đức Đạt",
+                user_email: "pducdat2602@gmail.com",
+                user_phone: "0333934916",
+                delivery_address: "101B Lê Hữu Trác, Sơn Trà, Đà Nẵng",
+                product_name: "Rose Black",
+                code: "FL008",
+                color: "Black",
+                title: "Fragrant Lavender Sprigs",
+                describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
+                price: "127.00đ",
+                quantity: "1",
+                img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
+            }
+        ];
 
 let orderJSON = JSON.stringify(orders);
 localStorage.setItem('orders', orderJSON);
@@ -207,8 +207,15 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
     
 
     if (orders && orders.length > 0) {
-        const userEmail = orders[0].user_email;
         const orderId = orders[0].order_id;
+        const userEmail = orders[0].user_email;
+        const userName = orders[0].user_name;
+        const userPhone = orders[0].user_phone;
+        const deliveryAddress = orders[0].delivery_address;
+        const productName = orders[0].product_name;
+        const productPrice = orders[0].price;
+        const prductQuantity = orders[0].quantity;
+        const productImg = orders[0].img;
         
         // Kiểm tra thông tin email và mã đơn hàng
         if (!userEmail || !orderId) {
@@ -217,14 +224,21 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
         }
 
         // Gửi dữ liệu tới server qua API /send-email
-        fetch('http://127.0.0.1:3000/send-email', {
+        fetch('http://localhost:3000/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                order_id: orderId,
                 user_email: userEmail,
-                order_id: orderId
+                user_name: userName,
+                user_phone: userPhone,
+                delivery_address: deliveryAddress,
+                product_name: productName,
+                price: productPrice,
+                quantity: prductQuantity,
+                img: productImg,
             })
         })
         .then(async response => {
