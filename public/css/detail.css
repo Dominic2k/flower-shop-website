@@ -11,15 +11,17 @@
 }
 
 .row {
- margin:5px;
+ margin-top:25px;
 }
-
+#product-detail {
+  width:100%;
+}
 .card-img {
   width: auto;               /* Đảm bảo ảnh co dãn tự nhiên */
   height: 300px;             /* Chiều cao của ảnh */
   max-width: 100%;           /* Đảm bảo ảnh không vượt quá chiều rộng khung */
   object-fit: cover;
-  margin-right: 5px;   
+  margin-left: 50px;   
 }
 
 #product-price,
@@ -105,11 +107,19 @@
 
 .btn {
   margin-right: 20px; 
-  width:35%;
+  width:25%;
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 16px;
   border: none; 
+}
+
+.add-btn, .buy-btn {
+  color:black;
+}
+
+.add-btn:hover,.buy-btn:hover {
+  color: #fff;
 }
 
 .btn:hover {
