@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/a45cf66e19.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Homepage</title>
+	<link rel="icon" type="image/x-icon" href="./assets/bootstrap/img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font" />
+	<style>
+        html { line-height: 1.15; scroll-behavior: smooth; }
+		body { margin: 0; }
+		* { box-sizing: border-box; border-width: 0; border-style: solid; }
+		p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; }
+		button { background-color: transparent; }
+		button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
+		button, select { text-transform: none; }
+		button, [type="button"], [type="reset"], [type="submit"] { appearance: button; }
+		button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+		button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; }
+		a { color: inherit; text-decoration: none; }
+		input { padding: 2px 4px; }
+		img { display: block; }
+
+        .card-img-top {
+            max-width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        
+        .card-body {
+            height: 100px;
+        }
+        
+        .product-title {
+            margin-top: 3px;
+        }
+        
+        .product-price {
+            color: red;
+            font-weight: bold;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+        
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        .sidebar {
+            background-color: #ffcccb;
+            padding: 20px;
+            border-radius: 5px;
+            height: auto;
+            /* Đặt chiều cao tự động */
+            margin-top: 40px;
+        }
+        
+        .danhmuc {
+            align-items: center;
+            padding-bottom: 200px;
+        }
+        
+        .form-check {
+            font-size: 20px;
+        }
+        /* Card styling */
+        
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+        /* Product title and price */
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            margin-right: 10px;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            color: #ff6347;
+            font-weight: bold;
+        }
+        /* Button group styling */
+        
+        .card {
+            max-width: 300px;
+            height: 370px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .product:hover {
+            transform: scale(1.05);
+            /* Phóng to sản phẩm khi di chuột vào */
+        }
+        
+        .sanpham {
+            margin-left: 150px;
+            margin-top: 30px;
+        }
+        
+        .btn-primary {
+            margin-top: 10px;
+            /* Khoảng cách giữa nội dung và nút */
+            width: 100px;
+            /* Tùy chỉnh kích thước nút */
+            background-color: rgb(237, 237, 94);
+            color: black;
+            border: #fff;
+        }
+        
+        .m-0 {
+            font-size: 20px;
+        }
+        
+        .card-btn-left {
+            display: inline-block;
+            /* Hiển thị như một khối nội tuyến */
+            background-color: #e4f54e;
+            /* Màu nền là màu  vàng  */
+            color: white;
+            /* Màu chữ trắng */
+            text-decoration: none;
+            /* Bỏ gạch chân */
+            border-radius: 5px;
+            /* Bo tròn các góc */
+            padding: 10px 20px;
+            /* Đệm cho nút */
+            font-size: 16px;
+            /* Kích thước chữ */
+            cursor: pointer;
+            /* Con trỏ chuột khi di chuột qua nút */
+            transition: background-color 0.3s;
+            /* Hiệu ứng chuyển màu khi di chuột qua */
+        }
+        
+        .card-btn-left:hover {
+            background-color: #d4fd09;
+            /* Màu nền khi di chuột qua */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+            <a class="navbar-brand" href="index.html">
+              <h1>Heavenly Blossom</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#footer">Contact</a>
+                </li>
+                
+              </ul>
+              <form class="d-flex">
+                <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
+                <div class="icon-links user-icon">
+                  <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+                  <!-- Dropdown menu -->
+                  <div class="dropdown-menu">
+                    <a href="#" id="openLoginBtn">Login</a>
+                    <a href="#" id="openRegisterBtn">Register</a>
+                  </div>
+                </div>
+                <div class="icon-links cart" id="cartBtn">
+                  <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+              </form>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-4">
+        <div class="row">
+
+            <div class="col-md-3 sidebar">
+                <h1 style="text-align: center;">Danh Mục</h1>
+                <h5 style="margin-top: 20px;">MÀU SẮC</h5>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="mauSac" id="mauDo" value="mau-do">
+                    <label class="form-check-label" for="mauDo">Màu Đỏ</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="mauSac" id="mauVang" value="mau-vang">
+                    <label class="form-check-label" for="mauVang">Màu Vàng</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="mauSac" id="mauTim" value="mau-tim">
+                    <label class="form-check-label" for="mauTim">Màu Tím</label>
+                </div>
+                <h5 class="mt-4">CHỦ ĐỀ</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="occasion" id="hoaSinhNhat" value="hoa-sinh-nhat">
+                    <label class="form-check-label" for="hoaSinhNhat">Hoa Sinh Nhật</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="occasion" id="hoaKhaiTruong" value="hoa-khai-truong">
+                    <label class="form-check-label" for="hoaKhaiTruong">Hoa Khai Trương</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="occasion" id="hoaTinhYeu" value="hoa-tinh-yeu">
+                    <label class="form-check-label" for="hoaTinhYeu">Hoa Tình Yêu</label>
+                </div>
+                <h5 class="mt-4">Khoảng giá</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="priceRange" id="100to200" value="100to200">
+                    <label class="form-check-label" for="100to200">100.000đ - 200.000đ</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="priceRange" id="200to300" value="200to300">
+                    <label class="form-check-label" for="200to300">200.000đ - 300.000đ</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="priceRange" id="300to500" value="300to500">
+                    <label class="form-check-label" for="300to500">300.000đ - 500.000đ</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="priceRange" id="500to1000" value="500to1000">
+                    <label class="form-check-label" for="500to1000">500.000đ - 1.000.000đ</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOrder" id="asc" value="asc">
+                    <label class="form-check-label" for="asc">Giá từ thấp đến cao</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sortOrder" id="desc" value="desc">
+                    <label class="form-check-label" for="desc">Giá từ cao đến thấp</label>
+                </div>
+
+                <div class="sanpham">
+                    <button id="show-all-products" class="btn btn-primary mb-3" style="background-color: antiquewhite; color: black; border: #fff; width: 150px;">Tất cả sản phẩm</button>
+                </div>
+
+                <h1 style="text-align: center;">Nổi bật</h1>
+                <ul class="list-unstyled mt-3">
+                    <li class="d-flex align-items-center mb-3" id="17">
+                        <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/2-8-fe0d0510-5de8-4545-b1f8-fbeb8849c23f.jpg?v=1517209220047" alt="Thành công" class="img-fluid me-2" style="width: 70px; height: 70px;">
+                        <div>
+                            <p class="m-0">Thành công</p>
+                            <p class="m-0 product-price">400.000đ <span class="original-price">500.000đ</span></p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3" id="18">
+                        <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/1-2-6552ac86-4e90-451b-ac32-b74f540e10af.jpg?v=1517209130243" alt="Ngày xanh" class="img-fluid me-2" style="width: 70px; height: 70px;">
+                        <div>
+                            <p class="m-0">Ngày xanh</p>
+                            <p class="m-0 product-price">500.000đ <span class="original-price">600.000đ</span></p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3" id="19">
+                        <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/7-7-d64e6abc-ef0d-43d9-a738-50134cf9621d.jpg?v=1517209175827" alt="Kiểu sa" class="img-fluid me-2" style="width: 70px; height: 70px;">
+                        <div>
+                            <p class="m-0">Kiểu sa</p>
+                            <p class="m-0 product-price">450.000đ</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3" id="20">
+                        <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/9.jpg?v=1516258275637" alt="Hướng mùa xuân" class="img-fluid me-2" style="width: 70px; height: 70px;">
+                        <div>
+                            <p class="m-0">Hướng mùa xuân</p>
+                            <p class="m-0 product-price">550.000đ</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-center mb-3" id="21">
+                        <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/8.jpg?v=1516258804190" alt="Tình yêu ngọt ngào" class="img-fluid me-2" style="width: 70px; height: 70px;">
+                        <div>
+                            <p class="m-0">Tình yêu ngọt ngào</p>
+                            <p class="m-0 product-price">1.200.000đ</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <h5>TẤT CẢ SẢN PHẨM</h5>
+                <div class="row mt-3" id="product-list"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="cartItems"></div>
+
+    <div class="footer" id="footer">
+        <div class="footer-info">
+            <h3>Heavenly Blossom</h3>
+            <p>This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
+            <div class="footer-icon">
+                <a href="https://x.com/Dominic2kJs"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/ph%E1%BA%A1m-%C4%91%E1%BB%A9c-%C4%91%E1%BA%A1t-85456b289/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://web.facebook.com/Dominic2kJs/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://github.com/Dominic2k"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+        <div class="footer-shop-address">
+            <h5>HEAVELY BLOSSOM  SHOP</h5>
+            <p>Main store: 99 To Hien Thanh, Phuoc My, Son Tra, Da Nang</p>
+            <p>Ha Noi Store: 65 Tran Phu, Ba Dinh, Ha Noi</p>
+        </div>
+        <div class="footer-qr">
+            <p>Scan our QR Code</p>
+            <img src="./img/frame.png" alt="">
+        </div>
+        <div class="copy-right">
+            Copyright ©2024 Heavenly Blossom. All rights reserved.
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dữ liệu sản phẩm ban đầu
+        const products = [{
+            id: 1,
+            title: "Morning Kiss",
+            price: "1.000.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
+            occasion: "hoa-sinh-nhat",
+            color: "mau-do",
+            badgeText: "NEW",
+
+        }, {
+            id: 2,
+            title: "Ngày Có Nắng",
+            price: "300.000 ₫",
+            originalPrice: "930.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
+            occasion: "hoa-sinh-nhat",
+            color: "mau-vang",
+            badgeText: "NEW"
+        }, {
+            id: 3,
+            title: "Ánh Dương 2",
+            price: "800.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
+            occasion: "hoa-sinh-nhat",
+            color: "mau-vang",
+            badgeText: "NEW"
+        }, {
+            id: 4,
+            title: "Sunflower",
+            price: "100.000 ₫",
+            originalPrice: "930.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
+            occasion: "hoa-sinh-nhat",
+            color: "mau-vang",
+            badgeText: "SALE"
+        }, {
+            id: 5,
+            title: "Purple Love",
+            price: "600.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
+            occasion: "hoa-tinh-yeu",
+            color: "mau-tim",
+            badgeText: "NEW"
+        }, {
+            id: 6,
+            title: "Beauty Queen",
+            price: "200.000 ₫",
+            originalPrice: "600.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
+            occasion: "hoa-tinh-yeu",
+            color: "mau-tim",
+            badgeText: "SALE"
+        }, {
+            id: 7,
+            title: "Bùng Cháy 3",
+            price: "400.000 ₫",
+            originalPrice: "700.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
+            occasion: "hoa-khai-truong",
+            color: "mau-do",
+            badgeText: "SALE"
+        }, {
+            id: 8,
+            title: "Rustic",
+            price: "300.000 ₫",
+            originalPrice: "800.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
+            occasion: "hoa-tinh-yeu",
+            color: "mau-vang",
+            badgeText: "SALE"
+        }, {
+            id: 9,
+            title: "Vững Bền",
+            price: "600.000 ₫",
+            originalPrice: "700.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
+            occasion: "hoa-khai-truong",
+            color: "mau-do",
+            badgeText: "SALE"
+        }, {
+            id: 10,
+            title: "Thành Đạt",
+            price: "1.600.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
+            occasion: "hoa-khai-truong",
+            color: "mau-vang",
+            badgeText: "NEW"
+        }, {
+            id: 11,
+            title: "Only Rose",
+            price: "190.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
+            occasion: "hoa-tinh-yeu",
+            color: "mau-do",
+            badgeText: "NEW"
+        }, {
+            id: 12,
+            title: "Lan Hồ Điệp Mẫu 4",
+            price: "600.000 ₫",
+            originalPrice: "700.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
+            occasion: "hoa-khai-truong",
+            color: "mau-tim",
+            badgeText: "SALE"
+        }, {
+            id: 13,
+            title: "Thạch thảo",
+            price: "1.400.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/3573_thach-thao.jpg",
+            occasion: "hoa-sinh-nhat",
+            color: "mau-tim",
+            badgeText: "NEW"
+        }, {
+            id: 14,
+            title: "Only Rose",
+            price: "120.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13196_mercy-2.jpg",
+            occasion: "hoa-khai-truong",
+            color: "mau-do",
+            badgeText: "NEW"
+        }, {
+            id: 15,
+            title: "Món quà tặng em",
+            price: "800.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/13906_mon-qua-hanh-phuc.jpg",
+            occasion: "hoa-tinh-yeu",
+            color: "mau-tim",
+            badgeText: "NEW"
+        }, {
+            id: 16,
+            title: "Tình cờ",
+            price: "150.000 ₫",
+            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13252_tinh-co.jpg",
+            occasion: "hoa-sinh-nhat",
+            color: "mau-tim",
+            badgeText: "NEW"
+        }];
+
+
+        localStorage.setItem('products', JSON.stringify(products));
+
+        if (!localStorage.getItem('products')) {
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+
+
+
+        function loadProductsFromLocalStorage() {
+            const productsFromStorage = localStorage.getItem('products');
+            return productsFromStorage ? JSON.parse(productsFromStorage) : [];
+        }
+
+        // Tải sản phẩm lên giao diện
+        function loadProducts() {
+            const productsToDisplay = loadProductsFromLocalStorage();
+            displayProducts(productsToDisplay);
+        }
+
+        // Hàm hiển thị sản phẩm
+        function displayProducts(products) {
+            let row = '';
+            products.forEach(product => {
+                row += `
+        <div class="col-md-3 mb-3">
+            <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
+                <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
+                <div class="card-body">
+                    <p class="product-title">${product.title}</p>
+                    <p>
+                        <span class="original-price">${product.originalPrice || ''}</span>
+                        <span class="product-price">${product.price}</span>
+                    </p>
+                    <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                </div>
+            </div>
+        </div>`;
+            });
+            document.getElementById('product-list').innerHTML = row;
+        }
+
+        // Gọi hàm tải sản phẩm khi trang được tải
+        window.onload = loadProducts;
+
+        // Khởi động ứng dụng
+        loadProducts();
+
+        // Hàm lọc và sắp xếp sản phẩm
+        function filterProducts() {
+            const selectedColorElement = document.querySelector('input[name="mauSac"]:checked');
+            const selectedOccasionElement = document.querySelector('input[name="occasion"]:checked');
+            const selectedPriceRangeElement = document.querySelector('input[name="priceRange"]:checked');
+
+            const selectedColor = selectedColorElement ? selectedColorElement.value : null;
+            const selectedOccasion = selectedOccasionElement ? selectedOccasionElement.value : null;
+            const selectedPriceRange = selectedPriceRangeElement ? selectedPriceRangeElement.value : null;
+
+            let productsToDisplay = loadProductsFromLocalStorage();
+
+            // Lọc theo màu sắc
+            if (selectedColor) {
+                productsToDisplay = productsToDisplay.filter(product => product.color === selectedColor);
+            }
+
+            // Lọc theo dịp
+            if (selectedOccasion) {
+                productsToDisplay = productsToDisplay.filter(product => product.occasion === selectedOccasion);
+            }
+
+            // Lọc theo khoảng giá
+            if (selectedPriceRange) {
+                productsToDisplay = productsToDisplay.filter(product => {
+                    const productPrice = parseInt(product.price.replace(/\D/g, ''));
+                    return (
+                        (selectedPriceRange === '100to200' && productPrice >= 100000 && productPrice <= 200000) ||
+                        (selectedPriceRange === '200to300' && productPrice > 200000 && productPrice <= 300000) ||
+                        (selectedPriceRange === '300to500' && productPrice > 300000 && productPrice <= 500000) ||
+                        (selectedPriceRange === '500to1000' && productPrice > 500000 && productPrice <= 1000000)
+                    );
+                });
+            }
+
+            // Sắp xếp theo giá
+            const selectedSortOrder = document.querySelector('input[name="sortOrder"]:checked');
+            if (selectedSortOrder) {
+                productsToDisplay.sort((a, b) => {
+                    const priceA = parseInt(a.price.replace(/\D/g, ''));
+                    const priceB = parseInt(b.price.replace(/\D/g, ''));
+                    return selectedSortOrder.value === 'asc' ? priceA - priceB : priceB - priceA;
+                });
+            }
+
+            displayProducts(productsToDisplay);
+        }
+
+        // Gán sự kiện cho nút "Tất cả sản phẩm"
+        document.getElementById('show-all-products').addEventListener('click', () => {
+            // Đặt lại tất cả các bộ lọc
+            document.querySelectorAll('input[name="mauSac"], input[name="occasion"], input[name="priceRange"], input[name="sortOrder"]').forEach(element => {
+                element.checked = false;
+            });
+            // Hiển thị tất cả sản phẩm
+            displayProducts(loadProductsFromLocalStorage());
+        });
+
+        // Gán sự kiện cho các radio button để lọc và sắp xếp
+        document.querySelectorAll('input[name="mauSac"], input[name="occasion"], input[name="priceRange"], input[name="sortOrder"]').forEach(element => {
+            element.addEventListener('change', filterProducts);
+        });
+    </script>
+
+    </div>
+</body>
+
+</html>
