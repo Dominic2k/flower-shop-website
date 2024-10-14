@@ -1,6 +1,7 @@
 {
   "name": "flower-shop-website",
   "version": "1.0.0",
+  "type": "module",
   "description": "Flower Shop Website là một ứng dụng web được phát triển bằng HTML, CSS và JavaScript. Dự án này cung cấp một nền tảng trực tuyến cho người dùng để tìm hiểu và mua hoa một cách dễ dàng. Người dùng có thể tìm kiếm hoa theo sở thích của mình và có thể lọc theo màu sắc, giá cả và chủ đề mong muốn. Người dùng cũng có thể xem chi tiết sản phẩm, thêm sản phẩm vào giỏ hàng và thực hiện quá trình đăng nhập và đăng ký.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "nodemailer": "^6.9.15"
   }
 }
