@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/a45cf66e19.js" crossorigin="anonymous"></script>
+
     <style>
         body {
             background-color: #f8d3d3;
@@ -28,11 +32,38 @@
     </style>
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+            <a class="navbar-brand" href="#">
+              <h1>Heavenly Blossom</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
+                <div class="icon-links cart">
+                  <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+              </form>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-        <div class="section">
-            <h5>Product Information</h5>
-            <div id="cartItems"></div>
-        </div>
+        <h1 class="mt-5">Payment</h1>
+        <div class="section" id="product-detail"></div>
 
         <div class="section">
             <h5>Personal Information</h5>
@@ -102,53 +133,46 @@
                 </div>
             </div>
         </div>
-
-        <button id="orderBtn" class="btn btn-primary btn-checkout" type="button">Buy now</button>
+        <button class="btn btn-primary btn-checkout mt-4" onclick="checkout()">Buy now</button>
     </div>
 
     <script>
-        function displaySelectedProducts() {
-            const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct')) || null;
-            const cartItemsContainer = document.getElementById('cartItems');
-            let totalPrice = 0;
-        
-            if (!selectedProduct) {
-                cartItemsContainer.innerHTML = '<p>No products selected!</p>';
-                return;
-            }
-        
-            const totalProductPrice = selectedProduct.price;
-            totalPrice += totalProductPrice;
-        
-            cartItemsContainer.innerHTML += `
-                <div class="card mb-3">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="${selectedProduct.img}" class="card-img" alt="${selectedProduct.name}">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">${selectedProduct.name}</h5>
-                                <p class="card-text">Price: ${selectedProduct.price.toLocaleString('vi-VN')} VNĐ</p>
-                                <p class="card-text" id="totalPrice"><h4>Total: ${totalProductPrice.toLocaleString('vi-VN')} VNĐ</h4></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-        
-            document.getElementById('totalPrice').innerText = totalPrice.toLocaleString('vi-VN') + ' VNĐ';
+        // Lấy tham số từ URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get(param), 10); // Chuyển thành số nguyên
         }
-        
 
-        document.addEventListener("DOMContentLoaded", displaySelectedProducts);
+        // Hiển thị sản phẩm đã chọn trên trang thanh toán
+        function displaySelectedProduct() {
+            const id = getQueryParam('id'); // Lấy ID từ URL
+            const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+
+            const product = storedProducts.find(product => product.id === id);
+            const productDetailContainer = document.getElementById('product-detail');
+
+            if (product) {
+                let content = `
+                    <div class="product-item">
+                        <img src="${product.img}" class="card-img" style="height: 400px; width: 400px;">
+                        <div class="card-body">
+                            <h3 class="card-title">${product.name}</h3>
+                            <p class="card-text">${product.price}</p>
+                            <p class="card-text">${product.describe}</p>
+                        </div>
+                    </div>`;
+                productDetailContainer.innerHTML = content;
+            } else {
+                console.error('Sản phẩm không tồn tại');
+                productDetailContainer.innerHTML = '<p>Sản phẩm không tồn tại.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', displaySelectedProduct);
 
         function applyVoucher() {
             const voucherCode = document.getElementById('voucherCode').value;
-            if (voucherCode) {
-                alert(`Voucher code "${voucherCode}" has been applied!`);
-            } else {
-                alert("Please enter a voucher code.");
-            }
+            alert(voucherCode ? `Voucher "${voucherCode}" applied!` : "Please enter a voucher code.");
         }
 
         function checkout() {
@@ -159,21 +183,31 @@
             const city = document.getElementById('city').value;
             const country = document.getElementById('country').value;
 
-            if (!name || !email || !phone || !address || !city || !country) {
-                alert('Please fill in all the required information');
+            if (![name, email, phone, address, city, country].every(Boolean)) {
+                alert('Please fill in all required information.');
                 return;
             }
 
-            alert('You have successfully checked out!');
-            localStorage.removeItem('selectedProduct'); 
+            alert('Checkout successful!');
+            localStorage.removeItem('selectedProduct');
             window.location.href = 'index.html';
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('input[name="paymentMethod"]').forEach((elem) => {
-                elem.addEventListener("change", function(event) {
-                    const cardDetails = document.getElementById('card-details');
-                    cardDetails.style.display = event.target.value === 'card' ? 'block' : 'none';
+                elem.addEventListener('change', () => {
+                    document.getElementById('card-details').style.display = 
+                        elem.value === 'card' ? 'block' : 'none';
+                });
+            });
+
+            // Tải và lưu thông tin người dùng
+            const savedInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
+            ['name', 'email', 'phone', 'address', 'city', 'country'].forEach(id => {
+                document.getElementById(id).value = savedInfo[id] || '';
+                document.getElementById(id).addEventListener('input', () => {
+                    savedInfo[id] = document.getElementById(id).value;
+                    localStorage.setItem('userInfo', JSON.stringify(savedInfo));
                 });
             });
         });
