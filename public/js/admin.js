@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const productTableBody = document.getElementById('productTableBody');
     const createProductBtn = document.getElementById('createProductBtn');
-    const modalElement = document.getElementById('modal');
-    const modalTitle = document.getElementById('modalTitle');
+    const modalElement = document.getElementById('modalProduct');
+    const modalTitle = document.getElementById('modalTitleProduct');
     const saveProductBtn = document.getElementById('saveProductBtn');
     const productNameInput = document.getElementById('productName');
     const productImageInput = document.getElementById('productImage');
@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${product.price}</td>
             <td>${product.describe}</td>
             <td>
-                <button class="edit-btn btn btn-warning btn-sm" data-id="${product.id}">Edit</button>
-                <button class="delete-btn btn btn-danger btn-sm" data-id="${product.id}">Delete</button>
+                <i class="edit-btn fa fa-edit" style="font-size:20px" data-id="${product.id}"></i>
+                <i class="delete-btn fa fa-trash" style="font-size:20px" data-id="${product.id}"></i>
             </td>
             `;
             productTableBody.appendChild(row);

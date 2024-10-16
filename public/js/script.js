@@ -132,6 +132,7 @@ document.getElementById('register-btn').addEventListener('click', function() {
 });
 
 // Đăng nhập người dùng
+let isLogin = false;
 document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
@@ -144,6 +145,7 @@ document.getElementById('login-btn').addEventListener('click', function() {
 
     if (user) {
         showAlert('Login successful!');
+        isLogin = true;
         // Có thể thêm logic để chuyển hướng người dùng sau khi đăng nhập thành công
     } else {
         showAlert('Invalid username or password', 'danger');
@@ -244,7 +246,7 @@ localStorage.setItem('products', productJSON);
 
 function showListProducts() {
     let storedProducts = JSON.parse(localStorage.getItem('products'));
-    
+
     if (!storedProducts || storedProducts.length === 0) {
         document.getElementById('products').innerHTML = '<p>No products available.</p>';
         return;
@@ -260,17 +262,14 @@ function showListProducts() {
         content += `<div class="card-body">`;
         content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
         content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<a href="#" onclick='buyNow(${JSON.stringify(storedProducts[i])})' class="card-btn-left">Buy now</a>`;
+        content += `<a href="payment.html?id=` + storedProducts[i].id + `" class="card-btn-left">Buy now</a>`;
         content += `</div>`;
         content += `</div>`;
     }
+
     document.getElementById('products').innerHTML = content;
 }
 
-function buyNow(product) {
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
-    window.location.href = 'payment.html';
-}
 
 // JS Lưu Feedback vào local storage
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
@@ -332,6 +331,7 @@ function showListFeedback() {
                             flowers from this shop. Highly recommend!'
         }
     ];
+
     
     // Store feedbacks in local storage
     let feedbackJSON = JSON.stringify(feedbacks);
@@ -388,7 +388,6 @@ scrollToTopBtn.addEventListener("click", function() {
 
 
 // Js check go to cart button
-let isLogin = false; 
 let cartBtn = document.getElementById('cartBtn');
 
 cartBtn.addEventListener('click', function() {
