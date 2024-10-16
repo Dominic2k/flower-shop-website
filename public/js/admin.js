@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${product.price}</td>
             <td>${product.describe}</td>
             <td>
-                <button class="edit-btn btn btn-sm" data-id="${product.id}">Edit</button>
-                <button class="delete-btn btn btn-sm" data-id="${product.id}">Delete</button>
+                <i class="edit-btn fa fa-edit" style="font-size:20px" data-id="${product.id}"></i>
+                <i class="delete-btn fa fa-trash" style="font-size:20px" data-id="${product.id}"></i>
             </td>
             `;
             productTableBody.appendChild(row);

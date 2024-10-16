@@ -28,27 +28,22 @@ body {
 
 /* Loại bỏ nowrap cho cột thứ 8 để cho phép hiển thị toàn bộ nội dung */
 .table th:nth-child(8), .table td:nth-child(8) {
-    white-space: normal; /* Cho phép xuống dòng */
-    /* overflow: visible; */
-    /* Hiển thị toàn bộ nội dung mà không cắt */
+    /* white-space: normal;  */
+    width: 100px;
 }
+
+.table th:nth-child(7),  .table td:nth-child(7), 
+.table th:nth-child(5),  .table td:nth-child(5){
+    width: 150px;
+}
+
 .table th:nth-child(1), .table td:nth-child(1) {
     width: 50px; /* Chiều rộng nhỏ nhất cho cột ID */
 }
 
 /* CSS cho nút "Edit" và "Delete"*/
-.edit-btn {
-    background-color: #ffc107; 
-    margin-bottom: 10px;  
-}
-
-.delete-btn {
-    background-color: red; 
-}
-
 .edit-btn, .delete-btn {
-    width:100%;
-    color: white;         
+    color: black;        
     border: none;          
     padding: 5px 10px;     
     border-radius: 10px; 
@@ -57,8 +52,7 @@ body {
 }
 
 .delete-btn:hover, .edit-btn:hover, .ad-btn:hover {
-    color: black;
-    background-color: #b19cd9;
+    color: #f37006;
 }
 
 .btn:focus, .btn:active {
@@ -75,6 +69,7 @@ body {
     margin-left: 5px;
     width: 90%;
     background-color: #fff;
+    left:20%;
 }
 
 .admin-modal .modal-title {
