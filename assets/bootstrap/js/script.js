@@ -97,7 +97,7 @@ const showAlert = (message, type = 'success') => {
     alertBox.style.display = 'block';
     setTimeout(() => {
         alertBox.style.display = 'none';
-    }, 3000); 
+    }, 2000); 
 };
 
 // Đăng ký người dùng mới
@@ -133,6 +133,7 @@ document.getElementById('register-btn').addEventListener('click', function() {
 });
 
 // Đăng nhập người dùng
+var isLogin = false;
 document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
@@ -145,6 +146,7 @@ document.getElementById('login-btn').addEventListener('click', function() {
 
     if (user) {
         showAlert('Login successful!');
+        isLogin = true;
         // Có thể thêm logic để chuyển hướng người dùng sau khi đăng nhập thành công
     } else {
         showAlert('Invalid username or password', 'danger');
