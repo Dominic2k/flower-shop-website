@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/a45cf66e19.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f8d3d3;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .total {
+            font-weight: bold;
+        }
+        .btn-checkout {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+            <a class="navbar-brand" href="#">
+              <h1>Heavenly Blossom</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
+                <div class="icon-links cart">
+                  <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+              </form>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="mt-5">Payment</h1>
+        <div class="section" id="product-detail"></div>
+
+        <div class="section">
+            <h5>Personal Information</h5>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+            </div>
+        </div>
+
+        <div class="section">
+            <h5>Shipping Address</h5>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter your address">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter your city">
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" placeholder="Enter your country">
+            </div>
+        </div>
+
+        <div class="section">
+            <h5>Notes for Seller</h5>
+            <textarea class="form-control" rows="3" placeholder="Enter notes for the seller..."></textarea>
+        </div>
+
+        <div class="section">
+            <h5>Enter Voucher</h5>
+            <input type="text" class="form-control" id="voucherCode" placeholder="Enter voucher code if available">
+            <button class="btn btn-secondary mt-2" onclick="applyVoucher()">Apply</button>
+        </div>
+
+        <div class="section">
+            <h5>Payment Method</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="cash" value="cash" checked>
+                <label class="form-check-label" for="cash">Cash on Delivery</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card">
+                <label class="form-check-label" for="card">Credit / Debit Card</label>
+            </div>
+            <div id="card-details" style="display: none;">
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="Enter your card number">
+                </div>
+                <div class="form-group">
+                    <label for="expDate">Expiration Date</label>
+                    <input type="text" class="form-control" id="expDate" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="cvc">CVC Code</label>
+                    <input type="text" class="form-control" id="cvc" placeholder="Enter your CVC code">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-checkout mt-4" onclick="checkout()">Buy now</button>
+    </div>
+
+    <script>
+        // Lấy tham số từ URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get(param), 10); // Chuyển thành số nguyên
+        }
+
+        // Hiển thị sản phẩm đã chọn trên trang thanh toán
+        function displaySelectedProduct() {
+            const id = getQueryParam('id'); // Lấy ID từ URL
+            const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+
+            const product = storedProducts.find(product => product.id === id);
+            const productDetailContainer = document.getElementById('product-detail');
+
+            if (product) {
+                let content = `
+                    <div class="product-item">
+                        <img src="${product.img}" class="card-img" style="height: 400px; width: 400px;">
+                        <div class="card-body">
+                            <h3 class="card-title">${product.name}</h3>
+                            <p class="card-text">${product.price}</p>
+                            <p class="card-text">${product.describe}</p>
+                        </div>
+                    </div>`;
+                productDetailContainer.innerHTML = content;
+            } else {
+                console.error('Sản phẩm không tồn tại');
+                productDetailContainer.innerHTML = '<p>Sản phẩm không tồn tại.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', displaySelectedProduct);
+
+        function applyVoucher() {
+            const voucherCode = document.getElementById('voucherCode').value;
+            alert(voucherCode ? `Voucher "${voucherCode}" applied!` : "Please enter a voucher code.");
+        }
+
+        function checkout() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const country = document.getElementById('country').value;
+
+            if (![name, email, phone, address, city, country].every(Boolean)) {
+                alert('Please fill in all required information.');
+                return;
+            }
+
+            alert('Checkout successful!');
+            localStorage.removeItem('selectedProduct');
+            window.location.href = 'index.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('input[name="paymentMethod"]').forEach((elem) => {
+                elem.addEventListener('change', () => {
+                    document.getElementById('card-details').style.display = 
+                        elem.value === 'card' ? 'block' : 'none';
+                });
+            });
+
+            // Tải và lưu thông tin người dùng
+            const savedInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
+            ['name', 'email', 'phone', 'address', 'city', 'country'].forEach(id => {
+                document.getElementById(id).value = savedInfo[id] || '';
+                document.getElementById(id).addEventListener('input', () => {
+                    savedInfo[id] = document.getElementById(id).value;
+                    localStorage.setItem('userInfo', JSON.stringify(savedInfo));
+                });
+            });
+        });
+
+        // Ví dụ thông tin để test"
+        let orders = [
+            {
+                order_id: "ORDER12345",
+                user_name: "Phạm Đức Đạt",
+                user_email: "pducdat2602@gmail.com",
+                user_phone: "0333934916",
+                delivery_address: "101B Lê Hữu Trác, Sơn Trà, Đà Nẵng",
+                product_name: "Rose Black",
+                code: "FL008",
+                color: "Black",
+                title: "Fragrant Lavender Sprigs",
+                describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
+                price: "127.00đ",
+                quantity: "1",
+                img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
+            }
+        ];
+
+let orderJSON = JSON.stringify(orders);
+localStorage.setItem('orders', orderJSON);
+
+document.getElementById('orderBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const orders = JSON.parse(localStorage.getItem('orders'));
+    
+
+    if (orders && orders.length > 0) {
+        const orderId = orders[0].order_id;
+        const userEmail = orders[0].user_email;
+        const userName = orders[0].user_name;
+        const userPhone = orders[0].user_phone;
+        const deliveryAddress = orders[0].delivery_address;
+        const productName = orders[0].product_name;
+        const productPrice = orders[0].price;
+        const prductQuantity = orders[0].quantity;
+        const productImg = orders[0].img;
+        
+        // Kiểm tra thông tin email và mã đơn hàng
+        if (!userEmail || !orderId) {
+            alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
+            return;
+        }
+
+        // Gửi dữ liệu tới server qua API /send-email
+        fetch('http://localhost:3000/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                order_id: orderId,
+                user_email: userEmail,
+                user_name: userName,
+                user_phone: userPhone,
+                delivery_address: deliveryAddress,
+                product_name: productName,
+                price: productPrice,
+                quantity: prductQuantity,
+                img: productImg,
+            })
+        })
+        .then(async response => {
+            const message = await response.text();
+            if (response.ok) {
+                alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
+            } else {
+                alert('Có lỗi xảy ra: ' + message);
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi:', error);
+            alert('Có lỗi xảy ra khi gửi yêu cầu.');
+        });
+    } else {
+        alert('Không có đơn hàng trong localStorage!');
+    }
+});
+
+    </script>
+    <script type="module" src="../server.js"></script>
+</body>
+</html>

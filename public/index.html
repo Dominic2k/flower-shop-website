@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/a45cf66e19.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Homepage</title>
+	<link rel="icon" type="image/x-icon" href="./assets/bootstrap/img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font" />
+	<style>
+		html { line-height: 1.15; scroll-behavior: smooth; }
+		body { margin: 0; }
+		* { box-sizing: border-box; border-width: 0; border-style: solid; }
+		p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; }
+		button { background-color: transparent; }
+		button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
+		button, select { text-transform: none; }
+		button, [type="button"], [type="reset"], [type="submit"] { appearance: button; }
+		button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+		button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; }
+		a { color: inherit; text-decoration: none; }
+		input { padding: 2px 4px; }
+		img { display: block; }
+	</style>
+	
+</head>
+<body onload="createdProducts(), showListProducts(), showListFeedback()">
+	<div class="container-fluid">
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+				<a class="navbar-brand" href="index.html">
+				  <h1>Heavenly Blossom</h1>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+				  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+					  <a class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="products.html">Products</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="AboutUS.html">About Us</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#footer">Contact</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#feedback-container">Feedback</a>
+					</li>
+				  </ul>
+				  <form class="d-flex">
+					<input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
+					<div class="icon-links user-icon">
+					  <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+					  <!-- Dropdown menu -->
+					  <div class="dropdown-menu">
+						<a href="#" id="openLoginBtn">Login</a>
+						<a href="#" id="openRegisterBtn">Register</a>
+					  </div>
+					</div>
+					<div class="icon-links cart" id="cartBtn">
+					  <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+					</div>
+				  </form>
+				</div>
+			</nav>
+		</header>
+		<div class="home-container">
+			<div class="sale-pannel">
+				<div class="time-count-down">
+					<h4>Deals of the Day</h4>
+					<div id="timer">
+						<span id="days"></span> Days 
+						<span id="hours"></span> Hours 
+						<span id="minutes"></span> Minutes 
+						<span id="seconds"></span> Seconds
+					</div>
+				</div>
+				<div class="sale-info">
+					<p class="new-arrivals">NEW ARRIVALS</p>
+					<p class="Vietnamese-Women-Day">Vietnamese Women's Day</p>
+					<p class="Exclusive">EXCLUSIVE offer 15% off this week</p>
+				</div>
+				<div class="sale-img">
+					<img src="./img/png-transparent-pink-and-red-petaled-flowers-painting-flower-decoupage-flower-watercolor-flower-arranging-photography-poster 1.png" alt="">
+				</div>
+			</div>
+			<!-- cta-wrapper -->
+			<div class="cta-wrapper">
+				<!--CTA component-->
+				<div class="thq-section-padding">
+					<div class="thq-section-max-width">
+						<div class="cta-accent2-bg">
+							<div class="cta-accent1-bg">
+								<div class="cta-container2">
+									<div class="cta-content">
+										<span class="thq-heading-2">
+											<span>Find the perfect flowers for any occasion</span>
+										</span>
+										<p class="thq-body-large">
+											<span>Browse our wide selection of fresh and beautiful flowers to find the perfect arrangement for your special event or loved one. </span>
+										</p>
+									</div>
+									<div class="cta-actions">
+										<button type="button" class="thq-button-filled cta-button">
+											<a href="products.html">Shop Now</a>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-title">
+				<h4>outstanding products(8)</h4>
+			</div>
+			<div id="products">
+			</div>
+			<!-- steps-wrapper -->
+			<div class="steps-wrapper">
+				<div class="steps-container1 thq-section-padding">
+					<div class="steps-max-width thq-section-max-width">
+						<div class="steps-container2 thq-grid-2">
+							<div class="steps-section-header">
+								<h2 class="thq-heading-2">
+									Discover the Power of Our Products
+								</h2>
+								<p class="thq-body-large">
+									We always want to provide the best, most beautiful products, in line with trends to bring you the best experiences.
+					</p>
+					<div class="steps-actions">
+						<button
+						class="thq-button-animated thq-button-filled steps-button"
+						>
+						<span class="thq-body-small">Discover</span>
+						</button>
+					</div>
+					</div>
+					<div class="steps-container3">
+					<div class="steps-container4 thq-card">
+						<h2 class="thq-heading-2">
+						<span>Choose Your Bouquet</span>
+						</h2>
+						<span class="steps-text14 thq-body-small">
+						<span>
+							Browse through our wide selection of beautifully
+							arranged bouquets for every occasion.
+						</span>
+						</span>
+						<label class="steps-text15 thq-heading-3">01</label>
+					</div>
+					<div class="steps-container5 thq-card">
+						<h2 class="thq-heading-2">
+						<span>Customize Your Order</span>
+						</h2>
+						<span class="steps-text17 thq-body-small">
+						<span>
+							Add a personal touch by selecting additional items or
+							customizing your bouquet with special requests.
+						</span>
+						</span>
+						<label class="steps-text18 thq-heading-3">02</label>
+					</div>
+					<div class="steps-container6 thq-card">
+						<h2 class="thq-heading-2">
+						<span>Provide Delivery Details</span>
+						</h2>
+						<span class="steps-text20 thq-body-small">
+						<span>
+							Enter the recipient's address and choose a delivery date
+							and time for a seamless experience.
+						</span>
+						</span>
+						<label class="steps-text21 thq-heading-3">03</label>
+					</div>
+					<div class="steps-container7 thq-card">
+						<h2 class="thq-heading-2">
+						<span>Complete Your Purchase</span>
+						</h2>
+						<span class="steps-text23 thq-body-small">
+						<span>
+							Review your order, select a payment method, and complete
+							your purchase to send love and joy with flowers.
+						</span>
+						</span>
+						<label class="steps-text24 thq-heading-3">04</label>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			</div>
+			<!-- testimonial-wrapper -->
+			<div class="testimonial-wrapper">
+			<!--Testimonial component-->
+			<div class="thq-section-padding">
+				<div class="testimonial-max-width thq-section-max-width">
+				<div class="testimonial-container10">
+					<h2 class="thq-heading-2"><span>Testimonials</span></h2>
+					<span class="testimonial-text11 thq-body-small">
+					<span>
+						Read what our customers have to say about their experience
+						with us.
+					</span>
+					</span>
+				</div>
+				<div class="thq-grid-2">
+					<div class="thq-animated-card-bg-2">
+					<div class="thq-animated-card-bg-1">
+						<div
+						data-animated="true"
+						class="thq-card testimonial-card1"
+						>
+						<div class="testimonial-container12">
+							<img
+							alt="Alice Johnson - Marketing Manager"
+							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE2OXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+							class="testimonial-image1"
+							/>
+							<div class="testimonial-container13">
+							<strong class="thq-body-large" id="first-feedback-name">
+							</strong>
+							<span class="thq-body-small" id="first-feedback-occupation">
+							</span>
+							</div>
+						</div>
+						<span class="testimonial-text14 thq-body-small" id="first-feedback-description">
+						</span>
+						</div>
+					</div>
+					</div>
+					<div class="thq-animated-card-bg-2">
+					<div class="thq-animated-card-bg-1">
+						<div
+						data-animated="true"
+						class="thq-card testimonial-card2"
+						>
+						<div class="testimonial-container14">
+							<img
+							alt="John Smith - Teacher"
+							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+							class="testimonial-image2"
+							/>
+							<div class="testimonial-container15">
+							<strong class="thq-body-large" id="second-feedback-name">
+							</strong>
+							<span class="thq-body-small" id="second-feedback-occupation">
+							</span>
+							</div>
+						</div>
+						<span class="testimonial-text17 thq-body-small" id="second-feedback-description">
+						</span>
+						</div>
+					</div>
+					</div>
+					<div class="thq-animated-card-bg-2">
+					<div class="thq-animated-card-bg-1">
+						<div
+						data-animated="true"
+						class="thq-card testimonial-card3"
+						>
+						<div class="testimonial-container16">
+							<img
+							alt="Emily Brown - Interior Designer"
+							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+							class="testimonial-image3"
+							/>
+							<div class="testimonial-container17">
+							<strong class="thq-body-large" id="third-feedback-name">
+							</strong>
+							<span class="thq-body-small" id="third-feedback-occupation">
+							</span>
+							</div>
+						</div>
+						<span class="testimonial-text20 thq-body-small" id="third-feedback-description">
+						</span>
+						</div>
+					</div>
+					</div>
+					<div class="thq-animated-card-bg-2">
+					<div class="thq-animated-card-bg-1">
+						<div
+						data-animated="true"
+						class="thq-card testimonial-card4"
+						>
+						<div class="testimonial-container18">
+							<img
+							alt="Michael Lee - Software Engineer"
+							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+							class="testimonial-image4"
+							/>
+							<div class="testimonial-container19">
+							<strong class="thq-body-large" id="fourth-feedback-name">
+							</strong>
+							<span class="thq-body-small" id="fourth-feedback-occupation">
+							</span>
+							</div>
+						</div>
+						<span class="testimonial-text23 thq-body-small" id="fourth-feedback-description">
+						</span>
+						</div>
+					</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			</div>
+			<div class="feedback-container" id="feedback-container">
+				<div class="feedback-title">
+					<h2>Feedback</h2>
+				</div>
+				<form id="feedbackForm">
+					<div class="feedback-row">
+						<div class="feedback-input-group">
+							<label for="name">Name:</label>
+							<input type="text" id="name" placeholder="Enter your name" required>
+						</div>
+						<div class="feedback-input-group">
+							<label for="occupation">Occupation:</label>
+							<input type="text" id="occupation" placeholder="Enter your occupation" required>
+						</div>
+					</div>
+					<div class="feedback-row">
+						<div class="feedback-input-group">
+							<label for="description">Description:</label>
+							<textarea id="description" placeholder="Enter your feedback" required></textarea>
+						</div>
+						<div class="feedback-extra">
+							<p>Need help? <a href="https://linktr.ee/Dominic2k">Contact us</a></p>
+						</div>
+					</div>
+					<div class="button-group">
+						<button type="submit">Send Feedback</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="footer" id="footer">
+			<div class="footer-info">
+				<h3>Heavenly Blossom</h3>
+				<p>This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
+				<div class="footer-icon">
+					<a href="https://x.com/Dominic2kJs"><i class="fa-brands fa-twitter"></i></a>
+					<a href="https://www.linkedin.com/in/ph%E1%BA%A1m-%C4%91%E1%BB%A9c-%C4%91%E1%BA%A1t-85456b289/"><i class="fa-brands fa-linkedin"></i></a>
+					<a href="https://web.facebook.com/Dominic2kJs/"><i class="fa-brands fa-facebook"></i></a>
+					<a href="https://github.com/Dominic2k"><i class="fa-brands fa-github"></i></a>
+				</div>
+			</div>
+			<div class="footer-shop-address">
+				<h5>HEAVELY BLOSSOM  SHOP</h5>
+				<p>Main store: 99 To Hien Thanh, Phuoc My, Son Tra, Da Nang</p>
+				<p>Ha Noi Store: 65 Tran Phu, Ba Dinh, Ha Noi</p>
+			</div>
+			<div class="footer-qr">
+				<p>Scan our QR Code</p>
+				<img src="./img/frame.png" alt="">
+			</div>
+			<div class="copy-right">
+				Copyright ©2024 Heavenly Blossom. All rights reserved.
+			</div>
+		</div>
+	</div>
+	<div class="form-container">
+		<div id="loginModal" class="modal">
+		<div id="alert-box" class="alert" style="display: none;" role="alert"></div>
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div id="login-form">
+				<h2 class="text-center">Welcome to HeavenlyBlossom</h2>
+				<p class="text-center">Sign in with</p>
+				<div class="d-flex justify-content-center mb-3">
+					<button class="btn btn-outline-secondary btn-social">
+						<i class="bi bi-google"></i>
+					</button>
+					<button class="btn btn-outline-secondary btn-social">
+						<i class="bi bi-facebook"></i>
+					</button>
+					<button class="btn btn-outline-secondary btn-social">
+						<i class="bi bi-twitter"></i>
+					</button>
+				</div>
+				<p class="text-center">Or</p>
+				<div class="mb-3">
+					<input type="text" id="login-username" class="form-control" placeholder="Username">
+				</div>
+				<div class="input-group mb-3">
+					<input type="password" id="login-password" class="form-control" placeholder="Password">
+					<button class="btn btn-outline-secondary" type="button" id="show-password">Show</button>
+				</div>
+				<div class="d-flex justify-content-end">
+					<a href="#" class="forgot-password" id="forgot-password-link">Forgot password?</a>
+				</div>
+				<div class="d-grid mt-3">
+					<button class="btn btn-primary" id="login-btn">SIGN IN</button>
+				</div>
+				<div class="mt-3 text-center">
+					<a href="#" id="show-register-form">CREATE ACCOUNT</a>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="registerModal" class="modal">
+			<div id="alert-box" class="alert alert-success" role="alert"></div>
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<div id="register-form">
+					<h2 class="text-center">Let's get started</h2>
+					<p class="text-center">Create Account with</p>
+					<div class="d-flex justify-content-center mb-3">
+						<button class="btn btn-outline-secondary btn-social">
+							<i class="bi bi-google"></i>
+						</button>
+						<button class="btn btn-outline-secondary btn-social">
+							<i class="bi bi-facebook"></i>
+						</button>
+						<button class="btn btn-outline-secondary btn-social">
+							<i class="bi bi-twitter"></i>
+						</button>
+					</div>
+					<p class="text-center">Or</p>
+					<div class="mb-3">
+					<input type="text" id="register-username" class="form-control" placeholder="Username">
+					</div>
+					<div class="mb-3">
+						<input type="email" id="register-email" class="form-control" placeholder="E-Mail Address">
+					</div>
+					<div class="input-group mb-3">
+						<input type="password" id="register-password" class="form-control" placeholder="Password">
+						<button class="btn btn-outline-secondary" type="button" id="show-password-register">Show</button>
+					</div>
+					<div class="d-flex justify-content-end">
+						<a href="#" class="forgot-password">Forgot password?</a>
+					</div>
+					<p class="terms-text">
+						By clicking Create account, you acknowledge you have read the agreed to our <a href="#">Terms Of Service</a>.
+					</p>
+					<div class="d-grid mt-3">
+						<button class="btn btn-primary" id="register-btn">CREATE ACCOUNT</button>
+					</div>
+					<div class="mt-3 text-center">
+						<a href="#" id="show-login-form">SIGN IN</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button id="scrollToTopBtn" title="Go to top">↑</button>
+</body>
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/script.js"></script>
+</html>

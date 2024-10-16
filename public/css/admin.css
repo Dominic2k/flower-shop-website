@@ -1,0 +1,94 @@
+body {
+    background-color: #fff ;
+}
+
+.ad-btn, .update-btn {
+    background-color: #d9534f;
+    color: white;         
+    border: none;          
+    padding: 5px 10px;     
+    border-radius: 10px; 
+    cursor: pointer;      
+    font-size: 14px;  
+}
+
+/* CSS cho table"*/
+.table {
+    table-layout: fixed;
+    width: 100%;
+    border: 2px solid black; /* Đường viền bao quanh bảng */
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    white-space: nowrap; /* Không cho phép xuống dòng */
+    overflow: hidden; /* Ẩn phần nội dung tràn ra khỏi ô */
+    text-overflow: ellipsis;  /* Hiển thị dấu "..." nếu nội dung quá dài */
+}
+
+/* Loại bỏ nowrap cho cột thứ 8 để cho phép hiển thị toàn bộ nội dung */
+.table th:nth-child(8), .table td:nth-child(8) {
+    white-space: normal; /* Cho phép xuống dòng */
+    /* overflow: visible; */
+    /* Hiển thị toàn bộ nội dung mà không cắt */
+}
+.table th:nth-child(1), .table td:nth-child(1) {
+    width: 50px; /* Chiều rộng nhỏ nhất cho cột ID */
+}
+
+/* CSS cho nút "Edit" và "Delete"*/
+.edit-btn {
+    background-color: #ffc107; 
+    margin-bottom: 10px;  
+}
+
+.delete-btn {
+    background-color: red; 
+}
+
+.edit-btn, .delete-btn {
+    width:100%;
+    color: white;         
+    border: none;          
+    padding: 5px 10px;     
+    border-radius: 10px; 
+    cursor: pointer;      
+    font-size: 14px;   
+}
+
+.delete-btn:hover, .edit-btn:hover, .ad-btn:hover {
+    color: black;
+    background-color: #b19cd9;
+}
+
+.btn:focus, .btn:active {
+    box-shadow: none !important; /* Loại bỏ bóng khi focus hoặc nhấn */
+  }
+  
+  /* CSS modal */
+.admin-modal .modal-body, .admin-modal .modal-header,.admin-modal .modal-footer {
+    padding: 5px; /* Giảm padding cho phần thân modal, header và footer của modal */ 
+}
+
+.admin-modal .modal-content {
+    padding: 0; /* Đảm bảo toàn bộ modal không có padding quá lớn */
+    margin-left: 5px;
+    width: 90%;
+    background-color: #fff;
+}
+
+.admin-modal .modal-title {
+    margin-bottom: 0;
+    line-height: var(--bs-modal-title-line-height);
+    text-align: center; /* Đảm bảo tiêu đề được căn giữa */
+    width: 100%;        /* Đảm bảo tiêu đề chiếm toàn bộ chiều rộng modal */
+}
+
+.admin-modal .modal-footer .btn {
+    margin: 0 auto;
+    background-color: #b19cd9;
+}
+
+
+
+
