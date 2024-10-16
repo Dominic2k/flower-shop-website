@@ -132,7 +132,7 @@ document.getElementById('register-btn').addEventListener('click', function() {
 });
 
 // Đăng nhập người dùng
-var isLogin = false;
+let isLogin = false;
 document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
@@ -390,7 +390,6 @@ scrollToTopBtn.addEventListener("click", function() {
 
 
 // Js check go to cart button
-let isLogin = false; 
 let cartBtn = document.getElementById('cartBtn');
 
 cartBtn.addEventListener('click', function() {
