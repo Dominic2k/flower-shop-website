@@ -244,7 +244,7 @@ localStorage.setItem('products', productJSON);
 
 function showListProducts() {
     let storedProducts = JSON.parse(localStorage.getItem('products'));
-    
+
     if (!storedProducts || storedProducts.length === 0) {
         document.getElementById('products').innerHTML = '<p>No products available.</p>';
         return;
@@ -253,24 +253,20 @@ function showListProducts() {
     let content = '';
 
     for (let i = 0; i < storedProducts.length; i++) {
-        content += `<div class="product-item">`
-        content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
-        content += `<img src="` + storedProducts[i].img + `" class="card-img" style="height: 400px;">`;
-        content += `</a>`;
-        content += `<div class="card-body">`;
-        content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
-        content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<a href="#" onclick='buyNow(${JSON.stringify(storedProducts[i])})' class="card-btn-left">Buy now</a>`;
-        content += `</div>`;
-        content += `</div>`;
+        const product = storedProducts[i];
+        content += `
+            <div class="product-item">
+                <img src="${product.img}" class="card-img" style="height: 400px;">
+                <div class="card-body">
+                    <h3 class="card-title">${product.name}</h3>
+                    <p class="card-text">${product.price}</p>
+                    <a href="payment.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                </div>
+            </div>`;
+            
     }
-    console.log(content);
-    document.getElementById('products').innerHTML = content;
-}
 
-function buyNow(product) {
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
-    window.location.href = 'payment.html';
+    document.getElementById('products').innerHTML = content;
 }
 
 // JS Lưu Feedback vào local storage
