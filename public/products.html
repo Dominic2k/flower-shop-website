@@ -285,7 +285,9 @@
 
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()">
+                    <input class=" form-control search-input" id="input-search" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()">
+                    <!--  code cũ -->
+                    <!-- <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()"> -->
                     <div class="icon-links user-icon">
                         <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
                         <!-- Dropdown menu -->
@@ -690,26 +692,51 @@
             element.addEventListener('change', filterProducts);
         });
 
+        // Giả sử bạn đã có sẵn danh sách sản phẩm trong localStorage
         function filterProductsBySearch() {
-            // Get the search input value and convert it to lowercase
-            const input = document.querySelector('.search-input').value.toLowerCase();
+            const inputInfo = document.getElementById('input-search').value.toLowerCase();
+            const allProducts = JSON.parse(localStorage.getItem('products')) || []; // Lấy sản phẩm từ localStorage
+            const productList = document.getElementById('product-list');
 
-            // Get all product items
-            const products = document.querySelectorAll('.product');
+            // Xóa nội dung sản phẩm hiện tại
+            productList.innerHTML = '';
 
-            // Loop through each product
-            products.forEach(product => {
-                // Get the product name and convert it to lowercase
-                const productName = product.textContent.toLowerCase();
+            // Tìm các sản phẩm khớp với từ khóa tìm kiếm
+            const filteredProducts = allProducts.filter(product =>
+                product.title.toLowerCase().includes(inputInfo)
+            );
 
-                // Check if the product name includes the search input
-                if (productName.includes(input)) {
-                    product.style.display = ''; // Show product
-                } else {
-                    product.style.display = 'none'; // Hide product
-                }
-            });
+            // Hiển thị các sản phẩm khớp
+            if (filteredProducts.length > 0) {
+                filteredProducts.forEach(product => {
+                    productList.innerHTML += createProductCard(product); // Tạo card cho sản phẩm
+                });
+            } else {
+                productList.innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+            }
         }
+
+        // Hàm tạo card sản phẩm
+        function createProductCard(product) {
+            return `
+        <div class="col-md-3 mb-3">
+            <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
+                <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
+                <div class="card-body">
+                    <p class="product-title">${product.title}</p>
+                    <p>
+                        <span class="original-price">${product.originalPrice || ''}</span>
+                        <span class="product-price">${product.price}</span>
+                    </p>
+                    <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                </div>
+            </div>
+        </div>`;
+        }
+
+        // Gán sự kiện cho ô tìm kiếm
+        document.getElementById('input-search').addEventListener('keyup', filterProductsBySearch);
     </script>
 
     </div>
