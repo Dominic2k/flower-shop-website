@@ -634,7 +634,7 @@
         }
 
         // Gọi hàm tải sản phẩm khi trang được tải
-        window.onload = loadProducts;
+        // window.onload = loadProducts;
 
         // Khởi động ứng dụng
         loadProducts();
@@ -746,9 +746,67 @@
 
         // Gán sự kiện cho ô tìm kiếm
         document.getElementById('input-search').addEventListener('keyup', filterProductsBySearch);
-    </script>
 
-    </div>
+    //-------------------------------------------------------------------------------------------------------------------------------------------------- 
+//JS Tìm kiếm từ homepage 
+// Lấy giá trị từ URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Hiển thị sản phẩm dựa trên tìm kiếm từ trang chủ
+function displayProductFromHomeSearch() {
+    const search_name = getQueryParam('search').toLowerCase(); // Dùng chuỗi cho tìm kiếm
+
+    let storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    
+    // Lọc sản phẩm dựa trên tiêu đề chứa chuỗi tìm kiếm
+    const filteredProducts = storedProducts.filter(product => 
+        product.title.toLowerCase().includes(search_name)
+    );
+
+    if (filteredProducts.length > 0) {
+        let row = '';
+        filteredProducts.forEach(product => {
+            row += `
+                <div class="col-md-3 mb-3">
+                    <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
+                        <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                        <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
+                        <div class="card-body">
+                            <p class="product-title">${product.title} </br>
+                                <span class="original-price">${product.originalPrice || ''}</span>
+                                <span class="product-price">${product.price}</span>
+                            </p>
+                            <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                        </div>
+                    </div>
+                </div>`;
+        });
+        document.getElementById('product-list').innerHTML = row;
+    } else {
+        console.error('Sản phẩm không tồn tại');
+        document.getElementById('product-list').innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+    }
+}
+
+// Tải sản phẩm từ localStorage và hiển thị
+function loadProducts() {
+    const productsToDisplay = loadProductsFromLocalStorage();
+    displayProducts(productsToDisplay);
+}
+
+// Lắng nghe sự kiện DOMContentLoaded để tránh ghi đè window.onload
+document.addEventListener('DOMContentLoaded', () => {
+    loadProducts(); // Tải tất cả sản phẩm
+    displayProductFromHomeSearch(); // Hiển thị kết quả tìm kiếm
+});
+
+
+</script>
+
+</div>
 </body>
 
 </html>

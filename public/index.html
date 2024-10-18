@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Homepage</title>
-	<link rel="icon" type="image/x-icon" href="./assets/bootstrap/img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
+	<link rel="icon" type="image/x-icon" href="./img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font" />
 	<style>
 		html { line-height: 1.15; scroll-behavior: smooth; }
@@ -54,21 +54,21 @@
 					  <a class="nav-link" href="#footer">Contact</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link" href="#feedback-container">Feedback</a>
+					  <a class="nav-link" href="#testiminial">Feedback</a>
 					</li>
 				  </ul>
-				  <form class="d-flex">
-					<input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
+				  <form class="d-flex" id="search-form">
+					<input id="input-search" class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
 					<div class="icon-links user-icon">
-					  <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+					  <a href="#" class="user-icon"><i class="fas fa-user" aria-hidden="true"></i></a>
 					  <!-- Dropdown menu -->
 					  <div class="dropdown-menu">
 						<a href="#" id="openLoginBtn">Login</a>
 						<a href="#" id="openRegisterBtn">Register</a>
 					  </div>
 					</div>
-					<div class="icon-links cart" id="cartBtn">
-					  <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+					<div class="icon-links cart" id="cartBtn">					  
+					  <a href="#" class="cart"><i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
 					</div>
 				  </form>
 				</div>
@@ -135,17 +135,13 @@
 								<h2 class="thq-heading-2">
 									Discover the Power of Our Products
 								</h2>
-								<p class="thq-body-large">
-									We always want to provide the best, most beautiful products, in line with trends to bring you the best experiences.
-					</p>
-					<div class="steps-actions">
-						<button
-						class="thq-button-animated thq-button-filled steps-button"
-						>
-						<span class="thq-body-small">Discover</span>
-						</button>
-					</div>
-					</div>
+								<p class="thq-body-large"> We always want to provide the best, most beautiful products, in line with trends to bring you the best experiences. </p>
+								<div class="steps-actions">
+									<a href="products.html" class="thq-button-animated thq-button-filled steps-button">
+										<span class="thq-body-small">Discover</span>
+									</a>
+								</div>
+							</div>
 					<div class="steps-container3">
 					<div class="steps-container4 thq-card">
 						<h2 class="thq-heading-2">
@@ -203,119 +199,91 @@
 			<!-- testimonial-wrapper -->
 			<div class="testimonial-wrapper">
 			<!--Testimonial component-->
-			<div class="thq-section-padding">
+			<div class="thq-section-padding" id="testiminial">
 				<div class="testimonial-max-width thq-section-max-width">
-				<div class="testimonial-container10">
-					<h2 class="thq-heading-2"><span>Testimonials</span></h2>
-					<span class="testimonial-text11 thq-body-small">
-					<span>
-						Read what our customers have to say about their experience
-						with us.
-					</span>
-					</span>
-				</div>
-				<div class="thq-grid-2">
-					<div class="thq-animated-card-bg-2">
-					<div class="thq-animated-card-bg-1">
-						<div
-						data-animated="true"
-						class="thq-card testimonial-card1"
-						>
-						<div class="testimonial-container12">
-							<img
-							alt="Alice Johnson - Marketing Manager"
-							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE2OXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-							class="testimonial-image1"
-							/>
-							<div class="testimonial-container13">
-							<strong class="thq-body-large" id="first-feedback-name">
-							</strong>
-							<span class="thq-body-small" id="first-feedback-occupation">
+					<div class="testimonial-container10">
+						<h2 class="thq-heading-2"><span>Testimonials</span></h2>
+						<span class="testimonial-text11 thq-body-small">
+							<span>
+								Read what our customers have to say about their experience
+								with us.
 							</span>
+						</span>
+					</div>
+					<div class="thq-grid-2">
+						<div class="thq-animated-card-bg-2">
+							<div class="thq-animated-card-bg-1">
+								<div data-animated="true" class="thq-card testimonial-card1">
+								<div class="testimonial-container12">
+									<img alt="Alice Johnson - Marketing Manager" src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE2OXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" class="testimonial-image1"/>
+									<div class="testimonial-container13">
+										<strong class="thq-body-large" id="first-feedback-name">
+										</strong>
+										<span class="thq-body-small" id="first-feedback-occupation">
+										</span>
+									</div>
+								</div>
+									<span class="testimonial-text14 thq-body-small" id="first-feedback-description">
+									</span>
+								</div>
 							</div>
 						</div>
-						<span class="testimonial-text14 thq-body-small" id="first-feedback-description">
-						</span>
-						</div>
-					</div>
-					</div>
-					<div class="thq-animated-card-bg-2">
-					<div class="thq-animated-card-bg-1">
-						<div
-						data-animated="true"
-						class="thq-card testimonial-card2"
-						>
-						<div class="testimonial-container14">
-							<img
-							alt="John Smith - Teacher"
-							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-							class="testimonial-image2"
-							/>
-							<div class="testimonial-container15">
-							<strong class="thq-body-large" id="second-feedback-name">
-							</strong>
-							<span class="thq-body-small" id="second-feedback-occupation">
-							</span>
+						<div class="thq-animated-card-bg-2">
+							<div class="thq-animated-card-bg-1">
+								<div data-animated="true" class="thq-card testimonial-card2">
+									<div class="testimonial-container14">
+										<img alt="John Smith - Teacher" src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" class="testimonial-image2"/>
+										<div class="testimonial-container15">
+											<strong class="thq-body-large" id="second-feedback-name">
+											</strong>
+											<span class="thq-body-small" id="second-feedback-occupation">
+											</span>
+										</div>
+									</div>
+									<span class="testimonial-text17 thq-body-small" id="second-feedback-description">
+									</span>
+								</div>
 							</div>
 						</div>
-						<span class="testimonial-text17 thq-body-small" id="second-feedback-description">
-						</span>
-						</div>
-					</div>
-					</div>
-					<div class="thq-animated-card-bg-2">
-					<div class="thq-animated-card-bg-1">
-						<div
-						data-animated="true"
-						class="thq-card testimonial-card3"
-						>
-						<div class="testimonial-container16">
-							<img
-							alt="Emily Brown - Interior Designer"
-							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-							class="testimonial-image3"
-							/>
-							<div class="testimonial-container17">
-							<strong class="thq-body-large" id="third-feedback-name">
-							</strong>
-							<span class="thq-body-small" id="third-feedback-occupation">
-							</span>
+						<div class="thq-animated-card-bg-2">
+							<div class="thq-animated-card-bg-1">
+								<div data-animated="true" class="thq-card testimonial-card3">
+									<div class="testimonial-container16">
+										<img alt="Emily Brown - Interior Designer" src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" class="testimonial-image3"/>
+										<div class="testimonial-container17">
+											<strong class="thq-body-large" id="third-feedback-name">
+											</strong>
+											<span class="thq-body-small" id="third-feedback-occupation">
+											</span>
+										</div>
+									</div>
+									<span class="testimonial-text20 thq-body-small" id="third-feedback-description">
+									</span>
+								</div>
 							</div>
 						</div>
-						<span class="testimonial-text20 thq-body-small" id="third-feedback-description">
-						</span>
-						</div>
-					</div>
-					</div>
-					<div class="thq-animated-card-bg-2">
-					<div class="thq-animated-card-bg-1">
-						<div
-						data-animated="true"
-						class="thq-card testimonial-card4"
-						>
-						<div class="testimonial-container18">
-							<img
-							alt="Michael Lee - Software Engineer"
-							src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
-							class="testimonial-image4"
-							/>
-							<div class="testimonial-container19">
-							<strong class="thq-body-large" id="fourth-feedback-name">
-							</strong>
-							<span class="thq-body-small" id="fourth-feedback-occupation">
-							</span>
+						<div class="thq-animated-card-bg-2">
+							<div class="thq-animated-card-bg-1">
+								<div data-animated="true" class="thq-card testimonial-card4">
+									<div class="testimonial-container18">
+										<img alt="Michael Lee - Software Engineer" src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyODAzMTE3MHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" class="testimonial-image4"/>
+										<div class="testimonial-container19">
+											<strong class="thq-body-large" id="fourth-feedback-name">
+											</strong>
+											<span class="thq-body-small" id="fourth-feedback-occupation">
+											</span>
+										</div>
+									</div>
+									<span class="testimonial-text23 thq-body-small" id="fourth-feedback-description">
+									</span>
+								</div>
 							</div>
 						</div>
-						<span class="testimonial-text23 thq-body-small" id="fourth-feedback-description">
-						</span>
-						</div>
 					</div>
-					</div>
-				</div>
 				</div>
 			</div>
 			</div>
-			<div class="feedback-container" id="feedback-container">
+			<div class="feedback-container">
 				<div class="feedback-title">
 					<h2>Feedback</h2>
 				</div>
