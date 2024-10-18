@@ -1,3 +1,4 @@
+// ------------------------------------------------------------------------------------------------------------------
 // JS Countdown timer
 
 let countdownDate = new Date("Oct 20, 2024 23:59:59").getTime();
@@ -21,7 +22,11 @@ let countdownFunction = setInterval(function() {
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
+// End countdown
 
+// ------------------------------------------------------------------------------------------------------------------
+
+// Start Modal Process
 // Lấy các modal
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
@@ -152,9 +157,12 @@ document.getElementById('login-btn').addEventListener('click', function() {
     }
 });
 
+// END MODAL
+// ------------------------------------------------------------------------------------------------------------------
+
+
 // JS Show sản phẩm ở trang chủ
-
-
+// Tạo sản phẩm mẫu ban đầu và lưu vào local
 function createdProducts() {
     
 const products = [
@@ -242,8 +250,10 @@ const products = [
 let productJSON = JSON.stringify(products);
 localStorage.setItem('products', productJSON);
 }
+// ------------------------------------------------------------------------------------------------------------------
 
 
+// Lấy sản phẩm từ local và show ra
 function showListProducts() {
     let storedProducts = JSON.parse(localStorage.getItem('products'));
 
@@ -269,9 +279,10 @@ function showListProducts() {
 
     document.getElementById('products').innerHTML = content;
 }
+// ------------------------------------------------------------------------------------------------------------------
 
 
-// JS Lưu Feedback vào local storage
+// JS Lưu Feedback vào local storage khi submit form
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
@@ -298,9 +309,11 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     // Reset form after sending feedback
     document.getElementById('feedbackForm').reset();
 });
+// ------------------------------------------------------------------------------------------------------------------
 
 
 
+// Tạo 1 feedback mẫu ban đầu và lưu vào local sau đó in ra
 function showListFeedback() {
     const feedbacks  = [
         {
@@ -333,18 +346,15 @@ function showListFeedback() {
     ];
 
     
-    // Store feedbacks in local storage
     let feedbackJSON = JSON.stringify(feedbacks);
     localStorage.setItem('feedbacks', feedbackJSON);
 
-    // Retrieve feedbacks from local storage
     let storedFeedbacks = JSON.parse(localStorage.getItem('feedbacks'));
 
-    // Loop through feedbacks and display each in the correct element with <span> tag
     for (let i = 0; i < 4; i++) {
         let name = `<span>${storedFeedbacks[i].name}</span>`;  
         let occupation = `<span>${storedFeedbacks[i].occupation}</span>`;  
-        let description = `<span>${storedFeedbacks[i].description}</span>`;  // Fixed the typo
+        let description = `<span>${storedFeedbacks[i].description}</span>`;
         
         if (i === 0) {
             document.getElementById('first-feedback-name').innerHTML = name;
@@ -368,6 +378,8 @@ function showListFeedback() {
         }
     }
 }
+// ------------------------------------------------------------------------------------------------------------------
+
 
 // JS Go to top
 let scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -385,6 +397,7 @@ scrollToTopBtn.addEventListener("click", function() {
         behavior: 'smooth'
     });
 });
+// ------------------------------------------------------------------------------------------------------------------
 
 
 // Js check go to cart button
@@ -397,7 +410,17 @@ cartBtn.addEventListener('click', function() {
         loginModal.style.display = 'block';
     }
 });
+// ------------------------------------------------------------------------------------------------------------------
 
+// JS sử lý ô search ở homepage
 
+const inputInfo = document.getElementById('input-search').value.toLowerCase();
 
+document.getElementById('input-search').addEventListener()
+
+document.getElementById("mass").addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      alert('Enter');
+    }
+})
 
