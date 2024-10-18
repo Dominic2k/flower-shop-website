@@ -259,6 +259,12 @@
         .container {
             margin-top: 2.5rem !important;
         }
+        
+        .cart {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -282,6 +288,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#footer">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
 
                 </ul>
                 <form class="d-flex">
@@ -296,6 +305,7 @@
                             <a href="#" id="openRegisterBtn">Register</a>
                         </div>
                     </div>
+                    <div id="search-result"></div>
                     <div class="icon-links cart" id="cartBtn">
                         <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
                     </div>
@@ -724,8 +734,7 @@
                 <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
                 <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
                 <div class="card-body">
-                    <p class="product-title">${product.title}</p>
-                    <p>
+                    <p class="product-title">${product.title} </br>
                         <span class="original-price">${product.originalPrice || ''}</span>
                         <span class="product-price">${product.price}</span>
                     </p>
