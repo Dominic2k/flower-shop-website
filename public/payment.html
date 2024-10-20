@@ -270,69 +270,87 @@
                 });
             });
         });
-        // Ví dụ thông tin để test"
+     // Ví dụ thông tin để test"
         
+    let orders = [
+    {
+        order_id: "ORDER12345",
+        user_name: "Phạm Đức Đạt",
+        user_email: "pducdat2602@gmail.com",
+        user_phone: "0333934916",
+        delivery_address: "101B Lê Hữu Trác, Sơn Trà, Đà Nẵng",
+        product_name: "Rose Black",
+        code: "FL008",
+        color: "Black",
+        title: "Fragrant Lavender Sprigs",
+        describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
+        price: "127.00đ",
+        quantity: "1",
+        img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
+    }
+];
 
 let orderJSON = JSON.stringify(orders);
 localStorage.setItem('orders', orderJSON);
 
 document.getElementById('orderBtn').addEventListener('click', function(event) {
-    event.preventDefault();
+event.preventDefault();
 
-    const orders = JSON.parse(localStorage.getItem('orders'));
-    
+const orders = JSON.parse(localStorage.getItem('orders'));
 
-    if (orders && orders.length > 0) {
-        const orderId = orders[0].order_id;
-        const userEmail = orders[0].user_email;
-        const userName = orders[0].user_name;
-        const userPhone = orders[0].user_phone;
-        const deliveryAddress = orders[0].delivery_address;
-        const productName = orders[0].product_name;
-        const productPrice = orders[0].price;
-        const prductQuantity = orders[0].quantity;
-        const productImg = orders[0].img;
-        
-        // Kiểm tra thông tin email và mã đơn hàng
-        if (!userEmail || !orderId) {
-            alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
-            return;
-        }
 
-        // Gửi dữ liệu tới server qua API /send-email
-        fetch('http://localhost:3000/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                order_id: orderId,
-                user_email: userEmail,
-                user_name: userName,
-                user_phone: userPhone,
-                delivery_address: deliveryAddress,
-                product_name: productName,
-                price: productPrice,
-                quantity: prductQuantity,
-                img: productImg,
-            })
-        })
-        .then(async response => {
-            const message = await response.text();
-            if (response.ok) {
-                alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
-            } else {
-                alert('Có lỗi xảy ra: ' + message);
-            }
-        })
-        .catch(error => {
-            console.error('Lỗi:', error);
-            alert('Có lỗi xảy ra khi gửi yêu cầu.');
-        });
+if (orders && orders.length > 0) {
+const orderId = orders[0].order_id;
+const userEmail = orders[0].user_email;
+const userName = orders[0].user_name;
+const userPhone = orders[0].user_phone;
+const deliveryAddress = orders[0].delivery_address;
+const productName = orders[0].product_name;
+const productPrice = orders[0].price;
+const prductQuantity = orders[0].quantity;
+const productImg = orders[0].img;
+
+// Kiểm tra thông tin email và mã đơn hàng
+if (!userEmail || !orderId) {
+    alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
+    return;
+}
+
+// Gửi dữ liệu tới server qua API /send-email
+fetch('http://localhost:3000/send-email', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        order_id: orderId,
+        user_email: userEmail,
+        user_name: userName,
+        user_phone: userPhone,
+        delivery_address: deliveryAddress,
+        product_name: productName,
+        price: productPrice,
+        quantity: prductQuantity,
+        img: productImg,
+    })
+})
+.then(async response => {
+    const message = await response.text();
+    if (response.ok) {
+        alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
     } else {
-        alert('Không có đơn hàng trong localStorage!');
+        alert('Có lỗi xảy ra: ' + message);
     }
-    });
+})
+.catch(error => {
+    console.error('Lỗi:', error);
+    alert('Có lỗi xảy ra khi gửi yêu cầu.');
+});
+} else {
+alert('Không có đơn hàng trong localStorage!');
+}
+});
+
     </script>
     <script type="module" src="../server.js"></script>
 </body>

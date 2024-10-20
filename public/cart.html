@@ -164,8 +164,8 @@
                         <input type="checkbox" class="form-check-input" id="checkbox-${product.id}" onchange="updateTotalAmount()">
                     </div>
                     <div class="col-md-2 d-flex align-items-center">
-                        <img src="${product.img}" class="product-image" alt="${product.name}">
-                        <span>${product.name}</span>
+                        <img src="${product.imageUrl}" class="product-image" alt="${product.name}">
+                        <span>${product.title}</span>
                     </div>
                     <div class="col-md-2 text-center" id="unit-price-${product.id}">
                         ${price.toLocaleString('vi-VN')} VNĐ
