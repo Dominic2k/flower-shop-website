@@ -99,7 +99,6 @@
                     <li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
                     <div class="icon-links cart"><a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a></div>
                 </form>
             </div>
@@ -150,7 +149,7 @@
                 <div class="form-group"><label for="cvc">CVC Code</label><input type="text" class="form-control" id="cvc" placeholder="Enter your CVC code"></div>
             </div>
         </div>
-        <button class="btn btn-danger btn-checkout mt-4" onclick="checkout()">Buy now</button>
+        <button id="orderBtn" class="btn btn-danger btn-checkout mt-4" onclick="checkout()">Buy now</button>
     </div>
 
     <script>
@@ -162,12 +161,12 @@
 
         // Hiển thị các sản phẩm đã chọn trên trang thanh toán
         function displaySelectedProducts() {
-            const selectedIds = getQueryParam('ids') ? getQueryParam('ids').split(',').map(Number) : []; // Lấy ID từ URL
+            const selectedIds = getQueryParam('ids') ? getQueryParam('ids').split(',').map(Number) : [];
+            // Lấy ID từ URL
             const storedProducts = JSON.parse(localStorage.getItem('products')) || []; // Lấy danh sách sản phẩm từ localStorage
-            console.log(storedProducts);
+            
             const productDetailContainer = document.getElementById('product-detail');
             productDetailContainer.innerHTML = ''; // Xóa nội dung cũ
-
             // Hàm hiển thị một sản phẩm
             const displayProduct = (product) => {
                 const productContent = `
@@ -196,9 +195,6 @@
             }
         }
 
-        // Gọi hàm khi trang được tải
-        window.onload = displaySelectedProducts;
-
         document.addEventListener('DOMContentLoaded', displaySelectedProducts);
 
         function applyVoucher() {
@@ -206,8 +202,15 @@
             alert(voucherCode ? `Voucher "${voucherCode}" applied!` : "Please enter a voucher code.");
         }
 
+        function generateUniqueOrderId() {
+            const timestamp = Date.now(); // Lấy timestamp hiện tại
+            const randomStr = Math.random().toString(36).substr(2, 9); // Tạo chuỗi ngẫu nhiên từ số thập phân
+            return `ORD-${timestamp}-${randomStr}`;
+        }
+
+
         function checkout() {
-            // Gather user information
+    // Gather user information
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
@@ -215,28 +218,47 @@
             const city = document.getElementById('city').value;
             const country = document.getElementById('country').value;
 
+            // Validate user information
             if (![name, email, phone, address, city, country].every(Boolean)) {
                 alert('Please fill in all required information.');
                 return;
             }
 
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Validate phone number format (adjust the regex based on your requirement)
+            const phonePattern = /^[0-9]{10,15}$/;
+            if (!phonePattern.test(phone)) {
+                alert('Please enter a valid phone number.');
+                return;
+            }
+
             // Retrieve selected products from local storage
-            //const selectedIds = getQueryParam('ids').split(','); // Get selected IDs from URL
-            //const storedProducts = JSON.parse(localStorage.getItem('cart')) || [];
-            //const selectedProducts = storedProducts.filter(product => selectedIds.includes(product.id.toString()));
+            const selectedIds = getQueryParam('ids').split(','); // Get selected IDs from URL
+            const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+            const selectedProducts = storedProducts.filter(product => selectedIds.includes(product.id.toString()));
 
-            //if (selectedProducts.length === 0) {
-            //    alert('No products found for checkout.');
-            //    return;
-            //}
 
-            // Create an order object
+            if (selectedProducts.length === 0) {
+                alert('No products found for checkout.');
+                return;
+            }
+
+            const orderId = generateUniqueOrderId();
+
+    // Create an order object
             const order = {
-                name: name,
-                email : email,
-                phone: phone,
-                address : address,
-                city : city,
+                order_id: orderId,
+                user_name: name,
+                user_email: email,
+                user_phone: phone,
+                delivery_address: address,
+                city: city,
                 country: country,
                 products: selectedProducts.map(product => ({
                     id: product.id,
@@ -244,111 +266,105 @@
                     price: product.price,
                     imageUrl: product.imageUrl,
                     occasion: product.occasion,
-                    quantity: product.quantity,
+                    quantity: 1,
                 })),
                 date: new Date().toISOString(),
             };
 
-            // Save order to local storage
-            let orders = JSON.parse(localStorage.getItem('orders')) || [];
-            orders.push(order);
+    // Save order to local storage
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orders.unshift(order);
             localStorage.setItem('orders', JSON.stringify(orders));
-            console.log(order);
+
             // Remove selected products from the cart
             const remainingProducts = storedProducts.filter(product => !selectedIds.includes(product.id.toString()));
             localStorage.setItem('cart', JSON.stringify(remainingProducts));
 
+
             alert('Order placed successfully!');
-            window.location.href = 'index.html';
-        }
+}
 
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('input[name="paymentMethod"]').forEach((elem) => {
-                elem.addEventListener('change', () => {
-                    document.getElementById('card-details').style.display = 
-                        elem.value === 'card' ? 'block' : 'none';
-                });
-            });
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('input[name="paymentMethod"]').forEach((element) => {
+        element.addEventListener('change', () => {
+            document.getElementById('card-details').style.display =
+                element.value === 'card' ? 'block' : 'none';
         });
-     // Ví dụ thông tin để test"
-        
-    let orders = [
-    {
-        order_id: "ORDER12345",
-        user_name: "Phạm Đức Đạt",
-        user_email: "pducdat2602@gmail.com",
-        user_phone: "0333934916",
-        delivery_address: "101B Lê Hữu Trác, Sơn Trà, Đà Nẵng",
-        product_name: "Rose Black",
-        code: "FL008",
-        color: "Black",
-        title: "Fragrant Lavender Sprigs",
-        describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
-        price: "127.00đ",
-        quantity: "1",
-        img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
-    }
-];
+    });
 
-let orderJSON = JSON.stringify(orders);
-localStorage.setItem('orders', orderJSON);
+   // Tải và lưu thông tin người dùng
+    const savedInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
+    ['name', 'email', 'phone', 'address', 'city', 'country'].forEach(id => {
+        document.getElementById(id).value = savedInfo[id] || '';
+        document.getElementById(id).addEventListener('input', () => {
+            savedInfo[id] = document.getElementById(id).value;
+            localStorage.setItem('userInfo', JSON.stringify(savedInfo));
+        });
+    });
+});
 
 document.getElementById('orderBtn').addEventListener('click', function(event) {
-event.preventDefault();
+    event.preventDefault();
 
-const orders = JSON.parse(localStorage.getItem('orders'));
+    const orders = JSON.parse(localStorage.getItem('orders'));
+
+    // Kiểm tra xem có đơn hàng không
+    if (orders && orders.length > 0) {
+        const order = orders[0];
+        const orderId = order.order_id;
+        const userEmail = order.user_email;
+        const userName = order.user_name;
+        const userPhone = order.user_phone;
+        const deliveryAddress = order.delivery_address;
+        const productName = order.products[0].title;
+        const productPrice = order.products[0].price;
+        const productQuantity = order.products[0].quantity;
+        const productImg = order.products[0].imageUrl;
+
+        console.log(orders); // Kiểm tra xem có thông tin đơn hàng không
+        console.log(userEmail, orderId); // Kiểm tra xem thông tin email và mã đơn hàng có chính xác không
 
 
-if (orders && orders.length > 0) {
-const orderId = orders[0].order_id;
-const userEmail = orders[0].user_email;
-const userName = orders[0].user_name;
-const userPhone = orders[0].user_phone;
-const deliveryAddress = orders[0].delivery_address;
-const productName = orders[0].product_name;
-const productPrice = orders[0].price;
-const prductQuantity = orders[0].quantity;
-const productImg = orders[0].img;
+        // Kiểm tra thông tin email và mã đơn hàng
+        if (!userEmail || !orderId) {
+            alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
+            return;
+        }
 
-// Kiểm tra thông tin email và mã đơn hàng
-if (!userEmail || !orderId) {
-    alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
-    return;
-}
-
-// Gửi dữ liệu tới server qua API /send-email
-fetch('http://localhost:3000/send-email', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        order_id: orderId,
-        user_email: userEmail,
-        user_name: userName,
-        user_phone: userPhone,
-        delivery_address: deliveryAddress,
-        product_name: productName,
-        price: productPrice,
-        quantity: prductQuantity,
-        img: productImg,
-    })
-})
-.then(async response => {
-    const message = await response.text();
-    if (response.ok) {
-        alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
+        // Gửi dữ liệu tới server qua API /send-email
+        fetch('http://localhost:3000/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                order_id: orderId,
+                user_email: userEmail,
+                user_name: userName,
+                user_phone: userPhone,
+                delivery_address: deliveryAddress,
+                product_name: productName,
+                price: productPrice,
+                quantity: productQuantity,
+                img: productImg,
+            })
+        })
+        .then(async response => {
+            const message = await response.text();
+            console.log('Server response:', message); // In ra phản hồi để kiểm tra
+            if (response.ok) {
+                alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
+            } else {
+                alert('Có lỗi xảy ra: ' + message);
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi:', error);
+            alert('Có lỗi xảy ra khi gửi yêu cầu.');
+        });
     } else {
-        alert('Có lỗi xảy ra: ' + message);
+        alert('Không có đơn hàng trong localStorage!');
     }
-})
-.catch(error => {
-    console.error('Lỗi:', error);
-    alert('Có lỗi xảy ra khi gửi yêu cầu.');
-});
-} else {
-alert('Không có đơn hàng trong localStorage!');
-}
 });
 
     </script>
