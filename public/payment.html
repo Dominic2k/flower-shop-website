@@ -150,7 +150,7 @@
                 <div class="form-group"><label for="cvc">CVC Code</label><input type="text" class="form-control" id="cvc" placeholder="Enter your CVC code"></div>
             </div>
         </div>
-        <button class="btn btn-primary btn-checkout mt-4" onclick="checkout()">Buy now</button>
+        <button class="btn btn-danger btn-checkout mt-4" onclick="checkout()">Buy now</button>
     </div>
 
     <script>
@@ -164,6 +164,7 @@
         function displaySelectedProducts() {
             const selectedIds = getQueryParam('ids') ? getQueryParam('ids').split(',').map(Number) : []; // Lấy ID từ URL
             const storedProducts = JSON.parse(localStorage.getItem('products')) || []; // Lấy danh sách sản phẩm từ localStorage
+            console.log(storedProducts);
             const productDetailContainer = document.getElementById('product-detail');
             productDetailContainer.innerHTML = ''; // Xóa nội dung cũ
 
@@ -171,10 +172,10 @@
             const displayProduct = (product) => {
                 const productContent = `
                     <div class="product-card">
-                        <img src="${product.img}" class="product-img" alt="${product.name}">
+                        <img src="${product.imageUrl}" class="product-img" alt="${product.name}">
                         <div class="product-info">
-                            <h3>${product.name}</h3>
-                            <p>${product.describe}</p>
+                            <h3>${product.title}</h3>
+                            <p>${product.occasion}</p>
                             <p class="product-price">${product.price}</p>
                         </div>
                     </div>`;
@@ -220,29 +221,29 @@
             }
 
             // Retrieve selected products from local storage
-            const selectedIds = getQueryParam('ids').split(','); // Get selected IDs from URL
-            const storedProducts = JSON.parse(localStorage.getItem('cart')) || [];
-            const selectedProducts = storedProducts.filter(product => selectedIds.includes(product.id.toString()));
+            //const selectedIds = getQueryParam('ids').split(','); // Get selected IDs from URL
+            //const storedProducts = JSON.parse(localStorage.getItem('cart')) || [];
+            //const selectedProducts = storedProducts.filter(product => selectedIds.includes(product.id.toString()));
 
-            if (selectedProducts.length === 0) {
-                alert('No products found for checkout.');
-                return;
-            }
+            //if (selectedProducts.length === 0) {
+            //    alert('No products found for checkout.');
+            //    return;
+            //}
 
             // Create an order object
             const order = {
-                name,
-                email,
-                phone,
-                address,
-                city,
-                country,
+                name: name,
+                email : email,
+                phone: phone,
+                address : address,
+                city : city,
+                country: country,
                 products: selectedProducts.map(product => ({
                     id: product.id,
-                    name: product.name,
+                    title: product.title,
                     price: product.price,
-                    img: product.img,
-                    describe: product.describe,
+                    imageUrl: product.imageUrl,
+                    occasion: product.occasion,
                     quantity: product.quantity,
                 })),
                 date: new Date().toISOString(),
@@ -252,7 +253,7 @@
             let orders = JSON.parse(localStorage.getItem('orders')) || [];
             orders.push(order);
             localStorage.setItem('orders', JSON.stringify(orders));
-
+            console.log(order);
             // Remove selected products from the cart
             const remainingProducts = storedProducts.filter(product => !selectedIds.includes(product.id.toString()));
             localStorage.setItem('cart', JSON.stringify(remainingProducts));
@@ -269,6 +270,70 @@
                 });
             });
         });
+        // Ví dụ thông tin để test"
+        
+
+let orderJSON = JSON.stringify(orders);
+localStorage.setItem('orders', orderJSON);
+
+document.getElementById('orderBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const orders = JSON.parse(localStorage.getItem('orders'));
+    
+
+    if (orders && orders.length > 0) {
+        const orderId = orders[0].order_id;
+        const userEmail = orders[0].user_email;
+        const userName = orders[0].user_name;
+        const userPhone = orders[0].user_phone;
+        const deliveryAddress = orders[0].delivery_address;
+        const productName = orders[0].product_name;
+        const productPrice = orders[0].price;
+        const prductQuantity = orders[0].quantity;
+        const productImg = orders[0].img;
+        
+        // Kiểm tra thông tin email và mã đơn hàng
+        if (!userEmail || !orderId) {
+            alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
+            return;
+        }
+
+        // Gửi dữ liệu tới server qua API /send-email
+        fetch('http://localhost:3000/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                order_id: orderId,
+                user_email: userEmail,
+                user_name: userName,
+                user_phone: userPhone,
+                delivery_address: deliveryAddress,
+                product_name: productName,
+                price: productPrice,
+                quantity: prductQuantity,
+                img: productImg,
+            })
+        })
+        .then(async response => {
+            const message = await response.text();
+            if (response.ok) {
+                alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
+            } else {
+                alert('Có lỗi xảy ra: ' + message);
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi:', error);
+            alert('Có lỗi xảy ra khi gửi yêu cầu.');
+        });
+    } else {
+        alert('Không có đơn hàng trong localStorage!');
+    }
+    });
     </script>
+    <script type="module" src="../server.js"></script>
 </body>
 </html>

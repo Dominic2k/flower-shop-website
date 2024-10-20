@@ -1,3 +1,4 @@
+// ------------------------------------------------------------------------------------------------------------------
 // JS Countdown timer
 
 let countdownDate = new Date("Oct 20, 2024 23:59:59").getTime();
@@ -21,7 +22,11 @@ let countdownFunction = setInterval(function() {
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
+// End countdown
 
+// ------------------------------------------------------------------------------------------------------------------
+
+// Start Modal Process
 // Lấy các modal
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
@@ -104,9 +109,10 @@ document.getElementById('register-btn').addEventListener('click', function() {
     const username = document.getElementById('register-username').value;
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
+    let cart = [];
 
     if (username && email && password) {
-        const user = { username, email, password };
+        const user = { username, email, password, cart };
 
         // Lấy danh sách người dùng từ localStorage hoặc tạo mảng mới nếu chưa có
         let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -152,98 +158,158 @@ document.getElementById('login-btn').addEventListener('click', function() {
     }
 });
 
+// END MODAL
+// ------------------------------------------------------------------------------------------------------------------
+
+
 // JS Show sản phẩm ở trang chủ
-
-
+// Tạo sản phẩm mẫu ban đầu và lưu vào local
 function createdProducts() {
     
-const products = [
-    {
+    const products = [{
         id: 1,
-        name: "Rose Bouquet",
-        code: "FL001",
-        color: "Red",
-        title: "Elegant Red Roses",
-        describe: "A beautiful bouquet of 12 red roses, perfect for romantic occasions.",
-        price: "259.000đ",
-        img: "https://img4.thuthuatphanmem.vn/uploads/2020/08/18/anh-gio-hoa-sen-dep-y-nghia_091937096.jpg"
-    },
-    {
+        title: "Morning Kiss",
+        price: "1.000.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-do",
+        badgeText: "NEW",
+    
+    }, {
         id: 2,
-        name: "Sunflower Bundle",
-        code: "FL002",
-        color: "Yellow",
-        title: "Bright Sunflowers",
-        describe: "A bundle of 5 sunflowers to brighten anyone's day.",
-        price: "185.000đ",
-        img: "https://kethoavanca.vn/wp-content/uploads/2017/03/sp-2.jpg"
-    },
-    {
+        title: "Ngày Có Nắng",
+        price: "300.000 ₫",
+        originalPrice: "930.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-vang",
+        badgeText: "NEW"
+    }, {
         id: 3,
-      name: "Tulip Collection",
-      code: "FL003",
-      color: "Purple",
-      title: "Charming Purple Tulips",
-      describe: "A collection of 10 purple tulips for a fresh and elegant look.",
-      price: "220.000đ",
-      img: "https://3.bp.blogspot.com/-wPOcH-AFROI/WPtUyqxqBHI/AAAAAAAAmjA/2uDK910tLgMvHiWTl5-gc_NIvbql6CPIgCLcB/s640/16788840_1737084339954027_8230377758388125696_n.jpg"
-    },
-    {
+        title: "Ánh Dương 2",
+        price: "800.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-vang",
+        badgeText: "NEW"
+    }, {
         id: 4,
-        name: "Lily Assortment",
-        code: "FL004",
-        color: "White",
-        title: "Graceful White Lilies",
-        describe: "An assortment of white lilies, symbolizing purity and elegance.",
-        price: "300.000đ",
-        img: "https://shophoahong.com/wp-content/uploads/2022/04/211.jpg"
-    },
-    {
+        title: "Sunflower",
+        price: "100.000 ₫",
+        originalPrice: "930.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-vang",
+        badgeText: "SALE"
+    }, {
         id: 5,
-        name: "Orchid Arrangement",
-        code: "FL005",
-        color: "Pink",
-        title: "Delicate Pink Orchids",
-        describe: "A delicate arrangement of pink orchids, perfect for a sophisticated touch.",
-        price: "459.000đ",
-        img: "https://lilydesign.vn/uploads/thumbnails/800/2021/11/gio-hoa-hong-do-dep-ldnk258-19-11-52-18.jpg"
-    },
-    {
+        title: "Purple Love",
+        price: "600.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-tim",
+        badgeText: "NEW"
+    }, {
         id: 6,
-        name: "Daisy Bunch",
-        code: "FL006",
-        color: "White",
-        title: "Cheerful White Daisies",
-        describe: "A bunch of white daisies, symbolizing simplicity and joy.",
-        price: "162.000đ",
-        img: "https://cdn03.lolaflora.com/bonnygift/lfb047-1/XL/lfb047-1-8d9629f423926a9-c50d29fa.jpg"
-    },
-    {
+        title: "Beauty Queen",
+        price: "200.000 ₫",
+        originalPrice: "600.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-tim",
+        badgeText: "SALE"
+    }, {
         id: 7,
-        name: "Carnation Bouquet",
-        code: "FL007",
-        color: "Red",
-        title: "Passionate Red Carnations",
-        describe: "A bouquet of 15 red carnations, representing love and admiration.",
-        price: "199.000đ",
-        img: "https://www.giftstoindia24x7.com/ASP_Img/IMG1000/GTI10750.jpg"
-    },
-    {
+        title: "Bùng Cháy 3",
+        price: "400.000 ₫",
+        originalPrice: "700.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
+        occasion: "hoa-khai-truong",
+        color: "mau-do",
+        badgeText: "SALE"
+    }, {
         id: 8,
-        name: "Lavender Sprigs",
-        code: "FL008",
-        color: "Purple",
-        title: "Fragrant Lavender Sprigs",
-        describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
-        price: "127.00đ",
-        img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
-    }
-];
+        title: "Rustic",
+        price: "300.000 ₫",
+        originalPrice: "800.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-vang",
+        badgeText: "SALE"
+    }, {
+        id: 9,
+        title: "Vững Bền",
+        price: "600.000 ₫",
+        originalPrice: "700.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
+        occasion: "hoa-khai-truong",
+        color: "mau-do",
+        badgeText: "SALE"
+    }, {
+        id: 10,
+        title: "Thành Đạt",
+        price: "1.600.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
+        occasion: "hoa-khai-truong",
+        color: "mau-vang",
+        badgeText: "NEW"
+    }, {
+        id: 11,
+        title: "Only Rose",
+        price: "190.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-do",
+        badgeText: "NEW"
+    }, {
+        id: 12,
+        title: "Lan Hồ Điệp Mẫu 4",
+        price: "600.000 ₫",
+        originalPrice: "700.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
+    occasion: "hoa-khai-truong",
+    color: "mau-tim",
+    badgeText: "SALE"
+}, {
+    id: 13,
+    title: "Thạch thảo",
+    price: "1.400.000 ₫",
+    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/3573_thach-thao.jpg",
+    occasion: "hoa-sinh-nhat",
+    color: "mau-tim",
+    badgeText: "NEW"
+}, {
+    id: 14,
+    title: "Only Rose",
+    price: "120.000 ₫",
+    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13196_mercy-2.jpg",
+    occasion: "hoa-khai-truong",
+    color: "mau-do",
+    badgeText: "NEW"
+}, {
+    id: 15,
+    title: "Món quà tặng em",
+    price: "800.000 ₫",
+    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/13906_mon-qua-hanh-phuc.jpg",
+    occasion: "hoa-tinh-yeu",
+    color: "mau-tim",
+    badgeText: "NEW"
+}, {
+    id: 16,
+    title: "Tình cờ",
+    price: "150.000 ₫",
+    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13252_tinh-co.jpg",
+    occasion: "hoa-sinh-nhat",
+    color: "mau-tim",
+    badgeText: "NEW"
+}];
 let productJSON = JSON.stringify(products);
 localStorage.setItem('products', productJSON);
 }
+// ------------------------------------------------------------------------------------------------------------------
 
 
+// Lấy sản phẩm từ local và show ra
 function showListProducts() {
     let storedProducts = JSON.parse(localStorage.getItem('products'));
 
@@ -257,21 +323,22 @@ function showListProducts() {
     for (let i = 0; i < storedProducts.length; i++) {
         content += `<div class="product-item">`;
         content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
-        content += `<img src="` + storedProducts[i].img + `" class="card-img" style="height: 400px;">`;
+        content += `<img src="` + storedProducts[i].imageUrl + `" class="card-img" style="height: 400px;">`;
         content += `</a>`;
         content += `<div class="card-body">`;
-        content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
+        content += `<h3 class="card-title">` + storedProducts[i].title + `</h3>`;
         content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<a href="payment.html?ids=` + storedProducts[i].id + `" class="cart-btn-left">Buy now</a>`;
+        content += `<a href="payment.html?ids=` + storedProducts[i].id + `" class="card-btn-left">Buy now</a>`;
         content += `</div>`;
         content += `</div>`;
     }
 
     document.getElementById('products').innerHTML = content;
 }
+// ------------------------------------------------------------------------------------------------------------------
 
 
-// JS Lưu Feedback vào local storage
+// JS Lưu Feedback vào local storage khi submit form
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
@@ -298,9 +365,11 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     // Reset form after sending feedback
     document.getElementById('feedbackForm').reset();
 });
+// ------------------------------------------------------------------------------------------------------------------
 
 
 
+// Tạo 1 feedback mẫu ban đầu và lưu vào local sau đó in ra
 function showListFeedback() {
     const feedbacks  = [
         {
@@ -333,18 +402,15 @@ function showListFeedback() {
     ];
 
     
-    // Store feedbacks in local storage
     let feedbackJSON = JSON.stringify(feedbacks);
     localStorage.setItem('feedbacks', feedbackJSON);
 
-    // Retrieve feedbacks from local storage
     let storedFeedbacks = JSON.parse(localStorage.getItem('feedbacks'));
 
-    // Loop through feedbacks and display each in the correct element with <span> tag
     for (let i = 0; i < 4; i++) {
         let name = `<span>${storedFeedbacks[i].name}</span>`;  
         let occupation = `<span>${storedFeedbacks[i].occupation}</span>`;  
-        let description = `<span>${storedFeedbacks[i].description}</span>`;  // Fixed the typo
+        let description = `<span>${storedFeedbacks[i].description}</span>`;
         
         if (i === 0) {
             document.getElementById('first-feedback-name').innerHTML = name;
@@ -368,6 +434,8 @@ function showListFeedback() {
         }
     }
 }
+// ------------------------------------------------------------------------------------------------------------------
+
 
 // JS Go to top
 let scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -385,6 +453,7 @@ scrollToTopBtn.addEventListener("click", function() {
         behavior: 'smooth'
     });
 });
+// ------------------------------------------------------------------------------------------------------------------
 
 
 // Js check go to cart button
@@ -396,6 +465,29 @@ cartBtn.addEventListener('click', function() {
     } else {
         loginModal.style.display = 'block';
     }
+});
+// ------------------------------------------------------------------------------------------------------------------
+
+// JS sử lý ô search ở homepage
+
+// JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('search-form');
+    const searchInput = document.getElementById('input-search');
+
+    // Lắng nghe sự kiện submit của form và ngăn hành vi submit mặc định
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();  // Ngăn chặn hành vi submit mặc định
+
+        const inputInfo = searchInput.value.toLowerCase();  // Lấy giá trị input
+        console.log("Input value: ", inputInfo);  // Kiểm tra giá trị nhập
+
+        if (inputInfo) {
+            window.location.assign(`products.html?search=${inputInfo}`);
+        } else {
+            console.log("No input provided");
+        }
+    });
 });
 
 
