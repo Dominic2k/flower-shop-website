@@ -2,6 +2,8 @@ body {
     background-color: #fff ;
 }
 
+
+
 .ad-btn, .update-btn {
     background-color: #d9534f;
     color: white;         
@@ -16,30 +18,56 @@ body {
 .table {
     table-layout: fixed;
     width: 100%;
-    border: 2px solid black; /* Đường viền bao quanh bảng */
+    border: 2px solid black; 
     border-collapse: collapse;
 }
 
 .table th, .table td {
     white-space: nowrap; /* Không cho phép xuống dòng */
-    overflow: hidden; /* Ẩn phần nội dung tràn ra khỏi ô */
-    text-overflow: ellipsis;  /* Hiển thị dấu "..." nếu nội dung quá dài */
+    overflow: hidden; 
+    /* text-overflow: ellipsis;  Hiển thị dấu "..." nếu nội dung quá dài */
 }
 
-/* Loại bỏ nowrap cho cột thứ 8 để cho phép hiển thị toàn bộ nội dung */
-.table th:nth-child(8), .table td:nth-child(8) {
-    /* white-space: normal;  */
+.threedots {
+    text-overflow: ellipsis;
+}
+
+/* CSS cho tableProduct"*/
+#productTable th:nth-child(1), #productTable td:nth-child(1),
+#userTable th:nth-child(1), #userTable td:nth-child(1)  {
+    width: 40px; 
+}
+
+#productTable th:nth-child(5),  #productTable td:nth-child(5){
+    width: 170px;
+}
+
+#productTable th:nth-child(4),  #productTable td:nth-child(4),
+#productTableth:nth-child(6),  #productTable td:nth-child(6) {
+    width:80px;
+}
+
+#productTable th:nth-child(7), #productTable td:nth-child(7) {
+    width: 240px;
+}
+
+#productTable th:nth-child(8), #productTable td:nth-child(8){
     width: 100px;
 }
 
-.table th:nth-child(7),  .table td:nth-child(7), 
-.table th:nth-child(5),  .table td:nth-child(5){
-    width: 150px;
+/* CSS cho tableUser"*/
+#userTable th:nth-child(3), #userTable td:nth-child(3) {
+    width: 400px; 
 }
 
-.table th:nth-child(1), .table td:nth-child(1) {
-    width: 50px; /* Chiều rộng nhỏ nhất cho cột ID */
+#userTable th:nth-child(5), #userTable td:nth-child(5) {
+    width: 130px; 
 }
+
+#userTable th:nth-child(6), #userTable td:nth-child(6) {
+    width: 65px; 
+}
+
 
 /* CSS cho nút "Edit" và "Delete"*/
 .edit-btn, .delete-btn {
@@ -54,10 +82,6 @@ body {
 .delete-btn:hover, .edit-btn:hover, .ad-btn:hover {
     color: #f37006;
 }
-
-.btn:focus, .btn:active {
-    box-shadow: none !important; /* Loại bỏ bóng khi focus hoặc nhấn */
-  }
   
   /* CSS modal */
 .admin-modal .modal-body, .admin-modal .modal-header,.admin-modal .modal-footer {
@@ -66,17 +90,26 @@ body {
 
 .admin-modal .modal-content {
     padding: 0; /* Đảm bảo toàn bộ modal không có padding quá lớn */
-    margin-left: 5px;
-    width: 90%;
+    margin-top: -2.5rem;
+    width: 100%;
     background-color: #fff;
-    left:20%;
+    left:15%;
 }
 
 .admin-modal .modal-title {
     margin-bottom: 0;
     line-height: var(--bs-modal-title-line-height);
-    text-align: center; /* Đảm bảo tiêu đề được căn giữa */
+    text-align: center; 
     width: 100%;        /* Đảm bảo tiêu đề chiếm toàn bộ chiều rộng modal */
+}
+
+.modal-header .btn-close {
+    padding: .5rem .5rem;
+    margin: .5rem .5rem .5rem auto;
+}
+
+.btn:focus, .btn:active, .modal-header .btn-close:focus, .modal-header .btn-close:active {
+    box-shadow: none !important; 
 }
 
 .admin-modal .modal-footer .btn {
@@ -84,6 +117,8 @@ body {
     background-color: #b19cd9;
 }
 
-
+.modal-backdrop.show {
+    display: none;
+}
 
 

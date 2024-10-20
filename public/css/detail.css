@@ -1,49 +1,54 @@
 .detail {
-  background-color: #FFDDE0;
+  background-color: #fff;
   width: 100%;
   padding: 20px;             /* Khoảng cách từ ảnh đến lề */
   display: flex;
+  flex-wrap: wrap;
   justify-content: center; 
 }
 
 .mt-5 {
-  margin-top: 0rem !important;
+  margin-top: 1.25rem !important;
 }
 
 .row {
- margin-top:25px;
+ margin-top:10px;
 }
-#product-detail {
+#product-detail-1, #product-detail-2 {
   width:100%;
 }
+
+ /* ẢNH */
 .card-img {
-  width: auto;               /* Đảm bảo ảnh co dãn tự nhiên */
-  height: 300px;             /* Chiều cao của ảnh */
-  max-width: 100%;           /* Đảm bảo ảnh không vượt quá chiều rộng khung */
+  width: auto;        /* Đảm bảo ảnh co dãn tự nhiên */
+  height: 300px;          
+  max-width: 100%;           
   object-fit: cover;
   margin-left: 50px;   
 }
 
-#product-price,
-#product-color,
-#product-title {
-  display: flex;
+ /* Đảm bảo chữ trong detail */
+#product-price, #product-code,
+#product-title, #product-gift {
+  display: inline;
   justify-content: space-between;
-  width:0;
+  line-height: 2rem;
 }
 
-#product-price span,
-#product-color span,
+#product-code span {
+  margin-right: 80px;
+}
 #product-title span {
-  min-width: 90px; /* Đảm bảo chiều rộng đều cho nhãn */
-  font-weight: bold;
+  margin-right: 85px;
 }
 
-#product-name,
-#product-price,
-#product-color,
-#product-title {
-  margin-bottom: 5px;
+#text-gift, 
+#text-product-gift {
+  margin-right: 20px;
+}
+
+.gift-icon {
+  color:orange;
 }
 
 .mb-3{
@@ -53,16 +58,16 @@
 
 .me-2 {
   font-size: 1rem; 
-  font-weight: bold;
-  color: black;
 }
 
+ /* Đảm bảo BUTTON QUATITY*/
 .quantity .input-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid #b19cd9;
-  margin-left: 20px; 
+  border: 2px solid #ccc;
+  margin-left: 50px; 
+  margin-top: 5px;
   border-radius: 10px;
   width: 150px; 
   height: 40px; 
@@ -73,27 +78,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px; /* Equal width for both buttons */
+  width: 40px; 
   height: 40px; 
   font-size: 1.5rem; 
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: #b19cd9;
+  background-color: #fff;
   margin:0;
 }
+/* #b19cd9; */
 
 .quantity .input-group #decrease {
-  border-right: 2px solid #b19cd9;
+  border-right: 2px solid #ccc;
   border-radius: 0; 
 }
 
 .quantity .input-group #increase {
-  border-left: 2px solid #b19cd9;
+  border-left: 2px solid #ccc;
   border-radius: 0; 
 }
 
 .quantity .input-group .btn:hover{
-  background-color: #f37006 !important; 
+  background-color: #ccc !important; 
 }
 
 .quantity .input-group input {
@@ -107,7 +113,7 @@
 
 .btn {
   margin-right: 20px; 
-  width:25%;
+  width:35%;
   border-radius: 10px;
   padding: 10px 20px;
   font-size: 16px;
@@ -126,19 +132,23 @@
   background-color:  rgb(253, 141, 13);
 }
 
-/* Trạng thái focus và active */
 .btn:focus, .btn:active {
   box-shadow: none !important; /* Loại bỏ bóng khi focus hoặc nhấn */
 }
 
 #product-describe {
-  font-size: 1rem; 
+  font-size: 1.55rem; 
   font-weight: 500;  /* Độ đậm chữ */
   line-height: 1.2;  /* Khoảng cách giữa các dòng */
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
   width: 97%; 
   word-wrap: break-word; /* Tự động ngắt dòng khi cần */
   text-align: justify; /* Canh đều văn bản */
   white-space: normal; /* Đảm bảo văn bản ngắt dòng bình thường */
 }
 
+hr {
+  border-top: 1.5px solid black; 
+  margin: 10px 0; /* Tạo khoảng cách 10px ở trên và dưới đường thẳng */
+  width: 100%; /* Đường thẳng chiếm toàn bộ chiều ngang */
+}

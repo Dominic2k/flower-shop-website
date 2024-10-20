@@ -166,143 +166,200 @@ document.getElementById('login-btn').addEventListener('click', function() {
 // Tạo sản phẩm mẫu ban đầu và lưu vào local
 function createdProducts() {
     
-    const products = [{
-        id: 1,
-        title: "Morning Kiss",
-        price: "1.000.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
-        occasion: "hoa-sinh-nhat",
-        color: "mau-do",
-        badgeText: "NEW",
-    
-    }, {
-        id: 2,
-        title: "Ngày Có Nắng",
-        price: "300.000 ₫",
-        originalPrice: "930.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
-        occasion: "hoa-sinh-nhat",
-        color: "mau-vang",
-        badgeText: "NEW"
-    }, {
-        id: 3,
-        title: "Ánh Dương 2",
-        price: "800.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
-        occasion: "hoa-sinh-nhat",
-        color: "mau-vang",
-        badgeText: "NEW"
-    }, {
-        id: 4,
-        title: "Sunflower",
-        price: "100.000 ₫",
-        originalPrice: "930.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
-        occasion: "hoa-sinh-nhat",
-        color: "mau-vang",
-        badgeText: "SALE"
-    }, {
-        id: 5,
-        title: "Purple Love",
-        price: "600.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
-        occasion: "hoa-tinh-yeu",
-        color: "mau-tim",
-        badgeText: "NEW"
-    }, {
-        id: 6,
-        title: "Beauty Queen",
-        price: "200.000 ₫",
-        originalPrice: "600.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
-        occasion: "hoa-tinh-yeu",
-        color: "mau-tim",
-        badgeText: "SALE"
-    }, {
-        id: 7,
-        title: "Bùng Cháy 3",
-        price: "400.000 ₫",
-        originalPrice: "700.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
-        occasion: "hoa-khai-truong",
-        color: "mau-do",
-        badgeText: "SALE"
-    }, {
-        id: 8,
-        title: "Rustic",
-        price: "300.000 ₫",
-        originalPrice: "800.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
-        occasion: "hoa-tinh-yeu",
-        color: "mau-vang",
-        badgeText: "SALE"
-    }, {
-        id: 9,
-        title: "Vững Bền",
-        price: "600.000 ₫",
-        originalPrice: "700.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
-        occasion: "hoa-khai-truong",
-        color: "mau-do",
-        badgeText: "SALE"
-    }, {
-        id: 10,
-        title: "Thành Đạt",
-        price: "1.600.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
-        occasion: "hoa-khai-truong",
-        color: "mau-vang",
-        badgeText: "NEW"
-    }, {
-        id: 11,
-        title: "Only Rose",
-        price: "190.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
-        occasion: "hoa-tinh-yeu",
-        color: "mau-do",
-        badgeText: "NEW"
-    }, {
-        id: 12,
-        title: "Lan Hồ Điệp Mẫu 4",
-        price: "600.000 ₫",
-        originalPrice: "700.000 ₫",
-        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
-    occasion: "hoa-khai-truong",
-    color: "mau-tim",
-    badgeText: "SALE"
-}, {
-    id: 13,
-    title: "Thạch thảo",
-    price: "1.400.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/3573_thach-thao.jpg",
-    occasion: "hoa-sinh-nhat",
-    color: "mau-tim",
-    badgeText: "NEW"
-}, {
-    id: 14,
-    title: "Only Rose",
-    price: "120.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13196_mercy-2.jpg",
-    occasion: "hoa-khai-truong",
-    color: "mau-do",
-    badgeText: "NEW"
-}, {
-    id: 15,
-    title: "Món quà tặng em",
-    price: "800.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/13906_mon-qua-hanh-phuc.jpg",
-    occasion: "hoa-tinh-yeu",
-    color: "mau-tim",
-    badgeText: "NEW"
-}, {
-    id: 16,
-    title: "Tình cờ",
-    price: "150.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13252_tinh-co.jpg",
-    occasion: "hoa-sinh-nhat",
-    color: "mau-tim",
-    badgeText: "NEW"
-}];
+    const products = [
+        {
+          id: 1,
+          title: "Elegant Watch",
+          price: 120.00,
+          code: "EW2005",
+          originalPrice: 150.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Casual",
+          color: "Silver",
+          badgeText: "Best Seller",
+          describe: "This elegant silver watch combines style with functionality, making it perfect for everyday casual wear. The sleek design and minimalist face add a touch of sophistication to any outfit. Water-resistant and durable, it's designed for those who value both aesthetics and practicality. A must-have accessory for your wardrobe."
+        },
+        {
+          id: 2,
+          title: "Leather Jacket",
+          price: 200.00,
+          code:"SQ2005",
+          originalPrice: 250.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Winter",
+          color: "Black",
+          badgeText: "New Arrival",
+          describe: "This black leather jacket is a timeless classic, offering both warmth and style during the colder months. Crafted from high-quality leather, it provides excellent insulation while maintaining a sleek, modern look. The jacket features multiple pockets and a comfortable inner lining, making it as practical as it is stylish. Perfect for winter or cool evening outings."
+        },
+        {
+          id: 3,
+          title: "Running Shoes",
+          price: 85.00,
+          code:"SQ2005",
+          originalPrice: 100.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Sport",
+          color: "Blue",
+          badgeText: "Top Pick",
+          describe: "These blue running shoes are designed for athletes seeking comfort and durability. The lightweight construction and breathable fabric keep your feet cool during long runs, while the cushioned sole provides excellent support. Whether you're training for a marathon or enjoying a casual jog, these shoes will help enhance your performance. A great choice for any fitness enthusiast."
+        },
+        {
+          id: 4,
+          title: "Sunglasses",
+          price: 50.00,
+          code:"SQ2005",
+          originalPrice: 75.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Summer",
+          color: "Black",
+          badgeText: "Limited Edition",
+          describe: "These stylish black sunglasses are the perfect accessory for bright summer days. With UV protection, they not only enhance your look but also shield your eyes from harmful sun rays. The lightweight frame ensures all-day comfort, making them ideal for outdoor activities. Elevate your summer style with this limited edition design."
+        },
+        {
+          id: 5,
+          title: "Evening Dress",
+          price: 300.00,
+          code:"SQ2005",
+          originalPrice: 400.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Formal",
+          color: "Red",
+          badgeText: "Exclusive",
+          describe: "This stunning red evening dress is designed to make a statement at any formal event. With its elegant silhouette and rich fabric, it accentuates your curves while maintaining a sophisticated look. The dress is perfect for galas, weddings, or any special occasion where you want to stand out. It’s a timeless piece that will never go out of style."
+        },
+        {
+          id: 6,
+          title: "Backpack",
+          price: 75.00,
+          code:"SQ2005",
+          originalPrice: 90.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Travel",
+          color: "Gray",
+          badgeText: "Durable",
+          describe: "This gray backpack is perfect for travelers and adventurers alike. With its spacious compartments, it can hold everything from laptops to travel essentials, making it ideal for both work and play. The water-resistant material ensures your belongings stay dry, while the padded straps provide all-day comfort. A versatile and durable bag for any journey."
+        },
+        {
+          id: 7,
+          title: "Smartphone",
+          price: 999.00,
+          code:"SQ2005",
+          originalPrice: 1200.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Everyday",
+          color: "Black",
+          badgeText: "Hot",
+          describe: "This latest smartphone is packed with cutting-edge features, including a high-resolution camera, long battery life, and a powerful processor. Its sleek black design is both modern and elegant, making it suitable for both professional and personal use. With ample storage and fast charging capabilities, this phone is perfect for anyone on the go. Stay connected and productive with this must-have gadget."
+        },
+        {
+          id: 8,
+          title: "Bluetooth Headphones",
+          price: 150.00,
+          code:"SQ2005",
+          originalPrice: 200.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Music",
+          color: "White",
+          badgeText: "Trending",
+          describe: "These wireless Bluetooth headphones provide superior sound quality and noise cancellation, making them ideal for music lovers. The comfortable over-ear design allows for extended listening without discomfort, while the long battery life ensures they’re always ready when you are. Perfect for both commuting and relaxing at home. Enjoy your favorite tunes with exceptional clarity and depth."
+        },
+        {
+          id: 9,
+          title: "Coffee Maker",
+          price: 120.00,
+          code:"SQ2005",
+          originalPrice: 150.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Kitchen",
+          color: "Black",
+          badgeText: "Best Seller",
+          describe: "This automatic coffee maker is a must-have for coffee enthusiasts. It brews fresh, hot coffee in minutes, ensuring you start your day with the perfect cup. With programmable settings and a sleek black design, it fits seamlessly into any kitchen. Whether you prefer a strong espresso or a light brew, this machine delivers consistently great results."
+        },
+        {
+          id: 10,
+          title: "Gaming Laptop",
+          price: 1500.00,
+          code:"SQ2005",
+          originalPrice: 1800.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Gaming",
+          color: "Black",
+          badgeText: "High Performance",
+          describe: "This high-performance gaming laptop is built for serious gamers. Equipped with a powerful graphics card and fast processor, it handles the most demanding games with ease. The large display offers crisp, vibrant visuals, while the advanced cooling system ensures smooth performance during long sessions. It’s a top choice for those who want to take their gaming experience to the next level."
+        },
+        {
+          id: 11,
+          title: "Tennis Racket",
+          price: 200.00,
+          code:"SQ2005",
+          originalPrice: 250.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Sport",
+          color: "Green",
+          badgeText: "Professional",
+          describe: "This lightweight yet durable tennis racket is designed for both professional players and enthusiasts. With a sturdy frame and comfortable grip, it offers excellent control and power. Whether you're competing in tournaments or practicing your backhand, this racket will help you play your best game. A top-quality choice for any tennis player."
+        },
+        {
+          id: 12,
+          title: "Designer Handbag",
+          price: 500.00,
+          code:"SQ2005",
+          originalPrice: 600.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Luxury",
+          color: "Pink",
+          badgeText: "Exclusive",
+          describe: "This premium designer handbag is the epitome of luxury. Crafted from the finest materials, it features a chic pink design that adds a pop of color to any outfit. Spacious yet stylish, it’s perfect for carrying all your essentials while maintaining an elegant look. A must-have for fashion-forward individuals who appreciate quality and exclusivity."
+        },
+        {
+          id: 13,
+          title: "Office Chair",
+          price: 220.00,
+          code:"SQ2005",
+          originalPrice: 300.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Office",
+          color: "Brown",
+          badgeText: "Comfort",
+          describe: "This ergonomic office chair is designed to provide maximum comfort during long hours of work. The adjustable height and lumbar support ensure a perfect fit, reducing strain on your back and neck. Its sleek brown design blends seamlessly with any office decor, making it both functional and stylish. Improve your productivity and posture with this essential office chair."
+        },
+        {
+          id: 14,
+          title: "Bicycle",
+          price: 800.00,
+          code:"SQ2005",
+          originalPrice: 950.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Outdoor",
+          color: "Yellow",
+          badgeText: "Eco-Friendly",
+          describe: "This high-quality bicycle is perfect for outdoor enthusiasts looking for an eco-friendly mode of transportation. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
+        },
+        {
+          id: 15,
+          title: "Perfume",
+          price: 90.00,
+          code:"SQ2005",
+          originalPrice: 120.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Romantic",
+          color: "Purple",
+          badgeText: "Top Scent",
+          describe: "This luxurious perfume features a romantic blend of floral and woody notes, perfect for special occasions. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
+        },
+        {
+          id: 16,
+          title: "Electric",
+          price: 130.00,
+          code:"SQ2005",
+          originalPrice: 150.00,
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Romantic",
+          color: "Purple",
+          badgeText: "Top Scent",
+          describe: "This luxurious perfume features a romantic blend of floral and woody notes, perfect for special occasions. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
+        }
+    ];
 let productJSON = JSON.stringify(products);
 localStorage.setItem('products', productJSON);
 }
