@@ -205,7 +205,7 @@ const products = [
         color: "Pink",
         title: "Delicate Pink Orchids",
         describe: "A delicate arrangement of pink orchids, perfect for a sophisticated touch.",
-        price: "459.900đ",
+        price: "459.000đ",
         img: "https://lilydesign.vn/uploads/thumbnails/800/2021/11/gio-hoa-hong-do-dep-ldnk258-19-11-52-18.jpg"
     },
     {
@@ -225,7 +225,7 @@ const products = [
         color: "Red",
         title: "Passionate Red Carnations",
         describe: "A bouquet of 15 red carnations, representing love and admiration.",
-        price: "199.900đ",
+        price: "199.000đ",
         img: "https://www.giftstoindia24x7.com/ASP_Img/IMG1000/GTI10750.jpg"
     },
     {
@@ -255,14 +255,14 @@ function showListProducts() {
     let content = '';
 
     for (let i = 0; i < storedProducts.length; i++) {
-        content += `<div class="product-item">`
+        content += `<div class="product-item">`;
         content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
         content += `<img src="` + storedProducts[i].img + `" class="card-img" style="height: 400px;">`;
         content += `</a>`;
         content += `<div class="card-body">`;
         content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
         content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<a href="payment.html?id=` + storedProducts[i].id + `" class="cart-btn-left">Buy now</a>`;
+        content += `<a href="payment.html?ids=` + storedProducts[i].id + `" class="cart-btn-left">Buy now</a>`;
         content += `</div>`;
         content += `</div>`;
     }

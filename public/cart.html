@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #f8d3d3;
         }
+        header {
+            position: fixed; /* Fixes the header at the top */
+            top: 0; /* Aligns to the top */
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure it stays above other content */
+        }
         .product-row {
             margin-top: 10px;
-            padding: 10px;
+            padding: 15px;
             background-color: #f8dbdb;
             border-radius: 5px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            display: flex;
+            flex-wrap: nowrap; 
         }
         .product-image {
-            width: 50px;
-            height: auto;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
             margin-right: 10px;
-            vertical-align: middle;
         }
+        
         .fixed-bottom {
             position: fixed;
             bottom: 0;
@@ -34,23 +45,30 @@
             border-top: 1px solid #ccc;
             z-index: 1000;
         }
+        .col-custom {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         .qty-container {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0; /* Loại bỏ khoảng cách giữa các nút */
         }
         .qty-btn {
+            border-radius: 0;
             width: 40px;
             height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
+        
         .qty-input {
-            width: 60px;
-            height: 40px;
             text-align: center;
-            margin: 0;
+            width: 50px;
+            height: 40px;
         }
         .col-custom {
             flex: 1;
@@ -68,7 +86,6 @@
 </head>
 <body>
     <div class="container-fluid">
-        <!-- Header -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
                 <a class="navbar-brand" href="#">
@@ -85,28 +102,21 @@
                     </ul>
                     <form class="d-flex">
                         <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
-                        <div class="icon-links user-icon">
-                            <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
-                        </div>
-                        <div class="icon-links cart">
-                            <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
-                        </div>
+                        <div class="icon-links user-icon"><a href="#" class="user-icon"><i class="fas fa-user"></i></a></div>
+                        <div class="icon-links cart"><a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a></div>
                     </form>
                 </div>
             </nav>
         </header>
 
-        <!-- Cart Content -->
         <div class="container mt-5">
             <div class="row bg-light font-weight-bold">
-                <div class="col-md-1">
-                    <input type="checkbox" id="select-all" onclick="toggleSelectAll()">
-                </div>
-                <div class="col-custom">Product</div>
-                <div class="col-custom">Unit Price</div>
-                <div class="col-custom">Quantity</div>
-                <div class="col-custom">Total Price</div>
-                <div class="col-custom">Action</div>
+                <div class="col-md-2"><input type="checkbox" id="select-all" onclick="toggleSelectAll()"></div>
+                <div class="col-md-2 text-center">Product</div>
+                <div class="col-md-2 text-center">Unit Price</div>
+                <div class="col-md-2 text-center">Quantity</div>
+                <div class="col-md-2 text-center">Total Price</div>
+                <div class="col-md-2 text-center">Action</div>
             </div>
             <div id="product-list"></div>
         </div>
@@ -117,52 +127,64 @@
                     <div class="col-md-6">
                         <strong>Total Payment (<span id="total-items">0</span> items): </strong><span id="total-amount">0 VND</span>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <button class="btn btn-success" onclick="proceedToCheckout()">Checkout</button>
-                    </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6">
-                        <button class="btn btn-primary" onclick="toggleSelectAll()">Select All</button>
-                        <button class="btn btn-danger" onclick="removeSelected()">Remove All</button>
+                        <button class="btn btn-danger" >
+                            <label class="form-check-label" for="select-all" onclick="toggleSelectAll()" >Select All</label></button>
+                        <button class="btn btn-danger" onclick="removeSelectedProducts()">Remove All</button>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-danger" onclick="proceedToCheckout()" style="width: 150px;" >Buy</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
-
 
 <script>
     function displayCart() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const productList = document.getElementById('product-list');
-        productList.innerHTML = ''; 
+        productList.innerHTML = '';
+
+        if (cart.length === 0) {
+            productList.innerHTML = '<p class="text-center mt-3">Your shopping cart is empty..</p>';
+            return;
+        }
 
         cart.forEach(product => {
-            const totalPrice = product.price * product.quantity;
+            const price = parseFloat(product.price) || 0.0;
+            const quantity = parseInt(product.quantity) || 1;
+            const totalPrice = price * quantity;
 
             const productRow = `
-                <div class="row align-items-center product-row" id="product-row-${product.code}">
-                    <div class="col-md-1">
-                        <input type="checkbox" class="form-check-input" id="checkbox-${product.code}" onchange="updateTotalAmount()">
+                <div class="row align-items-center product-row" id="product-row-${product.id}">
+                    <div class="col-md-2 text-center">
+                        <input type="checkbox" class="form-check-input" id="checkbox-${product.id}" onchange="updateTotalAmount()">
                     </div>
-                    <div class="col-custom">
-                        <img src="${product.image}" class="product-image" alt="${product.name}">
-                        ${product.name}
+                    <div class="col-md-2 d-flex align-items-center">
+                        <img src="${product.img}" class="product-image" alt="${product.name}">
+                        <span>${product.name}</span>
                     </div>
-                    <div class="col-custom" id="unit-price-${product.code}">${product.price.toLocaleString('vi-VN')} VNĐ</div>
-                    <div class="col-custom qty-container">
-                        <button class="btn btn-outline-secondary btn-sm qty-btn" onclick="updateQuantity(-1, '${product.code}')">-</button>
-                        <input type="number" id="quantity-${product.code}" value="${product.quantity}" min="1" class="form-control qty-input" onchange="updateTotal('${product.code}')" readonly>
-                        <button class="btn btn-outline-secondary btn-sm qty-btn" onclick="updateQuantity(1, '${product.code}')">+</button>
+                    <div class="col-md-2 text-center" id="unit-price-${product.id}">
+                        ${price.toLocaleString('vi-VN')} VNĐ
                     </div>
-                    <div class="col-custom" id="total-price-${product.code}">${totalPrice.toLocaleString('vi-VN')} VNĐ</div>
-                    <div class="col-md-2">
-                        <button class="btn btn-danger btn-sm" onclick="removeProduct('${product.code}')">Xóa</button>
+                    <div class="col-md-2 qty-container">
+                        <button class="btn btn-outline-secondary qty-btn" onclick="updateQuantity(-1, '${product.id}')">-</button>
+                        <input type="number" id="quantity-${product.id}" value="${quantity}" min="1" class="form-control qty-input" readonly>
+                        <button class="btn btn-outline-secondary qty-btn" onclick="updateQuantity(1, '${product.id}')">+</button>
+                    </div>
+                    <div class="col-md-2 text-center" id="total-price-${product.id}">
+                        ${totalPrice.toLocaleString('vi-VN')} VNĐ
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <button class="btn btn-danger btn-sm" onclick="removeProduct('${product.id}')">Delete</button>
                     </div>
                 </div>`;
             productList.innerHTML += productRow;
         });
+
         updateTotalAmount();
     }
 
@@ -174,8 +196,8 @@
         quantityInput.value = quantity;
 
         updateTotal(productCode);
-        const cart = JSON.parse(localStorage.getItem('cart'));  
-        const product = cart.find(p => p.code === productCode);
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        const product = cart.find(p => p.id === parseInt(productCode));
         product.quantity = quantity;
         localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -210,23 +232,37 @@
         document.getElementById('total-items').innerText = totalItems; 
     }
 
-    function removeProduct(productCode) {
-        const productRow = document.getElementById(`product-row-${productCode}`);
-        productRow.style.display = 'none'; 
-        const cart = JSON.parse(localStorage.getItem('cart'));
-        const newCart = cart.filter(p => p.code !== productCode);
-        localStorage.setItem('cart', JSON.stringify(newCart));
-        displayCart(); 
+    function removeProduct(productId) {
+        const checkbox = document.getElementById(`checkbox-${productId}`);
+        if (!checkbox.checked) {
+            alert("Vui lòng chọn sản phẩm để xóa.");
+            return;
+        }
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart = cart.filter(product => product.id !== parseInt(productId));
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
     }
 
-    function removeSelected() {
+    function removeSelectedProducts() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
-        checkboxes.forEach((checkbox) => {
+
+        checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
-                const productCode = checkbox.id.split('-')[1];
-                removeProduct(productCode);
+                const productId = checkbox.id.split('-')[1];
+                cart = cart.filter(product => product.id !== parseInt(productId));
             }
         });
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+    }
+
+    function clearCart() {
+        localStorage.removeItem('cart');
+        displayCart();
     }
 
     function toggleSelectAll() {
@@ -246,22 +282,18 @@
     
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
-                const productCode = checkbox.id.split('-')[1];
-                const quantity = parseInt(document.getElementById(`quantity-${productCode}`).value);
-                selectedProducts.push({ code: productCode, quantity: quantity });
+                const productId = checkbox.id.split('-')[1];
+                selectedProducts.push(productId);
             }
         });
     
         if (selectedProducts.length === 0) {
-            alert("Vui lòng chọn ít nhất một sản phẩm để thanh toán.");
+            alert("Please select at least one product to checkout");
             return;
         }
-    
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const productsForCheckout = cart.filter(product => selectedProducts.some(p => p.code === product.code));
         
-        localStorage.setItem('selectedProducts', JSON.stringify(productsForCheckout)); 
-        window.location.href = 'payment.html';
+        const ids = selectedProducts.join(','); // Join selected IDs
+        window.location.href = `payment.html?ids=${ids}`; // Pass IDs to payment page
     }
     
 
