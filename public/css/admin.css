@@ -25,7 +25,11 @@ body {
 .table th, .table td {
     white-space: nowrap; /* Không cho phép xuống dòng */
     overflow: hidden; 
-    text-overflow: ellipsis;  /* Hiển thị dấu "..." nếu nội dung quá dài */
+    /* text-overflow: ellipsis;  Hiển thị dấu "..." nếu nội dung quá dài */
+}
+
+.threedots {
+    text-overflow: ellipsis;
 }
 
 /* CSS cho tableProduct"*/

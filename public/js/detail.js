@@ -1,5 +1,3 @@
-
-
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -26,10 +24,10 @@ function displayProductDetail() {
     if (product) {
         let content1 = `
             <div class="col-md-5">
-                <img src="${product.img}" class="card-img" style="height: 300px;">
+                <img src="${product.imageUrl}" class="card-img" style="height: 300px;">
             </div>
             <div class="col-md-7">
-                <h3 id="product-name">${product.name}</h3>
+                <h3 id="product-name">${product.title}</h3>
                 <hr>
                 <p id="product-price" style="font-size:30px; color:orange;">${product.price}</p><br>
                 <p id="product-code"><span>Code</span>${product.code}</p><br>
@@ -40,7 +38,7 @@ function displayProductDetail() {
                     <span id="text-question">Free to change your mind</span>
                     <i class="question-icon fa fa-question-circle"></i>
                 </p> <br>
-                <p id="product-title"><span>Title</span>${product.title}</p>
+                <p id="product-title"><span>Title</span>${product.occasion}</p>
                 <div class="quantity d-flex align-items-center mb-3">
                     <p class="me-2">Quantity</p>
                     <div class="input-group">
@@ -82,14 +80,6 @@ function displayProductDetail() {
             quantityInput.value = currentValue + 1;
         });
         
-        // const thumbnails = document.querySelectorAll('.thumb');
-        // const mainImage = document.getElementById('main-image');
-        
-        // thumbnails.forEach(function(thumbnail) {
-        //     thumbnail.addEventListener('click', function() {
-        //         mainImage.src = thumbnail.src;
-        //     });
-        // });
     } else {
         console.error('Sản phẩm không tồn tại');
     }
@@ -121,6 +111,7 @@ function add() {
         console.error('Sản phẩm không tồn tại');
     }
 }
+
 
 function order() {
     alert('Đặt hàng thành công!');
