@@ -43,7 +43,7 @@ function displayProductDetail() {
         content += `</div>`;
         content += `<div class="mb-3">`;
         content += `<button class="add-btn btn btn-danger" onclick="add()">Add to cart</button>`;
-        content += `<a href="payment.html?id=` + product.id + `" class="buy-btn btn btn-warning">Buy now</a>`;
+        content += `<a href="payment.html?ids=${product.id}" class="buy-btn btn btn-warning">Buy now</a>`;
         content += `</div>`;
         content += `<p id="product-describe"><span>Describe:  </span>` + product.describe + `</p>`;
         content += `</div>`;
@@ -80,8 +80,31 @@ function displayProductDetail() {
 
 // Các hàm xử lý sự kiện nút bấm
 function add() {
-    alert('Thêm vào giỏ hàng thành công!');
+    const id = Number(getQueryParam('id')); 
+    const quantity = parseInt(document.getElementById('quantity-input').value); 
+
+    let storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+
+    const product = storedProducts.find(p => p.id === id); 
+
+    if (product) {
+        const existingProduct = cart.find(p => p.id === product.id);
+
+        if (existingProduct) {
+            existingProduct.quantity += quantity;
+        } else {
+            cart.push({ ...product, quantity: quantity });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+        console.log('Giỏ hàng sau khi thêm:', cart); // Ghi log kiểm tra dữ liệu
+        alert('Thêm vào giỏ hàng thành công!');
+    } else {
+        console.error('Sản phẩm không tồn tại');
+    }
 }
+
 
 function order() {
     alert('Đặt hàng thành công!');
