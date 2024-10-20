@@ -165,107 +165,108 @@ document.getElementById('login-btn').addEventListener('click', function() {
 // JS Show sản phẩm ở trang chủ
 // Tạo sản phẩm mẫu ban đầu và lưu vào local
 function createdProducts() {
-const products = [{
-    id: 1,
-    title: "Morning Kiss",
-    price: "1.000.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
-    occasion: "hoa-sinh-nhat",
-    color: "mau-do",
-    badgeText: "NEW",
-
-}, {
-    id: 2,
-    title: "Ngày Có Nắng",
-    price: "300.000 ₫",
-    originalPrice: "930.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
-    occasion: "hoa-sinh-nhat",
-    color: "mau-vang",
-    badgeText: "NEW"
-}, {
-    id: 3,
-    title: "Ánh Dương 2",
-    price: "800.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
-    occasion: "hoa-sinh-nhat",
-    color: "mau-vang",
-    badgeText: "NEW"
-}, {
-    id: 4,
-    title: "Sunflower",
-    price: "100.000 ₫",
-    originalPrice: "930.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
-    occasion: "hoa-sinh-nhat",
-    color: "mau-vang",
-    badgeText: "SALE"
-}, {
-    id: 5,
-    title: "Purple Love",
-    price: "600.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
-    occasion: "hoa-tinh-yeu",
-    color: "mau-tim",
-    badgeText: "NEW"
-}, {
-    id: 6,
-    title: "Beauty Queen",
-    price: "200.000 ₫",
-    originalPrice: "600.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
-    occasion: "hoa-tinh-yeu",
-    color: "mau-tim",
-    badgeText: "SALE"
-}, {
-    id: 7,
-    title: "Bùng Cháy 3",
-    price: "400.000 ₫",
-    originalPrice: "700.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
-    occasion: "hoa-khai-truong",
-    color: "mau-do",
-    badgeText: "SALE"
-}, {
-    id: 8,
-    title: "Rustic",
-    price: "300.000 ₫",
-    originalPrice: "800.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
-    occasion: "hoa-tinh-yeu",
-    color: "mau-vang",
-    badgeText: "SALE"
-}, {
-    id: 9,
-    title: "Vững Bền",
-    price: "600.000 ₫",
-    originalPrice: "700.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
-    occasion: "hoa-khai-truong",
-    color: "mau-do",
-    badgeText: "SALE"
-}, {
-    id: 10,
-    title: "Thành Đạt",
-    price: "1.600.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
-    occasion: "hoa-khai-truong",
-    color: "mau-vang",
-    badgeText: "NEW"
-}, {
-    id: 11,
-    title: "Only Rose",
-    price: "190.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
-    occasion: "hoa-tinh-yeu",
-    color: "mau-do",
-    badgeText: "NEW"
-}, {
-    id: 12,
-    title: "Lan Hồ Điệp Mẫu 4",
-    price: "600.000 ₫",
-    originalPrice: "700.000 ₫",
-    imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
+    
+    const products = [{
+        id: 1,
+        title: "Morning Kiss",
+        price: "1.000.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-do",
+        badgeText: "NEW",
+    
+    }, {
+        id: 2,
+        title: "Ngày Có Nắng",
+        price: "300.000 ₫",
+        originalPrice: "930.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-vang",
+        badgeText: "NEW"
+    }, {
+        id: 3,
+        title: "Ánh Dương 2",
+        price: "800.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-vang",
+        badgeText: "NEW"
+    }, {
+        id: 4,
+        title: "Sunflower",
+        price: "100.000 ₫",
+        originalPrice: "930.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
+        occasion: "hoa-sinh-nhat",
+        color: "mau-vang",
+        badgeText: "SALE"
+    }, {
+        id: 5,
+        title: "Purple Love",
+        price: "600.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-tim",
+        badgeText: "NEW"
+    }, {
+        id: 6,
+        title: "Beauty Queen",
+        price: "200.000 ₫",
+        originalPrice: "600.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-tim",
+        badgeText: "SALE"
+    }, {
+        id: 7,
+        title: "Bùng Cháy 3",
+        price: "400.000 ₫",
+        originalPrice: "700.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
+        occasion: "hoa-khai-truong",
+        color: "mau-do",
+        badgeText: "SALE"
+    }, {
+        id: 8,
+        title: "Rustic",
+        price: "300.000 ₫",
+        originalPrice: "800.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-vang",
+        badgeText: "SALE"
+    }, {
+        id: 9,
+        title: "Vững Bền",
+        price: "600.000 ₫",
+        originalPrice: "700.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
+        occasion: "hoa-khai-truong",
+        color: "mau-do",
+        badgeText: "SALE"
+    }, {
+        id: 10,
+        title: "Thành Đạt",
+        price: "1.600.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
+        occasion: "hoa-khai-truong",
+        color: "mau-vang",
+        badgeText: "NEW"
+    }, {
+        id: 11,
+        title: "Only Rose",
+        price: "190.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
+        occasion: "hoa-tinh-yeu",
+        color: "mau-do",
+        badgeText: "NEW"
+    }, {
+        id: 12,
+        title: "Lan Hồ Điệp Mẫu 4",
+        price: "600.000 ₫",
+        originalPrice: "700.000 ₫",
+        imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
     occasion: "hoa-khai-truong",
     color: "mau-tim",
     badgeText: "SALE"
@@ -320,14 +321,14 @@ function showListProducts() {
     let content = '';
 
     for (let i = 0; i < storedProducts.length; i++) {
-        content += `<div class="product-item">`
+        content += `<div class="product-item">`;
         content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
         content += `<img src="` + storedProducts[i].imageUrl + `" class="card-img" style="height: 400px;">`;
         content += `</a>`;
         content += `<div class="card-body">`;
         content += `<h3 class="card-title">` + storedProducts[i].title + `</h3>`;
         content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<a href="payment.html?id=` + storedProducts[i].id + `" class="card-btn-left">Buy now</a>`;
+        content += `<a href="payment.html?ids=` + storedProducts[i].id + `" class="card-btn-left">Buy now</a>`;
         content += `</div>`;
         content += `</div>`;
     }
