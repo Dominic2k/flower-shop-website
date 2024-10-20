@@ -133,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary btn-checkout mt-4" onclick="checkout()">Buy now</button>
+        <button id="orderBtn" class="btn btn-primary btn-checkout mt-4" onclick="checkout()">Buy now</button>
     </div>
 
     <script>
@@ -213,23 +213,23 @@
         });
 
         // Ví dụ thông tin để test"
-        let orders = [
-            {
-                order_id: "ORDER12345",
-                user_name: "Phạm Đức Đạt",
-                user_email: "pducdat2602@gmail.com",
-                user_phone: "0333934916",
-                delivery_address: "101B Lê Hữu Trác, Sơn Trà, Đà Nẵng",
-                product_name: "Rose Black",
-                code: "FL008",
-                color: "Black",
-                title: "Fragrant Lavender Sprigs",
-                describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
-                price: "127.00đ",
-                quantity: "1",
-                img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
-            }
-        ];
+let orders = [
+    {
+        order_id: "ORDER12345",
+        user_name: "Phạm Đức Đạt",
+        user_email: "pducdat2602@gmail.com",
+        user_phone: "0333934916",
+        delivery_address: "101B Lê Hữu Trác, Sơn Trà, Đà Nẵng",
+        product_name: "Rose Black",
+        code: "FL008",
+        color: "Black",
+        title: "Fragrant Lavender Sprigs",
+        describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
+        price: "127.00đ",
+        quantity: "1",
+        img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
+    }
+];
 
 let orderJSON = JSON.stringify(orders);
 localStorage.setItem('orders', orderJSON);
