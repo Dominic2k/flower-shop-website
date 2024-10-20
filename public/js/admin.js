@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let editingProductId = null;
 
     // Khởi tạo modal Bootstrap
-    const modalInstance = new bootstrap.Modal(modalElement);
+    const modalInstance = new bootstrap.Modal(modalProduct);
 
     createProductBtn.addEventListener('click', () => {
         editingProductId = null;
@@ -127,9 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
-
     renderTable();
 
 });
 
+var closeButtons = document.getElementsByClassName("btn-close");
+var productModal = document.getElementById('modalProduct');
+    closeButtons.onclick = function() {
+        productModal.style.display = "none";
+    }
