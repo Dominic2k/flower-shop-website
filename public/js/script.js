@@ -192,7 +192,21 @@ if (isLoggedIn) {
     dropDownOut.style.display = 'none';
 }
 
+dropDownOut.addEventListener('click',function(e) {
+    localStorage.setItem('isLogin', false);
+    const isLoggedIn = localStorage.getItem('isLogin') === 'true';
 
+    if (isLoggedIn) {
+        dropDownIn.style.display = 'none';
+        dropDownUp.style.display = 'none';
+        dropDownOut.style.display = 'block';
+    } else {
+        dropDownIn.style.display = 'block';
+        dropDownUp.style.display = 'block';
+        dropDownOut.style.display = 'none';
+    }
+    alert("Log out successful!")
+});
 
 
 // END MODAL
@@ -557,12 +571,22 @@ scrollToTopBtn.addEventListener("click", function() {
 let cartBtn = document.getElementById('cartBtn');
 
 cartBtn.addEventListener('click', function() {
-    if (isLogin) {
+
+    const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+    if (isLoggedIn) {
         window.location.href = 'cart.html';
+        dropDownIn.style.display = 'none';
+        dropDownUp.style.display = 'none';
+        dropDownOut.style.display = 'block';
     } else {
+        dropDownIn.style.display = 'block';
+        dropDownUp.style.display = 'block';
+        dropDownOut.style.display = 'none';
         loginModal.style.display = 'block';
     }
 });
+
 
 
 // Js check login or not logged in
