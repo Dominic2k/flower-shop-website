@@ -138,7 +138,7 @@ document.getElementById('register-btn').addEventListener('click', function() {
 });
 
 // Đăng nhập người dùng
-let isLogin = true;
+let isLogin = false;
 document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
