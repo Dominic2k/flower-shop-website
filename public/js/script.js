@@ -156,8 +156,24 @@ document.getElementById('login-btn').addEventListener('click', function() {
     } else {
         showAlert('Invalid username or password', 'danger');
     }
-});
 
+    let dropDownIn = document.querySelector("#openLoginBtn");
+    let dropDownUp = document.querySelector("#openRegisterBtn");
+    let dropDownOut = document.querySelector("#LogOutBtn");
+
+
+    if (isLogin) {
+    dropDownIn.style.display = 'none';
+    dropDownUp.style.display = 'none';
+
+    dropDownOut.style.display = 'block';
+    }else {
+    dropDownIn.style.display = 'block';
+    dropDownUp.style.display = 'block';
+
+    dropDownOut.style.display = 'none';
+}
+});
 
 let dropDownIn = document.querySelector("#openLoginBtn");
 let dropDownUp = document.querySelector("#openRegisterBtn");
@@ -175,6 +191,9 @@ if (isLogin) {
 
     dropDownOut.style.display = 'none';
 }
+
+
+
 
 // END MODAL
 // ------------------------------------------------------------------------------------------------------------------
