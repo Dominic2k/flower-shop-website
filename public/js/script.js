@@ -23,7 +23,6 @@ let countdownFunction = setInterval(function() {
     }
 }, 1000);
 // End countdown
-
 // ------------------------------------------------------------------------------------------------------------------
 
 // Start Modal Process
@@ -31,32 +30,21 @@ let countdownFunction = setInterval(function() {
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
 
-// Lấy các nút để mở modal
 var openLoginBtn = document.getElementById("openLoginBtn");
 var openRegisterBtn = document.getElementById("openRegisterBtn");
-
-// Lấy các phần tử đóng modal (X)
 var closeButtons = document.getElementsByClassName("close");
-
-// Khi nhấn nút "Đăng nhập", mở modal đăng nhập
 openLoginBtn.onclick = function() {
     loginModal.style.display = "block";
 }
-
-// Khi nhấn nút "Đăng ký", mở modal đăng ký
 openRegisterBtn.onclick = function() {
     registerModal.style.display = "block";
 }
-
-// Khi nhấn vào nút close (X), đóng modal
 for (let i = 0; i < closeButtons.length; i++) {
     closeButtons[i].onclick = function() {
         loginModal.style.display = "none";
         registerModal.style.display = "none";
     }
 }
-
-// Khi người dùng nhấn ra ngoài modal, đóng modal
 window.onclick = function(event) {
     if (event.target == loginModal) {
         loginModal.style.display = "none";
@@ -67,7 +55,7 @@ window.onclick = function(event) {
 }
 
 document.getElementById('show-register-form').addEventListener('click', function(event) {
-    event.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
+    event.preventDefault(); 
     document.getElementById('loginModal').style.display = 'none';
     document.getElementById('registerModal').style.display = 'block';
 });
@@ -93,15 +81,25 @@ const togglePasswordVisibility = (buttonId, inputSelector) => {
 togglePasswordVisibility('show-password', '#loginModal input[type="password"]');
 togglePasswordVisibility('show-password-register', '#registerModal input[type="password"]');
 
-// Hiển thị alert
-const showAlert = (message, type = 'success') => {
-    const alertBox = document.getElementById('alert-box');
+// Hiển thị thông báo form login
+const showAlertLogin = (message, type = 'success') => {
+    const alertBox = document.getElementById('login-alert-box');
     alertBox.className = `alert alert-${type}`;
     alertBox.textContent = message;
     alertBox.style.display = 'block';
     setTimeout(() => {
         alertBox.style.display = 'none';
-    }, 3000); 
+    }, 2000); 
+};
+// Hiển thị thông báo form Register
+const showAlertRegister = (message, type = 'success') => {
+    const alertBox = document.getElementById('register-alert-box');
+    alertBox.className = `alert alert-${type}`;
+    alertBox.textContent = message;
+    alertBox.style.display = 'block';
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 2000); 
 };
 
 // Đăng ký người dùng mới
@@ -112,49 +110,42 @@ document.getElementById('register-btn').addEventListener('click', function() {
     let cart = [];
 
     if (username && email && password) {
+
         const user = { username, email, password, cart };
 
         // Lấy danh sách người dùng từ localStorage hoặc tạo mảng mới nếu chưa có
         let users = JSON.parse(localStorage.getItem('users')) || [];
-
-        // Kiểm tra xem username đã tồn tại chưa
         const userExists = users.some(u => u.username === username);
 
         if (userExists) {
-            showAlert('Username already exists, please choose another one.', 'danger');
+            showAlertRegister('Username already exists, please choose another one.', 'danger');
         } else {
-            // Thêm người dùng mới vào mảng
             users.push(user);
-
-            // Lưu lại danh sách người dùng vào localStorage
             localStorage.setItem('users', JSON.stringify(users));
-            showAlert('Account created successfully! You can now sign in.');
-            document.getElementById('registerModal').style.display = 'none';
-            document.getElementById('loginModal').style.display = 'block';
+            showAlertRegister('Account created successfully! You can now sign in.');
+            setTimeout(() => {
+                document.getElementById('registerModal').style.display = 'none';
+                document.getElementById('loginModal').style.display = 'block';
+            }, 2000);
         }
     } else {
-        showAlert('Please fill all fields', 'danger');
+        showAlertRegister('Please fill all fields', 'danger');
     }
 });
 
 // Đăng nhập người dùng
-let isLogin = false;
-document.getElementById('login-btn').addEventListener('click', function() {
+    let isLogin = false;
+    document.getElementById('login-btn').addEventListener('click', function() {
+
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
-
-    // Lấy danh sách người dùng từ localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
-
-    // Kiểm tra xem người dùng có tồn tại hay không
     const user = users.find(u => u.username === username && u.password === password);
-
     if (user) {
-        showAlert('Login successful!');
+        showAlertLogin('Login successful!');
         isLogin = true;
-        // Có thể thêm logic để chuyển hướng người dùng sau khi đăng nhập thành công
     } else {
-        showAlert('Invalid username or password', 'danger');
+        showAlertLogin('Invalid username or password', 'danger');
     }
 
     let dropDownIn = document.querySelector("#openLoginBtn");
