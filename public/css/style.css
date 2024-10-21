@@ -88,6 +88,10 @@ align-items: center;
     color: #f63838;
 }
 
+/* .dropdown-menu a[class="dropdownOut"] {
+  display: none;
+} */
+
 .sticky-navbar {
 	position: fixed;
 	top: 0;
