@@ -50,12 +50,23 @@ function displayProductDetail() {
                 <hr>
                 <div class="mb-3">
                     <button class="add-btn btn btn-danger" onclick="add()">Add to cart</button>
-                    <a href="payment.html?id=${product.id}" class="buy-btn btn btn-warning">Buy now</a>
+                    <a href="payment.html?ids=${product.id}&quantity=" class="buy-btn btn btn-warning" id="buy-now-link">Buy now</a>
                 </div>
             </div>`;
+        
         document.getElementById('product-detail-1').innerHTML = content1;
 
-    // Nội dung mô tả sản phẩm
+       // Cập nhật link 'Mua ngay' kèm theo số lượng khi click vào
+        const buyNowLink = document.getElementById('buy-now-link');
+        const quantityInput = document.getElementById('quantity-input');
+
+        buyNowLink.addEventListener('click', function() {
+            const quantity = quantityInput.value;
+            // Cập nhật thuộc tính href để bao gồm số lượng
+            buyNowLink.href = `payment.html?ids=${product.id}&quantity=${quantity}`;
+        });
+
+        // Nội dung mô tả sản phẩm
         let content2 = `
             <div class="col-md-12">
                 <h3 id="product-describe">Describe</h3>
@@ -66,15 +77,14 @@ function displayProductDetail() {
 
         const decreaseBtn = document.getElementById('decrease');
         const increaseBtn = document.getElementById('increase');
-        const quantityInput = document.getElementById('quantity-input');
         
         decreaseBtn.addEventListener('click', function() {
             let currentValue = parseInt(quantityInput.value);
             if (currentValue > 1) {
                 quantityInput.value = currentValue - 1;
             }
-            });
-        
+        });
+
         increaseBtn.addEventListener('click', function() {
             let currentValue = parseInt(quantityInput.value);
             quantityInput.value = currentValue + 1;
