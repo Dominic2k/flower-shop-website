@@ -85,7 +85,6 @@ function displayProductDetail() {
     }
 }
 
-// Các hàm xử lý sự kiện nút bấm
 function add() {
     const id = Number(getQueryParam('id')); 
     const quantity = parseInt(document.getElementById('quantity-input').value); 
