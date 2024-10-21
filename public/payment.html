@@ -83,6 +83,16 @@
             color: #e74c3c;
             font-size: 1.2rem;
           }
+        .total {
+            font-weight: bold;
+            font-size: 1.5rem; /* Kích thước chữ lớn hơn */
+            color: #e74c3c; /* Màu chữ đỏ */
+            margin-top: 20px; /* Khoảng cách trên */
+            text-align: center;
+        }
+        .btn:hover {
+            background-color:  rgb(253, 141, 13);
+        }
     </style>
 </head>
 <body>
@@ -158,17 +168,21 @@
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param); // Trả về tham số từ URL
         }
-
+        
         // Hiển thị các sản phẩm đã chọn trên trang thanh toán
         function displaySelectedProducts() {
             const selectedIds = getQueryParam('ids') ? getQueryParam('ids').split(',').map(Number) : [];
-            // Lấy ID từ URL
+            const quantities = getQueryParam('quantity') ? getQueryParam('quantity').split(',').map(Number) : []; // Get quantity
             const storedProducts = JSON.parse(localStorage.getItem('products')) || []; // Lấy danh sách sản phẩm từ localStorage
-            
             const productDetailContainer = document.getElementById('product-detail');
             productDetailContainer.innerHTML = ''; // Xóa nội dung cũ
-            // Hàm hiển thị một sản phẩm
-            const displayProduct = (product) => {
+        
+            let totalPrice = 0; // Khởi tạo biến tổng tiền
+        
+            const displayProduct = (product, quantity) => {
+                const productPrice = parseFloat(product.price); // Chuyển đổi giá sản phẩm thành số
+                totalPrice += productPrice * quantity; // Cộng giá trị sản phẩm vào tổng tiền
+        
                 const productContent = `
                     <div class="product-card">
                         <img src="${product.imageUrl}" class="product-img" alt="${product.name}">
@@ -176,25 +190,30 @@
                             <h3>${product.title}</h3>
                             <p>${product.occasion}</p>
                             <p class="product-price">${product.price}</p>
+                            <p class="product-quantity">Quantity: ${quantity}</p> <!-- Show the quantity -->
                         </div>
                     </div>`;
                 productDetailContainer.innerHTML += productContent;
             };
-
-            // Hiển thị sản phẩm đã chọn dựa trên ID
-            selectedIds.forEach(id => {
+            selectedIds.forEach((id, index) => {
                 const product = storedProducts.find(product => product.id === id);
+                const quantity = quantities[index] || 1; // Default to 1 if not provided
                 if (product) {
-                    displayProduct(product);
+                    displayProduct(product, quantity);
                 }
             });
-
-            // Nếu không tìm thấy sản phẩm nào, hiển thị thông báo
+        
             if (productDetailContainer.innerHTML === '') {
                 productDetailContainer.innerHTML = '<p>No products found.</p>';
+            } else {
+                // Hiển thị tổng tiền
+                const totalPriceElement = document.createElement('div');
+                totalPriceElement.classList.add('total');
+                totalPriceElement.innerHTML = `<h5>Total Price: <span class="total-price">${totalPrice.toFixed(2)} VND</span></h5>`; // Hiển thị tổng tiền
+                productDetailContainer.appendChild(totalPriceElement); // Thêm tổng tiền vào phần hiển thị
             }
-        }
-
+        }        
+        
         document.addEventListener('DOMContentLoaded', displaySelectedProducts);
 
         function applyVoucher() {

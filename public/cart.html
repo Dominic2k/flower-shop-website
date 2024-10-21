@@ -24,15 +24,30 @@
             background-color: #f8dbdb;
             border-radius: 5px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            align-items: center;
             display: flex;
-            flex-wrap: nowrap; 
+            align-items: center;
+            flex-wrap: nowrap;
         }
+        
+        .col-md-2.d-flex.align-items-center {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Văn bản nằm ngay sau ảnh */
+            gap: 15px; /* Tạo khoảng cách giữa ảnh và văn bản */
+        }
+        
         .product-image {
             width: 60px;
             height: 60px;
-            object-fit: cover;
-            margin-right: 10px;
+            object-fit: cover; /* Đảm bảo ảnh không bị méo */
+            border-radius: 5px;
+        }
+        
+        .row .col-md-2 {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .fixed-bottom {
@@ -81,6 +96,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        .btn:hover {
+            background-color:  rgb(253, 141, 13);
         }
     </style>
 </head>
@@ -273,12 +291,16 @@
 
     function proceedToCheckout() {
         const selectedProducts = [];
+        const quantities = [];
         const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
     
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
                 const productId = checkbox.id.split('-')[1];
                 selectedProducts.push(productId);
+                // Get the quantity for each selected product
+                const quantity = parseInt(document.getElementById(`quantity-${productId}`).value);
+                quantities.push(quantity);
             }
         });
     
@@ -286,12 +308,12 @@
             alert("Please select at least one product to checkout");
             return;
         }
-        
+    
         const ids = selectedProducts.join(','); // Join selected IDs
-        window.location.href = `payment.html?ids=${ids}`; // Pass IDs to payment page
+        const quantityString = quantities.join(','); // Join quantities
+        window.location.href = `payment.html?ids=${ids}&quantity=${quantityString}`; // Pass IDs and quantities to payment page
     }
     
-
     document.addEventListener("DOMContentLoaded", displayCart);
 </script>
 </body>
