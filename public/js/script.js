@@ -134,19 +134,44 @@ document.getElementById('register-btn').addEventListener('click', function() {
 });
 
 // Đăng nhập người dùng
-    let isLogin = false;
-    document.getElementById('login-btn').addEventListener('click', function() {
 
+
+document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(u => u.username === username && u.password === password);
+
     if (user) {
         showAlertLogin('Login successful!');
-        isLogin = true;
+        // Lưu thông tin người dùng hiện tại vào localStorage
+        const currentUser = {
+            username: user.username,
+            password: user.password,
+        };
+        localStorage.setItem('isLogin', true);
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
     } else {
         showAlertLogin('Invalid username or password', 'danger');
     }
+
+    let dropDownIn = document.querySelector("#openLoginBtn");
+    let dropDownUp = document.querySelector("#openRegisterBtn");
+    let dropDownOut = document.querySelector("#LogOutBtn");
+
+    // Kiểm tra giá trị isLogin trong localStorage
+    const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+    if (isLoggedIn) {
+        dropDownIn.style.display = 'none';
+        dropDownUp.style.display = 'none';
+        dropDownOut.style.display = 'block';
+    } else {
+        dropDownIn.style.display = 'block';
+        dropDownUp.style.display = 'block';
+        dropDownOut.style.display = 'none';
+}
+
 });
 
 
@@ -155,17 +180,20 @@ let dropDownUp = document.querySelector("#openRegisterBtn");
 let dropDownOut = document.querySelector("#LogOutBtn");
 
 
-if (isLogin) {
+const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+if (isLoggedIn) {
     dropDownIn.style.display = 'none';
     dropDownUp.style.display = 'none';
-
     dropDownOut.style.display = 'block';
-}else {
+} else {
     dropDownIn.style.display = 'block';
     dropDownUp.style.display = 'block';
-
     dropDownOut.style.display = 'none';
 }
+
+
+
 
 // END MODAL
 // ------------------------------------------------------------------------------------------------------------------
