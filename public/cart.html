@@ -82,7 +82,7 @@
         
         .qty-input {
             text-align: center;
-            width: 50px;
+            width: 60px;
             height: 40px;
         }
         .col-custom {
@@ -189,9 +189,9 @@
                         ${price.toLocaleString('vi-VN')} VNĐ
                     </div>
                     <div class="col-md-2 qty-container">
-                        <button class="btn btn-outline-secondary qty-btn" onclick="updateQuantity(-1, '${product.id}')">-</button>
+                        <button id="decrease" class="btn btn-outline-secondary qty-btn" onclick="updateQuantity(-1, '${product.id}')">-</button>
                         <input type="number" id="quantity-${product.id}" value="${quantity}" min="1" class="form-control qty-input" readonly>
-                        <button class="btn btn-outline-secondary qty-btn" onclick="updateQuantity(1, '${product.id}')">+</button>
+                        <button id="increase" class="btn btn-outline-secondary qty-btn" onclick="updateQuantity(1, '${product.id}')">+</button>
                     </div>
                     <div class="col-md-2 text-center" id="total-price-${product.id}">
                         ${totalPrice.toLocaleString('vi-VN')} VNĐ

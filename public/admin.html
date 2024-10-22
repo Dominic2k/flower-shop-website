@@ -36,7 +36,7 @@
             padding: 15px;
             text-decoration: none;
             font-size: 18px;
-            color:black;
+            color:#fff;
             background-color: #8269ae;
             display: block;
             border: 1px solid #b19cd9;
@@ -46,16 +46,15 @@
 
         .sidebar a:hover {
             background-color: #ccc;
-            color:#fff;
+            color:#000;
         }
 
-        /* Main content */
         .main-content {
             flex-grow: 1;
             padding: 35px 15px 0px;
             background-color: #fff;
-            /* background-color: #FFDDE0; */
         }
+
         .hidden {
             display: none;
         }
@@ -93,14 +92,12 @@
 
     <!-- Content Wrapper -->
     <div class="content-wrapper">
-        <!-- Sidebar -->
         <div class="sidebar">
             <a Class="sidebar-admin-pm" href="#" onclick="showSection('product-management')">Product management</a>
             <a Class="sidebar-admin-um" href="#" onclick="showSection('user-management')">User management</a>
             <a Class="sidebar-admin-om" href="#" onclick="showSection('order-management')">Order management</a>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content">
             <div id="product-management" class="hidden">
                 <h1 class="text-center">Product management</h1>
@@ -119,7 +116,6 @@
                         </tr>
                     </thead>
                     <tbody id="productTableBody">
-                        <!--Hien thi san pham-->
                     </tbody>
                 </table>
             </div>
@@ -133,12 +129,10 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Phone number</th>
                             <th>Active</th>
                         </tr>
                     </thead>
                     <tbody id="userTableBody">
-                        <!-- Add user management table or details here -->
                     </tbody>
                 </table>
             </div>
@@ -160,7 +154,6 @@
                         </tr>
                     </thead>
                     <tbody id="orderTableBody">
-                        <!-- Add user management table or details here -->
                     </tbody>
                 </table>
             </div>
