@@ -490,8 +490,8 @@
 
           </div>
         </div>
-        <div class="icon-links cart">
-          <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="icon-links cart" id="cartBtn">
+          <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
         </div>
         </form>
       </div>
@@ -634,7 +634,7 @@
 			</div>
 		</div>
 	</div>
-  <script>
+  <script >
       document.addEventListener("DOMContentLoaded", function() {
       const modal = document.getElementById("modal-sub");
       const subscribeBtn = document.getElementById("subscribeBtn");
@@ -686,9 +686,10 @@
             this.style.backgroundImage = 'none'; 
         });
     });
-      var cartIcon = document.querySelector('.icon-links.cart a');
+    ///////////
       var loginModal = document.getElementById("loginModal");
       var registerModal = document.getElementById("registerModal");
+
       var openLoginBtn = document.getElementById("openLoginBtn");
       var openRegisterBtn = document.getElementById("openRegisterBtn");
       var closeButtons = document.getElementsByClassName("close");
@@ -698,14 +699,12 @@
       openRegisterBtn.onclick = function() {
           registerModal.style.display = "block";
       }
-
       for (let i = 0; i < closeButtons.length; i++) {
           closeButtons[i].onclick = function() {
               loginModal.style.display = "none";
               registerModal.style.display = "none";
           }
       }
-
       window.onclick = function(event) {
           if (event.target == loginModal) {
               loginModal.style.display = "none";
@@ -714,16 +713,19 @@
               registerModal.style.display = "none";
           }
       }
+
       document.getElementById('show-register-form').addEventListener('click', function(event) {
           event.preventDefault(); 
           document.getElementById('loginModal').style.display = 'none';
           document.getElementById('registerModal').style.display = 'block';
       });
+
       document.getElementById('show-login-form').addEventListener('click', function(event) {
           event.preventDefault();
           document.getElementById('loginModal').style.display = 'block';
           document.getElementById('registerModal').style.display = 'none';
       });
+
       // Ẩn và hiện mật khẩu
       const togglePasswordVisibility = (buttonId, inputSelector) => {
           const button = document.getElementById(buttonId);
@@ -734,6 +736,8 @@
               this.textContent = this.textContent === 'Show' ? 'Hide' : 'Show';
           });
       };
+
+      // Chức năng chuyển đổi hiển thị mật khẩu cho cả hai form
       togglePasswordVisibility('show-password', '#loginModal input[type="password"]');
       togglePasswordVisibility('show-password-register', '#registerModal input[type="password"]');
 
@@ -763,10 +767,16 @@
           const username = document.getElementById('register-username').value;
           const email = document.getElementById('register-email').value;
           const password = document.getElementById('register-password').value;
+          let cart = [];
+
           if (username && email && password) {
-              const user = { username, email, password };
+
+              const user = { username, email, password, cart };
+
+              // Lấy danh sách người dùng từ localStorage hoặc tạo mảng mới nếu chưa có
               let users = JSON.parse(localStorage.getItem('users')) || [];
               const userExists = users.some(u => u.username === username);
+
               if (userExists) {
                   showAlertRegister('Username already exists, please choose another one.', 'danger');
               } else {
@@ -774,98 +784,126 @@
                   localStorage.setItem('users', JSON.stringify(users));
                   showAlertRegister('Account created successfully! You can now sign in.');
                   setTimeout(() => {
-                    document.getElementById('registerModal').style.display = 'none';
-                    document.getElementById('loginModal').style.display = 'block';
-                  }, 2000); 
+                      document.getElementById('registerModal').style.display = 'none';
+                      document.getElementById('loginModal').style.display = 'block';
+                  }, 2000);
               }
           } else {
               showAlertRegister('Please fill all fields', 'danger');
           }
       });
+
       // Đăng nhập người dùng
-      let isLogin = false;
-      if (isLogin===false) {
-        cartIcon.addEventListener('click', function(event) {
-          event.preventDefault(); 
-          loginModal.style.display = 'block'; 
-      });
-      }
       document.getElementById('login-btn').addEventListener('click', function() {
           const username = document.getElementById('login-username').value;
           const password = document.getElementById('login-password').value;
           const users = JSON.parse(localStorage.getItem('users')) || [];
           const user = users.find(u => u.username === username && u.password === password);
           if (user) {
-            document.getElementById('username-display').textContent = user.username;
-            document.getElementById('welcome-message').style.display = 'block';
               showAlertLogin('Login successful!');
-              isLogin = true;
+              // Lưu thông tin người dùng hiện tại vào localStorage
+              const currentUser = {
+                  username: user.username,
+                  password: user.password,
+              };
               setTimeout(() => {
-                    document.getElementById('loginModal').style.display = 'none';
-                  }, 2000); 
-                  if (isLogin) {
-                  cartIcon.addEventListener('click', function(event) {
-                    event.preventDefault(); 
-                    window.location.href = 'cart.html';
-                });};
-              let dropDownIn = document.querySelector("#openLoginBtn");
-              let dropDownUp = document.querySelector("#openRegisterBtn");
-              let dropDownOut = document.querySelector("#LogOutBtn");
-              let dropdownUserName = document.querySelector("#welcome-message");
-
-
-              if (isLogin) {
-                  dropDownIn.style.display = 'none';
-                  dropDownUp.style.display = 'none';
-                  dropdownUserName.style.display = 'block';
-                  
-                  dropDownOut.style.display = 'block';
-              }else {
-                  dropDownIn.style.display = 'block';
-                  dropDownUp.style.display = 'block';
-                  dropdownUserName.style.display = 'none';
-                  
-                  dropDownOut.style.display = 'none';
-              }
+                  document.getElementById('loginModal').style.display = 'none';
+                }, 2000); 
+              localStorage.setItem('isLogin', true);
+              localStorage.setItem('currentUser', JSON.stringify(currentUser));
           } else {
               showAlertLogin('Invalid username or password', 'danger');
           }
+
+          let dropDownIn = document.querySelector("#openLoginBtn");
+          let dropDownUp = document.querySelector("#openRegisterBtn");
+          let dropDownOut = document.querySelector("#LogOutBtn");
+
+          // Kiểm tra giá trị isLogin trong localStorage
+          const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+          if (isLoggedIn) {
+              dropDownIn.style.display = 'none';
+              dropDownUp.style.display = 'none';
+              dropDownOut.style.display = 'block';
+          } else {
+              dropDownIn.style.display = 'block';
+              dropDownUp.style.display = 'block';
+              dropDownOut.style.display = 'none';
+      }
+
       });
+
+
       let dropDownIn = document.querySelector("#openLoginBtn");
       let dropDownUp = document.querySelector("#openRegisterBtn");
       let dropDownOut = document.querySelector("#LogOutBtn");
-      let dropdownUserName = document.querySelector("#welcome-message");
 
 
-      if (isLogin) {
+      const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+      if (isLoggedIn) {
           dropDownIn.style.display = 'none';
           dropDownUp.style.display = 'none';
-          dropdownUserName.style.display = 'block';
-
           dropDownOut.style.display = 'block';
-      }else {
+      } else {
           dropDownIn.style.display = 'block';
           dropDownUp.style.display = 'block';
-          dropdownUserName.style.display = 'none';
-          
           dropDownOut.style.display = 'none';
       }
 
-      // Đăng xuất
-      document.getElementById('LogOutBtn').addEventListener('click', function() {
-          alert('Logged out successfully!');
-          isLogin = false;
-          if (isLogin===false) {
-              cartIcon.addEventListener('click', function(event) {
-                  event.preventDefault(); 
-                  loginModal.style.display = 'block'; 
-              }); 
+      dropDownOut.addEventListener('click',function(e) {
+          localStorage.setItem('isLogin', false);
+          const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+          if (isLoggedIn) {
+              dropDownIn.style.display = 'none';
+              dropDownUp.style.display = 'none';
+              dropDownOut.style.display = 'block';
+          } else {
+              dropDownIn.style.display = 'block';
+              dropDownUp.style.display = 'block';
+              dropDownOut.style.display = 'none';
           }
-          dropDownIn.style.display = 'block';
-          dropDownUp.style.display = 'block';
-          dropDownOut.style.display = 'none';
-          dropdownUserName.style.display = 'none';
+          alert("Log out successful!")
       });
+      let cartBtn = document.getElementById('cartBtn');
+
+      cartBtn.addEventListener('click', function() {
+
+          const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+          if (isLoggedIn) {
+              window.location.href = 'cart.html';
+              dropDownIn.style.display = 'none';
+              dropDownUp.style.display = 'none';
+              dropDownOut.style.display = 'block';
+          } else {
+              dropDownIn.style.display = 'block';
+              dropDownUp.style.display = 'block';
+              dropDownOut.style.display = 'none';
+              loginModal.style.display = 'block';
+          }
+      });
+      
+    document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('search-form');
+    const searchInput = document.getElementById('input-search');
+
+    // Lắng nghe sự kiện submit của form và ngăn hành vi submit mặc định
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();  // Ngăn chặn hành vi submit mặc định
+
+        const inputInfo = searchInput.value.toLowerCase();  // Lấy giá trị input
+        console.log("Input value: ", inputInfo);  // Kiểm tra giá trị nhập
+
+        if (inputInfo) {
+            window.location.assign(`products.html?search=${inputInfo}`);
+        } else {
+            console.log("No input provided");
+        }
+    });
+});
   </script>
 </body>
 </html>
