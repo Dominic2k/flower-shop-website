@@ -157,16 +157,21 @@
 
 <script>
     function displayCart() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const productList = document.getElementById('product-list');
-        productList.innerHTML = '';
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
 
-        if (cart.length === 0) {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '';
+
+    const thisUser = users.find(user => user.username === currentUser.username);
+
+    if (thisUser) {
+        if (!thisUser.cart || thisUser.cart.length === 0) {
             productList.innerHTML = '<p class="text-center mt-3">Your shopping cart is empty..</p>';
             return;
         }
 
-        cart.forEach(product => {
+        thisUser.cart.forEach(product => {
             const price = parseInt(product.price.replace(/\D/g, ''));
             const quantity = parseInt(product.quantity) || 1;
             const totalPrice = price * quantity;
@@ -197,9 +202,12 @@
                 </div>`;
             productList.innerHTML += productRow;
         });
-
-        updateTotalAmount();
+    } else {
+        console.error('Người dùng không tồn tại');
     }
+    updateTotalAmount();
+}
+
 
     function updateQuantity(change, productCode) {
         const quantityInput = document.getElementById(`quantity-${productCode}`);
