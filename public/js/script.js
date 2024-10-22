@@ -205,6 +205,7 @@ dropDownOut.addEventListener('click',function(e) {
         dropDownUp.style.display = 'block';
         dropDownOut.style.display = 'none';
     }
+    localStorage.removeItem('currentUser');
     alert("Log out successful!")
 });
 
