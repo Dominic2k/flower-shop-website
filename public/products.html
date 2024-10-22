@@ -649,147 +649,7 @@
               showAlertLogin('Invalid username or password', 'danger');
           }
       });
-        // Dữ liệu sản phẩm ban đầu
-        // const products = [{
-        //     id: 1,
-        //     title: "Morning Kiss",
-        //     price: "1.000.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
-        //     occasion: "hoa-sinh-nhat",
-        //     color: "mau-do",
-        //     badgeText: "NEW",
 
-        // }, {
-        //     id: 2,
-        //     title: "Ngày Có Nắng",
-        //     price: "300.000 ₫",
-        //     originalPrice: "930.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
-        //     occasion: "hoa-sinh-nhat",
-        //     color: "mau-vang",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 3,
-        //     title: "Ánh Dương 2",
-        //     price: "800.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
-        //     occasion: "hoa-sinh-nhat",
-        //     color: "mau-vang",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 4,
-        //     title: "Sunflower",
-        //     price: "100.000 ₫",
-        //     originalPrice: "930.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
-        //     occasion: "hoa-sinh-nhat",
-        //     color: "mau-vang",
-        //     badgeText: "SALE"
-        // }, {
-        //     id: 5,
-        //     title: "Purple Love",
-        //     price: "600.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
-        //     occasion: "hoa-tinh-yeu",
-        //     color: "mau-tim",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 6,
-        //     title: "Beauty Queen",
-        //     price: "200.000 ₫",
-        //     originalPrice: "600.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
-        //     occasion: "hoa-tinh-yeu",
-        //     color: "mau-tim",
-        //     badgeText: "SALE"
-        // }, {
-        //     id: 7,
-        //     title: "Bùng Cháy 3",
-        //     price: "400.000 ₫",
-        //     originalPrice: "700.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
-        //     occasion: "hoa-khai-truong",
-        //     color: "mau-do",
-        //     badgeText: "SALE"
-        // }, {
-        //     id: 8,
-        //     title: "Rustic",
-        //     price: "300.000 ₫",
-        //     originalPrice: "800.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
-        //     occasion: "hoa-tinh-yeu",
-        //     color: "mau-vang",
-        //     badgeText: "SALE"
-        // }, {
-        //     id: 9,
-        //     title: "Vững Bền",
-        //     price: "600.000 ₫",
-        //     originalPrice: "700.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
-        //     occasion: "hoa-khai-truong",
-        //     color: "mau-do",
-        //     badgeText: "SALE"
-        // }, {
-        //     id: 10,
-        //     title: "Thành Đạt",
-        //     price: "1.600.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
-        //     occasion: "hoa-khai-truong",
-        //     color: "mau-vang",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 11,
-        //     title: "Only Rose",
-        //     price: "190.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
-        //     occasion: "hoa-tinh-yeu",
-        //     color: "mau-do",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 12,
-        //     title: "Lan Hồ Điệp Mẫu 4",
-        //     price: "600.000 ₫",
-        //     originalPrice: "700.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
-        //     occasion: "hoa-khai-truong",
-        //     color: "mau-tim",
-        //     badgeText: "SALE"
-        // }, {
-        //     id: 13,
-        //     title: "Thạch thảo",
-        //     price: "1.400.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/3573_thach-thao.jpg",
-        //     occasion: "hoa-sinh-nhat",
-        //     color: "mau-tim",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 14,
-        //     title: "Only Rose",
-        //     price: "120.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13196_mercy-2.jpg",
-        //     occasion: "hoa-khai-truong",
-        //     color: "mau-do",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 15,
-        //     title: "Món quà tặng em",
-        //     price: "800.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/13906_mon-qua-hanh-phuc.jpg",
-        //     occasion: "hoa-tinh-yeu",
-        //     color: "mau-tim",
-        //     badgeText: "NEW"
-        // }, {
-        //     id: 16,
-        //     title: "Tình cờ",
-        //     price: "150.000 ₫",
-        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13252_tinh-co.jpg",
-        //     occasion: "hoa-sinh-nhat",
-        //     color: "mau-tim",
-        //     badgeText: "NEW"
-        // }];
-
-
-        // localStorage.setItem('products', JSON.stringify(products));
 
         if (!localStorage.getItem('products')) {
             localStorage.setItem('products', JSON.stringify(products));
@@ -822,7 +682,7 @@
                         <span class="original-price">${product.originalPrice || ''}</span>
                         <span class="product-price">${product.price}</span>
                     </p>
-                    <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                    <a href="payment.html?ids=${product.id}" class="card-btn-left">Buy now</a>
                 </div>
             </div>
         </div>`;
@@ -916,7 +776,7 @@
                     productList.innerHTML += createProductCard(product); // Tạo card cho sản phẩm
                 });
             } else {
-                productList.innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+                productList.innerHTML = '<p>No products found.</p>';
             }
         }
 
@@ -932,7 +792,7 @@
                         <span class="original-price">${product.originalPrice || ''}</span>
                         <span class="product-price">${product.price}</span>
                     </p>
-                    <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                    <a href="payment.html?ids=${product.id}" class="card-btn-left">Buy now</a>
                 </div>
             </div>
         </div>`;
@@ -973,15 +833,15 @@ function displayProductFromHomeSearch() {
                                 <span class="original-price">${product.originalPrice || ''}</span>
                                 <span class="product-price">${product.price}</span>
                             </p>
-                            <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                            <a href="payment.html?ids=${product.id}" class="card-btn-left">Buy now</a>
                         </div>
                     </div>
                 </div>`;
         });
         document.getElementById('product-list').innerHTML = row;
     } else {
-        console.error('Sản phẩm không tồn tại');
-        document.getElementById('product-list').innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+        console.error('The product does not exist.');
+        document.getElementById('product-list').innerHTML = '<p>No products found.</p>';
     }
 }
 

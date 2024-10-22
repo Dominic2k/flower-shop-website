@@ -23,7 +23,6 @@ let countdownFunction = setInterval(function() {
     }
 }, 1000);
 // End countdown
-
 // ------------------------------------------------------------------------------------------------------------------
 
 // Start Modal Process
@@ -111,6 +110,7 @@ document.getElementById('register-btn').addEventListener('click', function() {
     let cart = [];
 
     if (username && email && password) {
+
         const user = { username, email, password, cart };
 
         // Lấy danh sách người dùng từ localStorage hoặc tạo mảng mới nếu chưa có
@@ -134,52 +134,80 @@ document.getElementById('register-btn').addEventListener('click', function() {
 });
 
 // Đăng nhập người dùng
-    let isLogin = false;
-    document.getElementById('login-btn').addEventListener('click', function() {
+
+
+document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(u => u.username === username && u.password === password);
+
     if (user) {
         showAlertLogin('Login successful!');
-        isLogin = true;
-        setTimeout(() => {
-            document.getElementById('loginModal').style.display = 'none';
-          }, 2000); 
-        let dropDownIn = document.querySelector("#openLoginBtn");
-        let dropDownUp = document.querySelector("#openRegisterBtn");
-        let dropDownOut = document.querySelector("#LogOutBtn");
-        if (isLogin) {
-            dropDownIn.style.display = 'none';
-            dropDownUp.style.display = 'none';
+        // Lưu thông tin người dùng hiện tại vào localStorage
+        const currentUser = {
+            username: user.username,
+            password: user.password,
+        };
+        localStorage.setItem('isLogin', true);
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    } else {
+        showAlertLogin('Invalid username or password', 'danger');
+    }
 
-            dropDownOut.style.display = 'block';
-        }else {
-            dropDownIn.style.display = 'block';
-            dropDownUp.style.display = 'block';
+    let dropDownIn = document.querySelector("#openLoginBtn");
+    let dropDownUp = document.querySelector("#openRegisterBtn");
+    let dropDownOut = document.querySelector("#LogOutBtn");
 
-            dropDownOut.style.display = 'none';
-        }
-            } else {
-                showAlertLogin('Invalid username or password', 'danger');
-            }
+    // Kiểm tra giá trị isLogin trong localStorage
+    const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+    if (isLoggedIn) {
+        dropDownIn.style.display = 'none';
+        dropDownUp.style.display = 'none';
+        dropDownOut.style.display = 'block';
+    } else {
+        dropDownIn.style.display = 'block';
+        dropDownUp.style.display = 'block';
+        dropDownOut.style.display = 'none';
+}
+
 });
 
 
 let dropDownIn = document.querySelector("#openLoginBtn");
 let dropDownUp = document.querySelector("#openRegisterBtn");
 let dropDownOut = document.querySelector("#LogOutBtn");
-if (isLogin) {
+
+
+const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+if (isLoggedIn) {
     dropDownIn.style.display = 'none';
     dropDownUp.style.display = 'none';
-
     dropDownOut.style.display = 'block';
-}else {
+} else {
     dropDownIn.style.display = 'block';
     dropDownUp.style.display = 'block';
-
     dropDownOut.style.display = 'none';
 }
+
+dropDownOut.addEventListener('click',function(e) {
+    localStorage.setItem('isLogin', false);
+    const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+    if (isLoggedIn) {
+        dropDownIn.style.display = 'none';
+        dropDownUp.style.display = 'none';
+        dropDownOut.style.display = 'block';
+    } else {
+        dropDownIn.style.display = 'block';
+        dropDownUp.style.display = 'block';
+        dropDownOut.style.display = 'none';
+    }
+    alert("Log out successful!")
+});
+
 
 // END MODAL
 // ------------------------------------------------------------------------------------------------------------------
@@ -541,12 +569,22 @@ scrollToTopBtn.addEventListener("click", function() {
 let cartBtn = document.getElementById('cartBtn');
 
 cartBtn.addEventListener('click', function() {
-    if (isLogin) {
+
+    const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+    if (isLoggedIn) {
         window.location.href = 'cart.html';
+        dropDownIn.style.display = 'none';
+        dropDownUp.style.display = 'none';
+        dropDownOut.style.display = 'block';
     } else {
+        dropDownIn.style.display = 'block';
+        dropDownUp.style.display = 'block';
+        dropDownOut.style.display = 'none';
         loginModal.style.display = 'block';
     }
 });
+
 
 
 // Js check login or not logged in
