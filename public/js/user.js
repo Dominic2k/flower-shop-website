@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${user.username}</td>
             <td>${user.email}</td>
             <td>${user.password}</td>
-            <td>${user.phonenumber}</td>
             <td>
                 <i class="delete-btn btn fa fa-trash" style="font-size:20px" data-email="${user.email}"></i>
             </td>

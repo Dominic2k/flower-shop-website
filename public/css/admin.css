@@ -21,7 +21,7 @@ body {
 }
 
 .table th, .table td {
-    white-space: nowrap; /* Không cho phép xuống dòng */
+    white-space: nowrap; 
     overflow: hidden; 
 }
    
@@ -58,11 +58,7 @@ body {
     width: 400px; 
 }
 
-#userTable th:nth-child(5), #userTable td:nth-child(5) {
-    width: 130px; 
-}
-
-#userTable th:nth-child(6), #userTable td:nth-child(6),
+#userTable th:nth-child(5), #userTable td:nth-child(5),
 #orderTable th:nth-child(9), #orderTable td:nth-child(9) {
     width: 65px; 
     text-align: center;
@@ -100,11 +96,11 @@ body {
   
   /* CSS modal */
 .admin-modal .modal-body, .admin-modal .modal-header,.admin-modal .modal-footer {
-    padding: 5px; /* Giảm padding cho phần thân modal, header và footer của modal */ 
+    padding: 5px; 
 }
 
 .admin-modal .modal-content {
-    padding: 0; /* Đảm bảo toàn bộ modal không có padding quá lớn */
+    padding: 0; 
     margin-top: -2.5rem;
     width: 100%;
     background-color: #fff;
@@ -115,7 +111,7 @@ body {
     margin-bottom: 0;
     line-height: var(--bs-modal-title-line-height);
     text-align: center; 
-    width: 100%;        /* Đảm bảo tiêu đề chiếm toàn bộ chiều rộng modal */
+    width: 100%;       
 }
 
 .modal-header .btn-close {
