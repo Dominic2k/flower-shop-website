@@ -9,8 +9,9 @@
     <title>Product-detail</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&amp;display=swap" data-tag="font" />
     <!--My Style CSS-->
-    <!-- <link rel="stylesheet" href="./assets/bootstrap/css/detail.css"> -->
     <link rel="stylesheet" href="./css/admin.css">
+     <!--Style CSS-icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         html { line-height: 1.15; }
         body { margin: 0; }
@@ -26,24 +27,34 @@
             background-color: #b19cd9;
             padding-top: 20px;
             flex-shrink: 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
         }
         .sidebar a {
             padding: 15px;
             text-decoration: none;
             font-size: 18px;
-            color: white;
-            display: block;
-        }
-        .sidebar a:hover {
-            background-color: #9f77ea;
             color:black;
+            background-color: #8269ae;
+            display: block;
+            border: 1px solid #b19cd9;
+            border-radius: 0;
+           
+        }
+
+        .sidebar a:hover {
+            background-color: #ccc;
+            color:#fff;
         }
 
         /* Main content */
         .main-content {
             flex-grow: 1;
             padding: 35px 15px 0px;
-            background-color: #FFDDE0;
+            background-color: #fff;
+            /* background-color: #FFDDE0; */
         }
         .hidden {
             display: none;
@@ -55,7 +66,7 @@
     <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
                 <h1>Heavenly Blossom</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,34 +75,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" href="products.html">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="AboutUS.html">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Feedback</a>
-                    </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
-                    <div class="icon-links user-icon">
-                        <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
-                        <div class="dropdown-menu">
-                            <a href="#" id="openLoginBtn">Login</a>
-                            <a href="#" id="openRegisterBtn">Register</a>
-                        </div>
-                    </div>
-                    <div class="icon-links cart">
-                        <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
-                    </div>
-                </form>
             </div>
         </nav>
     </header>
@@ -100,9 +95,9 @@
     <div class="content-wrapper">
         <!-- Sidebar -->
         <div class="sidebar">
-            <a href="#" onclick="showSection('product-management')">Product management</a>
-            <a href="#" onclick="showSection('user-management')">User management</a>
-            <a href="#" onclick="showSection('order-management')">Order management</a>
+            <a Class="sidebar-admin-pm" href="#" onclick="showSection('product-management')">Product management</a>
+            <a Class="sidebar-admin-um" href="#" onclick="showSection('user-management')">User management</a>
+            <a Class="sidebar-admin-om" href="#" onclick="showSection('order-management')">Order management</a>
         </div>
 
         <!-- Main Content -->
@@ -139,6 +134,7 @@
                             <th>Email</th>
                             <th>Password</th>
                             <th>Phone number</th>
+                            <th>Active</th>
                         </tr>
                     </thead>
                     <tbody id="userTableBody">
@@ -149,7 +145,25 @@
 
             <div id="order-management" class="hidden">
                 <h1 class="text-center">Order management</h1>
-                <p>Đây là trang quản lý đơn hàng.</p>
+                <table id="orderTable" class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Payment Method</th>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>Phone number</th>
+                            <th>Address</th>
+                            <th>Active</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderTableBody">
+                        <!-- Add user management table or details here -->
+                    </tbody>
+                </table>
             </div>
 
         </div>
@@ -158,10 +172,10 @@
      <!-- Modal Create/Edit Form -->
      <div id="modalProduct" class="admin-modal modal fade" tabindex="-1">
         <div class="admin-modal modal-dialog">
-            <div class="admin-modal modal-content">
+            <div class="admin-modal modal-content modal-main">
                 <div class="admin-modal modal-header">
                     <h2 id="modalTitleProduct" class="modal-title">Create Product</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="admin-modal modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="admin-modal modal-body">
                     <div class="mb-3">
@@ -215,7 +229,7 @@
         </div>
         <div class="footer-qr">
             <p>Scan our QR Code</p>
-            <img src="./assets/bootstrap/img/frame.png" alt="">
+            <img src="./img/frame.png" alt="">
         </div>
         <div class="copy-right">
             Copyright ©2024 Heavenly Blossom. All rights reserved.
@@ -237,5 +251,7 @@
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/admin.js"></script>
+    <script src="./js/user.js"></script>
+    <script src="./js/order.js"></script>
 </body>
 </html>

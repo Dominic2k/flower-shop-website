@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +11,99 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Homepage</title>
-	<link rel="icon" type="image/x-icon" href="./assets/bootstrap/img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
+    <link rel="icon" type="image/x-icon" href="./assets/bootstrap/img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font" />
-	<style>
-        html { line-height: 1.15; scroll-behavior: smooth; }
-		body { margin: 0; }
-		* { box-sizing: border-box; border-width: 0; border-style: solid; }
-		p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; }
-		button { background-color: transparent; }
-		button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
-		button, select { text-transform: none; }
-		button, [type="button"], [type="reset"], [type="submit"] { appearance: button; }
-		button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
-		button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; }
-		a { color: inherit; text-decoration: none; }
-		input { padding: 2px 4px; }
-		img { display: block; }
-
+    <style>
+        html {
+            line-height: 1.15;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+        }
+        
+        p,
+        li,
+        ul,
+        pre,
+        div,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        figure,
+        blockquote,
+        figcaption {
+            margin: 0;
+            padding: 0;
+        }
+        
+        button {
+            background-color: transparent;
+        }
+        
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
+        
+        button,
+        select {
+            text-transform: none;
+        }
+        
+        button,
+        [type="button"],
+        [type="reset"],
+        [type="submit"] {
+            appearance: button;
+        }
+        
+        button::-moz-focus-inner,
+        [type="button"]::-moz-focus-inner,
+        [type="reset"]::-moz-focus-inner,
+        [type="submit"]::-moz-focus-inner {
+            border-style: none;
+            padding: 0;
+        }
+        
+        button:-moz-focus,
+        [type="button"]:-moz-focus,
+        [type="reset"]:-moz-focus,
+        [type="submit"]:-moz-focus {
+            outline: 1px dotted ButtonText;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        input {
+            padding: 2px 4px;
+        }
+        
+        img {
+            display: block;
+        }
+        
         .card-img-top {
-            max-width: 200px;
+            max-width: 100%;
             height: 200px;
             border-radius: 10px;
         }
@@ -129,19 +204,23 @@
         }
         
         .sanpham {
-            margin-left: 150px;
-            margin-top: 30px;
+            margin-left: 60px;
+            margin-top: 16px;
+            margin-bottom: 8px;
         }
         
-        .btn-primary {
-            margin-top: 10px;
-            /* Khoảng cách giữa nội dung và nút */
-            width: 100px;
-            /* Tùy chỉnh kích thước nút */
-            background-color: rgb(237, 237, 94);
+        /* .btn-primary {
+            display: inline-block;
+            background-color: #e4f54e;
             color: black;
-            border: #fff;
-        }
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        } */
         
         .m-0 {
             font-size: 20px;
@@ -149,67 +228,80 @@
         
         .card-btn-left {
             display: inline-block;
-            /* Hiển thị như một khối nội tuyến */
-            background-color: #e4f54e;
-            /* Màu nền là màu  vàng  */
+            background-color: #d9f00b;
             color: white;
-            /* Màu chữ trắng */
             text-decoration: none;
-            /* Bỏ gạch chân */
-            border-radius: 5px;
-            /* Bo tròn các góc */
-            padding: 10px 20px;
-            /* Đệm cho nút */
             font-size: 16px;
-            /* Kích thước chữ */
             cursor: pointer;
-            /* Con trỏ chuột khi di chuột qua nút */
             transition: background-color 0.3s;
-            /* Hiệu ứng chuyển màu khi di chuột qua */
+            margin-bottom: 30px;
+            height: 40px;
+            border-radius: 15px;
+            text-align: center;
         }
         
         .card-btn-left:hover {
             background-color: #d4fd09;
-            /* Màu nền khi di chuột qua */
+        }
+        
+        .container {
+            margin-top: 2.5rem !important;
+        }
+        
+        .cart {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .list-css img{
+            border-radius: 4px;
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
             <a class="navbar-brand" href="index.html">
-              <h1>Heavenly Blossom</h1>
+                <h1>Heavenly Blossom</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#footer">Contact</a>
-                </li>
-                
-              </ul>
-              <form class="d-flex">
-                <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
-                <div class="icon-links user-icon">
-                  <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
-                  <!-- Dropdown menu -->
-                  <div class="dropdown-menu">
-                    <a href="#" id="openLoginBtn">Login</a>
-                    <a href="#" id="openRegisterBtn">Register</a>
-                  </div>
-                </div>
-                <div class="icon-links cart" id="cartBtn">
-                  <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
-                </div>
-              </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AboutUS.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <input class=" form-control search-input" id="input-search" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()">
+                    <!--  code cũ -->
+                    <!-- <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()"> -->
+                    <div class="icon-links user-icon">
+                        <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+                        <!-- Dropdown menu -->
+                        <div class="dropdown-menu">
+                            <a href="#" id="openLoginBtn">Login</a>
+                            <a href="#" id="openRegisterBtn">Register</a>
+                        </div>
+                    </div>
+                    <div id="search-result"></div>
+                    <div class="icon-links cart" id="cartBtn">
+                        <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </form>
             </div>
         </nav>
     </header>
@@ -217,35 +309,35 @@
         <div class="row">
 
             <div class="col-md-3 sidebar">
-                <h1 style="text-align: center;">Danh Mục</h1>
-                <h5 style="margin-top: 20px;">MÀU SẮC</h5>
+                <h1 style="text-align: center;">Directory</h1>
+                <h5 style="margin-top: 20px;">COLOUR</h5>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="mauSac" id="mauDo" value="mau-do">
-                    <label class="form-check-label" for="mauDo">Màu Đỏ</label>
+                    <input class="form-check-input" type="radio" name="mauSac" id="mauDo" value="Red">
+                    <label class="form-check-label" for="mauDo">Red</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="mauSac" id="mauVang" value="mau-vang">
-                    <label class="form-check-label" for="mauVang">Màu Vàng</label>
+                    <input class="form-check-input" type="radio" name="mauSac" id="mauVang" value="Yellow">
+                    <label class="form-check-label" for="mauVang">Yellow</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="mauSac" id="mauTim" value="mau-tim">
-                    <label class="form-check-label" for="mauTim">Màu Tím</label>
+                    <input class="form-check-input" type="radio" name="mauSac" id="mauTim" value="Purple">
+                    <label class="form-check-label" for="mauTim">Purple</label>
                 </div>
-                <h5 class="mt-4">CHỦ ĐỀ</h5>
+                <h5 class="mt-4">SUBJECT</h5>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="occasion" id="hoaSinhNhat" value="hoa-sinh-nhat">
-                    <label class="form-check-label" for="hoaSinhNhat">Hoa Sinh Nhật</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="occasion" id="hoaKhaiTruong" value="hoa-khai-truong">
-                    <label class="form-check-label" for="hoaKhaiTruong">Hoa Khai Trương</label>
+                    <input class="form-check-input" type="radio" name="occasion" id="hoaSinhNhat" value="Birthday">
+                    <label class="form-check-label" for="hoaSinhNhat">Birthday Flowers</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="occasion" id="hoaTinhYeu" value="hoa-tinh-yeu">
-                    <label class="form-check-label" for="hoaTinhYeu">Hoa Tình Yêu</label>
+                    <input class="form-check-input" type="radio" name="occasion" id="hoaKhaiTruong" value="Opened">
+                    <label class="form-check-label" for="hoaKhaiTruong">Opening Flowers</label>
                 </div>
-                <h5 class="mt-4">Khoảng giá</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="occasion" id="hoaTinhYeu" value="Lovely">
+                    <label class="form-check-label" for="hoaTinhYeu">Love Flower</label>
+                </div>
+                <h5 class="mt-4">Price range</h5>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="priceRange" id="100to200" value="100to200">
                     <label class="form-check-label" for="100to200">100.000đ - 200.000đ</label>
@@ -264,58 +356,58 @@
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="sortOrder" id="asc" value="asc">
-                    <label class="form-check-label" for="asc">Giá từ thấp đến cao</label>
+                    <label class="form-check-label" for="asc">Low to high prices</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="sortOrder" id="desc" value="desc">
-                    <label class="form-check-label" for="desc">Giá từ cao đến thấp</label>
+                    <label class="form-check-label" for="desc">Price from high to low</label>
                 </div>
 
                 <div class="sanpham">
-                    <button id="show-all-products" class="btn btn-primary mb-3" style="background-color: antiquewhite; color: black; border: #fff; width: 150px;">Tất cả sản phẩm</button>
+                    <button id="show-all-products" class="btn btn-primary mb-3" style="background-color: antiquewhite; color: black; border: #fff; width: 150px;">Show all products</button>
                 </div>
 
-                <h1 style="text-align: center;">Nổi bật</h1>
-                <ul class="list-unstyled mt-3">
+                <h1 style="text-align: center;">Prominent</h1>
+                <ul class="list-unstyled mt-3 list-css">
                     <li class="d-flex align-items-center mb-3" id="17">
                         <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/2-8-fe0d0510-5de8-4545-b1f8-fbeb8849c23f.jpg?v=1517209220047" alt="Thành công" class="img-fluid me-2" style="width: 70px; height: 70px;">
                         <div>
-                            <p class="m-0">Thành công</p>
+                            <p class="m-0">Successful</p>
                             <p class="m-0 product-price">400.000đ <span class="original-price">500.000đ</span></p>
                         </div>
                     </li>
                     <li class="d-flex align-items-center mb-3" id="18">
                         <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/1-2-6552ac86-4e90-451b-ac32-b74f540e10af.jpg?v=1517209130243" alt="Ngày xanh" class="img-fluid me-2" style="width: 70px; height: 70px;">
                         <div>
-                            <p class="m-0">Ngày xanh</p>
+                            <p class="m-0">Victory</p>
                             <p class="m-0 product-price">500.000đ <span class="original-price">600.000đ</span></p>
                         </div>
                     </li>
                     <li class="d-flex align-items-center mb-3" id="19">
                         <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/7-7-d64e6abc-ef0d-43d9-a738-50134cf9621d.jpg?v=1517209175827" alt="Kiểu sa" class="img-fluid me-2" style="width: 70px; height: 70px;">
                         <div>
-                            <p class="m-0">Kiểu sa</p>
+                            <p class="m-0">Powerful</p>
                             <p class="m-0 product-price">450.000đ</p>
                         </div>
                     </li>
                     <li class="d-flex align-items-center mb-3" id="20">
                         <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/9.jpg?v=1516258275637" alt="Hướng mùa xuân" class="img-fluid me-2" style="width: 70px; height: 70px;">
                         <div>
-                            <p class="m-0">Hướng mùa xuân</p>
+                            <p class="m-0">Pink day</p>
                             <p class="m-0 product-price">550.000đ</p>
                         </div>
                     </li>
                     <li class="d-flex align-items-center mb-3" id="21">
                         <img src="https://bizweb.dktcdn.net/thumb/large/100/276/613/products/8.jpg?v=1516258804190" alt="Tình yêu ngọt ngào" class="img-fluid me-2" style="width: 70px; height: 70px;">
                         <div>
-                            <p class="m-0">Tình yêu ngọt ngào</p>
+                            <p class="m-0">Sweet love</p>
                             <p class="m-0 product-price">1.200.000đ</p>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="col-md-9">
-                <h5>TẤT CẢ SẢN PHẨM</h5>
+                <h5>ALL PRODUCTS</h5>
                 <div class="row mt-3" id="product-list"></div>
             </div>
         </div>
@@ -337,7 +429,7 @@
             </div>
         </div>
         <div class="footer-shop-address">
-            <h5>HEAVELY BLOSSOM  SHOP</h5>
+            <h5>HEAVELY BLOSSOM SHOP</h5>
             <p>Main store: 99 To Hien Thanh, Phuoc My, Son Tra, Da Nang</p>
             <p>Ha Noi Store: 65 Tran Phu, Ba Dinh, Ha Noi</p>
         </div>
@@ -349,150 +441,355 @@
             Copyright ©2024 Heavenly Blossom. All rights reserved.
         </div>
     </div>
-
+    <div class="form-container">
+		<div id="loginModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div id="login-form">
+      	<div id="login-alert-box" class="alert" style="display: none;" role="alert"></div>
+				<h2 class="text-center">Welcome to HeavenlyBlossom</h2>
+				<p class="text-center">Sign in with</p>
+				<div class="d-flex justify-content-center mb-3">
+					<button class="btn btn-outline-secondary btn-social">
+						<i class="bi bi-google"></i>
+					</button>
+					<button class="btn btn-outline-secondary btn-social">
+						<i class="bi bi-facebook"></i>
+					</button>
+					<button class="btn btn-outline-secondary btn-social">
+						<i class="bi bi-twitter"></i>
+					</button>
+				</div>
+				<p class="text-center">Or</p>
+				<div class="mb-3">
+					<input type="text" id="login-username" class="form-control" placeholder="Username">
+				</div>
+				<div class="input-group mb-3">
+					<input type="password" id="login-password" class="form-control" placeholder="Password">
+					<button class="btn btn-outline-secondary" type="button" id="show-password">Show</button>
+				</div>
+				<div class="d-flex justify-content-end">
+					<a href="#" class="forgot-password" id="forgot-password-link">Forgot password?</a>
+				</div>
+				<div class="d-grid mt-3">
+					<button class="btn btn-primary" id="login-btn">SIGN IN</button>
+				</div>
+				<div class="mt-3 text-center">
+					<a href="#" id="show-register-form">CREATE ACCOUNT</a>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div id="registerModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<div id="register-form">
+      	<div id="register-alert-box" class="alert" style="display: none;" role="alert"></div>
+					<h2 class="text-center">Let's get started</h2>
+					<p class="text-center">Create Account with</p>
+					<div class="d-flex justify-content-center mb-3">
+						<button class="btn btn-outline-secondary btn-social">
+							<i class="bi bi-google"></i>
+						</button>
+						<button class="btn btn-outline-secondary btn-social">
+							<i class="bi bi-facebook"></i>
+						</button>
+						<button class="btn btn-outline-secondary btn-social">
+							<i class="bi bi-twitter"></i>
+						</button>
+					</div>
+					<p class="text-center">Or</p>
+					<div class="mb-3">
+					<input type="text" id="register-username" class="form-control" placeholder="Username">
+					</div>
+					<div class="mb-3">
+						<input type="email" id="register-email" class="form-control" placeholder="E-Mail Address">
+					</div>
+					<div class="input-group mb-3">
+						<input type="password" id="register-password" class="form-control" placeholder="Password">
+						<button class="btn btn-outline-secondary" type="button" id="show-password-register">Show</button>
+					</div>
+					<div class="d-flex justify-content-end">
+						<a href="#" class="forgot-password">Forgot password?</a>
+					</div>
+					<p class="terms-text">
+						By clicking Create account, you acknowledge you have read the agreed to our <a href="#">Terms Of Service</a>.
+					</p>
+					<div class="d-grid mt-3">
+						<button class="btn btn-primary" id="register-btn">CREATE ACCOUNT</button>
+					</div>
+					<div class="mt-3 text-center">
+						<a href="#" id="show-login-form">SIGN IN</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      var cartIcon = document.querySelector('.icon-links.cart a');
+      var loginModal = document.getElementById("loginModal");
+      var registerModal = document.getElementById("registerModal");
+      var openLoginBtn = document.getElementById("openLoginBtn");
+      var openRegisterBtn = document.getElementById("openRegisterBtn");
+      var closeButtons = document.getElementsByClassName("close");
+
+      cartIcon.addEventListener('click', function(event) {
+          event.preventDefault(); 
+          loginModal.style.display = 'block'; 
+      });
+      openLoginBtn.onclick = function() {
+          loginModal.style.display = "block";
+      }
+      openRegisterBtn.onclick = function() {
+          registerModal.style.display = "block";
+      }
+
+      for (let i = 0; i < closeButtons.length; i++) {
+          closeButtons[i].onclick = function() {
+              loginModal.style.display = "none";
+              registerModal.style.display = "none";
+          }
+      }
+
+      window.onclick = function(event) {
+          if (event.target == loginModal) {
+              loginModal.style.display = "none";
+          }
+          if (event.target == registerModal) {
+              registerModal.style.display = "none";
+          }
+      }
+      document.getElementById('show-register-form').addEventListener('click', function(event) {
+          event.preventDefault(); 
+          document.getElementById('loginModal').style.display = 'none';
+          document.getElementById('registerModal').style.display = 'block';
+      });
+      document.getElementById('show-login-form').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.getElementById('loginModal').style.display = 'block';
+          document.getElementById('registerModal').style.display = 'none';
+      });
+      // Ẩn và hiện mật khẩu
+      const togglePasswordVisibility = (buttonId, inputSelector) => {
+          const button = document.getElementById(buttonId);
+          const input = document.querySelector(inputSelector);
+          button.addEventListener('click', function () {
+              const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+              input.setAttribute('type', type);
+              this.textContent = this.textContent === 'Show' ? 'Hide' : 'Show';
+          });
+      };
+      togglePasswordVisibility('show-password', '#loginModal input[type="password"]');
+      togglePasswordVisibility('show-password-register', '#registerModal input[type="password"]');
+
+      // Hiển thị thông báo form login
+      const showAlertLogin = (message, type = 'success') => {
+          const alertBox = document.getElementById('login-alert-box');
+          alertBox.className = `alert alert-${type}`;
+          alertBox.textContent = message;
+          alertBox.style.display = 'block';
+          setTimeout(() => {
+              alertBox.style.display = 'none';
+          }, 2000); 
+      };
+      // Hiển thị thông báo form Register
+      const showAlertRegister = (message, type = 'success') => {
+          const alertBox = document.getElementById('register-alert-box');
+          alertBox.className = `alert alert-${type}`;
+          alertBox.textContent = message;
+          alertBox.style.display = 'block';
+          setTimeout(() => {
+              alertBox.style.display = 'none';
+          }, 2000); 
+      };
+
+      // Đăng ký người dùng mới
+      document.getElementById('register-btn').addEventListener('click', function() {
+          const username = document.getElementById('register-username').value;
+          const email = document.getElementById('register-email').value;
+          const password = document.getElementById('register-password').value;
+          if (username && email && password) {
+              const user = { username, email, password };
+              let users = JSON.parse(localStorage.getItem('users')) || [];
+              const userExists = users.some(u => u.username === username);
+              if (userExists) {
+                  showAlertRegister('Username already exists, please choose another one.', 'danger');
+              } else {
+                  users.push(user);
+                  localStorage.setItem('users', JSON.stringify(users));
+                  showAlertRegister('Account created successfully! You can now sign in.');
+                  setTimeout(() => {
+                    document.getElementById('registerModal').style.display = 'none';
+                    document.getElementById('loginModal').style.display = 'block';
+                  }, 2000); 
+              }
+          } else {
+              showAlertRegister('Please fill all fields', 'danger');
+          }
+      });
+      // Đăng nhập người dùng
+      let isLogin = false;
+      document.getElementById('login-btn').addEventListener('click', function() {
+          const username = document.getElementById('login-username').value;
+          const password = document.getElementById('login-password').value;
+          const users = JSON.parse(localStorage.getItem('users')) || [];
+          const user = users.find(u => u.username === username && u.password === password);
+          if (user) {
+              showAlertLogin('Login successful!');
+              isLogin = true;
+              cartIcon.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    window.location.href = 'cart.html';
+                });
+              setTimeout(() => {
+                    document.getElementById('loginModal').style.display = 'none';
+                  }, 2000); 
+          } else {
+              showAlertLogin('Invalid username or password', 'danger');
+          }
+      });
         // Dữ liệu sản phẩm ban đầu
-        const products = [{
-            id: 1,
-            title: "Morning Kiss",
-            price: "1.000.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
-            occasion: "hoa-sinh-nhat",
-            color: "mau-do",
-            badgeText: "NEW",
+        // const products = [{
+        //     id: 1,
+        //     title: "Morning Kiss",
+        //     price: "1.000.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14427_morning-kiss.jpg",
+        //     occasion: "hoa-sinh-nhat",
+        //     color: "mau-do",
+        //     badgeText: "NEW",
 
-        }, {
-            id: 2,
-            title: "Ngày Có Nắng",
-            price: "300.000 ₫",
-            originalPrice: "930.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
-            occasion: "hoa-sinh-nhat",
-            color: "mau-vang",
-            badgeText: "NEW"
-        }, {
-            id: 3,
-            title: "Ánh Dương 2",
-            price: "800.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
-            occasion: "hoa-sinh-nhat",
-            color: "mau-vang",
-            badgeText: "NEW"
-        }, {
-            id: 4,
-            title: "Sunflower",
-            price: "100.000 ₫",
-            originalPrice: "930.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
-            occasion: "hoa-sinh-nhat",
-            color: "mau-vang",
-            badgeText: "SALE"
-        }, {
-            id: 5,
-            title: "Purple Love",
-            price: "600.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
-            occasion: "hoa-tinh-yeu",
-            color: "mau-tim",
-            badgeText: "NEW"
-        }, {
-            id: 6,
-            title: "Beauty Queen",
-            price: "200.000 ₫",
-            originalPrice: "600.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
-            occasion: "hoa-tinh-yeu",
-            color: "mau-tim",
-            badgeText: "SALE"
-        }, {
-            id: 7,
-            title: "Bùng Cháy 3",
-            price: "400.000 ₫",
-            originalPrice: "700.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
-            occasion: "hoa-khai-truong",
-            color: "mau-do",
-            badgeText: "SALE"
-        }, {
-            id: 8,
-            title: "Rustic",
-            price: "300.000 ₫",
-            originalPrice: "800.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
-            occasion: "hoa-tinh-yeu",
-            color: "mau-vang",
-            badgeText: "SALE"
-        }, {
-            id: 9,
-            title: "Vững Bền",
-            price: "600.000 ₫",
-            originalPrice: "700.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
-            occasion: "hoa-khai-truong",
-            color: "mau-do",
-            badgeText: "SALE"
-        }, {
-            id: 10,
-            title: "Thành Đạt",
-            price: "1.600.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
-            occasion: "hoa-khai-truong",
-            color: "mau-vang",
-            badgeText: "NEW"
-        }, {
-            id: 11,
-            title: "Only Rose",
-            price: "190.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
-            occasion: "hoa-tinh-yeu",
-            color: "mau-do",
-            badgeText: "NEW"
-        }, {
-            id: 12,
-            title: "Lan Hồ Điệp Mẫu 4",
-            price: "600.000 ₫",
-            originalPrice: "700.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
-            occasion: "hoa-khai-truong",
-            color: "mau-tim",
-            badgeText: "SALE"
-        }, {
-            id: 13,
-            title: "Thạch thảo",
-            price: "1.400.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/3573_thach-thao.jpg",
-            occasion: "hoa-sinh-nhat",
-            color: "mau-tim",
-            badgeText: "NEW"
-        }, {
-            id: 14,
-            title: "Only Rose",
-            price: "120.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13196_mercy-2.jpg",
-            occasion: "hoa-khai-truong",
-            color: "mau-do",
-            badgeText: "NEW"
-        }, {
-            id: 15,
-            title: "Món quà tặng em",
-            price: "800.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/13906_mon-qua-hanh-phuc.jpg",
-            occasion: "hoa-tinh-yeu",
-            color: "mau-tim",
-            badgeText: "NEW"
-        }, {
-            id: 16,
-            title: "Tình cờ",
-            price: "150.000 ₫",
-            imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13252_tinh-co.jpg",
-            occasion: "hoa-sinh-nhat",
-            color: "mau-tim",
-            badgeText: "NEW"
-        }];
+        // }, {
+        //     id: 2,
+        //     title: "Ngày Có Nắng",
+        //     price: "300.000 ₫",
+        //     originalPrice: "930.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/14434_ngay-co-nang.jpg",
+        //     occasion: "hoa-sinh-nhat",
+        //     color: "mau-vang",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 3,
+        //     title: "Ánh Dương 2",
+        //     price: "800.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/15005_anh-duong-2.jpg",
+        //     occasion: "hoa-sinh-nhat",
+        //     color: "mau-vang",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 4,
+        //     title: "Sunflower",
+        //     price: "100.000 ₫",
+        //     originalPrice: "930.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/8040_sun-flower.jpg",
+        //     occasion: "hoa-sinh-nhat",
+        //     color: "mau-vang",
+        //     badgeText: "SALE"
+        // }, {
+        //     id: 5,
+        //     title: "Purple Love",
+        //     price: "600.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5384_purple-love.jpg",
+        //     occasion: "hoa-tinh-yeu",
+        //     color: "mau-tim",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 6,
+        //     title: "Beauty Queen",
+        //     price: "200.000 ₫",
+        //     originalPrice: "600.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/8025_beauty-queen.jpg",
+        //     occasion: "hoa-tinh-yeu",
+        //     color: "mau-tim",
+        //     badgeText: "SALE"
+        // }, {
+        //     id: 7,
+        //     title: "Bùng Cháy 3",
+        //     price: "400.000 ₫",
+        //     originalPrice: "700.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12609_bung-chay-3.jpg",
+        //     occasion: "hoa-khai-truong",
+        //     color: "mau-do",
+        //     badgeText: "SALE"
+        // }, {
+        //     id: 8,
+        //     title: "Rustic",
+        //     price: "300.000 ₫",
+        //     originalPrice: "800.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/8424_rustic.jpg",
+        //     occasion: "hoa-tinh-yeu",
+        //     color: "mau-vang",
+        //     badgeText: "SALE"
+        // }, {
+        //     id: 9,
+        //     title: "Vững Bền",
+        //     price: "600.000 ₫",
+        //     originalPrice: "700.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5774_vung-ben.jpg",
+        //     occasion: "hoa-khai-truong",
+        //     color: "mau-do",
+        //     badgeText: "SALE"
+        // }, {
+        //     id: 10,
+        //     title: "Thành Đạt",
+        //     price: "1.600.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/5263_thanh-dat.jpg",
+        //     occasion: "hoa-khai-truong",
+        //     color: "mau-vang",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 11,
+        //     title: "Only Rose",
+        //     price: "190.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/12888_only-rose-1.jpg",
+        //     occasion: "hoa-tinh-yeu",
+        //     color: "mau-do",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 12,
+        //     title: "Lan Hồ Điệp Mẫu 4",
+        //     price: "600.000 ₫",
+        //     originalPrice: "700.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/bo-hoa-tuoi/12293_lan-ho-diep-mau-4.jpg",
+        //     occasion: "hoa-khai-truong",
+        //     color: "mau-tim",
+        //     badgeText: "SALE"
+        // }, {
+        //     id: 13,
+        //     title: "Thạch thảo",
+        //     price: "1.400.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/3573_thach-thao.jpg",
+        //     occasion: "hoa-sinh-nhat",
+        //     color: "mau-tim",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 14,
+        //     title: "Only Rose",
+        //     price: "120.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13196_mercy-2.jpg",
+        //     occasion: "hoa-khai-truong",
+        //     color: "mau-do",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 15,
+        //     title: "Món quà tặng em",
+        //     price: "800.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tuoi-hop/13906_mon-qua-hanh-phuc.jpg",
+        //     occasion: "hoa-tinh-yeu",
+        //     color: "mau-tim",
+        //     badgeText: "NEW"
+        // }, {
+        //     id: 16,
+        //     title: "Tình cờ",
+        //     price: "150.000 ₫",
+        //     imageUrl: "https://hoayeuthuong.com/hinh-hoa-tuoi/thumb/hoa-tinh-yeu/13252_tinh-co.jpg",
+        //     occasion: "hoa-sinh-nhat",
+        //     color: "mau-tim",
+        //     badgeText: "NEW"
+        // }];
 
 
-        localStorage.setItem('products', JSON.stringify(products));
+        // localStorage.setItem('products', JSON.stringify(products));
 
         if (!localStorage.getItem('products')) {
             localStorage.setItem('products', JSON.stringify(products));
@@ -521,8 +818,7 @@
                 <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
                 <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
                 <div class="card-body">
-                    <p class="product-title">${product.title}</p>
-                    <p>
+                    <p class="product-title">${product.title} </br>
                         <span class="original-price">${product.originalPrice || ''}</span>
                         <span class="product-price">${product.price}</span>
                     </p>
@@ -533,9 +829,6 @@
             });
             document.getElementById('product-list').innerHTML = row;
         }
-
-        // Gọi hàm tải sản phẩm khi trang được tải
-        window.onload = loadProducts;
 
         // Khởi động ứng dụng
         loadProducts();
@@ -602,9 +895,112 @@
         document.querySelectorAll('input[name="mauSac"], input[name="occasion"], input[name="priceRange"], input[name="sortOrder"]').forEach(element => {
             element.addEventListener('change', filterProducts);
         });
-    </script>
 
-    </div>
+        // Giả sử bạn đã có sẵn danh sách sản phẩm trong localStorage
+        function filterProductsBySearch() {
+            const inputInfo = document.getElementById('input-search').value.toLowerCase();
+            const allProducts = JSON.parse(localStorage.getItem('products')) || []; // Lấy sản phẩm từ localStorage
+            const productList = document.getElementById('product-list');
+
+            // Xóa nội dung sản phẩm hiện tại
+            productList.innerHTML = '';
+
+            // Tìm các sản phẩm khớp với từ khóa tìm kiếm
+            const filteredProducts = allProducts.filter(product =>
+                product.title.toLowerCase().includes(inputInfo)
+            );
+
+            // Hiển thị các sản phẩm khớp
+            if (filteredProducts.length > 0) {
+                filteredProducts.forEach(product => {
+                    productList.innerHTML += createProductCard(product); // Tạo card cho sản phẩm
+                });
+            } else {
+                productList.innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+            }
+        }
+
+        // Hàm tạo card sản phẩm
+        function createProductCard(product) {
+            return `
+        <div class="col-md-3 mb-3">
+            <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
+                <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
+                <div class="card-body">
+                    <p class="product-title">${product.title} </br>
+                        <span class="original-price">${product.originalPrice || ''}</span>
+                        <span class="product-price">${product.price}</span>
+                    </p>
+                    <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                </div>
+            </div>
+        </div>`;
+        }
+
+        // Gán sự kiện cho ô tìm kiếm
+        document.getElementById('input-search').addEventListener('keyup', filterProductsBySearch);
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------- 
+//JS Tìm kiếm từ homepage 
+// Lấy giá trị từ URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Hiển thị sản phẩm dựa trên tìm kiếm từ trang chủ
+function displayProductFromHomeSearch() {
+    const search_name = getQueryParam('search').toLowerCase(); // Dùng chuỗi cho tìm kiếm
+
+    let storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    
+    // Lọc sản phẩm dựa trên tiêu đề chứa chuỗi tìm kiếm
+    const filteredProducts = storedProducts.filter(product => 
+        product.title.toLowerCase().includes(search_name)
+    );
+
+    if (filteredProducts.length > 0) {
+        let row = '';
+        filteredProducts.forEach(product => {
+            row += `
+                <div class="col-md-3 mb-3">
+                    <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
+                        <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                        <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
+                        <div class="card-body">
+                            <p class="product-title">${product.title} </br>
+                                <span class="original-price">${product.originalPrice || ''}</span>
+                                <span class="product-price">${product.price}</span>
+                            </p>
+                            <a href="product-detail.html?id=${product.id}" class="card-btn-left">Buy now</a>
+                        </div>
+                    </div>
+                </div>`;
+        });
+        document.getElementById('product-list').innerHTML = row;
+    } else {
+        console.error('Sản phẩm không tồn tại');
+        document.getElementById('product-list').innerHTML = '<p>Không tìm thấy sản phẩm nào.</p>';
+    }
+}
+
+// Tải sản phẩm từ localStorage và hiển thị
+function loadProducts() {
+    const productsToDisplay = loadProductsFromLocalStorage();
+    displayProducts(productsToDisplay);
+}
+
+// Lắng nghe sự kiện DOMContentLoaded để tránh ghi đè window.onload
+document.addEventListener('DOMContentLoaded', () => {
+    loadProducts(); // Tải tất cả sản phẩm
+    displayProductFromHomeSearch(); // Hiển thị kết quả tìm kiếm
+});
+
+
+</script>
+
+</div>
 </body>
 
 </html>

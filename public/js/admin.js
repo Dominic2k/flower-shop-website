@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let editingProductId = null;
 
     // Khởi tạo modal Bootstrap
-    const modalInstance = new bootstrap.Modal(modalElement);
+    const modalInstance = new bootstrap.Modal(modalProduct);
 
     createProductBtn.addEventListener('click', () => {
         editingProductId = null;
@@ -25,19 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     saveProductBtn.addEventListener('click', () => {
-        const name = productNameInput.value;
-        const img = productImageInput.value;
+        const title = productNameInput.value;
+        const imageUrl = productImageInput.value;
         const color = productColorInput.value;
-        const title = productTitleInput.value;
+        const occasion = productTitleInput.value;
         const price = productPriceInput.value;
         const describe = productDescribeInput.value;
 
-        if (!name || !img || !color || !title || !price || !describe) {
+        if (!title || !imageUrl || !color || !occasion || !price || !describe) {
             alert('Please enter complete information!');
             return;
         }
 
-        const product = { id: Date.now(), name, img, color, title, price, describe };
+        const product = { id: Date.now(), title, imageUrl, color, occasion, price, describe };
         if (editingProductId) {
             updateProduct(editingProductId, product);
         } else {
@@ -78,15 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const row = document.createElement('tr');
             row.innerHTML = `
             <td>${index + 1}</td>
-            <td>${product.name}</td>
-            <td><img src="${product.img}" style="max-width: 100px; height: auto;"></td>
+            <td class="threedots">${product.title}</td>
+            <td><img src="${product.imageUrl}" style="max-width: 100px; height: auto;"></td>
             <td>${product.color}</td>
-            <td>${product.title}</td>
+            <td>${product.occasion}</td>
             <td>${product.price}</td>
-            <td>${product.describe}</td>
+            <td class="threedots">${product.describe}</td>
             <td>
-                <button class="edit-btn btn btn-sm" data-id="${product.id}">Edit</button>
-                <button class="delete-btn btn btn-sm" data-id="${product.id}">Delete</button>
+                <i class="edit-btn fa fa-edit" style="font-size:20px" data-id="${product.id}"></i>
+                <i class="delete-btn fa fa-trash" style="font-size:20px" data-id="${product.id}"></i>
             </td>
             `;
             productTableBody.appendChild(row);
@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const productId = e.target.getAttribute('data-id');
                 const product = getProductsFromLocalStorage().find(p => p.id == productId);
                 editingProductId = product.id;
-                productNameInput.value = product.name;
-                productImageInput.value = product.img;
+                productNameInput.value = product.title;
+                productImageInput.value = product.imageUrl;
                 productColorInput.value = product.color;
-                productTitleInput.value = product.title;
+                productTitleInput.value = product.occasion;
                 productPriceInput.value = product.price;
                 productDescribeInput.value = product.describe;
                 modalTitle.textContent = 'Edit Product';
@@ -127,9 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
-
     renderTable();
 
 });
 
+var closeButtons = document.getElementsByClassName("btn-close");
+var productModal = document.getElementById('modalProduct');
+    closeButtons.onclick = function() {
+        productModal.style.display = "none";
+    }

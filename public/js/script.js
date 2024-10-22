@@ -1,6 +1,7 @@
+// ------------------------------------------------------------------------------------------------------------------
 // JS Countdown timer
 
-let countdownDate = new Date("Oct 20, 2024 23:59:59").getTime();
+let countdownDate = new Date("Nov 22, 2024 23:59:59").getTime();
 
 let countdownFunction = setInterval(function() {
     let now = new Date().getTime();
@@ -21,7 +22,12 @@ let countdownFunction = setInterval(function() {
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
+// End countdown
 
+// ------------------------------------------------------------------------------------------------------------------
+
+// Start Modal Process
+// Lấy các modal
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
 
@@ -102,9 +108,12 @@ document.getElementById('register-btn').addEventListener('click', function() {
     const username = document.getElementById('register-username').value;
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
+    let cart = [];
 
     if (username && email && password) {
-        const user = { username, email, password };
+        const user = { username, email, password, cart };
+
+        // Lấy danh sách người dùng từ localStorage hoặc tạo mảng mới nếu chưa có
         let users = JSON.parse(localStorage.getItem('users')) || [];
         const userExists = users.some(u => u.username === username);
 
@@ -134,106 +143,254 @@ document.getElementById('register-btn').addEventListener('click', function() {
     if (user) {
         showAlertLogin('Login successful!');
         isLogin = true;
-    } else {
-        showAlertLogin('Invalid username or password', 'danger');
-    }
+        setTimeout(() => {
+            document.getElementById('loginModal').style.display = 'none';
+          }, 2000); 
+        let dropDownIn = document.querySelector("#openLoginBtn");
+        let dropDownUp = document.querySelector("#openRegisterBtn");
+        let dropDownOut = document.querySelector("#LogOutBtn");
+        if (isLogin) {
+            dropDownIn.style.display = 'none';
+            dropDownUp.style.display = 'none';
+
+            dropDownOut.style.display = 'block';
+        }else {
+            dropDownIn.style.display = 'block';
+            dropDownUp.style.display = 'block';
+
+            dropDownOut.style.display = 'none';
+        }
+            } else {
+                showAlertLogin('Invalid username or password', 'danger');
+            }
 });
 
+
+let dropDownIn = document.querySelector("#openLoginBtn");
+let dropDownUp = document.querySelector("#openRegisterBtn");
+let dropDownOut = document.querySelector("#LogOutBtn");
+if (isLogin) {
+    dropDownIn.style.display = 'none';
+    dropDownUp.style.display = 'none';
+
+    dropDownOut.style.display = 'block';
+}else {
+    dropDownIn.style.display = 'block';
+    dropDownUp.style.display = 'block';
+
+    dropDownOut.style.display = 'none';
+}
+
+// END MODAL
+// ------------------------------------------------------------------------------------------------------------------
 // JS Show sản phẩm ở trang chủ
-
-
+// Tạo sản phẩm mẫu ban đầu và lưu vào local
 function createdProducts() {
     
-const products = [
-    {
-        id: 1,
-        name: "Rose Bouquet",
-        code: "FL001",
-        color: "Red",
-        title: "Elegant Red Roses",
-        describe: "A beautiful bouquet of 12 red roses, perfect for romantic occasions.",
-        price: "259.000đ",
-        img: "https://img4.thuthuatphanmem.vn/uploads/2020/08/18/anh-gio-hoa-sen-dep-y-nghia_091937096.jpg"
-    },
-    {
-        id: 2,
-        name: "Sunflower Bundle",
-        code: "FL002",
-        color: "Yellow",
-        title: "Bright Sunflowers",
-        describe: "A bundle of 5 sunflowers to brighten anyone's day.",
-        price: "185.000đ",
-        img: "https://kethoavanca.vn/wp-content/uploads/2017/03/sp-2.jpg"
-    },
-    {
-        id: 3,
-      name: "Tulip Collection",
-      code: "FL003",
-      color: "Purple",
-      title: "Charming Purple Tulips",
-      describe: "A collection of 10 purple tulips for a fresh and elegant look.",
-      price: "220.000đ",
-      img: "https://3.bp.blogspot.com/-wPOcH-AFROI/WPtUyqxqBHI/AAAAAAAAmjA/2uDK910tLgMvHiWTl5-gc_NIvbql6CPIgCLcB/s640/16788840_1737084339954027_8230377758388125696_n.jpg"
-    },
-    {
-        id: 4,
-        name: "Lily Assortment",
-        code: "FL004",
-        color: "White",
-        title: "Graceful White Lilies",
-        describe: "An assortment of white lilies, symbolizing purity and elegance.",
-        price: "300.000đ",
-        img: "https://shophoahong.com/wp-content/uploads/2022/04/211.jpg"
-    },
-    {
-        id: 5,
-        name: "Orchid Arrangement",
-        code: "FL005",
-        color: "Pink",
-        title: "Delicate Pink Orchids",
-        describe: "A delicate arrangement of pink orchids, perfect for a sophisticated touch.",
-        price: "459.900đ",
-        img: "https://lilydesign.vn/uploads/thumbnails/800/2021/11/gio-hoa-hong-do-dep-ldnk258-19-11-52-18.jpg"
-    },
-    {
-        id: 6,
-        name: "Daisy Bunch",
-        code: "FL006",
-        color: "White",
-        title: "Cheerful White Daisies",
-        describe: "A bunch of white daisies, symbolizing simplicity and joy.",
-        price: "162.000đ",
-        img: "https://cdn03.lolaflora.com/bonnygift/lfb047-1/XL/lfb047-1-8d9629f423926a9-c50d29fa.jpg"
-    },
-    {
-        id: 7,
-        name: "Carnation Bouquet",
-        code: "FL007",
-        color: "Red",
-        title: "Passionate Red Carnations",
-        describe: "A bouquet of 15 red carnations, representing love and admiration.",
-        price: "199.900đ",
-        img: "https://www.giftstoindia24x7.com/ASP_Img/IMG1000/GTI10750.jpg"
-    },
-    {
-        id: 8,
-        name: "Lavender Sprigs",
-        code: "FL008",
-        color: "Purple",
-        title: "Fragrant Lavender Sprigs",
-        describe: "A handful of fragrant lavender sprigs, perfect for relaxation and tranquility.",
-        price: "127.00đ",
-        img: "https://hoakhaitruong.vn/userfiles/image/hoa%20c%C3%BAc%20sn.jpg"
-    }
-];
+    const products = [
+        {
+          id: 1,
+          title: "Elegant Watch",
+          price: "1.000.000₫",
+          code: "EW2005",
+          originalPrice: "1.500.000đ",
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Birthday",
+          color: "Red",
+          badgeText: "Best Seller",
+          describe: "This elegant silver watch combines style with functionality, making it perfect for everyday casual wear. The sleek design and minimalist face add a touch of sophistication to any outfit. Water-resistant and durable, it's designed for those who value both aesthetics and practicality. A must-have accessory for your wardrobe."
+        },
+        {
+          id: 2,
+          title: "Leather Jacket",
+          price: "300.000₫",
+          code:"SQ2005",
+          originalPrice: "930.000₫",
+          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
+          occasion: "Lovely",
+          color: "Yellow",
+          badgeText: "New Arrival",
+          describe: "This black leather jacket is a timeless classic, offering both warmth and style during the colder months. Crafted from high-quality leather, it provides excellent insulation while maintaining a sleek, modern look. The jacket features multiple pockets and a comfortable inner lining, making it as practical as it is stylish. Perfect for winter or cool evening outings."
+        },
+        {
+          id: 3,
+          title: "Running Shoes",
+          price: "800.000₫",
+          code:"SQ2005",
+          originalPrice: "900.000đ",
+          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
+          occasion: "Opened",
+          color: "Purple",
+          badgeText: "Top Pick",
+          describe: "These blue running shoes are designed for athletes seeking comfort and durability. The lightweight construction and breathable fabric keep your feet cool during long runs, while the cushioned sole provides excellent support. Whether you're training for a marathon or enjoying a casual jog, these shoes will help enhance your performance. A great choice for any fitness enthusiast."
+        },
+        {
+          id: 4,
+          title: "Sunglasses",
+          price: "100.000₫",
+          code:"SQ2005",
+          originalPrice: "200.000đ",
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Birthday",
+          color: "Red",
+          badgeText: "Limited Edition",
+          describe: "These stylish black sunglasses are the perfect accessory for bright summer days. With UV protection, they not only enhance your look but also shield your eyes from harmful sun rays. The lightweight frame ensures all-day comfort, making them ideal for outdoor activities. Elevate your summer style with this limited edition design."
+        },
+        {
+          id: 5,
+          title: "Evening Dress",
+          price: "600.000₫",
+          code:"SQ2005",
+          originalPrice: "700.000đ",
+          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
+          occasion: "Lovely",
+          color: "Yellow",
+          badgeText: "Exclusive",
+          describe: "This stunning red evening dress is designed to make a statement at any formal event. With its elegant silhouette and rich fabric, it accentuates your curves while maintaining a sophisticated look. The dress is perfect for galas, weddings, or any special occasion where you want to stand out. It’s a timeless piece that will never go out of style."
+        },
+        {
+          id: 6,
+          title: "Backpack",
+          price: "200.000₫",
+          code:"SQ2005",
+          originalPrice: "600.000₫",
+          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
+          occasion: "Opened",
+          color: "Purple",
+          badgeText: "Durable",
+          describe: "This gray backpack is perfect for travelers and adventurers alike. With its spacious compartments, it can hold everything from laptops to travel essentials, making it ideal for both work and play. The water-resistant material ensures your belongings stay dry, while the padded straps provide all-day comfort. A versatile and durable bag for any journey."
+        },
+        {
+          id: 7,
+          title: "Smartphone",
+          price: "400.000₫",
+          code:"SQ2005",
+          originalPrice: "700.000₫",
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Birthday",
+          color: "Red",
+          badgeText: "Hot",
+          describe: "This latest smartphone is packed with cutting-edge features, including a high-resolution camera, long battery life, and a powerful processor. Its sleek black design is both modern and elegant, making it suitable for both professional and personal use. With ample storage and fast charging capabilities, this phone is perfect for anyone on the go. Stay connected and productive with this must-have gadget."
+        },
+        {
+          id: 8,
+          title: "Bluetooth Headphones",
+          price: "300.000₫",
+          code:"SQ2005",
+          originalPrice: "700.000₫",
+          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
+          occasion: "Love",
+          color: "Yellow",
+          badgeText: "Trending",
+          describe: "These wireless Bluetooth headphones provide superior sound quality and noise cancellation, making them ideal for music lovers. The comfortable over-ear design allows for extended listening without discomfort, while the long battery life ensures they’re always ready when you are. Perfect for both commuting and relaxing at home. Enjoy your favorite tunes with exceptional clarity and depth."
+        },
+        {
+          id: 9,
+          title: "Coffee Maker",
+          price: "600.000₫",
+          code:"SQ2005",
+          originalPrice: "700.000₫",
+          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
+          occasion: "Opened",
+          color: "Purple",
+          badgeText: "Best Seller",
+          describe: "This automatic coffee maker is a must-have for coffee enthusiasts. It brews fresh, hot coffee in minutes, ensuring you start your day with the perfect cup. With programmable settings and a sleek black design, it fits seamlessly into any kitchen. Whether you prefer a strong espresso or a light brew, this machine delivers consistently great results."
+        },
+        {
+          id: 10,
+          title: "Gaming Laptop",
+          price: "1.600.000₫",
+          code:"SQ2005",
+          originalPrice: "1.800.000đ",
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Birthday",
+          color: "Red",
+          badgeText: "High Performance",
+          describe: "This high-performance gaming laptop is built for serious gamers. Equipped with a powerful graphics card and fast processor, it handles the most demanding games with ease. The large display offers crisp, vibrant visuals, while the advanced cooling system ensures smooth performance during long sessions. It’s a top choice for those who want to take their gaming experience to the next level."
+        },
+        {
+          id: 11,
+          title: "Tennis Racket",
+          price: "190.000₫",
+          code:"SQ2005",
+          originalPrice: "250.000đ",
+          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
+          occasion: "Lovely",
+          color: "Yellow",
+          badgeText: "Professional",
+          describe: "This lightweight yet durable tennis racket is designed for both professional players and enthusiasts. With a sturdy frame and comfortable grip, it offers excellent control and power. Whether you're competing in tournaments or practicing your backhand, this racket will help you play your best game. A top-quality choice for any tennis player."
+        },
+        {
+          id: 12,
+          title: "Designer Handbag",
+          price: "600.000₫",
+          code:"SQ2005",
+          originalPrice: "700.000₫",
+          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
+          occasion: "Opened",
+          color: "Purple",
+          badgeText: "Exclusive",
+          describe: "This premium designer handbag is the epitome of luxury. Crafted from the finest materials, it features a chic pink design that adds a pop of color to any outfit. Spacious yet stylish, it’s perfect for carrying all your essentials while maintaining an elegant look. A must-have for fashion-forward individuals who appreciate quality and exclusivity."
+        },
+        {
+          id: 13,
+          title: "Office Chair",
+          price: "1.400.000₫",
+          code:"SQ2005",
+          originalPrice: "1.500.000đ",
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Birthday",
+          color: "Red",
+          badgeText: "Comfort",
+          describe: "This ergonomic office chair is designed to provide maximum comfort during long hours of work. The adjustable height and lumbar support ensure a perfect fit, reducing strain on your back and neck. Its sleek brown design blends seamlessly with any office decor, making it both functional and stylish. Improve your productivity and posture with this essential office chair."
+        },
+        {
+          id: 14,
+          title: "Bicycle",
+          price: "120.000₫",
+          code:"SQ2005",
+          originalPrice: "250.000đ",
+          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
+          occasion: "Lovely",
+          color: "Yellow",
+          badgeText: "Eco-Friendly",
+          describe: "This high-quality bicycle is perfect for outdoor enthusiasts looking for an eco-friendly mode of transportation. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
+        },
+        {
+          id: 15,
+          title: "Perfume",
+          price: "800.000₫",
+          code:"SQ2005",
+          originalPrice: "920.000đ",
+          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
+          occasion: "Opened",
+          color: "Purple",
+          badgeText: "Top Scent",
+          describe: "This luxurious perfume features a romantic blend of floral and woody notes, perfect for special occasions. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
+        },
+        {
+          id: 16,
+          title: "Electric",
+          price: "150.000₫",
+          code:"SQ2005",
+          originalPrice: "170.000đ",
+          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
+          occasion: "Birthday",
+          color: "Red",
+          badgeText: "Top Scent",
+          describe: "This luxurious perfume features a romantic blend of floral and woody notes, perfect for special occasions. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
+        }
+    ];
 let productJSON = JSON.stringify(products);
 localStorage.setItem('products', productJSON);
 }
+// ------------------------------------------------------------------------------------------------------------------
 
 
+// Lấy sản phẩm từ local và show ra
 function showListProducts() {
     let storedProducts = JSON.parse(localStorage.getItem('products'));
-    
+
     if (!storedProducts || storedProducts.length === 0) {
         document.getElementById('products').innerHTML = '<p>No products available.</p>';
         return;
@@ -241,27 +398,25 @@ function showListProducts() {
 
     let content = '';
 
-    for (let i = 0; i < storedProducts.length; i++) {
-        content += `<div class="product-item">`
+    for (let i = 0; i < 8; i++) {
+        content += `<div class="product-item">`;
         content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
-        content += `<img src="` + storedProducts[i].img + `" class="card-img" style="height: 400px;">`;
+        content += `<img src="` + storedProducts[i].imageUrl + `" class="card-img" style="height: 400px;">`;
         content += `</a>`;
         content += `<div class="card-body">`;
-        content += `<h3 class="card-title">` + storedProducts[i].name + `</h3>`;
+        content += `<h3 class="card-title">` + storedProducts[i].title + `</h3>`;
         content += `<p class="card-text">` + storedProducts[i].price + `</p>`;
-        content += `<a href="#" onclick='buyNow(${JSON.stringify(storedProducts[i])})' class="card-btn-left">Buy now</a>`;
+        content += `<a href="payment.html?ids=` + storedProducts[i].id + `" class="card-btn-left">Buy now</a>`;
         content += `</div>`;
         content += `</div>`;
     }
+
     document.getElementById('products').innerHTML = content;
 }
+// ------------------------------------------------------------------------------------------------------------------
 
-function buyNow(product) {
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
-    window.location.href = 'payment.html';
-}
 
-// JS Lưu Feedback vào local storage
+// JS Lưu Feedback vào local storage khi submit form
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
@@ -288,52 +443,55 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     // Reset form after sending feedback
     document.getElementById('feedbackForm').reset();
 });
+// ------------------------------------------------------------------------------------------------------------------
 
 
 
-function showListFeedback() {
+// Tạo 1 feedback mẫu ban đầu và lưu vào local sau đó in ra
+function createdFeedbacks() {
+
     const feedbacks  = [
         {
             name: 'Alice Johnson',
             occupation: 'Marketing Manager',
             description: 'The flowers I ordered were absolutely stunning! They\
-                        arrived on time and were fresh. Will definitely be\
-                        ordering again.'
+            arrived on time and were fresh. Will definitely be\
+            ordering again.'
         },
         {
             name: 'John Smith',
             occupation: 'Teacher',
             description: 'I was impressed by the variety of flowers available on\
-                            the website. The bouquet I ordered exceeded my\
-                            expectations.'
+            the website. The bouquet I ordered exceeded my\
+            expectations.'
         },
         {
             name: 'Emily Brown',
             occupation: 'Interior Designer',
             description: 'The customer service was exceptional. They helped me\
-                            choose the perfect arrangement for my friend\'s\
-                            birthday.'
+            choose the perfect arrangement for my friend\'s\
+            birthday.'
         },
         {
             name: 'Michael Lee',
             occupation: 'Software Engineer',
             description: 'I have never been disappointed with the quality of\
-                            flowers from this shop. Highly recommend!'
+            flowers from this shop. Highly recommend!'
         }
     ];
-    
-    // Store feedbacks in local storage
     let feedbackJSON = JSON.stringify(feedbacks);
     localStorage.setItem('feedbacks', feedbackJSON);
+};
 
-    // Retrieve feedbacks from local storage
+
+function showListFeedback() {
+
     let storedFeedbacks = JSON.parse(localStorage.getItem('feedbacks'));
 
-    // Loop through feedbacks and display each in the correct element with <span> tag
     for (let i = 0; i < 4; i++) {
         let name = `<span>${storedFeedbacks[i].name}</span>`;  
         let occupation = `<span>${storedFeedbacks[i].occupation}</span>`;  
-        let description = `<span>${storedFeedbacks[i].description}</span>`;  // Fixed the typo
+        let description = `<span>${storedFeedbacks[i].description}</span>`;
         
         if (i === 0) {
             document.getElementById('first-feedback-name').innerHTML = name;
@@ -357,6 +515,8 @@ function showListFeedback() {
         }
     }
 }
+// ------------------------------------------------------------------------------------------------------------------
+
 
 // JS Go to top
 let scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -374,6 +534,7 @@ scrollToTopBtn.addEventListener("click", function() {
         behavior: 'smooth'
     });
 });
+// ------------------------------------------------------------------------------------------------------------------
 
 
 // Js check go to cart button
@@ -385,6 +546,32 @@ cartBtn.addEventListener('click', function() {
     } else {
         loginModal.style.display = 'block';
     }
+});
+
+
+// Js check login or not logged in
+
+
+// ------------------------------------------------------------------------------------------------------------------
+
+// JS sử lý ô search ở homepage
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('search-form');
+    const searchInput = document.getElementById('input-search');
+
+    // Lắng nghe sự kiện submit của form và ngăn hành vi submit mặc định
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();  // Ngăn chặn hành vi submit mặc định
+
+        const inputInfo = searchInput.value.toLowerCase();  // Lấy giá trị input
+        console.log("Input value: ", inputInfo);  // Kiểm tra giá trị nhập
+
+        if (inputInfo) {
+            window.location.assign(`products.html?search=${inputInfo}`);
+        } else {
+            console.log("No input provided");
+        }
+    });
 });
 
 
