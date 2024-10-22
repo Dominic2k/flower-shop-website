@@ -134,14 +134,11 @@ document.getElementById('register-btn').addEventListener('click', function() {
 });
 
 // Đăng nhập người dùng
-
-
 document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(u => u.username === username && u.password === password);
-
     if (user) {
         showAlertLogin('Login successful!');
         // Lưu thông tin người dùng hiện tại vào localStorage

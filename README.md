@@ -13,7 +13,7 @@ Flower Shop Website là một ứng dụng web được phát triển bằng HTM
 - **Đăng nhập/Đăng ký**: Hỗ trợ người dùng tạo tài khoản và đăng nhập để quản lý đơn hàng.
 - **Lưu trữ dữ liệu**: Sử dụng Local Storage để lưu trữ thông tin người dùng và sản phẩm trong giỏ hàng.
 
-##Tính năng mở rộng
+## Tính năng mở rộng
 
 - **Gởi email**: Hệ thống sẽ gửi email xác nhận đơn hàng và tình trạng đơn hàng sau khi đặt.
 - **Admin**: Có giao diện admin để quản lí dữ liệu nhập, xuất.
