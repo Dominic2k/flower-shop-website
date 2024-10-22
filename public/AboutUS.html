@@ -478,8 +478,8 @@
           <a class="nav-link" href="products.html">Products</a>
         </li>
         </ul>
-        <form class="d-flex">
-        <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
+        <form class="d-flex" id="search-form">
+        <input  id="input-search" class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
         <div class="icon-links user-icon">
           <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
           <div class="dropdown-menu">
@@ -885,17 +885,14 @@
               loginModal.style.display = 'block';
           }
       });
-      
     document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('search-form');
     const searchInput = document.getElementById('input-search');
-
-    // Lắng nghe sự kiện submit của form và ngăn hành vi submit mặc định
     form.addEventListener('submit', (e) => {
-        e.preventDefault();  // Ngăn chặn hành vi submit mặc định
+        e.preventDefault();  
 
-        const inputInfo = searchInput.value.toLowerCase();  // Lấy giá trị input
-        console.log("Input value: ", inputInfo);  // Kiểm tra giá trị nhập
+        const inputInfo = searchInput.value.toLowerCase(); 
+        console.log("Input value: ", inputInfo);  
 
         if (inputInfo) {
             window.location.assign(`products.html?search=${inputInfo}`);

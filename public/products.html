@@ -262,7 +262,8 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+
             <a class="navbar-brand" href="index.html">
                 <h1>Heavenly Blossom</h1>
             </a>
@@ -287,11 +288,8 @@
                 </ul>
                 <form class="d-flex">
                     <input class=" form-control search-input" id="input-search" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()">
-                    <!--  code cũ -->
-                    <!-- <input class="form-control search-input" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()"> -->
                     <div class="icon-links user-icon">
                         <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
-                        <!-- Dropdown menu -->
                         <div class="dropdown-menu">
                             <a href="#" id="openLoginBtn">Login</a>
                             <a href="#" id="openRegisterBtn">Register</a>
@@ -303,8 +301,43 @@
                     </div>
                 </form>
             </div>
-        </nav>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+            <a class="navbar-brand" href="index.html">
+              <h1>Heavenly Blossom</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="AboutUS.html">AboutUS</a>
+              </li>
+              </ul>
+              <form class="d-flex" id="search-form">
+              <input  id="input-search" class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
+              <div class="icon-links user-icon">
+                <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+                <div class="dropdown-menu">
+                <a href="#" id="openLoginBtn">Login</a>
+                <a href="#" id="openRegisterBtn">Register</a>
+                <div id="welcome-message" class="dropdownUserName" style="display: none;"><span id="username-display"></span></div>
+                <a class="dropdownOut" href="#" id="LogOutBtn">Logout</a>
+      
+                </div>
+              </div>
+              <div class="icon-links cart" id="cartBtn">
+                <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+              </div>
+              </form>
+            </div>
+          </nav>
     </header>
+
     <div class="container mt-4">
         <div class="row">
 
@@ -734,7 +767,203 @@ document.addEventListener('DOMContentLoaded', () => {
     displayProductFromHomeSearch(); // Hiển thị kết quả tìm kiếm
 });
 
+var loginModal = document.getElementById("loginModal");
+      var registerModal = document.getElementById("registerModal");
 
+      var openLoginBtn = document.getElementById("openLoginBtn");
+      var openRegisterBtn = document.getElementById("openRegisterBtn");
+      var closeButtons = document.getElementsByClassName("close");
+      openLoginBtn.onclick = function() {
+          loginModal.style.display = "block";
+      }
+      openRegisterBtn.onclick = function() {
+          registerModal.style.display = "block";
+      }
+      for (let i = 0; i < closeButtons.length; i++) {
+          closeButtons[i].onclick = function() {
+              loginModal.style.display = "none";
+              registerModal.style.display = "none";
+          }
+      }
+      window.onclick = function(event) {
+          if (event.target == loginModal) {
+              loginModal.style.display = "none";
+          }
+          if (event.target == registerModal) {
+              registerModal.style.display = "none";
+          }
+      }
+
+      document.getElementById('show-register-form').addEventListener('click', function(event) {
+          event.preventDefault(); 
+          document.getElementById('loginModal').style.display = 'none';
+          document.getElementById('registerModal').style.display = 'block';
+      });
+
+      document.getElementById('show-login-form').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.getElementById('loginModal').style.display = 'block';
+          document.getElementById('registerModal').style.display = 'none';
+      });
+
+      // Ẩn và hiện mật khẩu
+      const togglePasswordVisibility = (buttonId, inputSelector) => {
+          const button = document.getElementById(buttonId);
+          const input = document.querySelector(inputSelector);
+          button.addEventListener('click', function () {
+              const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+              input.setAttribute('type', type);
+              this.textContent = this.textContent === 'Show' ? 'Hide' : 'Show';
+          });
+      };
+
+      // Chức năng chuyển đổi hiển thị mật khẩu cho cả hai form
+      togglePasswordVisibility('show-password', '#loginModal input[type="password"]');
+      togglePasswordVisibility('show-password-register', '#registerModal input[type="password"]');
+
+      // Hiển thị thông báo form login
+      const showAlertLogin = (message, type = 'success') => {
+          const alertBox = document.getElementById('login-alert-box');
+          alertBox.className = `alert alert-${type}`;
+          alertBox.textContent = message;
+          alertBox.style.display = 'block';
+          setTimeout(() => {
+              alertBox.style.display = 'none';
+          }, 2000); 
+      };
+      // Hiển thị thông báo form Register
+      const showAlertRegister = (message, type = 'success') => {
+          const alertBox = document.getElementById('register-alert-box');
+          alertBox.className = `alert alert-${type}`;
+          alertBox.textContent = message;
+          alertBox.style.display = 'block';
+          setTimeout(() => {
+              alertBox.style.display = 'none';
+          }, 2000); 
+      };
+
+      // Đăng ký người dùng mới
+      document.getElementById('register-btn').addEventListener('click', function() {
+          const username = document.getElementById('register-username').value;
+          const email = document.getElementById('register-email').value;
+          const password = document.getElementById('register-password').value;
+          let cart = [];
+
+          if (username && email && password) {
+
+              const user = { username, email, password, cart };
+
+              // Lấy danh sách người dùng từ localStorage hoặc tạo mảng mới nếu chưa có
+              let users = JSON.parse(localStorage.getItem('users')) || [];
+              const userExists = users.some(u => u.username === username);
+
+              if (userExists) {
+                  showAlertRegister('Username already exists, please choose another one.', 'danger');
+              } else {
+                  users.push(user);
+                  localStorage.setItem('users', JSON.stringify(users));
+                  showAlertRegister('Account created successfully! You can now sign in.');
+                  setTimeout(() => {
+                      document.getElementById('registerModal').style.display = 'none';
+                      document.getElementById('loginModal').style.display = 'block';
+                  }, 2000);
+              }
+          } else {
+              showAlertRegister('Please fill all fields', 'danger');
+          }
+      });
+
+      // Đăng nhập người dùng
+      document.getElementById('login-btn').addEventListener('click', function() {
+          const username = document.getElementById('login-username').value;
+          const password = document.getElementById('login-password').value;
+          const users = JSON.parse(localStorage.getItem('users')) || [];
+          const user = users.find(u => u.username === username && u.password === password);
+          if (user) {
+              showAlertLogin('Login successful!');
+              // Lưu thông tin người dùng hiện tại vào localStorage
+              const currentUser = {
+                  username: user.username,
+                  password: user.password,
+              };
+              setTimeout(() => {
+                  document.getElementById('loginModal').style.display = 'none';
+                }, 2000); 
+              localStorage.setItem('isLogin', true);
+              localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          } else {
+              showAlertLogin('Invalid username or password', 'danger');
+          }
+
+          let dropDownIn = document.querySelector("#openLoginBtn");
+          let dropDownUp = document.querySelector("#openRegisterBtn");
+          let dropDownOut = document.querySelector("#LogOutBtn");
+
+          // Kiểm tra giá trị isLogin trong localStorage
+          const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+          if (isLoggedIn) {
+              dropDownIn.style.display = 'none';
+              dropDownUp.style.display = 'none';
+              dropDownOut.style.display = 'block';
+          } else {
+              dropDownIn.style.display = 'block';
+              dropDownUp.style.display = 'block';
+              dropDownOut.style.display = 'none';
+      }
+
+      });
+
+
+      let dropDownIn = document.querySelector("#openLoginBtn");
+      let dropDownUp = document.querySelector("#openRegisterBtn");
+      let dropDownOut = document.querySelector("#LogOutBtn");
+
+
+      const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+      if (isLoggedIn) {
+          dropDownIn.style.display = 'none';
+          dropDownUp.style.display = 'none';
+          dropDownOut.style.display = 'block';
+      } else {
+          dropDownIn.style.display = 'block';
+          dropDownUp.style.display = 'block';
+          dropDownOut.style.display = 'none';
+      }
+
+      dropDownOut.addEventListener('click',function(e) {
+          localStorage.setItem('isLogin', false);
+          const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+          if (isLoggedIn) {
+              dropDownIn.style.display = 'none';
+              dropDownUp.style.display = 'none';
+              dropDownOut.style.display = 'block';
+          } else {
+              dropDownIn.style.display = 'block';
+              dropDownUp.style.display = 'block';
+              dropDownOut.style.display = 'none';
+          }
+          alert("Log out successful!")
+      });
+      let cartBtn = document.getElementById('cartBtn');
+      cartBtn.addEventListener('click', function() {
+
+          const isLoggedIn = localStorage.getItem('isLogin') === 'true';
+
+          if (isLoggedIn) {
+              window.location.href = 'cart.html';
+              dropDownIn.style.display = 'none';
+              dropDownUp.style.display = 'none';
+              dropDownOut.style.display = 'block';
+          } else {
+              dropDownIn.style.display = 'block';
+              dropDownUp.style.display = 'block';
+              dropDownOut.style.display = 'none';
+              loginModal.style.display = 'block';
+          }
+      });
 </script>
 
 </div>
