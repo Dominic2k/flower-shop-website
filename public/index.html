@@ -29,7 +29,8 @@
 	</style>
 	
 </head>
-<body onload="createdProducts(), showListProducts(), showListFeedback()">
+<!-- <body onload="showListProducts(), showListFeedback()"> -->
+<body onload="createdFeedbacks(), createdProducts(), showListProducts(), showListFeedback()">
 	<div class="container-fluid">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
@@ -63,12 +64,13 @@
 					  <a href="#" class="user-icon"><i class="fas fa-user" aria-hidden="true"></i></a>
 					  <!-- Dropdown menu -->
 					  <div class="dropdown-menu">
-						<a href="#" id="openLoginBtn">Login</a>
-						<a href="#" id="openRegisterBtn">Register</a>
+						<a href="#" id="openLoginBtn" class="dropdownIn">Login</a>
+						<a href="#" id="openRegisterBtn" class="dropdownUp">Register</a>
+						<a class="dropdownOut" href="#" id="LogOutBtn">Logout</a>
 					  </div>
 					</div>
 					<div class="icon-links cart" id="cartBtn">
-					  <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+					  <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
 					</div>
 				  </form>
 				</div>
@@ -340,10 +342,11 @@
 	</div>
 	<div class="form-container">
 		<div id="loginModal" class="modal">
-		<div id="alert-box" class="alert" style="display: none;" role="alert"></div>
 		<div class="modal-content">
 			<span class="close">&times;</span>
 			<div id="login-form">
+				<div id="login-alert-box" class="alert" style="display: none;" role="alert"></div>
+				<div id="alert-box" class="alert" style="display: none;" role="alert"></div>
 				<h2 class="text-center">Welcome to HeavenlyBlossom</h2>
 				<p class="text-center">Sign in with</p>
 				<div class="d-flex justify-content-center mb-3">
@@ -378,10 +381,10 @@
 		</div>
 		</div>
 		<div id="registerModal" class="modal">
-			<div id="alert-box" class="alert alert-success" role="alert"></div>
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<div id="register-form">
+					<div id="register-alert-box" class="alert" style="display: none;" role="alert"></div>
 					<h2 class="text-center">Let's get started</h2>
 					<p class="text-center">Create Account with</p>
 					<div class="d-flex justify-content-center mb-3">

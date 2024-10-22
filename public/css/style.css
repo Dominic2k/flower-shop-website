@@ -88,6 +88,10 @@ align-items: center;
     color: #f63838;
 }
 
+.dropdown-menu a[class="dropdownOut"] {
+  display: none;
+}
+
 .sticky-navbar {
 	position: fixed;
 	top: 0;
@@ -978,6 +982,12 @@ align-items: center;
     justify-content: center;
     background-color: var(--dl-color-theme-primary1);
   }
+
+  .thq-button-filled a {
+    text-decoration: none;
+    color: white;
+  }
+
   .thq-button-filled:hover {
     fill: var(--dl-color-theme-secondary2);
     color: var(--dl-color-theme-secondary2);
