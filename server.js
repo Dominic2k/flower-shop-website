@@ -62,7 +62,6 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
-// Lắng nghe kết nối
 app.listen(port, () => {
     console.log(`Server chạy tại http://localhost:${port}`);
 });
