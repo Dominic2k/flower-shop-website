@@ -29,7 +29,8 @@ function displayProductDetail() {
             <div class="col-md-7">
                 <h3 id="product-name">${product.title}</h3>
                 <hr>
-                <p id="product-price" style="font-size:30px; color:orange;">${product.price}</p><br>
+                <p id="product-price" style="font-size:30px; color:orange;">${product.price}</p>
+                <br>
                 <p id="product-code"><span>Code</span>${product.code}</p><br>
                 <p id="product-gift">
                     <span id="text-product-gift">Return policy</span> 
