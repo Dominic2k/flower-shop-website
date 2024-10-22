@@ -105,7 +105,6 @@
         .card-img-top {
             max-width: 100%;
             height: 200px;
-            border-radius: 10px;
         }
         
         .card-body {
@@ -166,7 +165,7 @@
             padding: 15px;
             text-align: center;
         }
-        /* Product title and price */
+    
         
         .product-title {
             font-size: 18px;
@@ -178,14 +177,15 @@
             text-decoration: line-through;
             color: #888;
             margin-right: 10px;
+            font-size: 16px;
         }
         
         .product-price {
-            font-size: 20px;
+            font-size: 16px;
             color: #ff6347;
             font-weight: bold;
         }
-        /* Button group styling */
+    
         
         .card {
             max-width: 300px;
@@ -194,21 +194,31 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
+        
         .product {
-            transition: transform 0.3s ease-in-out;
+            position: relative;
+            /* Đảm bảo vị trí tương đối */
+            overflow: hidden;
+            /* Giữ hình ảnh trong khung */
         }
         
-        .product:hover {
-            transform: scale(1.05);
-            /* Phóng to sản phẩm khi di chuột vào */
+        .card-img-top {
+            transition: transform 0.3s ease;
+            /* Hiệu ứng chuyển tiếp */
         }
+  
+        .product:hover .card-img-top {
+            transform: scale(1.1);
+            /* Phóng to hình ảnh */
+        }
+        
+        
         
         .sanpham {
             margin-left: 60px;
             margin-top: 16px;
             margin-bottom: 8px;
         }
-        
         /* .btn-primary {
             display: inline-block;
             background-color: #e4f54e;
@@ -228,20 +238,21 @@
         
         .card-btn-left {
             display: inline-block;
-            background-color: #d9f00b;
-            color: white;
+            background-color: #ffc107;
+            color: black;
             text-decoration: none;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
             margin-bottom: 30px;
             height: 40px;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
         }
         
         .card-btn-left:hover {
-            background-color: #d4fd09;
+            color: blue;
+            /* Xóa dấu chấm phẩy thừa */
         }
         
         .container {
@@ -253,8 +264,8 @@
             align-items: center;
             cursor: pointer;
         }
-
-        .list-css img{
+        
+        .list-css img {
             border-radius: 4px;
         }
     </style>
@@ -262,46 +273,6 @@
 
 <body>
     <header>
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
-
-            <a class="navbar-brand" href="index.html">
-                <h1>Heavenly Blossom</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="AboutUS.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#footer">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Products</a>
-                    </li>
-
-                </ul>
-                <form class="d-flex">
-                    <input class=" form-control search-input" id="input-search" type="search" placeholder="Search..." aria-label="Search" onkeyup="filterProductsBySearch()">
-                    <div class="icon-links user-icon">
-                        <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
-                        <div class="dropdown-menu">
-                            <a href="#" id="openLoginBtn">Login</a>
-                            <a href="#" id="openRegisterBtn">Register</a>
-                        </div>
-                    </div>
-                    <div id="search-result"></div>
-                    <div class="icon-links cart" id="cartBtn">
-                        <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
-                    </div>
-                </form>
-            </div>
-        </nav> -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
             <a class="navbar-brand" href="index.html">
               <h1>Heavenly Blossom</h1>
@@ -475,89 +446,89 @@
         </div>
     </div>
     <div class="form-container">
-		<div id="loginModal" class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<div id="login-form">
-      	<div id="login-alert-box" class="alert" style="display: none;" role="alert"></div>
-				<h2 class="text-center">Welcome to HeavenlyBlossom</h2>
-				<p class="text-center">Sign in with</p>
-				<div class="d-flex justify-content-center mb-3">
-					<button class="btn btn-outline-secondary btn-social">
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="login-form">
+                    <div id="login-alert-box" class="alert" style="display: none;" role="alert"></div>
+                    <h2 class="text-center">Welcome to HeavenlyBlossom</h2>
+                    <p class="text-center">Sign in with</p>
+                    <div class="d-flex justify-content-center mb-3">
+                        <button class="btn btn-outline-secondary btn-social">
 						<i class="bi bi-google"></i>
 					</button>
-					<button class="btn btn-outline-secondary btn-social">
+                        <button class="btn btn-outline-secondary btn-social">
 						<i class="bi bi-facebook"></i>
 					</button>
-					<button class="btn btn-outline-secondary btn-social">
+                        <button class="btn btn-outline-secondary btn-social">
 						<i class="bi bi-twitter"></i>
 					</button>
-				</div>
-				<p class="text-center">Or</p>
-				<div class="mb-3">
-					<input type="text" id="login-username" class="form-control" placeholder="Username">
-				</div>
-				<div class="input-group mb-3">
-					<input type="password" id="login-password" class="form-control" placeholder="Password">
-					<button class="btn btn-outline-secondary" type="button" id="show-password">Show</button>
-				</div>
-				<div class="d-flex justify-content-end">
-					<a href="#" class="forgot-password" id="forgot-password-link">Forgot password?</a>
-				</div>
-				<div class="d-grid mt-3">
-					<button class="btn btn-primary" id="login-btn">SIGN IN</button>
-				</div>
-				<div class="mt-3 text-center">
-					<a href="#" id="show-register-form">CREATE ACCOUNT</a>
-				</div>
-			</div>
-		</div>
-		</div>
-		<div id="registerModal" class="modal">
-			<div class="modal-content">
-				<span class="close">&times;</span>
-				<div id="register-form">
-      	<div id="register-alert-box" class="alert" style="display: none;" role="alert"></div>
-					<h2 class="text-center">Let's get started</h2>
-					<p class="text-center">Create Account with</p>
-					<div class="d-flex justify-content-center mb-3">
-						<button class="btn btn-outline-secondary btn-social">
+                    </div>
+                    <p class="text-center">Or</p>
+                    <div class="mb-3">
+                        <input type="text" id="login-username" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" id="login-password" class="form-control" placeholder="Password">
+                        <button class="btn btn-outline-secondary" type="button" id="show-password">Show</button>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a href="#" class="forgot-password" id="forgot-password-link">Forgot password?</a>
+                    </div>
+                    <div class="d-grid mt-3">
+                        <button class="btn btn-primary" id="login-btn">SIGN IN</button>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <a href="#" id="show-register-form">CREATE ACCOUNT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="register-form">
+                    <div id="register-alert-box" class="alert" style="display: none;" role="alert"></div>
+                    <h2 class="text-center">Let's get started</h2>
+                    <p class="text-center">Create Account with</p>
+                    <div class="d-flex justify-content-center mb-3">
+                        <button class="btn btn-outline-secondary btn-social">
 							<i class="bi bi-google"></i>
 						</button>
-						<button class="btn btn-outline-secondary btn-social">
+                        <button class="btn btn-outline-secondary btn-social">
 							<i class="bi bi-facebook"></i>
 						</button>
-						<button class="btn btn-outline-secondary btn-social">
+                        <button class="btn btn-outline-secondary btn-social">
 							<i class="bi bi-twitter"></i>
 						</button>
-					</div>
-					<p class="text-center">Or</p>
-					<div class="mb-3">
-					<input type="text" id="register-username" class="form-control" placeholder="Username">
-					</div>
-					<div class="mb-3">
-						<input type="email" id="register-email" class="form-control" placeholder="E-Mail Address">
-					</div>
-					<div class="input-group mb-3">
-						<input type="password" id="register-password" class="form-control" placeholder="Password">
-						<button class="btn btn-outline-secondary" type="button" id="show-password-register">Show</button>
-					</div>
-					<div class="d-flex justify-content-end">
-						<a href="#" class="forgot-password">Forgot password?</a>
-					</div>
-					<p class="terms-text">
-						By clicking Create account, you acknowledge you have read the agreed to our <a href="#">Terms Of Service</a>.
-					</p>
-					<div class="d-grid mt-3">
-						<button class="btn btn-primary" id="register-btn">CREATE ACCOUNT</button>
-					</div>
-					<div class="mt-3 text-center">
-						<a href="#" id="show-login-form">SIGN IN</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                    <p class="text-center">Or</p>
+                    <div class="mb-3">
+                        <input type="text" id="register-username" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" id="register-email" class="form-control" placeholder="E-Mail Address">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" id="register-password" class="form-control" placeholder="Password">
+                        <button class="btn btn-outline-secondary" type="button" id="show-password-register">Show</button>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <p class="terms-text">
+                        By clicking Create account, you acknowledge you have read the agreed to our <a href="#">Terms Of Service</a>.
+                    </p>
+                    <div class="d-grid mt-3">
+                        <button class="btn btn-primary" id="register-btn">CREATE ACCOUNT</button>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <a href="#" id="show-login-form">SIGN IN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
 
@@ -711,29 +682,29 @@
         // Gán sự kiện cho ô tìm kiếm
         document.getElementById('input-search').addEventListener('keyup', filterProductsBySearch);
 
-    //-------------------------------------------------------------------------------------------------------------------------------------------------- 
-//JS Tìm kiếm từ homepage 
-// Lấy giá trị từ URL
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
+        //-------------------------------------------------------------------------------------------------------------------------------------------------- 
+        //JS Tìm kiếm từ homepage 
+        // Lấy giá trị từ URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-// Hiển thị sản phẩm dựa trên tìm kiếm từ trang chủ
-function displayProductFromHomeSearch() {
-    const search_name = getQueryParam('search').toLowerCase(); // Dùng chuỗi cho tìm kiếm
+        // Hiển thị sản phẩm dựa trên tìm kiếm từ trang chủ
+        function displayProductFromHomeSearch() {
+            const search_name = getQueryParam('search').toLowerCase(); // Dùng chuỗi cho tìm kiếm
 
-    let storedProducts = JSON.parse(localStorage.getItem('products')) || [];
-    
-    // Lọc sản phẩm dựa trên tiêu đề chứa chuỗi tìm kiếm
-    const filteredProducts = storedProducts.filter(product => 
-        product.title.toLowerCase().includes(search_name)
-    );
+            let storedProducts = JSON.parse(localStorage.getItem('products')) || [];
 
-    if (filteredProducts.length > 0) {
-        let row = '';
-        filteredProducts.forEach(product => {
-            row += `
+            // Lọc sản phẩm dựa trên tiêu đề chứa chuỗi tìm kiếm
+            const filteredProducts = storedProducts.filter(product =>
+                product.title.toLowerCase().includes(search_name)
+            );
+
+            if (filteredProducts.length > 0) {
+                let row = '';
+                filteredProducts.forEach(product => {
+                    row += `
                 <div class="col-md-3 mb-3">
                     <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
                         <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
@@ -747,26 +718,26 @@ function displayProductFromHomeSearch() {
                         </div>
                     </div>
                 </div>`;
-        });
-        document.getElementById('product-list').innerHTML = row;
-    } else {
-        console.error('The product does not exist.');
-        document.getElementById('product-list').innerHTML = '<p>No products found.</p>';
-    }
-}
+                });
+                document.getElementById('product-list').innerHTML = row;
+            } else {
+                console.error('The product does not exist.');
+                document.getElementById('product-list').innerHTML = '<p>No products found.</p>';
+            }
+        }
 
 // Tải sản phẩm từ localStorage và hiển thị
-function loadProducts() {
-    const productsToDisplay = loadProductsFromLocalStorage();
-    displayProducts(productsToDisplay);
-}
+        function loadProducts() {
+            const productsToDisplay = loadProductsFromLocalStorage();
+            displayProducts(productsToDisplay);
+        }
 
-// Lắng nghe sự kiện DOMContentLoaded để tránh ghi đè window.onload
-document.addEventListener('DOMContentLoaded', () => {
-    loadProducts(); // Tải tất cả sản phẩm
-    displayProductFromHomeSearch(); // Hiển thị kết quả tìm kiếm
-});
-
+        // Lắng nghe sự kiện DOMContentLoaded để tránh ghi đè window.onload
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts(); // Tải tất cả sản phẩm
+            displayProductFromHomeSearch(); // Hiển thị kết quả tìm kiếm
+        });
+      
 var loginModal = document.getElementById("loginModal");
       var registerModal = document.getElementById("registerModal");
 
@@ -964,9 +935,10 @@ var loginModal = document.getElementById("loginModal");
               loginModal.style.display = 'block';
           }
       });
-</script>
 
-</div>
+    </script>
+
+    </div>
 </body>
 
 </html>
