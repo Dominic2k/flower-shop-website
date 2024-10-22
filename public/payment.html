@@ -338,7 +338,7 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
         const deliveryAddress = order.delivery_address;
 
         if (!userEmail || !orderId) {
-            alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
+            alert('No order information or invalid information!');
             return;
         }
 
@@ -369,18 +369,18 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
             const message = await response.text();
             console.log('Server response:', message);
             if (response.ok) {
-                alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
+                alert('Your order has been placed and the email has been sent!\n' + message);
                 window.location.href = 'index.html';
             } else {
-                alert('Có lỗi xảy ra: ' + message);
+                alert('An error occurred: ' + message);
             }
         })
         .catch(error => {
             console.error('Lỗi:', error);
-            alert('Có lỗi xảy ra khi gửi yêu cầu.');
+            alert('An error occurred when submitting a request.');
         });
     } else {
-        alert('Không có đơn hàng trong localStorage!');
+        alert('No orders in localStorage!');
     }
 });
 

@@ -123,7 +123,8 @@ function add() {
         localStorage.setItem('users', JSON.stringify(users));
         alert('Thêm vào giỏ hàng thành công!');
     } else {
-        console.error('Người dùng không tồn tại');
+        alert('Please log in before adding to cart');
+        window.location.href = 'index.html';
     }
 }
 
