@@ -212,8 +212,6 @@ dropDownOut.addEventListener('click',function(e) {
 
 // END MODAL
 // ------------------------------------------------------------------------------------------------------------------
-
-
 // JS Show sản phẩm ở trang chủ
 // Tạo sản phẩm mẫu ban đầu và lưu vào local
 function createdProducts() {

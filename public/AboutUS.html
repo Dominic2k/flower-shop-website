@@ -111,8 +111,6 @@
         font-family: 'Arial', sans-serif;
         margin-top: 45px;
     }
-
-
     #about-us h2 {
         font-size: 2.5rem;
         color: #ff66b2; 
@@ -391,7 +389,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     }
-
     /* Close button */
     .modal-content-sub .close {
       color: #aaa;
@@ -417,7 +414,6 @@
       font-size: 1.1rem;
       color: #666;
     }
-    /* Modal specific responsiveness */
     @media (max-width: 768px) {
         .modal-content {
             padding: 15px;
@@ -489,10 +485,13 @@
           <div class="dropdown-menu">
           <a href="#" id="openLoginBtn">Login</a>
           <a href="#" id="openRegisterBtn">Register</a>
+          <div id="welcome-message" class="dropdownUserName" style="display: none;"><span id="username-display"></span></div>
+          <a class="dropdownOut" href="#" id="LogOutBtn">Logout</a>
+
           </div>
         </div>
         <div class="icon-links cart">
-          <a href="#" class="cart"><i class="fas fa-shopping-cart"></i></a>
+          <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
         </div>
         </form>
       </div>
@@ -693,11 +692,6 @@
       var openLoginBtn = document.getElementById("openLoginBtn");
       var openRegisterBtn = document.getElementById("openRegisterBtn");
       var closeButtons = document.getElementsByClassName("close");
-
-      cartIcon.addEventListener('click', function(event) {
-          event.preventDefault(); 
-          loginModal.style.display = 'block'; 
-      });
       openLoginBtn.onclick = function() {
           loginModal.style.display = "block";
       }
@@ -780,7 +774,6 @@
                   localStorage.setItem('users', JSON.stringify(users));
                   showAlertRegister('Account created successfully! You can now sign in.');
                   setTimeout(() => {
-                    // showAlertRegister('Account created successfully! You can now sign in.');
                     document.getElementById('registerModal').style.display = 'none';
                     document.getElementById('loginModal').style.display = 'block';
                   }, 2000); 
@@ -791,17 +784,87 @@
       });
       // Đăng nhập người dùng
       let isLogin = false;
+      if (isLogin===false) {
+        cartIcon.addEventListener('click', function(event) {
+          event.preventDefault(); 
+          loginModal.style.display = 'block'; 
+      });
+      }
       document.getElementById('login-btn').addEventListener('click', function() {
           const username = document.getElementById('login-username').value;
           const password = document.getElementById('login-password').value;
           const users = JSON.parse(localStorage.getItem('users')) || [];
           const user = users.find(u => u.username === username && u.password === password);
           if (user) {
+            document.getElementById('username-display').textContent = user.username;
+            document.getElementById('welcome-message').style.display = 'block';
               showAlertLogin('Login successful!');
               isLogin = true;
+              setTimeout(() => {
+                    document.getElementById('loginModal').style.display = 'none';
+                  }, 2000); 
+                  if (isLogin) {
+                  cartIcon.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    window.location.href = 'cart.html';
+                });};
+              let dropDownIn = document.querySelector("#openLoginBtn");
+              let dropDownUp = document.querySelector("#openRegisterBtn");
+              let dropDownOut = document.querySelector("#LogOutBtn");
+              let dropdownUserName = document.querySelector("#welcome-message");
+
+
+              if (isLogin) {
+                  dropDownIn.style.display = 'none';
+                  dropDownUp.style.display = 'none';
+                  dropdownUserName.style.display = 'block';
+                  
+                  dropDownOut.style.display = 'block';
+              }else {
+                  dropDownIn.style.display = 'block';
+                  dropDownUp.style.display = 'block';
+                  dropdownUserName.style.display = 'none';
+                  
+                  dropDownOut.style.display = 'none';
+              }
           } else {
               showAlertLogin('Invalid username or password', 'danger');
           }
+      });
+      let dropDownIn = document.querySelector("#openLoginBtn");
+      let dropDownUp = document.querySelector("#openRegisterBtn");
+      let dropDownOut = document.querySelector("#LogOutBtn");
+      let dropdownUserName = document.querySelector("#welcome-message");
+
+
+      if (isLogin) {
+          dropDownIn.style.display = 'none';
+          dropDownUp.style.display = 'none';
+          dropdownUserName.style.display = 'block';
+
+          dropDownOut.style.display = 'block';
+      }else {
+          dropDownIn.style.display = 'block';
+          dropDownUp.style.display = 'block';
+          dropdownUserName.style.display = 'none';
+          
+          dropDownOut.style.display = 'none';
+      }
+
+      // Đăng xuất
+      document.getElementById('LogOutBtn').addEventListener('click', function() {
+          alert('Logged out successfully!');
+          isLogin = false;
+          if (isLogin===false) {
+              cartIcon.addEventListener('click', function(event) {
+                  event.preventDefault(); 
+                  loginModal.style.display = 'block'; 
+              }); 
+          }
+          dropDownIn.style.display = 'block';
+          dropDownUp.style.display = 'block';
+          dropDownOut.style.display = 'none';
+          dropdownUserName.style.display = 'none';
       });
   </script>
 </body>

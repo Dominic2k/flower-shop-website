@@ -2,8 +2,6 @@ body {
     background-color: #fff ;
 }
 
-
-
 .ad-btn, .update-btn {
     background-color: #d9534f;
     color: white;         
@@ -34,7 +32,8 @@ body {
 
 /* CSS cho tableProduct"*/
 #productTable th:nth-child(1), #productTable td:nth-child(1),
-#userTable th:nth-child(1), #userTable td:nth-child(1)  {
+#userTable th:nth-child(1), #userTable td:nth-child(1),
+#orderTable th:nth-child(1), #orderTable td:nth-child(1){
     width: 40px; 
 }
 
@@ -64,10 +63,23 @@ body {
     width: 130px; 
 }
 
-#userTable th:nth-child(6), #userTable td:nth-child(6) {
+#userTable th:nth-child(6), #userTable td:nth-child(6),
+#orderTable th:nth-child(9), #orderTable td:nth-child(9) {
     width: 65px; 
+    text-align: center;
 }
 
+/* CSS cho tableUser"*/
+#orderTable th:nth-child(3), #orderTable td:nth-child(3),
+#orderTable th:nth-child(4), #orderTable td:nth-child(4)  {
+    width: 70px;
+    text-align: center;
+}
+
+#orderTable th:nth-child(5), #orderTable td:nth-child(5) {
+    /* width: 80px; */
+    text-align: center;
+}
 
 /* CSS cho nút "Edit" và "Delete"*/
 .edit-btn, .delete-btn {
