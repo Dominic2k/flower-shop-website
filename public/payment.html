@@ -329,7 +329,6 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
 
     const orders = JSON.parse(localStorage.getItem('orders'));
 
-    // Kiểm tra xem có đơn hàng không
     if (orders && orders.length > 0) {
         const order = orders[0];
         const orderId = order.order_id;
@@ -337,17 +336,19 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
         const userName = order.user_name;
         const userPhone = order.user_phone;
         const deliveryAddress = order.delivery_address;
-        const productName = order.products[0].title;
-        const productPrice = order.products[0].price;
-        const productQuantity = order.products[0].quantity;
-        const productImg = order.products[0].imageUrl;
 
-
-        // Kiểm tra thông tin email và mã đơn hàng
         if (!userEmail || !orderId) {
             alert('Không có thông tin đơn hàng hoặc thông tin không hợp lệ!');
             return;
         }
+
+        // Chuẩn bị danh sách sản phẩm
+        const products = order.products.map(product => ({
+            name: product.title,
+            price: product.price,
+            quantity: product.quantity,
+            img: product.imageUrl
+        }));
 
         // Gửi dữ liệu tới server qua API /send-email
         fetch('http://localhost:3000/send-email', {
@@ -361,17 +362,15 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
                 user_name: userName,
                 user_phone: userPhone,
                 delivery_address: deliveryAddress,
-                product_name: productName,
-                price: productPrice,
-                quantity: productQuantity,
-                img: productImg,
+                products: products
             })
         })
         .then(async response => {
             const message = await response.text();
-            console.log('Server response:', message); // In ra phản hồi để kiểm tra
+            console.log('Server response:', message);
             if (response.ok) {
                 alert('Đơn hàng của bạn đã được đặt và email đã được gửi!\n' + message);
+                window.location.href = 'index.html';
             } else {
                 alert('Có lỗi xảy ra: ' + message);
             }
@@ -384,6 +383,7 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
         alert('Không có đơn hàng trong localStorage!');
     }
 });
+
 
     </script>
     <script type="module" src="../server.js"></script>
