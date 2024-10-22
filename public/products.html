@@ -166,7 +166,7 @@
             padding: 15px;
             text-align: center;
         }
-        /* Product title and price */
+    
         
         .product-title {
             font-size: 18px;
@@ -178,14 +178,16 @@
             text-decoration: line-through;
             color: #888;
             margin-right: 10px;
+            font-size: 16px;
+
         }
         
         .product-price {
-            font-size: 20px;
+            font-size: 16px;
             color: #ff6347;
             font-weight: bold;
         }
-        /* Button group styling */
+    
         
         .card {
             max-width: 300px;
@@ -194,14 +196,25 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
+        
         .product {
-            transition: transform 0.3s ease-in-out;
+            position: relative;
+            /* Đảm bảo vị trí tương đối */
+            overflow: hidden;
+            /* Giữ hình ảnh trong khung */
         }
         
-        .product:hover {
-            transform: scale(1.05);
-            /* Phóng to sản phẩm khi di chuột vào */
+        .card-img-top {
+            transition: transform 0.3s ease;
+            /* Hiệu ứng chuyển tiếp */
         }
+        
+        .product:hover .card-img-top {
+            transform: scale(1.1);
+            /* Phóng to hình ảnh */
+        }
+        
+        
         
         .sanpham {
             margin-left: 60px;
@@ -228,20 +241,21 @@
         
         .card-btn-left {
             display: inline-block;
-            background-color: #d9f00b;
-            color: white;
+            background-color: #ffc107;
+            color: black;
             text-decoration: none;
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
             margin-bottom: 30px;
             height: 40px;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
         }
         
         .card-btn-left:hover {
-            background-color: #d4fd09;
+            color: blue;
+            /* Xóa dấu chấm phẩy thừa */
         }
         
         .container {
