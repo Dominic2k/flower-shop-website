@@ -148,7 +148,10 @@ document.getElementById('login-btn').addEventListener('click', function() {
         };
         setTimeout(() => {
             document.getElementById('loginModal').style.display = 'none';
-          }, 2000); 
+        }, 1500);
+        if (username === 'admin' && password === 'admin') {
+            window.location.replace('admin.html');
+        }
         localStorage.setItem('isLogin', true);
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
     } else {
