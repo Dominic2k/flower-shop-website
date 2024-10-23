@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         order.products.forEach((product, productIndex) => {
                             const row = document.createElement('tr');
                             const formattedDate = order.date.split('T')[0];
-                            const totalPrice = parseFloat(product.price) * parseInt(product.quantity);
+                            console.log(product.price);                            
+                            const totalPrice = parseInt(product.price.replace(/\D/g, '')) * parseInt(product.quantity);
                             row.innerHTML = `
                                 <td>${orderIndex + 1}</td>
                                 <td class="threedots">${product.title}</td>  
