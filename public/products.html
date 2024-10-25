@@ -274,6 +274,9 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
+            <a href="index.html" class="logo">
+                <img src="./img/Heavenly Blossom logo with text.png" alt="">
+            </a>
             <a class="navbar-brand" href="index.html">
               <h1>Heavenly Blossom</h1>
             </a>
@@ -935,6 +938,20 @@ var loginModal = document.getElementById("loginModal");
               loginModal.style.display = 'block';
           }
       });
+
+    const userIconLink = document.querySelector('.user-icon > a');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    userIconLink.addEventListener('click', function(event) {
+        event.stopPropagation();
+        window.location.href = 'user_info.html';
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!userIconLink.contains(event.target)) {
+            dropdownMenu.style.display = 'none';
+        }
+    });
 
     </script>
 
