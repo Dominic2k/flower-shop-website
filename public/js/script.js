@@ -222,192 +222,192 @@ function createdProducts() {
     const products = [
         {
           id: 1,
-          title: "Elegant Watch",
+          title: "Birthday Blossoms",
           price: "1.000.000₫",
           code: "EW2005",
           originalPrice: "1.500.000đ",
           imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
-          occasion: "Birthday",
+          occasion: "Lovely",
           color: "Red",
           badgeText: "Best Seller",
           describe: "This elegant silver watch combines style with functionality, making it perfect for everyday casual wear. The sleek design and minimalist face add a touch of sophistication to any outfit. Water-resistant and durable, it's designed for those who value both aesthetics and practicality. A must-have accessory for your wardrobe."
         },
         {
           id: 2,
-          title: "Leather Jacket",
+          title: "Eternal Embrace",
           price: "300.000₫",
           code:"SQ2005",
           originalPrice: "930.000₫",
           imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
-          occasion: "Lovely",
+          occasion: "Birthday",
           color: "Yellow",
           badgeText: "New Arrival",
           describe: "This black leather jacket is a timeless classic, offering both warmth and style during the colder months. Crafted from high-quality leather, it provides excellent insulation while maintaining a sleek, modern look. The jacket features multiple pockets and a comfortable inner lining, making it as practical as it is stylish. Perfect for winter or cool evening outings."
         },
         {
           id: 3,
-          title: "Running Shoes",
+          title: "Grand Opening Glory",
           price: "800.000₫",
           code:"SQ2005",
           originalPrice: "900.000đ",
           imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
-          occasion: "Opened",
+          occasion: "Birthday",
           color: "Purple",
           badgeText: "Top Pick",
           describe: "These blue running shoes are designed for athletes seeking comfort and durability. The lightweight construction and breathable fabric keep your feet cool during long runs, while the cushioned sole provides excellent support. Whether you're training for a marathon or enjoying a casual jog, these shoes will help enhance your performance. A great choice for any fitness enthusiast."
         },
         {
           id: 4,
-          title: "Sunglasses",
+          title: "Joyful Blooms",
           price: "100.000₫",
           code:"SQ2005",
           originalPrice: "200.000đ",
-          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
-          occasion: "Birthday",
+          imageUrl: "https://birthdaylovecake.com/wp-content/uploads/2022/05/Bo-hoa-dep-tang-nguoi-yeu.jpg",
+          occasion: "Opened",
           color: "Red",
           badgeText: "Limited Edition",
           describe: "These stylish black sunglasses are the perfect accessory for bright summer days. With UV protection, they not only enhance your look but also shield your eyes from harmful sun rays. The lightweight frame ensures all-day comfort, making them ideal for outdoor activities. Elevate your summer style with this limited edition design."
         },
         {
           id: 5,
-          title: "Evening Dress",
+          title: "Passionate Petals",
           price: "600.000₫",
           code:"SQ2005",
           originalPrice: "700.000đ",
-          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
-          occasion: "Lovely",
+          imageUrl: "https://th.bing.com/th/id/OIP.O93c0kOSjXCSAdwaEy-ClAHaIO?w=600&h=667&rs=1&pid=ImgDetMain",
+          occasion: "Opened",
           color: "Yellow",
           badgeText: "Exclusive",
           describe: "This stunning red evening dress is designed to make a statement at any formal event. With its elegant silhouette and rich fabric, it accentuates your curves while maintaining a sophisticated look. The dress is perfect for galas, weddings, or any special occasion where you want to stand out. It’s a timeless piece that will never go out of style."
         },
         {
           id: 6,
-          title: "Backpack",
+          title: "Prosperity Petals",
           price: "200.000₫",
           code:"SQ2005",
           originalPrice: "600.000₫",
-          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
-          occasion: "Opened",
+          imageUrl: "https://hoatuoihoamy.com/wp-content/uploads/2020/08/hoa_baby_mau_tim-1.jpg",
+          occasion: "Lovely",
           color: "Purple",
           badgeText: "Durable",
           describe: "This gray backpack is perfect for travelers and adventurers alike. With its spacious compartments, it can hold everything from laptops to travel essentials, making it ideal for both work and play. The water-resistant material ensures your belongings stay dry, while the padded straps provide all-day comfort. A versatile and durable bag for any journey."
         },
         {
           id: 7,
-          title: "Smartphone",
+          title: "Celestial Birthday Bouquet",
           price: "400.000₫",
           code:"SQ2005",
           originalPrice: "700.000₫",
-          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
-          occasion: "Birthday",
+          imageUrl: "https://nhahoa.vn/wp-content/uploads/2023/02/31.jpg",
+          occasion: "Lovely",
           color: "Red",
           badgeText: "Hot",
           describe: "This latest smartphone is packed with cutting-edge features, including a high-resolution camera, long battery life, and a powerful processor. Its sleek black design is both modern and elegant, making it suitable for both professional and personal use. With ample storage and fast charging capabilities, this phone is perfect for anyone on the go. Stay connected and productive with this must-have gadget."
         },
         {
           id: 8,
-          title: "Bluetooth Headphones",
+          title: "Endless Affection Bouquet",
           price: "300.000₫",
           code:"SQ2005",
           originalPrice: "700.000₫",
-          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
-          occasion: "Love",
+          imageUrl: "https://th.bing.com/th/id/OIP.BlLksVurXrAOmkt9R_lAwgHaHa?w=1000&h=1000&rs=1&pid=ImgDetMain",
+          occasion: "Birthday",
           color: "Yellow",
           badgeText: "Trending",
           describe: "These wireless Bluetooth headphones provide superior sound quality and noise cancellation, making them ideal for music lovers. The comfortable over-ear design allows for extended listening without discomfort, while the long battery life ensures they’re always ready when you are. Perfect for both commuting and relaxing at home. Enjoy your favorite tunes with exceptional clarity and depth."
         },
         {
           id: 9,
-          title: "Coffee Maker",
+          title: "Success in Bloom",
           price: "600.000₫",
           code:"SQ2005",
           originalPrice: "700.000₫",
-          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
-          occasion: "Opened",
+          imageUrl: "https://th.bing.com/th/id/OIP.as8ViH_fICgY3q9NTu_y6QHaJQ?rs=1&pid=ImgDetMain",
+          occasion: "Birthday",
           color: "Purple",
           badgeText: "Best Seller",
           describe: "This automatic coffee maker is a must-have for coffee enthusiasts. It brews fresh, hot coffee in minutes, ensuring you start your day with the perfect cup. With programmable settings and a sleek black design, it fits seamlessly into any kitchen. Whether you prefer a strong espresso or a light brew, this machine delivers consistently great results."
         },
         {
           id: 10,
-          title: "Gaming Laptop",
+          title: "Radiant Wishes",
           price: "1.600.000₫",
           code:"SQ2005",
           originalPrice: "1.800.000đ",
-          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
-          occasion: "Birthday",
+          imageUrl: "https://i.pinimg.com/originals/60/a3/d0/60a3d03742a6554deef615737185cbd7.jpg",
+          occasion: "Opened",
           color: "Red",
           badgeText: "High Performance",
           describe: "This high-performance gaming laptop is built for serious gamers. Equipped with a powerful graphics card and fast processor, it handles the most demanding games with ease. The large display offers crisp, vibrant visuals, while the advanced cooling system ensures smooth performance during long sessions. It’s a top choice for those who want to take their gaming experience to the next level."
         },
         {
           id: 11,
-          title: "Tennis Racket",
+          title: "Whispers of the Heart",
           price: "190.000₫",
           code:"SQ2005",
           originalPrice: "250.000đ",
-          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
-          occasion: "Lovely",
+          imageUrl: "https://i.pinimg.com/736x/12/02/ff/1202ff28392861b199c278cfd614e751.jpg",
+          occasion: "Opened",
           color: "Yellow",
           badgeText: "Professional",
           describe: "This lightweight yet durable tennis racket is designed for both professional players and enthusiasts. With a sturdy frame and comfortable grip, it offers excellent control and power. Whether you're competing in tournaments or practicing your backhand, this racket will help you play your best game. A top-quality choice for any tennis player."
         },
         {
           id: 12,
-          title: "Designer Handbag",
+          title: "Fortune's Flourish",
           price: "600.000₫",
           code:"SQ2005",
           originalPrice: "700.000₫",
-          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
-          occasion: "Opened",
+          imageUrl: "https://th.bing.com/th/id/OIP.Y0TXXV9MCkZVS1HlJp93GgHaHa?w=800&h=800&rs=1&pid=ImgDetMain",
+          occasion: "Lovely",
           color: "Purple",
           badgeText: "Exclusive",
           describe: "This premium designer handbag is the epitome of luxury. Crafted from the finest materials, it features a chic pink design that adds a pop of color to any outfit. Spacious yet stylish, it’s perfect for carrying all your essentials while maintaining an elegant look. A must-have for fashion-forward individuals who appreciate quality and exclusivity."
         },
         {
           id: 13,
-          title: "Office Chair",
+          title: "Blissful Blooms",
           price: "1.400.000₫",
           code:"SQ2005",
           originalPrice: "1.500.000đ",
-          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
-          occasion: "Birthday",
+          imageUrl: "https://hoahanoi.com.vn/wp-content/uploads/2020/08/b%C3%B3-hoa-h%E1%BB%93ng-%C4%91%E1%BB%8F-baby-e1598241329965.jpg",
+          occasion: "Lovely",
           color: "Red",
           badgeText: "Comfort",
           describe: "This ergonomic office chair is designed to provide maximum comfort during long hours of work. The adjustable height and lumbar support ensure a perfect fit, reducing strain on your back and neck. Its sleek brown design blends seamlessly with any office decor, making it both functional and stylish. Improve your productivity and posture with this essential office chair."
         },
         {
           id: 14,
-          title: "Bicycle",
+          title: "Lover's Symphony",
           price: "120.000₫",
           code:"SQ2005",
           originalPrice: "250.000đ",
-          imageUrl: "https://happyflower.vn/tin-tuc/app/uploads/hoa-hong-mau-vang-1-1.jpg",
-          occasion: "Lovely",
+          imageUrl: "https://royflower.com/files/sanpham/658/1/jpg/bo-hoa-sang-trong-hbr511-nang-vang.jpg",
+          occasion: "Birthday",
           color: "Yellow",
           badgeText: "Eco-Friendly",
           describe: "This high-quality bicycle is perfect for outdoor enthusiasts looking for an eco-friendly mode of transportation. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
         },
         {
           id: 15,
-          title: "Perfume",
+          title: "Path to Prosperity Bouquet",
           price: "800.000₫",
           code:"SQ2005",
           originalPrice: "920.000đ",
-          imageUrl: "https://dienhoatuoi24h.net/wp-content/uploads/2024/01/bo-hoa-baby.jpg",
-          occasion: "Opened",
+          imageUrl: "https://femflower.vn/wp-content/uploads/2022/10/Fem-F329.png",
+          occasion: "Birthday",
           color: "Purple",
           badgeText: "Top Scent",
           describe: "This luxurious perfume features a romantic blend of floral and woody notes, perfect for special occasions. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
         },
         {
           id: 16,
-          title: "Electric",
+          title: "Eternal Sunshine Bouquet",
           price: "150.000₫",
           code:"SQ2005",
           originalPrice: "170.000đ",
-          imageUrl: "https://www.littlereddotflorist.sg/wp-content/uploads/2021/06/Byeol-1.png",
-          occasion: "Birthday",
+          imageUrl: "https://www.kalidades.com/wp-content/uploads/2021/01/viber_image_2021-01-21_09-54-50-480x480.jpg",
+          occasion: "Opened",
           color: "Red",
           badgeText: "Top Scent",
           describe: "This luxurious perfume features a romantic blend of floral and woody notes, perfect for special occasions. The lightweight frame and durable tires make it ideal for both city commuting and off-road adventures. With its vibrant yellow design, you’ll stand out while enjoying a smooth, comfortable ride. Get ready to explore the great outdoors with this reliable bike."
@@ -428,9 +428,9 @@ function showListProducts() {
         return;
     }
 
-    let content = '';
+    let content = ``;
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 12; i++) {
         content += `<div class="product-item">`;
         content += `<a href="detail.html?id=` + storedProducts[i].id + `">`;
         content += `<img src="` + storedProducts[i].imageUrl + `" class="card-img" style="height: 400px;">`;
@@ -592,21 +592,18 @@ cartBtn.addEventListener('click', function() {
 
 
 // Js check login or not logged in
-
-
-// ------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
 
 // JS sử lý ô search ở homepage
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('search-form');
     const searchInput = document.getElementById('input-search');
 
-    // Lắng nghe sự kiện submit của form và ngăn hành vi submit mặc định
     form.addEventListener('submit', (e) => {
-        e.preventDefault();  // Ngăn chặn hành vi submit mặc định
+        e.preventDefault();
 
-        const inputInfo = searchInput.value.toLowerCase();  // Lấy giá trị input
-        console.log("Input value: ", inputInfo);  // Kiểm tra giá trị nhập
+        const inputInfo = searchInput.value.toLowerCase();
+        console.log("Input value: ", inputInfo);
 
         if (inputInfo) {
             window.location.assign(`products.html?search=${inputInfo}`);
@@ -617,5 +614,75 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+const items = document.querySelectorAll('.carousel-item');
+const quotes = document.querySelectorAll('.quote');
 
+// Khởi động hiệu ứng zoom và hiện quote cho slide đầu tiên
+window.addEventListener('load', () => {
+    const activeItem = document.querySelector('.carousel-item.active');
+    activeItem.querySelector('img').style.transform = 'scale(1.1)';
+    activeItem.querySelector('.quote').style.opacity = 1;
+});
+
+document.getElementById('flowerCarousel').addEventListener('slide.bs.carousel', function (event) {
+    const currentIndex = event.from;
+    const nextIndex = event.to;
+
+    items[currentIndex].querySelector('img').style.transform = 'scale(1)';
+    quotes[currentIndex].style.opacity = 0;
+
+    setTimeout(() => {
+    items[nextIndex].querySelector('img').style.transform = 'scale(1.1)';
+    quotes[nextIndex].style.opacity = 1;
+    }, 200);
+});
+
+
+// Js zalo chat
+
+const zaloIcon = document.getElementById('zaloIcon');
+const zaloChatBox = document.getElementById('zaloChatBox');
+const sendZaloMessageButton = document.getElementById('sendZaloMessage');
+const zaloMessageInput = document.getElementById('zaloMessage');
+
+// Khi nhấn vào icon Zalo
+zaloIcon.addEventListener('click', function() {
+    if (zaloChatBox.style.display === 'none' || zaloChatBox.style.display === '') {
+        zaloChatBox.style.display = 'flex';
+    } else {
+        zaloChatBox.style.display = 'none';
+    }
+});
+
+// Khi nhấn nút gửi tin nhắn
+sendZaloMessageButton.addEventListener('click', function() {
+    const message = zaloMessageInput.value;
+    if (message.trim()) {
+
+        const zaloUrl = `https://zalo.me/0333934916`;
+
+        window.open(zaloUrl, '_blank');
+
+        zaloMessageInput.value = '';
+    } else {
+        alert("Please enter your message.");
+    }
+});
+
+
+//
+const userIconLink = document.querySelector('.user-icon > a');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+userIconLink.addEventListener('click', function(event) {
+    // Ngăn chặn hiển thị ngay lập tức nếu chỉ cần redirect
+    event.stopPropagation();
+    window.location.href = 'user_info.html';
+});
+
+document.addEventListener('click', function(event) {
+    if (!userIconLink.contains(event.target)) {
+        dropdownMenu.style.display = 'none';
+    }
+});
 
