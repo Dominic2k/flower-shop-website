@@ -225,8 +225,8 @@
         }
 
         function generateUniqueOrderId() {
-            const timestamp = Date.now(); // Lấy timestamp hiện tại
-            const randomStr = Math.random().toString(36).substr(2, 9); // Tạo chuỗi ngẫu nhiên từ số thập phân
+            const timestamp = Date.now();
+            const randomStr = Math.random().toString(36).substr(2, 9);
             return `ORD-${timestamp}-${randomStr}`;
         }
 
@@ -300,7 +300,6 @@
             // Remove selected products from the cart
             const remainingProducts = storedProducts.filter(product => !selectedIds.includes(product.id.toString()));
             localStorage.setItem('cart', JSON.stringify(remainingProducts));
-
 
             alert('Order placed successfully!');
 }
@@ -383,6 +382,31 @@ document.getElementById('orderBtn').addEventListener('click', function(event) {
         alert('No orders in localStorage!');
     }
 });
+
+
+function populateUserData() {
+  const isLogin = JSON.parse(localStorage.getItem('isLogin'));
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  const users = JSON.parse(localStorage.getItem('users'));
+
+
+  if (isLogin && currentUser) {
+    const loggedInUser = users.find(user =>
+      user.username === currentUser.username && user.password === currentUser.password
+    );
+
+    if (loggedInUser) {
+      document.getElementById('name').value = loggedInUser.username;
+      document.getElementById('email').value = loggedInUser.email;
+    } else {
+      console.log('Không tìm thấy người dùng đang đăng nhập.');
+    }
+  } else {
+    console.log('Người dùng chưa đăng nhập.');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', populateUserData);
 
 
     </script>

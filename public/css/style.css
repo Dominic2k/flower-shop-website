@@ -131,6 +131,7 @@ align-items: center;
     width: 100%;
     background-image: url(/public/img/image_42-hinh-nen-powerpoint-hoa.jpg);
     background-size: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .time-count-down {

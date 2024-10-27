@@ -121,7 +121,7 @@ function add() {
         thisUser.cart.push({ ...product, quantity: quantity });
 
         localStorage.setItem('users', JSON.stringify(users));
-        alert('Thêm vào giỏ hàng thành công!');
+        alert('Add to cart successfully!');
     } else {
         alert('Please log in before adding to cart');
         window.location.href = 'index.html';
