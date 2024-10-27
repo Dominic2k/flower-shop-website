@@ -1,7 +1,6 @@
-// ------------------------------------------------------------------------------------------------------------------
 // JS Countdown timer
 
-let countdownDate = new Date("Nov 22, 2024 23:59:59").getTime();
+const countdownDate = new Date("Nov 22, 2024 23:59:59").getTime();
 
 let countdownFunction = setInterval(function() {
     let now = new Date().getTime();
@@ -26,7 +25,6 @@ let countdownFunction = setInterval(function() {
 // ------------------------------------------------------------------------------------------------------------------
 
 // Start Modal Process
-// Lấy các modal
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
 
@@ -209,14 +207,14 @@ dropDownOut.addEventListener('click',function(e) {
         dropDownOut.style.display = 'none';
     }
     localStorage.removeItem('currentUser');
-    alert("Log out successful!")
+    showAlert('Success!', "You're signed out", 'success');
+
 });
 
 
 // END MODAL
 // ------------------------------------------------------------------------------------------------------------------
 // JS Show sản phẩm ở trang chủ
-// Tạo sản phẩm mẫu ban đầu và lưu vào local
 function createdProducts() {
     
     const products = [
@@ -466,13 +464,10 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
 
     feedbackList.unshift(newFeedback);
 
-    // Lưu mảng feedback lại vào localStorage
     localStorage.setItem('feedbacks', JSON.stringify(feedbackList));
 
-    // Thông báo khi đã lưu thành công, này để sửa lại cho đẹp hơn
     alert('Your feedback has been saved successfully!');
 
-    // Reset form after sending feedback
     document.getElementById('feedbackForm').reset();
 });
 // ------------------------------------------------------------------------------------------------------------------
@@ -645,7 +640,6 @@ const zaloChatBox = document.getElementById('zaloChatBox');
 const sendZaloMessageButton = document.getElementById('sendZaloMessage');
 const zaloMessageInput = document.getElementById('zaloMessage');
 
-// Khi nhấn vào icon Zalo
 zaloIcon.addEventListener('click', function() {
     if (zaloChatBox.style.display === 'none' || zaloChatBox.style.display === '') {
         zaloChatBox.style.display = 'flex';
@@ -670,19 +664,27 @@ sendZaloMessageButton.addEventListener('click', function() {
 });
 
 
-//
+// Nhấn vào user
 const userIconLink = document.querySelector('.user-icon > a');
-const dropdownMenu = document.querySelector('.dropdown-menu');
 
 userIconLink.addEventListener('click', function(event) {
-    // Ngăn chặn hiển thị ngay lập tức nếu chỉ cần redirect
-    event.stopPropagation();
-    window.location.href = 'user_info.html';
-});
-
-document.addEventListener('click', function(event) {
-    if (!userIconLink.contains(event.target)) {
-        dropdownMenu.style.display = 'none';
+    const isLoggedUser = localStorage.getItem('isLogin') === 'true';
+    if (isLoggedUser) {
+        window.location.href = 'user_info.html';
+    }else {
+        loginModal.style.display = 'block';
     }
 });
+
+
+// Js xử lí các alert()
+
+function showAlert(title, message, iconType) {
+    Swal.fire({
+        title: title,
+        text: message,
+        icon: iconType, // Các giá trị có thể là: 'success', 'error', 'warning', 'info', 'question'
+        confirmButtonText: 'OK'
+    });
+}
 

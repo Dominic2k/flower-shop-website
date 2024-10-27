@@ -10,25 +10,25 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/user_info.css">
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <title>Homepage</title>
-	<link rel="icon" type="image/x-icon" href="./img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
+	  <link rel="icon" type="image/x-icon" href="./img/2682804_blossom_dust_flower_particles_pollen_icon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font" />
-	<style>
-		html { line-height: 1.15; scroll-behavior: smooth; }
-		body { margin: 0; }
-		* { box-sizing: border-box; border-width: 0; border-style: solid; }
-		p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; }
-		button { background-color: transparent; }
-		button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
-		button, select { text-transform: none; }
-		button, [type="button"], [type="reset"], [type="submit"] { appearance: button; }
-		button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
-		button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; }
-		a { color: inherit; text-decoration: none; }
-		input { padding: 2px 4px; }
-		img { display: block; }
-	</style>
+    <style>
+      html { line-height: 1.15; scroll-behavior: smooth; }
+      body { margin: 0; }
+      * { box-sizing: border-box; border-width: 0; border-style: solid; }
+      p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; }
+      button { background-color: transparent; }
+      button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
+      button, select { text-transform: none; }
+      button, [type="button"], [type="reset"], [type="submit"] { appearance: button; }
+      button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+      button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; }
+      a { color: inherit; text-decoration: none; }
+      input { padding: 2px 4px; }
+      img { display: block; }
+    </style>
 	
 </head>
 <body>
@@ -53,14 +53,15 @@
                 </li>
               </ul>
               <form class="d-flex" id="search-form">
+                <input id="input-search" class="form-control search-input" type="search" placeholder="Search..." aria-label="Search">
                 <div class="icon-links user-icon">
-                    <a href="user_info.html" class="user-icon">
-                        <i class="fas fa-user"></i>
-                    </a>
+                  <a href="#" class="user-icon">
+                      <i class="fas fa-user"></i>
+                  </a>
                   <div class="dropdown-menu">
                     <a href="#" id="openLoginBtn" class="dropdownIn">Login</a>
                     <a href="#" id="openRegisterBtn" class="dropdownUp">Register</a>
-                    <a class="dropdownOut" href="#" id="LogOutBtn">Logout</a>
+                    <a href="#" id="LogOutBtn" class="dropdownOut" >Logout</a>
                   </div>
                 </div>
                 <div class="icon-links cart" id="cartBtn">
@@ -111,9 +112,9 @@
             Copyright ©2024 Heavenly Blossom. All rights reserved.
         </div>
     </div>
-<script src="./js/script.js"></script>
-<script src="./js/user_info.js"></script>
 <script src="./js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/user_info.js"></script>
 <script src="./js/script.js"></script>
 </body>
 </html>
