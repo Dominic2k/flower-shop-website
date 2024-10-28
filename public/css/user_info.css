@@ -1,0 +1,56 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#account-section {
+    width: 466px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#user-info label {
+    margin-top: 10px;
+}
+
+#user-info input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#update-btn {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#update-btn:hover {
+    background-color: #c57373;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #account-section {
+        width: 100%;
+        padding: 15px;
+    }
+}
