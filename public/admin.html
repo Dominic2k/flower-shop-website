@@ -24,7 +24,8 @@
         /* Sidebar CSS */
         .sidebar {
             width: 210px;
-            background-color: #b19cd9;
+            /* background-color: #b19cd9; */
+            background-color: #f8d3d3;
             padding-top: 20px;
             flex-shrink: 0;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -37,9 +38,10 @@
             text-decoration: none;
             font-size: 18px;
             color:#fff;
-            background-color: #8269ae;
+            /* background-color: #8269ae; */
+            background-color:#c78e8e;
             display: block;
-            border: 1px solid #b19cd9;
+            border: 1px solid #f8d3d3;
             border-radius: 0;
            
         }
@@ -61,7 +63,7 @@
 
     </style>
 </head>
-<body onload="showListProducts()">
+<body onload="showSection('product-management')">
     <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar">
@@ -174,33 +176,34 @@
                 </div>
                 <div class="admin-modal modal-body">
                     <div class="mb-3">
-                        <label for="productName" class="form-label">Name:</label>
+                        <label for="productName" class="form-label"></label>
                         <input type="text" id="productName" class="form-control" placeholder="Enter product name">
                     </div>
                     <div class="mb-3">
-                        <label for="productImage" class="form-label">Image link:</label>
+                        <!-- <label for="productImage" class="form-label"></label> -->
                         <input type="text" id="productImage" class="form-control" placeholder="Enter image link">
                     </div>
                     <div class="mb-3">
-                        <label for="productColor" class="form-label">Color:</label>
+                        <!-- <label for="productColor" class="form-label"></label> -->
                         <input type="text" id="productColor" class="form-control" placeholder="Enter color">
                     </div>
                     <div class="mb-3">
-                        <label for="productTitle" class="form-label">Title:</label>
+                        <!-- <label for="productTitle" class="form-label"></label> -->
                         <input type="text" id="productTitle" class="form-control" placeholder="Enter title">
                     </div>
                     <div class="mb-3">
-                        <label for="productPrice" class="form-label">Price:</label>
+                        <!-- <label for="productPrice" class="form-label"></label> -->
                         <input type="number" id="productPrice" class="form-control" placeholder="Enter price">
                     </div>
                     <div class="mb-3">
-                        <label for="productDescribe" class="form-label">Describe:</label>
+                        <!-- <label for="productDescribe" class="form-label"></label> -->
                         <input type="text" id="productDescribe" class="form-control" placeholder="Enter describe">
                     </div>
+                    <div class="admin-modal modal-footer">
+                        <button id="saveProductBtn" class="update-btn btn">Create</button>
+                    </div>
                 </div>
-                <div class="admin-modal modal-footer">
-                    <button id="saveProductBtn" class="update-btn btn">Create</button>
-                </div>
+               
             </div>
         </div>
     </div>
