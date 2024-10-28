@@ -6,17 +6,17 @@ Flower Shop Website là một ứng dụng web được phát triển bằng HTM
 
 ## Tính năng chung
 
-- **Trang chủ**: Hiển thị danh sách các loại hoa và sản phẩm nổi bật.
+- **Trang chủ**: Hiển thị danh sách các loại hoa, sản phẩm nổi bật, feedback người dùng.
 - **Trang xem chi tiết**: Cung cấp thông tin chi tiết về từng loại hoa, bao gồm hình ảnh, mô tả và giá cả.
 - **Trang giỏ hàng**: Người dùng có thể xem các sản phẩm đã chọn và tổng chi phí.
-- **Trang thanh toán**: Giúp người dùng tính toán số tiền và lựa chọn phương thức thanh toán sau khi đã chọn được sản phẩm mong muốn
-- **Đăng nhập/Đăng ký**: Hỗ trợ người dùng tạo tài khoản và đăng nhập để quản lý đơn hàng.
+- **Trang thanh toán**: Giúp người dùng tính toán số tiền và lựa chọn phương thức thanh toán sau khi đã chọn được sản phẩm mong muốn.
+- **Trang Admin**: Có giao diện admin để quản lí dữ liệu nhập, xuất.
+- **Đăng nhập/Đăng ký**: Hỗ trợ người dùng tạo tài khoản và đăng nhập để quản lý giỏ hàng.
 - **Lưu trữ dữ liệu**: Sử dụng Local Storage để lưu trữ thông tin người dùng và sản phẩm trong giỏ hàng.
 
 ## Tính năng mở rộng
 
 - **Gởi email**: Hệ thống sẽ gửi email xác nhận đơn hàng và tình trạng đơn hàng sau khi đặt.
-- **Admin**: Có giao diện admin để quản lí dữ liệu nhập, xuất.
 
 ## Công nghệ sử dụng
 
