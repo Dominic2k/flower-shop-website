@@ -97,15 +97,24 @@ body {
   /* CSS modal */
 .admin-modal .modal-body, .admin-modal .modal-header,.admin-modal .modal-footer {
     padding: 5px; 
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .admin-modal .modal-content {
     padding: 0; 
-    margin-top: -2.5rem;
+    margin-top: 1.5rem;
     width: 100%;
-    background-color: #fff;
+    height:470px;
+    background-color:  #f8d3d3;
     left:15%;
+
 }
+
+/* .modal-header{
+    background-color:  #f8d3d3;
+    background-color: #b19cd9;
+} */
 
 .admin-modal .modal-title {
     margin-bottom: 0;
@@ -124,9 +133,16 @@ body {
 }
 
 .admin-modal .modal-footer .btn {
+    width:100%;
+    border-radius: 10px;
     margin: 0 auto;
-    background-color: #b19cd9;
+    background-color: #d9534f;
 }
+
+.admin-modal .modal-footer .btn:hover {
+    background-color: #c9302c;
+}
+
 
 .modal-backdrop.show {
     display: none;
