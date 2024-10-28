@@ -183,16 +183,6 @@ align-items: center;
     margin-top: 28px;
 }
 
-.sale-img {
-    position: absolute;
-    top: -6%;
-    right: 10%;
-}
-
-.sale-img img {
-    width: 290px;
-}
-
 /* Responsive panel */
 
 @media (max-width: 860px) {
