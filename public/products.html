@@ -559,7 +559,9 @@
                 row += `
         <div class="col-md-3 mb-3">
             <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
-                <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                <a href='detail.html?id=${product.id}'>
+                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                </a>
                 <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
                 <div class="card-body">
                     <p class="product-title">${product.title} </br>
@@ -664,12 +666,13 @@
             }
         }
 
-        // Hàm tạo card sản phẩm
         function createProductCard(product) {
             return `
         <div class="col-md-3 mb-3">
             <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
-                <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                <a href='detail.html?id=${product.id}'>
+                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                </a>
                 <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
                 <div class="card-body">
                     <p class="product-title">${product.title} </br>
@@ -710,7 +713,9 @@
                     row += `
                 <div class="col-md-3 mb-3">
                     <div class="card position-relative product" data-occasion="${product.occasion || ''}" data-color="${product.color || ''}">
-                        <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                        <a href='detail.html?id=${product.id}'>
+                            <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+                        </a>
                         <span class="badge bg-danger badge-new">${product.badgeText || ""}</span>
                         <div class="card-body">
                             <p class="product-title">${product.title} </br>

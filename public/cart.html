@@ -255,31 +255,32 @@
     }
 
     function removeProduct(productId) {
-        const checkbox = document.getElementById(`checkbox-${productId}`);
-        if (!checkbox.checked) {
-            alert("Vui lòng chọn sản phẩm để xóa.");
-            return;
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+    
+        const thisUser = users.find(user => user.username === currentUser.username);
+        if (thisUser) {
+            thisUser.cart = thisUser.cart.filter(product => {
+                const checkbox = document.getElementById(`checkbox-${product.id}`);
+                return !checkbox.checked;
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+            displayCart();
         }
-
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart = cart.filter(product => product.id !== parseInt(productId));
-        localStorage.setItem('cart', JSON.stringify(cart));
-        displayCart();
     }
-
     function removeSelectedProducts() {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#select-all)');
-
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                const productId = checkbox.id.split('-')[1];
-                cart = cart.filter(product => product.id !== parseInt(productId));
-            }
-        });
-
-        localStorage.setItem('cart', JSON.stringify(cart));
-        displayCart();
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+    
+        const thisUser = users.find(user => user.username === currentUser.username);
+        if (thisUser) {
+            thisUser.cart = thisUser.cart.filter(product => {
+                const checkbox = document.getElementById(`checkbox-${product.id}`);
+                return !checkbox.checked;
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+            displayCart();
+        }
     }
 
     function clearCart() {
