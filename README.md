@@ -31,7 +31,7 @@ Flower Shop Website là một ứng dụng web được phát triển bằng HTM
    git clone https://github.com/Dominic2k/flower-shop-website.git
    ```
 
-## Hướng Dẫn Cài Đặt Dự Án
+## Hướng Dẫn Chạy Dự Án Trên Máy
 
 1. Để chạy dự án này, bạn cần cài đặt Node.js từ [trang web chính thức](https://nodejs.org/) và kiểm tra phiên bản bằng lệnh `node -v`. Sau đó, tạo một thư mục mới cho dự án và cài đặt các gói cần thiết bằng các lệnh sau:
 
@@ -49,10 +49,14 @@ SMTP_PORT=your_smtp_port
 EMAIL_USER=your_email@example.com
 EMAIL_PASS=your_email_password
 ```
-Trong đó, 
+Trong đó:
+<br>
 SMTP_HOST: smtp.gmail.com là máy chủ SMTP của Gmail, nơi gửi email.
+<br>
 SMTP_PORT: 465 là cổng thường dùng cho giao thức SMTP qua SSL (Secure Sockets Layer).
-Thay thế your_email@example.com, và your_email_password bằng thông tin thực tế của bạn. Search Google để biết cách lấy mật khẩu ứng dụng của tài khoản Gmail của bạn
+<br>
+Thay thế your_email@example.com, và your_email_password bằng thông tin thực tế của bạn. Search Google để biết cách lấy mật khẩu ứng dụng của tài khoản Gmail của bạn.
+<br>
 Ví dụ:
 
 ```bash
