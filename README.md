@@ -26,6 +26,43 @@ Flower Shop Website là một ứng dụng web được phát triển bằng HTM
 
 ## Hướng dẫn cài đặt
 
-1. Clone repo này về máy của bạn:
+- Clone repo này về máy của bạn:
    ```bash
    git clone https://github.com/Dominic2k/flower-shop-website.git
+   ```
+
+## Hướng Dẫn Cài Đặt Dự Án
+
+1. Để chạy dự án này, bạn cần cài đặt Node.js từ [trang web chính thức](https://nodejs.org/) và kiểm tra phiên bản bằng lệnh `node -v`. Sau đó, tạo một thư mục mới cho dự án và cài đặt các gói cần thiết bằng các lệnh sau:
+
+```bash
+mkdir flower-shop-website
+cd flower-shop-website
+npm init -y
+npm install express cors nodemailer dotenv
+```
+
+2. Tiếp theo, tạo file cấu hình .env trong thư mục gốc của dự án để lưu trữ thông tin cấu hình email. Mở trình soạn thảo văn bản và thêm các thông tin sau:
+```bash
+SMTP_HOST=your_smtp_host
+SMTP_PORT=your_smtp_port
+EMAIL_USER=your_email@example.com
+EMAIL_PASS=your_email_password
+```
+Trong đó, 
+SMTP_HOST: smtp.gmail.com là máy chủ SMTP của Gmail, nơi gửi email.
+SMTP_PORT: 465 là cổng thường dùng cho giao thức SMTP qua SSL (Secure Sockets Layer).
+Thay thế your_email@example.com, và your_email_password bằng thông tin thực tế của bạn. Search Google để biết cách lấy mật khẩu ứng dụng của tài khoản Gmail của bạn
+Ví dụ:
+
+```bash
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+EMAIL_USER=*********@gmail.com
+EMAIL_PASS=**** **** **** ****
+```
+3. Sau khi hoàn tất, bạn có thể chạy server bằng lệnh node server.js trong terminal.
+
+```bash
+node server.js
+```
